@@ -1,0 +1,880 @@
+{
+    "tree":  [
+                 {
+                     "path":  ".gitignore",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "CHANGELOG.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "CITATION.cff",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "CONTRIBUTING.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "create.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "LICENSE",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "Makefile",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "pyproject.toml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "README.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "SECURITY.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "upload.ps1",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "__init__.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  ".github/workflows/ci.yml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  ".pytest_cache/.gitignore",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  ".pytest_cache/CACHEDIR.TAG",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  ".pytest_cache/README.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  ".pytest_cache/v/cache/nodeids",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "docs/historical_units.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "docs/methodology.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "docs/reconstruction_levels.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_chain_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_chain_pump/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_chain_pump/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_reversible_hoist/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_reversible_hoist/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_reversible_hoist/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_stamp_mill/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_stamp_mill/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_stamp_mill/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_suction_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_ventilation_fan/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_ventilation_fan/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/agricola_ventilation_fan/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/al_jazari_elephant_clock/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/al_jazari_elephant_clock/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/al_jazari_suction_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/al_jazari_suction_pump/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/banu_musa_alternating_fountain/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/banu_musa_alternating_fountain/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/banu_musa_automatic_flute/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/banu_musa_automatic_flute/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/besson_screw_lathe/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/besson_screw_lathe/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/besson_screw_lathe/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ctesibius_clepsydra/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ctesibius_clepsydra/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ctesibius_clepsydra/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ctesibius_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ctesibius_pump/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ctesibius_pump/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/heron_aeolipile/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leonardo_cage_bearing/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leonardo_cage_bearing/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leonardo_cage_bearing/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leonardo_globoidal_gear/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leonardo_globoidal_gear/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leonardo_globoidal_gear/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leupold_leupold_steam_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leupold_leupold_steam_pump/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/leupold_leupold_steam_pump/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/martini_hydraulic_sawmill/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/martini_hydraulic_sawmill/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/martini_hydraulic_sawmill/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/martini_piston_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/martini_piston_pump/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/martini_piston_pump/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/newcomen_newcomen_engine/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/newcomen_newcomen_engine/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/newcomen_newcomen_engine/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/papin_papin_steam_engine/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/papin_papin_steam_engine/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/papin_papin_steam_engine/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/philo_washbasin/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/philo_washbasin/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/philo_washbasin/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ramelli_book_wheel/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ramelli_book_wheel/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ramelli_book_wheel/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ramelli_rotary_pump/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ramelli_rotary_pump/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/ramelli_rotary_pump/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/savery_savery_engine/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/savery_savery_engine/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/savery_savery_engine/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/villard_sawmill/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/vitruvius_archimedes_screw/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/vitruvius_archimedes_screw/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/vitruvius_archimedes_screw/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/vitruvius_water_wheel/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/vitruvius_water_wheel/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/vitruvius_water_wheel/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/zonca_paper_mill/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/zonca_paper_mill/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/zonca_paper_mill/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/zonca_stamping_mill/metadata.yaml",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/zonca_stamping_mill/model.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "machines/zonca_stamping_mill/reconstruction.svg",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/geometry.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/hydraulics.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/kinematics.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/shapes.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/units.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/validate.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica/__init__.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica_antiqua.egg-info/dependency_links.txt",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica_antiqua.egg-info/PKG-INFO",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica_antiqua.egg-info/requires.txt",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica_antiqua.egg-info/SOURCES.txt",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "mechanica_antiqua.egg-info/top_level.txt",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "research/candidate_inventory.md",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/style.css",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/agricola_chain_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/agricola_reversible_hoist/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/agricola_stamp_mill/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/agricola_suction_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/agricola_ventilation_fan/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/al_jazari_elephant_clock/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/al_jazari_suction_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/banu_musa_alternating_fountain/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/banu_musa_automatic_flute/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/besson_screw_lathe/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/ctesibius_clepsydra/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/ctesibius_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/heron_aeolipile/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/leonardo_cage_bearing/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/leonardo_globoidal_gear/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/leupold_leupold_steam_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/martini_hydraulic_sawmill/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/martini_piston_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/newcomen_newcomen_engine/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/papin_papin_steam_engine/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/philo_washbasin/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/ramelli_book_wheel/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/ramelli_rotary_pump/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/savery_savery_engine/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/villard_sawmill/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/vitruvius_archimedes_screw/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/vitruvius_water_wheel/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/zonca_paper_mill/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "site/zonca_stamping_mill/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "tests/test_kinematics.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "web/generator.py",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "web/templates/index.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 },
+                 {
+                     "path":  "web/templates/machine.html",
+                     "type":  "blob",
+                     "mode":  "100644",
+                     "sha":  "dummy"
+                 }
+             ]
+}

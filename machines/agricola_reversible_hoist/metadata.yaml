@@ -1,0 +1,18 @@
+name: "Reversible Water Hoist"
+original_name: "Machina tractoria aquarum"
+author: "Georgius Agricola"
+work: "De re metallica"
+edition: "1st Edition"
+year: 1556
+language: "Latin"
+source_pages: "Book VI"
+machine_type: "Hoist"
+physical_domain: "Kinematics, Hydraulics"
+reconstruction_status: "Level B"
+confidence: "High"
+license: "MIT"
+description: "A water-powered reversible hoisting machine used to draw water or ore from deep mine shafts."
+related_machines: ["agricola_chain_pump"]
+period: "Renaissance"
+region: "Germany"
+would_it_actually_work: "YES"

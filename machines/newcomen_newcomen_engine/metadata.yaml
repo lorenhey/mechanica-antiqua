@@ -1,0 +1,20 @@
+name: Atmospheric Engine
+original_name: Atmospheric Engine
+author: Thomas Newcomen
+work: None
+edition: N/A
+year: 1712
+language: English
+source_pages: N/A
+machine_type: Atmospheric steam engine
+physical_domain: Thermodynamics and Kinematics
+reconstruction_status: Level B
+confidence: High
+license: MIT
+description: First practical steam engine using atmospheric pressure to do work.
+related_machines:
+  - savery_engine
+  - watt_steam_engine
+period: Early Industrial Revolution
+region: England
+would_it_actually_work: YES

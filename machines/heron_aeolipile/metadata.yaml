@@ -1,0 +1,17 @@
+name: "Eolípila"
+original_name: "Aeolipile"
+author: "Herón de Alejandría"
+work: "Pneumatica"
+edition: "Alejandría"
+year: 50 # aprox
+language: "Griego antiguo"
+source_pages: "Libro II, Capítulo 11"
+machine_type: "Motor térmico / Turbina de reacción"
+physical_domain: "Termodinámica y Fluidos"
+reconstruction_status: "Nivel C (Paramétrica fuerte)"
+confidence: "Principio físico certero, dimensiones completamente supuestas."
+license: "Dominio Público"
+description: >
+  Conocida como la primera máquina de vapor, la eolípila consiste en una esfera hueca montada 
+  sobre un eje soportado por un caldero. El vapor asciende por los soportes hacia la esfera y escapa 
+  a través de dos toberas acodadas, generando empuje por reacción. Nunca fue usada como fuerza motriz.

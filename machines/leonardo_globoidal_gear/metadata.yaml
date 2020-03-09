@@ -1,0 +1,18 @@
+name: "Globoidal Gear"
+original_name: "Globoidal Gear"
+author: "Leonardo da Vinci"
+work: "Codex Madrid I"
+edition: "N/A"
+year: 1493
+language: "Italian"
+source_pages: "Folio 17v"
+machine_type: "Gears"
+physical_domain: "Mechanics"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A globoidal worm gear design by Leonardo da Vinci, intended to increase the contact area between the worm and the gear for higher load capacity."
+related_machines: []
+period: "Renaissance"
+region: "Italy"
+would_it_actually_work: "YES"

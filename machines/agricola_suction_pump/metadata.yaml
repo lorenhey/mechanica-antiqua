@@ -1,0 +1,17 @@
+name: "Bomba de Succión"
+original_name: "Machina tractoria"
+author: "Georgius Agricola"
+work: "De re metallica"
+edition: "Basilea"
+year: 1556
+language: "Latín"
+source_pages: "Libro VI, varios grabados"
+machine_type: "Bomba alternativa para minas"
+physical_domain: "Cinemática e Hidráulica"
+reconstruction_status: "Nivel B (Parcialmente inferida)"
+confidence: "Mecanismo claro, relaciones de cigüeñal inferidas de la lámina."
+license: "Dominio Público"
+description: >
+  Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada 
+  ampliamente en la minería de Sajonia y Bohemia en el siglo XVI para mantener secas las galerías. 
+  La alternancia mecánica convierte el movimiento circular continuo en lineal alternativo.

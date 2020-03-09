@@ -1,0 +1,18 @@
+name: "Twin-Cylinder Suction Pump"
+original_name: "Water-raising machine with twin cylinders"
+author: "Ismail al-Jazari"
+work: "Kitāb fī maʿrifat al-ḥiyal al-handasiyya"
+edition: "1206"
+year: 1206
+language: "Arabic"
+source_pages: "Category V, Chapter 5"
+machine_type: "Reciprocating Pump"
+physical_domain: "Hydraulics, Kinematics"
+reconstruction_status: "B"
+confidence: "High"
+license: "MIT"
+description: "A water-raising machine featuring an early use of a true crank and a slot-rod mechanism. A paddle wheel turned by a stream drives a horizontal gear wheel, which has a peg moving in a slotted rod. The rod pulls and pushes two opposed pistons in copper cylinders, drawing water through flap valves and pumping it up to a higher elevation."
+related_machines: ["Agricola Suction Pump"]
+period: "Islamic Golden Age"
+region: "Mesopotamia"
+would_it_actually_work: "YES"

@@ -1,0 +1,18 @@
+name: "Ctesibian Pump"
+original_name: "Machina Ctesibica"
+author: "Ctesibius"
+work: "Pneumatica (documented by Vitruvius)"
+edition: "N/A"
+year: -250
+language: "Greek (Original) / Latin (Vitruvius)"
+source_pages: "De Architectura Book X, Chapter 7"
+machine_type: "Pump"
+physical_domain: "Hydraulics"
+reconstruction_status: "Level B"
+confidence: 0.85
+license: "MIT"
+description: "A double-cylinder force pump used for raising water, operating with pistons and valves."
+related_machines: ["vitruvius_archimedes_screw"]
+period: "Antiquity"
+region: "Hellenistic Egypt"
+would_it_actually_work: "YES"

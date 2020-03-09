@@ -1,0 +1,18 @@
+name: "Hydraulic Sawmill"
+original_name: "Segheria idraulica"
+author: "Francesco di Giorgio Martini"
+work: "Trattato di architettura, ingegneria e arte militare"
+edition: "Codex Ashburnham 361"
+year: 1480
+language: "Italian"
+source_pages: "Various"
+machine_type: "Sawmill"
+physical_domain: "Mechanics"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A water-powered sawmill using a crank and connecting rod mechanism to convert rotary motion into linear motion for the saw."
+related_machines: []
+period: "Renaissance"
+region: "Italy"
+would_it_actually_work: "YES"

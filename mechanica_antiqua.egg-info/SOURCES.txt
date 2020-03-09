@@ -1,0 +1,7 @@
+pyproject.toml
+mechanica/__init__.py
+mechanica_antiqua.egg-info/PKG-INFO
+mechanica_antiqua.egg-info/SOURCES.txt
+mechanica_antiqua.egg-info/dependency_links.txt
+mechanica_antiqua.egg-info/requires.txt
+mechanica_antiqua.egg-info/top_level.txt

@@ -1,0 +1,18 @@
+name: "Undershot Water Wheel"
+original_name: "Rota Aquaria"
+author: "Vitruvius"
+work: "De Architectura"
+edition: "N/A"
+year: -20
+language: "Latin"
+source_pages: "Book X, Chapter 5"
+machine_type: "Water Wheel"
+physical_domain: "Hydraulics"
+reconstruction_status: "Level A"
+confidence: 0.95
+license: "MIT"
+description: "A water wheel driven by the impact of flowing water on its lower blades (undershot)."
+related_machines: []
+period: "Antiquity"
+region: "Roman Empire"
+would_it_actually_work: "YES"

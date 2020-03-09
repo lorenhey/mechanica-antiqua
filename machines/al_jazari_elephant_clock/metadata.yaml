@@ -1,0 +1,18 @@
+name: "Elephant Clock"
+original_name: "Fī maʿrifat al-ḥiyal al-handasiyya (The Book of Knowledge of Ingenious Mechanical Devices) - Elephant Clock"
+author: "Ismail al-Jazari"
+work: "Kitāb fī maʿrifat al-ḥiyal al-handasiyya"
+edition: "1206"
+year: 1206
+language: "Arabic"
+source_pages: "Category I, Chapter 4"
+machine_type: "Water Clock / Automata"
+physical_domain: "Hydraulics, Kinematics, Statics"
+reconstruction_status: "B"
+confidence: "High"
+license: "MIT"
+description: "An elaborate water clock shaped like an Asian elephant. It uses a sinking bowl with a calibrated orifice floating in a water tank hidden inside the elephant. As the bowl fills and sinks, it triggers strings and pulleys that release balls, strike a cymbal, and move automata (a scribe, an eagle, a mahout) to mark the passage of a half-hour."
+related_machines: ["Castle Clock", "Peacock Clock"]
+period: "Islamic Golden Age"
+region: "Anatolia / Mesopotamia (Artuqid Dynasty)"
+would_it_actually_work: "YES"

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mechanica Antiqua - Corpus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mechanica Antiqua</h1>
+        <p><em>An expanding computational corpus of historical machinery</em></p>
+    </header>
+    
+    <main>
+        <div class="corpus-stats">
+            <strong>Estado del Corpus:</strong> {{ total }} máquinas reconstruidas.<br>
+            <em>Explorando tratados desde la Antigüedad hasta la Revolución Industrial temprana.</em>
+        </div>
+        
+        <h2>Inventario Cronológico</h2>
+        <div class="grid">
+        {% for m in machines %}
+            <div class="machine-card">
+                <h3><a href="{{ m.id }}/index.html">{{ m.name }}</a></h3>
+                <p><span class="meta-label">Autor:</span> {{ m.author }} ({{ m.year }})</p>
+                <p><span class="meta-label">Tipo:</span> {{ m.machine_type }}</p>
+                <p><span class="meta-label">Nivel:</span> {{ m.reconstruction_status }}</p>
+                <p><em>{{ m.description[:120] }}...</em></p>
+            </div>
+        {% endfor %}
+        </div>
+        
+        <h2>Autores Representados</h2>
+        <ul>
+        {% for author, machs in authors.items() %}
+            <li><strong>{{ author }}</strong> ({{ machs|length }} máquinas)</li>
+        {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

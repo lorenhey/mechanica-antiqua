@@ -1,0 +1,20 @@
+name: Papin Steam Engine
+original_name: Nova methodus engine
+author: Denis Papin
+work: Nova methodus ad vires motrices validissimas levi pretio comparandas
+edition: 1st
+year: 1690
+language: Latin
+source_pages: Whole
+machine_type: Piston steam engine
+physical_domain: Thermodynamics
+reconstruction_status: Level C
+confidence: Medium
+license: MIT
+description: First conceptual piston steam engine.
+related_machines:
+  - savery_engine
+  - newcomen_engine
+period: 17th Century
+region: France/Germany
+would_it_actually_work: PROBABLY

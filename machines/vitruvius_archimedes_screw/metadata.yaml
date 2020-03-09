@@ -1,0 +1,18 @@
+name: "Tornillo de Arquímedes"
+original_name: "Cochlea"
+author: "Vitruvio"
+work: "De Architectura"
+edition: "Roma"
+year: -20 # aprox 20 a.C.
+language: "Latín"
+source_pages: "Libro X, Capítulo 6"
+machine_type: "Bomba hidráulica helicoidal"
+physical_domain: "Hidráulica y Geometría"
+reconstruction_status: "Nivel A (Completamente documentada)"
+confidence: "Vitruvio provee un algoritmo geométrico exacto para su trazado."
+license: "Dominio Público"
+description: >
+  Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones 
+  extremadamente precisas para su construcción geométrica basada en una grilla de proporciones de 8 
+  partes para el núcleo y el paso de la hélice, estableciendo también un ángulo de inclinación 
+  específico (triángulo pitagórico 3-4-5, es decir, ~37 grados).

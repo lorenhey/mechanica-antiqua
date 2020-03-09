@@ -1,0 +1,18 @@
+name: "Stamp Mill"
+original_name: "Machina tundens"
+author: "Georgius Agricola"
+work: "De re metallica"
+edition: "1st Edition"
+year: 1556
+language: "Latin"
+source_pages: "Book VIII"
+machine_type: "Mill"
+physical_domain: "Kinematics"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A water-powered stamp mill used for crushing ore."
+related_machines: []
+period: "Renaissance"
+region: "Germany"
+would_it_actually_work: "YES"

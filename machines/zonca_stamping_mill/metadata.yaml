@@ -1,0 +1,18 @@
+name: "Stamping Mill"
+original_name: "Mulino da follo"
+author: "Vittorio Zonca"
+work: "Novo Teatro di Machine et Edificii"
+edition: "1st"
+year: 1607
+language: "Italian"
+source_pages: "p. 94"
+machine_type: "Mill"
+physical_domain: "Mechanics"
+reconstruction_status: "Level A"
+confidence: 0.85
+license: "CC-BY-4.0"
+description: "A water-driven stamping mill used for metal ores or fulling cloth."
+related_machines: ["zonca_paper_mill"]
+period: "Renaissance"
+region: "Italy"
+would_it_actually_work: "YES"

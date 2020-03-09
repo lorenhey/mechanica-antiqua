@@ -1,0 +1,18 @@
+name: "Piston Pump"
+original_name: "Pompa a stantuffo"
+author: "Francesco di Giorgio Martini"
+work: "Trattato di architettura, ingegneria e arte militare"
+edition: "Codex Ashburnham 361"
+year: 1480
+language: "Italian"
+source_pages: "Various"
+machine_type: "Pump"
+physical_domain: "Hydraulics"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A piston pump mechanism designed to lift water, often powered by a crank or lever system."
+related_machines: []
+period: "Renaissance"
+region: "Italy"
+would_it_actually_work: "YES"

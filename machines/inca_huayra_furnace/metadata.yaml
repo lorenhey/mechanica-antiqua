@@ -1,0 +1,12 @@
+machine_name: Huayra Wind Furnace
+culture: Inca / Andean
+historical_period: Late Horizon (Inca Empire, approx 1438–1533 CE)
+would_it_actually_work: Yes, well documented archaeologically and historically.
+reconstruction_status: Conceptual and physical reconstructions are widely accepted.
+description: A wind-driven metallurgical furnace (huayrachina) used to smelt silver and copper ores without human-powered bellows, taking advantage of natural winds amplified by Venturi effects through multiple openings.
+primary_principles:
+  - Thermodynamics (Natural convection/draft)
+  - Fluid Dynamics (Venturi effect / Bernoulli's principle)
+materials:
+  - Clay
+  - Stone

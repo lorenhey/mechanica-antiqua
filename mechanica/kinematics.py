@@ -30,3 +30,18 @@ def crank_slider_velocity(crank_radius: float, rod_length: float, angle_rad: flo
 
 def cam_follower_displacement(cam_profile: callable, angle_rad: float) -> float:
     return cam_profile(angle_rad)
+
+def third_class_lever_velocity(arm_length: float, angular_vel: float) -> float:
+    """
+    Calculates the linear velocity at the end of a lever arm.
+    Useful for Atlatl kinematics.
+    """
+    return arm_length * angular_vel
+
+def elastic_energy_transfer(stiffness: float, displacement: float, mass: float, efficiency: float = 1.0) -> float:
+    """
+    Calculates the theoretical velocity of a projectile based on elastic potential energy.
+    E = 1/2 * k * x^2
+    1/2 * m * v^2 = efficiency * 1/2 * k * x^2 -> v = sqrt(efficiency * (k/m) * x^2)
+    """
+    return math.sqrt(efficiency * (stiffness / mass) * displacement**2)

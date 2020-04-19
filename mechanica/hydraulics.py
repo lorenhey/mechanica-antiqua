@@ -51,3 +51,19 @@ def pressure_head(velocity: float) -> float:
     """
     g = 9.81
     return (velocity**2) / (2 * g)
+
+
+def mannings_equation(slope: float, hydraulic_radius: float, roughness: float) -> float:
+    """
+    Calculates velocity of open-channel gravity flow using Manning's equation (m/s).
+    V = (1 / n) * R**(2/3) * S**(1/2)
+    """
+    return (1.0 / roughness) * (hydraulic_radius ** (2.0 / 3.0)) * math.sqrt(slope)
+
+def inverted_siphon_pressure(head_difference: float, fluid_density: float = 1000.0) -> float:
+    """
+    Calculates static pressure at the lowest point of an inverted siphon (Pa).
+    P = rho * g * h
+    """
+    g = 9.81
+    return fluid_density * g * head_difference

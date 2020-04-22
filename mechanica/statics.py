@@ -54,3 +54,19 @@ def catenary_tension(span: float, sag: float, linear_density: float, gravity: fl
     a = _find_catenary_a(span, sag)
     t_max = linear_density * gravity * (a + sag)
     return t_max
+
+
+def masonry_arch_thrust(span: float, rise: float, load_per_meter: float) -> float:
+    """
+    Approximates the horizontal thrust of a masonry arch.
+    H = (w * L**2) / (8 * f) where L is span, f is rise, w is load.
+    """
+    return (load_per_meter * span**2) / (8.0 * rise)
+
+def arch_voussoir_depth(span: float) -> float:
+    """
+    Estimates the minimum voussoir depth (thickness) for a semi-circular Roman arch.
+    Rule of thumb typically span / 10 to span / 15.
+    We will return span / 10.0 for safety.
+    """
+    return span / 10.0

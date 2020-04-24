@@ -1,0 +1,18 @@
+name: Gothic Cathedral
+original_name: Cathédrale Gothique
+author: Various (Villard de Honnecourt)
+work: Various (Livre de portraiture)
+edition: 1
+year: 1150-1500
+language: Latin/French
+source_pages: N/A
+machine_type: Structural
+physical_domain: Statics
+reconstruction_status: Level B
+confidence: High
+license: MIT
+description: Structural system of a Gothic cathedral focusing on pointed arches, rib vaults, and flying buttresses.
+related_machines: []
+period: Medieval
+region: Europe
+would_it_actually_work: YES

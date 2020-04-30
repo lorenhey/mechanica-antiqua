@@ -70,3 +70,20 @@ def arch_voussoir_depth(span: float) -> float:
     We will return span / 10.0 for safety.
     """
     return span / 10.0
+
+def pointed_arch_thrust(span: float, rise: float, load_per_meter: float) -> float:
+    """
+    Approximates the horizontal thrust of a pointed arch.
+    Thrust is lower than a semi-circular arch due to increased rise.
+    Formula assumes H = (w * L**2) / (k * f) where k is an empirical constant > 8 for pointed arches.
+    We will use 10.0 for pointed arch as a simplified model.
+    """
+    return (load_per_meter * span**2) / (10.0 * rise)
+
+def flying_buttress_counter_thrust(arch_thrust: float, height: float, angle: float) -> float:
+    """
+    Calculates the counter-thrust provided by a flying buttress against an arch thrust.
+    Simplified as the horizontal component of the buttress reaction.
+    """
+    return arch_thrust * math.cos(math.radians(angle))
+

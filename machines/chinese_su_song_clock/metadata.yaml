@@ -1,0 +1,18 @@
+name: Su Song's Astronomical Clock Tower
+original_name: Shui Yun Yi Xiang Tai (Water-Powered Armillary Sphere and Celestial Globe Tower)
+author: Su Song
+work: Xin Yi Xiang Fa Yao
+edition: 
+year: 1092
+language: Chinese
+source_pages: 
+machine_type: Astronomical Clock
+physical_domain: Hydraulics, Kinematics
+reconstruction_status: Level B
+confidence: High
+license: MIT
+description: A complex astronomical clock tower driven by a waterwheel with a steelyard clepsydra escapement mechanism. It featured an armillary sphere, a celestial globe, and mechanical automata indicating the time.
+related_machines: []
+period: Medieval (Song Dynasty)
+region: China
+would_it_actually_work: YES

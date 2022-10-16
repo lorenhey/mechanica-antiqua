@@ -36,16 +36,15 @@ Actualmente Mechanica Antiqua es un corpus computacional en expansión que conti
 
 ## Explorar las Máquinas
 
-Para recorrer el proyecto y ver las máquinas en acción, podés explorar el sitio generado:
-
-*(Próximamente URL o instrucciones para abrir `site/index.html`)*
+Para recorrer el proyecto y ver las máquinas en acción, podés explorar el catálogo en vivo:
+👉 **[lorenhey.github.io/mechanica-antiqua](https://lorenhey.github.io/mechanica-antiqua/)**
 
 ## Ejecutar el Laboratorio Localmente
 
 Para clonar y correr Mechanica Antiqua en tu propia computadora, necesitarás Python 3.9 o superior.
 
 ```bash
-git clone https://github.com/tu-usuario/mechanica_antiqua.git
+git clone https://github.com/lorenhey/mechanica-antiqua.git
 cd mechanica_antiqua
 python -m venv .venv
 # En Windows: .venv\Scripts\activate

@@ -1,12 +1,23 @@
-machine_name: Huayra Wind Furnace
 culture: Inca / Andean
-historical_period: Late Horizon (Inca Empire, approx 1438–1533 CE)
-would_it_actually_work: Yes, well documented archaeologically and historically.
-reconstruction_status: Conceptual and physical reconstructions are widely accepted.
-description: A wind-driven metallurgical furnace (huayrachina) used to smelt silver and copper ores without human-powered bellows, taking advantage of natural winds amplified by Venturi effects through multiple openings.
-primary_principles:
-  - Thermodynamics (Natural convection/draft)
-  - Fluid Dynamics (Venturi effect / Bernoulli's principle)
-materials:
-  - Clay
-  - Stone
+would_it_actually_work: Sí, fundamental en la producción argentífera andina precolombina
+  y colonial temprana.
+reconstruction_status: Nivel B (Reconstrucción conceptual y física aceptada)
+description: Horno cerámico vertical perforado para la fundición de plata y cobre,
+  ubicado en las laderas montañosas de los Andes. Aprovecha los vientos orográficos
+  de altura, los cuales se aceleran por efecto Venturi a través de múltiples orificios
+  cónicos laterales, alcanzando temperaturas de reducción sin requerir fuelles manuales.
+name: Horno de fundición eólico Huayra
+original_name: Huayrachina (Huayra)
+author: Metalúrgicos andinos (Cultura Inca)
+work: Tradición metalúrgica andina prehispánica
+year: 1450
+display_year: c. 1450 d.C.
+edition: Horizonte Tardío (Imperio Incaico)
+source_pages: Crónicas de Cieza de León y excavaciones de Porco y Potosí
+machine_type: Horno metalúrgico de tiro eólico
+physical_domain: Termodinámica y Dinámica de fluidos (Efecto Venturi)
+confidence: 'Alto: ampliamente documentado en crónicas coloniales tempranas y excavaciones
+  arqueológicas.'
+period: Precolombino / Horizonte Tardío
+region: Andes Centrales (Perú / Bolivia)
+language: Quechua / Aimara

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
     <rect width="100%" height="100%" fill="#f0f0f0"/>
-    <text x="400" y="30" font-family="Arial" font-size="20" text-anchor="middle">Indian Charkha (Spinning Wheel) Kinematics</text>
+    <text x="400" y="30" font-family="Arial" font-size="20" text-anchor="middle">Cinemática de la Charkha india (Rueca)</text>
     
     <!-- Base -->
     <rect x="50" y="300" width="700" height="20" fill="#8B4513"/>
@@ -32,8 +32,8 @@
     <line x1="250" y1="50" x2="650" y2="240" stroke="#000" stroke-width="2" stroke-dasharray="5,5"/>
     <line x1="250" y1="250" x2="650" y2="260" stroke="#000" stroke-width="2" stroke-dasharray="5,5"/>
     
-    <text x="250" y="280" font-family="Arial" font-size="14" text-anchor="middle">Drive Wheel (D=60.0cm)</text>
-    <text x="650" y="280" font-family="Arial" font-size="14" text-anchor="middle">Spindle (D=2.0cm)</text>
-    <text x="450" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="#0066cc">Ratio: 1:30.0</text>
-    <text x="450" y="180" font-family="Arial" font-size="16" text-anchor="middle" fill="#0066cc">Input: 60.0 RPM -&gt; Output: 1800 RPM</text>
+    <text x="250" y="280" font-family="Arial" font-size="14" text-anchor="middle">Rueda motriz (D=60,0 cm)</text>
+    <text x="650" y="280" font-family="Arial" font-size="14" text-anchor="middle">Huso (D=2,0 cm)</text>
+    <text x="450" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="#0066cc">Relación: 1:30,0</text>
+    <text x="450" y="180" font-family="Arial" font-size="16" text-anchor="middle" fill="#0066cc">Entrada: 60,0 RPM -&gt; Salida: 1800 RPM</text>
 </svg>

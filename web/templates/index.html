@@ -2,18 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mechanica Antiqua - Corpus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanica Antiqua - Corpus de Maquinaria Histórica</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Mechanica Antiqua</h1>
-        <p><em>An expanding computational corpus of historical machinery</em></p>
+        <p><em>Un corpus computacional en expansión de maquinaria histórica</em></p>
     </header>
     
     <main>
         <div class="corpus-stats">
-            <strong>Estado del Corpus:</strong> {{ total }} máquinas reconstruidas.<br>
+            <strong>Estado del Corpus:</strong> {{ total }} máquinas reconstruidas analíticamente.<br>
             <em>Explorando tratados desde la Antigüedad hasta la Revolución Industrial temprana.</em>
         </div>
         
@@ -22,18 +23,19 @@
         {% for m in machines %}
             <div class="machine-card">
                 <h3><a href="{{ m.id }}/index.html">{{ m.name }}</a></h3>
-                <p><span class="meta-label">Autor:</span> {{ m.author }} ({{ m.year }})</p>
+                <p><span class="meta-label">Autor:</span> {{ m.author }} ({{ m.display_year }})</p>
                 <p><span class="meta-label">Tipo:</span> {{ m.machine_type }}</p>
+                <p><span class="meta-label">Dominio:</span> {{ m.physical_domain }}</p>
                 <p><span class="meta-label">Nivel:</span> {{ m.reconstruction_status }}</p>
-                <p><em>{{ m.description[:120] }}...</em></p>
+                <p><em>{{ m.description[:130] }}...</em></p>
             </div>
         {% endfor %}
         </div>
         
-        <h2>Autores Representados</h2>
+        <h2>Autores e Ingenieros Representados</h2>
         <ul>
         {% for author, machs in authors.items() %}
-            <li><strong>{{ author }}</strong> ({{ machs|length }} máquinas)</li>
+            <li><strong>{{ author }}</strong> ({{ machs|length }} {% if machs|length == 1 %}máquina{% else %}máquinas{% endif %})</li>
         {% endfor %}
         </ul>
     </main>

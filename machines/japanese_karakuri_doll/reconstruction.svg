@@ -1,10 +1,10 @@
 <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
   <!-- ASSUMED dimensions for visualization -->
   <rect x="50" y="50" width="300" height="300" fill="#f0f0f0" stroke="black"/>
-  <text x="60" y="80" font-family="Arial" font-size="16">Karakuri Tea-Serving Doll (Chahakobi Ningyo)</text>
-  <text x="60" y="100" font-family="Arial" font-size="12">DOCUMENTED: Whalebone spring for propulsion</text>
-  <text x="60" y="120" font-family="Arial" font-size="12">RECONSTRUCTED Spring Force: 1.20 N</text>
-  <text x="60" y="140" font-family="Arial" font-size="12">RECONSTRUCTED Spring Energy: 0.0120 J</text>
+  <text x="60" y="80" font-family="Arial" font-size="16">Autómata servidor de té (Chahakobi Ningyō)</text>
+  <text x="60" y="100" font-family="Arial" font-size="12">DOCUMENTADO: Resorte de ballena para propulsión</text>
+  <text x="60" y="120" font-family="Arial" font-size="12">RECONSTRUIDO - Fuerza del resorte: 1,20 N</text>
+  <text x="60" y="140" font-family="Arial" font-size="12">RECONSTRUIDO - Energía del resorte: 0,0120 J</text>
   
   <!-- Main Body -->
   <rect x="150" y="150" width="100" height="150" fill="#cc9966" stroke="black"/>
@@ -17,9 +17,9 @@
   <!-- Cams / Gears (INFERRED layout) -->
   <circle cx="200" cy="250" r="20" fill="none" stroke="black" stroke-dasharray="4"/>
   <circle cx="200" cy="250" r="24.393398282201787" fill="none" stroke="red" stroke-width="2"/>
-  <text x="230" y="255" font-family="Arial" font-size="10" fill="red">Walking Cam</text>
+  <text x="230" y="255" font-family="Arial" font-size="10" fill="red">Leva de marcha</text>
   
   <!-- Spring -->
   <path d="M 180 200 C 190 180, 210 180, 220 200" fill="none" stroke="blue" stroke-width="3"/>
-  <text x="230" y="200" font-family="Arial" font-size="10" fill="blue">Whalebone Spring</text>
+  <text x="230" y="200" font-family="Arial" font-size="10" fill="blue">Resorte de barba de ballena</text>
 </svg>

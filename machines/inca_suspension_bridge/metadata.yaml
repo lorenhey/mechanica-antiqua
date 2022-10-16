@@ -1,6 +1,23 @@
-name: "Q'eswachaka Suspension Bridge"
-historical_period: "Inca Empire"
-type: "infrastructure"
-description: "A traditional Inca suspension bridge made of braided ichu grass. It spans the Apurimac River and uses catenary statics."
-would_it_actually_work: true
-reconstruction_status: "conceptual"
+name: Puente colgante de Q'eswachaka
+type: infrastructure
+description: Puente colgante de fibra de pasto andino (ichu o q'oya) trenzado en gruesos
+  cables estructurales anclados a estribos de roca viva sobre el cañón del río Apurímac.
+  Su comportamiento responde al modelo analítico de catenarias con cables de catenaria
+  portantes y péndolas laterales.
+would_it_actually_work: Sí, monumento viviente de ingeniería declarado Patrimonio
+  de la Humanidad.
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+original_name: Q'eswachaka Chaka
+author: Ingenieros viales incas (Qhapaq Ñan)
+work: Ingeniería vial andina (Red del Camino del Inca)
+year: 1450
+display_year: c. 1450 d.C.
+edition: Canas, Cusco
+source_pages: Crónicas de Garcilaso de la Vega y tradición viva de renovación anual
+machine_type: Puente colgante de fibras naturales
+physical_domain: Estática de catenarias y Resistencia de materiales
+confidence: 'Alto: tradición continua ininterrumpida; el puente se renueva comunitariamente
+  todos los años en Perú.'
+period: Precolombino / Horizonte Tardío
+region: Cusco, Andes Peruanos
+language: Quechua

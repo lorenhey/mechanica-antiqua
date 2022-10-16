@@ -1,18 +1,25 @@
-name: "Paper Mill"
-original_name: "Cartiera"
-author: "Vittorio Zonca"
-work: "Novo Teatro di Machine et Edificii"
-edition: "1st"
+name: Molino papelero de mazos batidores
+original_name: Cartiera
+author: Vittorio Zonca
+work: Novo Teatro di Machine et Edificii
+edition: Padua (Pietro Bertelli)
 year: 1607
-language: "Italian"
-source_pages: "p. 86"
-machine_type: "Mill"
-physical_domain: "Mechanics"
-reconstruction_status: "Level A"
-confidence: 0.85
-license: "CC-BY-4.0"
-description: "A water-powered paper mill with trip hammers for pounding rags into pulp."
-related_machines: ["zonca_stamping_mill"]
-period: "Renaissance"
-region: "Italy"
-would_it_actually_work: "YES"
+language: Italiano
+source_pages: Página 86, grabado en cobre
+machine_type: Molino
+physical_domain: Mecánica analítica
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto (0,85): grabado técnico detallado con baterías de mazas y canalización
+  de agua.'
+license: CC-BY-4.0
+description: Instalación fabril accionada por rueda hidráulica para la fabricación
+  de papel. Un eje con levas distribuidas eleva y deja caer secuencialmente baterías
+  de mazos de madera con clavos sobre pilas de trapos sumergidos en agua, desfibrando
+  la materia prima en una pulpa uniforme.
+related_machines:
+- zonca_stamping_mill
+period: Renacimiento tardío
+region: Italia (Véneto)
+would_it_actually_work: Sí, tecnología típica de las papeleras de Fabriano y la cuenca
+  veneciana.
+display_year: '1607'

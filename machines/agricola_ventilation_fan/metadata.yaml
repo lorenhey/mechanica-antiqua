@@ -1,18 +1,24 @@
-name: "Ventilation Fan"
-original_name: "Ventilator"
-author: "Georgius Agricola"
-work: "De re metallica"
-edition: "1st Edition"
+name: Ventilador centrífugo minero
+original_name: Ventilator
+author: Georgius Agricola
+work: De re metallica
+edition: Basilea (Froben)
 year: 1556
-language: "Latin"
-source_pages: "Book VI"
-machine_type: "Ventilation"
-physical_domain: "Aerodynamics"
-reconstruction_status: "Level B"
-confidence: "High"
-license: "MIT"
-description: "A rotary fan used to ventilate mine shafts."
+language: Latín
+source_pages: Libro VI, pp. 200-205
+machine_type: Ventilación minera
+physical_domain: Aerodinámica
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: principio aerodinámico documentado; rendimiento inferido por análisis
+  fluidodinámico.'
+license: MIT
+description: Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de
+  madera, utilizado para inyectar aire fresco o expulsar gases tóxicos y polvo de
+  los tiros y galerías subterráneas mediante tiro forzado accionado por energía animal
+  o eólica.
 related_machines: []
-period: "Renaissance"
-region: "Germany"
-would_it_actually_work: "PROBABLY"
+period: Renacimiento
+region: Sajonia
+would_it_actually_work: Sí, precursor directo de las turbomáquinas de ventilación
+  de pozos.
+display_year: '1556'

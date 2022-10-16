@@ -1,18 +1,24 @@
-name: "Rotary Water Pump"
-original_name: "Pompa a rotazione"
-author: "Agostino Ramelli"
-work: "Le diverse et artificiose machine del Capitano Agostino Ramelli"
-edition: "1st"
+name: Bomba rotativa de paletas deslizantes
+original_name: Pompa a rotazione
+author: Agostino Ramelli
+work: Le diverse et artificiose machine
+edition: París
 year: 1588
-language: "Italian/French"
-source_pages: "Fig. 38"
-machine_type: "Pump"
-physical_domain: "Hydraulics"
-reconstruction_status: "Level B"
-confidence: 0.8
-license: "CC-BY-4.0"
-description: "A rotary pump featuring a sliding vane mechanism inside a cylindrical casing, driven by a hand crank."
+language: Italiano / Francés
+source_pages: Figura 38
+machine_type: Bomba hidráulica
+physical_domain: Hidráulica
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto (0,80): grabado de alta precisión mecánica con tambor excéntrico
+  y cuatro paletas radiales.'
+license: CC-BY-4.0
+description: Bomba volumétrica rotativa precursora de las bombas industriales modernas
+  de paletas. Un rotor excéntrico provisto de paletas metálicas deslizantes barre
+  una cámara cilíndrica, aspirando agua por la dilatación volumétrica y comprimiéndola
+  hacia la descarga.
 related_machines: []
-period: "Renaissance"
-region: "Italy/France"
-would_it_actually_work: "PROBABLY"
+period: Renacimiento
+region: Italia / Francia
+would_it_actually_work: Probablemente, exigía tolerancias de mecanizado estrechas
+  para evitar recirculación interna.
+display_year: '1588'

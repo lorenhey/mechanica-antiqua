@@ -1,18 +1,24 @@
-name: "Cage Ball Bearing"
-original_name: "Cuscinetto a sfere"
-author: "Leonardo da Vinci"
-work: "Codex Madrid I"
-edition: "N/A"
+name: Cojinete axial de bolas con jaula de retención
+original_name: Cuscinetto a sfere con gabbia
+author: Leonardo da Vinci
+work: Códice Madrid I
+edition: Biblioteca Nacional de España (Códice Madrid I)
 year: 1493
-language: "Italian"
-source_pages: "Folio 20v"
-machine_type: "Bearing"
-physical_domain: "Mechanics / Tribology"
-reconstruction_status: "Level A"
-confidence: "High"
-license: "MIT"
-description: "A thrust bearing design incorporating caged balls to reduce friction, an early anticipation of modern ball bearings."
+language: Italiano renacentista
+source_pages: Folio 20v
+machine_type: Cojinete y rodamiento
+physical_domain: Mecánica y Tribología
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: dibujo técnico analítico autógrafo extraordinariamente nítido con
+  jaula separadora.'
+license: MIT
+description: Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos
+  a fuertes cargas axiales. Introduce por primera vez una jaula separadora para mantener
+  equidistantes las bolas rodantes, eliminando el rozamiento entre elementos contiguos
+  y anticipando el diseño moderno de rodamientos.
 related_machines: []
-period: "Renaissance"
-region: "Italy"
-would_it_actually_work: "YES"
+period: Renacimiento
+region: Italia
+would_it_actually_work: Sí, reduce el coeficiente de fricción de manera drástica respecto
+  al contacto de deslizamiento.
+display_year: '1493'

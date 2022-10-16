@@ -1,18 +1,25 @@
-name: "Repeating Crossbow"
-original_name: "Zhuge Nu"
-author: "Unknown (Attributed to Zhuge Liang)"
-work: "Various historical texts"
-edition: "N/A"
-year: "c. 200 AD"
-language: "Chinese"
-source_pages: "N/A"
-machine_type: "Weaponry"
-physical_domain: "Kinematics / Elasticity"
-reconstruction_status: "Level B"
-confidence: "High"
-license: "MIT"
-description: "A continuous-firing crossbow using a top-mounted magazine and lever linkage to automate drawing the string, dropping the bolt, and firing."
-related_machines: ["Gastraphetes", "Ballista"]
-period: "Antiquity"
-region: "China"
-would_it_actually_work: "YES"
+name: Ballesta de repetición (Zhuge Nu)
+original_name: Zhuge Nu (諸葛弩)
+author: Desconocido (atribuido a Zhuge Liang)
+work: Crónicas de los Tres Reinos y tratados militares Ming
+edition: Dinastía Han / Período de los Tres Reinos
+year: 200
+language: Chino clásico
+source_pages: Wubei Zhi y Wu-Ching Tsung-Yao
+machine_type: Armamento balístico
+physical_domain: Cinemática y Elasticidad
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: abundantes ejemplares conservados, descripciones militares y réplicas
+  operativas.'
+license: MIT
+description: Arma de proyectiles con ciclo de disparo semiautomático. Una palanca
+  superior acciona simultáneamente el tensado de la cuerda elástica, la alimentación
+  por gravedad de una saeta desde un cargador superior y el disparo con un único movimiento
+  de vaivén del tirador.
+related_machines:
+- Gastraphetes
+- Ballista
+period: Antigüedad / China Imperial
+region: China
+would_it_actually_work: Sí, fabricada y utilizada militarmente durante siglos.
+display_year: c. 200 d.C.

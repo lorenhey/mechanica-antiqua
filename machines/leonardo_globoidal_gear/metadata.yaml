@@ -1,18 +1,24 @@
-name: "Globoidal Gear"
-original_name: "Globoidal Gear"
-author: "Leonardo da Vinci"
-work: "Codex Madrid I"
-edition: "N/A"
+name: Engranaje helicoidal globoidal (Tornillo envolvente)
+original_name: Rochetto a chiocciola globoidale
+author: Leonardo da Vinci
+work: Códice Madrid I
+edition: Biblioteca Nacional de España (Códice Madrid I)
 year: 1493
-language: "Italian"
-source_pages: "Folio 17v"
-machine_type: "Gears"
-physical_domain: "Mechanics"
-reconstruction_status: "Level A"
-confidence: "High"
-license: "MIT"
-description: "A globoidal worm gear design by Leonardo da Vinci, intended to increase the contact area between the worm and the gear for higher load capacity."
+language: Italiano renacentista
+source_pages: Folio 17v
+machine_type: Engranajes de tornillo sin fin
+physical_domain: Mecánica analítica
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: geometría del tornillo de reloj de arena trazada con conocimiento
+  cabal de la envolvente.'
+license: MIT
+description: Transmisión por tornillo sin fin globoidal curvado para adaptarse a la
+  curvatura de la rueda dentada conjugada. Esta geometría de envolvimiento incrementa
+  significativamente el área de contacto superficial y la capacidad de carga respecto
+  a los engranajes cilíndricos convencionales.
 related_machines: []
-period: "Renaissance"
-region: "Italy"
-would_it_actually_work: "YES"
+period: Renacimiento
+region: Italia
+would_it_actually_work: Sí, diseño geométrico impecable adoptado siglos después en
+  reductores pesados de automoción.
+display_year: '1493'

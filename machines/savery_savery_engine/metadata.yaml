@@ -1,20 +1,26 @@
-name: Savery Engine
+name: Bomba de vapor de Savery (El amigo del minero)
 original_name: The Miner's Friend
 author: Thomas Savery
 work: The Miner's Friend
-edition: 1st
+edition: Londres
 year: 1702
-language: English
-source_pages: Unknown
-machine_type: Thermal water pump
-physical_domain: Thermodynamics and Hydraulics
-reconstruction_status: Level B
-confidence: High
+language: Inglés
+source_pages: Tratado 'The Miner's Friend; or, An Engine to Raise Water by Fire'
+machine_type: Bomba térmica de agua
+physical_domain: Termodinámica e Hidráulica
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: patente real de 1698 y folleto técnico explicativo impreso por
+  Savery.'
 license: MIT
-description: An early commercial steam engine used for pumping water from coal mines.
+description: Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín).
+  El agua de la mina era aspirada hacia una cámara receptora por la condensación de
+  vapor (vacío) y posteriormente forzada a gran altura mediante la presión directa
+  de vapor vivo proveniente de la caldera.
 related_machines:
-  - newcomen_engine
-  - papin_steam_engine
-period: Early Industrial Revolution
-region: England
-would_it_actually_work: YES
+- newcomen_engine
+- papin_steam_engine
+period: Revolución Industrial temprana
+region: Inglaterra
+would_it_actually_work: Sí, operó comercialmente, aunque con bajo rendimiento térmico
+  y riesgo de explosión de calderas.
+display_year: '1702'

@@ -1,0 +1,113 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .af-bg { fill: #fcf9f2; }
+      .af-gold { fill: #c59b27; stroke: #7a5a10; stroke-width: 2.5; }
+      .af-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .af-pipe { fill: #444; stroke: #222; stroke-width: 2; }
+      .af-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .af-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-drum-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-key-1 {
+        0%, 100% { transform: rotate(0deg); }
+        30% { transform: rotate(-16deg); }
+        45% { transform: rotate(0deg); }
+      }
+      @keyframes anim-key-2 {
+        0%, 35% { transform: rotate(0deg); }
+        60% { transform: rotate(-16deg); }
+        75% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes anim-sound-wave {
+        0% { opacity: 0; transform: scale(0.6) translateX(0); }
+        50% { opacity: 1; }
+        100% { opacity: 0; transform: scale(1.3) translateX(40px); }
+      }
+      
+      .drum-rotate {
+        transform-origin: 280px 270px;
+        animation: anim-drum-turn 6s linear infinite;
+      }
+      .lever-key-1 {
+        transform-origin: 430px 230px;
+        animation: anim-key-1 2s ease-in-out infinite;
+      }
+      .lever-key-2 {
+        transform-origin: 490px 230px;
+        animation: anim-key-2 2s ease-in-out infinite;
+      }
+      .sound-pulse {
+        animation: anim-sound-wave 1s ease-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="af-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="af-title">Flautista Autómata con Cilindro Programable</text>
+  <text x="400" y="70" text-anchor="middle" class="af-text">Hermanos Banū Mūsā (c. 850) - Primer dispositivo de memoria mecánica con levas de clavijas</text>
+
+  <!-- Flauta mecánica horizontal -->
+  <rect x="360" y="270" width="340" height="24" rx="4" class="af-gold"/>
+  <!-- Orificios tonales de la flauta -->
+  <circle cx="430" cy="282" r="6" fill="#222"/>
+  <circle cx="490" cy="282" r="6" fill="#222"/>
+  <circle cx="550" cy="282" r="6" fill="#222"/>
+  <circle cx="610" cy="282" r="6" fill="#222"/>
+  <text x="530" y="325" text-anchor="middle" class="af-text" font-weight="bold">Flauta mecánica con orificios tonales</text>
+
+  <!-- Ondas acústicas saliendo por la embocadura derecha -->
+  <g class="sound-pulse" transform="translate(710, 282)">
+    <path d="M 0 -20 Q 15 0 0 20" fill="none" stroke="#2563eb" stroke-width="3"/>
+    <path d="M 15 -30 Q 35 0 15 30" fill="none" stroke="#2563eb" stroke-width="3"/>
+  </g>
+
+  <!-- CILINDRO PROGRAMABLE DE LEVAS / CLAVIJAS (Tambor rotatorio accionado por agua) -->
+  <g class="drum-rotate">
+    <!-- Tambor cilíndrico de bronce visto de frente -->
+    <circle cx="280" cy="270" r="100" fill="#e8dfce" stroke="#7a5a10" stroke-width="8"/>
+    <circle cx="280" cy="270" r="22" class="af-gold"/>
+    
+    <!-- Clavijas programadas radiales en la periferia -->
+    <circle cx="280" cy="170" r="6" fill="#ef4444"/>
+    <circle cx="380" cy="270" r="6" fill="#ef4444"/>
+    <circle cx="280" cy="370" r="6" fill="#ef4444"/>
+    <circle cx="180" cy="270" r="6" fill="#ef4444"/>
+    <circle cx="350" cy="200" r="6" fill="#ef4444"/>
+    <circle cx="210" cy="340" r="6" fill="#ef4444"/>
+    <circle cx="350" cy="340" r="6" fill="#ef4444"/>
+    <circle cx="210" cy="200" r="6" fill="#ef4444"/>
+  </g>
+  <text x="280" y="405" text-anchor="middle" class="af-text">Cilindro con clavijas (Memoria musical)</text>
+
+  <!-- Palancas balancines de las llaves que abren y cierran los orificios -->
+  <!-- Llave 1 (Animada) -->
+  <g class="lever-key-1">
+    <line x1="380" y1="230" x2="430" y2="280" stroke="#333" stroke-width="6"/>
+    <!-- Almohadilla obturadora -->
+    <rect x="424" y="274" width="12" height="10" fill="#c26a38"/>
+  </g>
+
+  <!-- Llave 2 (Animada) -->
+  <g class="lever-key-2">
+    <line x1="440" y1="230" x2="490" y2="280" stroke="#333" stroke-width="6"/>
+    <rect x="484" y="274" width="12" height="10" fill="#c26a38"/>
+  </g>
+
+  <!-- Conducto de aire continuo presurizado desde vasijas inferiores -->
+  <rect x="360" y="240" width="20" height="30" class="af-pipe"/>
+  <rect x="300" y="450" width="220" height="90" fill="#d5c7b0" stroke="#6b5235" stroke-width="3"/>
+  <text x="410" y="500" text-anchor="middle" class="af-text" font-weight="bold">Vasijas de compresión de aire por agua</text>
+
+  <!-- Panel explicativo -->
+  <rect x="40" y="90" width="230" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="115" class="af-text" font-weight="bold">Computación Mecánica:</text>
+  <text x="50" y="135" class="af-text">• Cilindro rotativo = Memoria ROM</text>
+  <text x="50" y="155" class="af-text">• Clavijas = Bits de información</text>
+  <text x="50" y="172" class="af-text">• Palancas = Actuadores binarios</text>
+</svg>

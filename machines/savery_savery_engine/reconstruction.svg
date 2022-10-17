@@ -1,4 +1,78 @@
-<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <rect x="50" y="50" width="300" height="300" fill="gray" />
-        <text x="100" y="200" fill="white">Reconstrucción de la máquina de Savery</text>
-    </svg>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .sv-bg { fill: #fcf9f2; }
+      .sv-boiler { fill: #b87333; stroke: #6b3e15; stroke-width: 3; }
+      .sv-vessel { fill: #4a4a4a; stroke: #222; stroke-width: 3; }
+      .sv-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .sv-pipe { fill: none; stroke: #7a654b; stroke-width: 6; }
+      .sv-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .sv-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-vessel-fill {
+        0%, 40% { height: 130px; y: 260px; }
+        50%, 90% { height: 20px; y: 370px; }
+        100% { height: 130px; y: 260px; }
+      }
+      @keyframes anim-pipe-up {
+        0%, 40% { stroke-dashoffset: 0; }
+        50%, 90% { stroke-dashoffset: -30; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      .vessel-water {
+        animation: anim-vessel-fill 6s ease-in-out infinite;
+      }
+      .rise-flow {
+        stroke: #2563eb;
+        stroke-width: 6;
+        stroke-dasharray: 8 6;
+        animation: anim-pipe-up 1s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="sv-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="sv-title">Bomba de Vapor de Savery (The Miner's Friend, 1702)</text>
+  <text x="400" y="70" text-anchor="middle" class="sv-text">Elevación térmica directa de agua sin órganos mecánicos móviles ni pistón</text>
+
+  <!-- Caldera de vapor a la izquierda -->
+  <ellipse cx="200" cy="380" rx="70" ry="90" class="sv-boiler"/>
+  <text x="200" y="385" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Caldera</text>
+
+  <!-- Fuego bajo la caldera -->
+  <path d="M 150 490 Q 175 450 200 490 Q 225 450 250 490 Z" fill="#ef4444"/>
+
+  <!-- Tubería de vapor de la caldera a la vasija receptora -->
+  <path d="M 200 290 L 200 240 L 400 240 L 400 260" class="sv-pipe" stroke="#b87333"/>
+  <circle cx="300" cy="240" r="10" fill="#c59b27"/>
+  <text x="300" y="225" text-anchor="middle" class="sv-text">Válvula de vapor</text>
+
+  <!-- Vasija receptora central (Condensador/Receptor) -->
+  <ellipse cx="400" cy="330" rx="60" ry="75" class="sv-vessel" fill="#e0d6c3"/>
+  <!-- Nivel de agua animado en la vasija -->
+  <ellipse cx="400" cy="330" rx="55" ry="70" class="vessel-water sv-water"/>
+  <text x="400" y="335" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Vasija Receptora</text>
+
+  <!-- Tubería de aspiración desde el pozo minero (abajo) -->
+  <path d="M 400 405 L 400 560" class="sv-pipe"/>
+  <!-- Válvula de retención inferior -->
+  <circle cx="400" cy="450" r="8" fill="#c59b27"/>
+  <text x="400" y="580" text-anchor="middle" class="sv-text">Pozo de mina (Aspiración por vacío)</text>
+
+  <!-- Tubería de expulsión hacia la superficie (arriba) -->
+  <path d="M 400 260 L 400 120 L 650 120" class="sv-pipe"/>
+  <path d="M 400 260 L 400 120 L 650 120" fill="none" class="rise-flow"/>
+  <!-- Válvula de retención superior -->
+  <circle cx="400" cy="180" r="8" fill="#c59b27"/>
+  <text x="650" y="105" text-anchor="middle" class="sv-text" font-weight="bold">Descarga a superficie (Impulsión a presión)</text>
+
+  <!-- Panel termodinámico -->
+  <rect x="520" y="220" width="240" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="530" y="245" class="sv-text" font-weight="bold">Ciclo en Dos Tiempos:</text>
+  <text x="530" y="265" class="sv-text">1. Condensación: vacío succiona</text>
+  <text x="530" y="285" class="sv-text">   agua del fondo (hasta ~8 m).</text>
+  <text x="530" y="305" class="sv-text">2. Vapor vivo a presión expulsa</text>
+  <text x="530" y="322" class="sv-text">   el agua a gran altura.</text>
+</svg>

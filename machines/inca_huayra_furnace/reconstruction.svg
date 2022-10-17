@@ -1,0 +1,79 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .hf-bg { fill: #fcf9f2; }
+      .hf-clay { fill: #c26a38; stroke: #7c2d12; stroke-width: 3; }
+      .hf-wind { stroke: #0284c7; stroke-width: 3; stroke-dasharray: 8 5; fill: none; }
+      .hf-fire { fill: #ea580c; }
+      .hf-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .hf-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="hf-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="hf-title">Horno Metalúrgico Eólico Huayra (Huayrachina)</text>
+  <text x="400" y="70" text-anchor="middle" class="hf-text">Cultura Inca - Fundición de plata y cobre por tiro natural orográfico y efecto Venturi</text>
+
+  <!-- Ladera montañosa andina inclinada (Potosí / Porco) -->
+  <path d="M 0 240 L 400 440 L 800 560 L 800 600 L 0 600 Z" fill="#d4c3a3" stroke="#8c7853" stroke-width="3"/>
+  <text x="650" y="550" class="hf-text" font-weight="bold" fill="#78350f">Ladera montañosa expuesta al viento</text>
+
+  <!-- Flujo de viento orográfico incidente desde la izquierda -->
+  <g>
+    <path d="M 80 180 Q 240 220 370 280" class="hf-wind"/>
+    <path d="M 60 220 Q 220 260 370 310" class="hf-wind"/>
+    <path d="M 40 260 Q 200 300 370 340" class="hf-wind"/>
+    <path d="M 20 300 Q 180 340 370 370" class="hf-wind"/>
+    <text x="140" y="210" class="hf-text" font-weight="bold" fill="#0284c7">Viento orográfico andino</text>
+  </g>
+
+  <!-- CUERPO CÓNICO DEL HORNO HUAYRA (Cerámica refractaria perforada) -->
+  <polygon points="380,240 440,240 460,450 360,450" class="hf-clay"/>
+  
+  <!-- Chimenea / Boca superior de carga de mineral y carbón vegetal -->
+  <ellipse cx="410" cy="240" rx="30" ry="10" fill="#7c2d12"/>
+  <text x="410" y="225" text-anchor="middle" class="hf-text" font-weight="bold">Boca de carga</text>
+
+  <!-- Orificios cónicos laterales (Efecto Venturi que acelera el aire hacia adentro) -->
+  <!-- Fila 1 -->
+  <circle cx="390" cy="280" r="7" fill="#222"/>
+  <circle cx="415" cy="280" r="7" fill="#222"/>
+  <circle cx="435" cy="280" r="7" fill="#222"/>
+  <!-- Fila 2 -->
+  <circle cx="385" cy="320" r="8" fill="#222"/>
+  <circle cx="410" cy="320" r="8" fill="#222"/>
+  <circle cx="440" cy="320" r="8" fill="#222"/>
+  <!-- Fila 3 -->
+  <circle cx="380" cy="360" r="9" fill="#222"/>
+  <circle cx="410" cy="360" r="9" fill="#222"/>
+  <circle cx="445" cy="360" r="9" fill="#222"/>
+  <!-- Fila 4 -->
+  <circle cx="375" cy="400" r="10" fill="#222"/>
+  <circle cx="410" cy="400" r="10" fill="#222"/>
+  <circle cx="450" cy="400" r="10" fill="#222"/>
+
+  <!-- Fuego vivo interior visible a través de los orificios -->
+  <circle cx="390" cy="280" r="4" fill="#fbbf24"/>
+  <circle cx="415" cy="280" r="4" fill="#fbbf24"/>
+  <circle cx="385" cy="320" r="5" fill="#f97316"/>
+  <circle cx="410" cy="320" r="5" fill="#f97316"/>
+  <circle cx="440" cy="320" r="5" fill="#f97316"/>
+  <circle cx="380" cy="360" r="6" fill="#ef4444"/>
+  <circle cx="410" cy="360" r="6" fill="#ef4444"/>
+  <circle cx="375" cy="400" r="7" fill="#dc2626"/>
+  <circle cx="410" cy="400" r="7" fill="#dc2626"/>
+
+  <!-- Crisol inferior con plata líquida fundida escurriendo -->
+  <rect x="370" y="450" width="80" height="30" rx="4" fill="#555" stroke="#222" stroke-width="2"/>
+  <path d="M 430 465 L 490 485 L 530 485" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+  <ellipse cx="540" cy="485" rx="18" ry="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+  <text x="540" y="515" text-anchor="middle" font-size="12" font-weight="bold" class="hf-text">Lingote de plata</text>
+
+  <!-- Panel termodinámico -->
+  <rect x="520" y="100" width="240" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="530" y="125" class="hf-text" font-weight="bold">Termofluidodinámica Huayra:</text>
+  <text x="530" y="145" class="hf-text">• Sin fuelles mecánicos manuales.</text>
+  <text x="530" y="165" class="hf-text">• Orificios cónicos = toberas Venturi.</text>
+  <text x="530" y="182" class="hf-text">• Temperatura alcanzada: ~1100 °C.</text>
+</svg>

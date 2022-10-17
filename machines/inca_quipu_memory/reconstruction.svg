@@ -1,0 +1,123 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .qp-bg { fill: #fcf9f2; }
+      .qp-main { stroke: #78350f; stroke-width: 8; fill: none; }
+      .qp-pendant { stroke-width: 3.5; fill: none; }
+      .qp-knot { fill: #451a03; stroke: #222; stroke-width: 1.5; }
+      .qp-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .qp-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="qp-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="qp-title">Matriz Mnemotécnica de Quipu (Khipu)</text>
+  <text x="400" y="70" text-anchor="middle" class="qp-text">Tahuantinsuyo - Sistema posicional decimal codificado en fibras de algodón y lana</text>
+
+  <!-- CORDÓN PRINCIPAL HORIZONTAL (Cuerda matriz primaria) -->
+  <path d="M 80 140 Q 400 160 720 140" class="qp-main"/>
+  <text x="100" y="125" class="qp-text" font-weight="bold">Cordón Principal Primario</text>
+
+  <!-- Niveles posicionales jerárquicos (Líneas de cota decimal) -->
+  <line x1="120" y1="210" x2="680" y2="210" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="700" y="215" class="qp-text" fill="#64748b">Millares (10³)</text>
+
+  <line x1="120" y1="280" x2="680" y2="280" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="700" y="285" class="qp-text" fill="#64748b">Centenas (10²)</text>
+
+  <line x1="120" y1="360" x2="680" y2="360" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="700" y="365" class="qp-text" fill="#64748b">Decenas (10¹)</text>
+
+  <line x1="120" y1="450" x2="680" y2="450" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="700" y="455" class="qp-text" fill="#64748b">Unidades (10⁰)</text>
+
+  <!-- CORDONES COLGANTES (Pendant cords con diferentes valores codificados) -->
+
+  <!-- CORDÓN 1 (Marrón): Representa el valor 3.425 -->
+  <g transform="translate(180, 0)">
+    <path d="M 0 150 L 0 520" class="qp-pendant" stroke="#92400e"/>
+    <!-- Millares: 3 nudos simples -->
+    <circle cx="0" cy="195" r="5" class="qp-knot"/>
+    <circle cx="0" cy="210" r="5" class="qp-knot"/>
+    <circle cx="0" cy="225" r="5" class="qp-knot"/>
+    <!-- Centenas: 4 nudos simples -->
+    <circle cx="0" cy="265" r="5" class="qp-knot"/>
+    <circle cx="0" cy="275" r="5" class="qp-knot"/>
+    <circle cx="0" cy="285" r="5" class="qp-knot"/>
+    <circle cx="0" cy="295" r="5" class="qp-knot"/>
+    <!-- Decenas: 2 nudos simples -->
+    <circle cx="0" cy="350" r="5" class="qp-knot"/>
+    <circle cx="0" cy="365" r="5" class="qp-knot"/>
+    <!-- Unidades: Nudo compuesto largo con 5 vueltas -->
+    <rect x="-4" y="435" width="8" height="25" rx="3" class="qp-knot"/>
+    <text x="0" y="550" text-anchor="middle" class="qp-text" font-weight="bold" fill="#92400e">3.425</text>
+  </g>
+
+  <!-- CORDÓN 2 (Azul claro): Representa el valor 608 (Cero en decenas = espacio libre) -->
+  <g transform="translate(300, 0)">
+    <path d="M 0 153 L 0 520" class="qp-pendant" stroke="#0284c7"/>
+    <!-- Centenas: 6 nudos simples -->
+    <circle cx="0" cy="260" r="5" class="qp-knot"/>
+    <circle cx="0" cy="270" r="5" class="qp-knot"/>
+    <circle cx="0" cy="280" r="5" class="qp-knot"/>
+    <circle cx="0" cy="290" r="5" class="qp-knot"/>
+    <circle cx="0" cy="300" r="5" class="qp-knot"/>
+    <circle cx="0" cy="310" r="5" class="qp-knot"/>
+    <!-- Decenas: VACÍO (Cero posicional inca) -->
+    <circle cx="0" cy="360" r="3" fill="none" stroke="#999" stroke-dasharray="2 2"/>
+    <!-- Unidades: Nudo largo con 8 vueltas -->
+    <rect x="-4" y="430" width="8" height="35" rx="3" class="qp-knot"/>
+    <text x="0" y="550" text-anchor="middle" class="qp-text" font-weight="bold" fill="#0284c7">608 (cero)</text>
+  </g>
+
+  <!-- CORDÓN 3 (Blanco/Crudo): Representa el valor 1.251 -->
+  <g transform="translate(420, 0)">
+    <path d="M 0 155 L 0 520" class="qp-pendant" stroke="#a3a3a3"/>
+    <!-- Millares: 1 nudo simple -->
+    <circle cx="0" cy="210" r="5" class="qp-knot"/>
+    <!-- Centenas: 2 nudos simples -->
+    <circle cx="0" cy="275" r="5" class="qp-knot"/>
+    <circle cx="0" cy="290" r="5" class="qp-knot"/>
+    <!-- Decenas: 5 nudos simples -->
+    <circle cx="0" cy="345" r="5" class="qp-knot"/>
+    <circle cx="0" cy="355" r="5" class="qp-knot"/>
+    <circle cx="0" cy="365" r="5" class="qp-knot"/>
+    <circle cx="0" cy="375" r="5" class="qp-knot"/>
+    <circle cx="0" cy="385" r="5" class="qp-knot"/>
+    <!-- Unidades: Nudo flamenco en ocho (representa el 1 unitario) -->
+    <ellipse cx="0" cy="445" rx="6" ry="10" class="qp-knot"/>
+    <text x="0" y="550" text-anchor="middle" class="qp-text" font-weight="bold" fill="#555">1.251</text>
+  </g>
+
+  <!-- CORDÓN 4 (Rojo/Guinda): CORDÓN SUMADOR SUPERIOR (Top cord = suma total 5.284) -->
+  <g transform="translate(540, 0)">
+    <path d="M 0 152 L 0 520" class="qp-pendant" stroke="#b91c1c"/>
+    <circle cx="0" cy="190" r="5" class="qp-knot"/>
+    <circle cx="0" cy="200" r="5" class="qp-knot"/>
+    <circle cx="0" cy="210" r="5" class="qp-knot"/>
+    <circle cx="0" cy="220" r="5" class="qp-knot"/>
+    <circle cx="0" cy="230" r="5" class="qp-knot"/>
+    <!-- Centenas: 2 -->
+    <circle cx="0" cy="280" r="5" class="qp-knot"/>
+    <circle cx="0" cy="295" r="5" class="qp-knot"/>
+    <!-- Decenas: 8 -->
+    <circle cx="0" cy="340" r="4" class="qp-knot"/>
+    <circle cx="0" cy="350" r="4" class="qp-knot"/>
+    <circle cx="0" cy="360" r="4" class="qp-knot"/>
+    <circle cx="0" cy="370" r="4" class="qp-knot"/>
+    <circle cx="0" cy="380" r="4" class="qp-knot"/>
+    <circle cx="0" cy="390" r="4" class="qp-knot"/>
+    <!-- Unidades: 4 -->
+    <rect x="-4" y="440" width="8" height="20" rx="3" class="qp-knot"/>
+    <text x="0" y="550" text-anchor="middle" class="qp-text" font-weight="bold" fill="#b91c1c">5.284 (Total)</text>
+  </g>
+
+  <!-- Panel didáctico -->
+  <rect x="40" y="240" width="130" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="265" class="qp-text" font-weight="bold">Estructura Base 10:</text>
+  <text x="50" y="285" class="qp-text">• Nudo simple: 10¹, 10², 10³</text>
+  <text x="50" y="305" class="qp-text">• Nudo flamenco: 1 unidad</text>
+  <text x="50" y="325" class="qp-text">• Nudo largo: 2 a 9 un.</text>
+  <text x="50" y="342" class="qp-text">• Vacío: Cero matemático</text>
+</svg>

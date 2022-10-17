@@ -1,0 +1,100 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .ec-bg { fill: #fcf9f2; }
+      .ec-gold { fill: #c59b27; stroke: #7a5a10; stroke-width: 2; }
+      .ec-dark { fill: #3d2b1f; stroke: #222; stroke-width: 2; }
+      .ec-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .ec-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .ec-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-bowl-sink {
+        0% { transform: translateY(-40px); }
+        85% { transform: translateY(45px); }
+        92% { transform: translateY(45px) rotate(15deg); }
+        100% { transform: translateY(-40px); }
+      }
+      @keyframes anim-scribe-arm {
+        0% { transform: rotate(0deg); }
+        85% { transform: rotate(180deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes anim-ball-drop {
+        0%, 85% { transform: translate(0, 0); opacity: 0; }
+        86% { transform: translate(0, 0); opacity: 1; }
+        95% { transform: translate(120px, 140px); opacity: 1; }
+        100% { transform: translate(120px, 140px); opacity: 0; }
+      }
+      
+      .bowl-sinking {
+        animation: anim-bowl-sink 8s ease-in-out infinite;
+      }
+      .scribe-hand {
+        transform-origin: 400px 170px;
+        animation: anim-scribe-arm 8s linear infinite;
+      }
+      .bronze-ball {
+        animation: anim-ball-drop 8s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="ec-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="ec-title">Reloj del Elefante de Al-Jazari (1206)</text>
+  <text x="400" y="70" text-anchor="middle" class="ec-text">Clepsidra de cuenco sumergible con tren de poleas, autómatas y escape de esferas</text>
+
+  <!-- Silueta estilizada del elefante asiático en la base -->
+  <path d="M 220 540 L 220 440 Q 220 360 300 360 L 500 360 Q 580 360 580 440 L 580 540 L 540 540 L 540 480 L 460 480 L 460 540 L 420 540 L 420 480 L 340 480 L 340 540 Z" fill="#9e9e9e" stroke="#555" stroke-width="4"/>
+  <!-- Cabeza y trompa del elefante (izquierda) -->
+  <path d="M 230 400 Q 180 400 160 440 Q 140 480 150 530 Q 165 540 175 510 Q 185 450 220 440 Z" fill="#9e9e9e" stroke="#555" stroke-width="4"/>
+  <!-- Colmillo de marfil -->
+  <path d="M 195 440 Q 180 460 170 470" fill="none" stroke="#fff" stroke-width="6"/>
+  <!-- Mahout (conductor del elefante) sobre el cuello -->
+  <circle cx="225" cy="340" r="14" fill="#c59b27"/>
+  <rect x="215" y="354" width="20" height="30" fill="#dc2626"/>
+
+  <!-- Tanque de agua interior (corte técnico en el vientre del elefante) -->
+  <rect x="290" y="380" width="220" height="120" rx="8" fill="#fff" stroke="#7a5a10" stroke-width="3"/>
+  <rect x="295" y="410" width="210" height="85" class="ec-water"/>
+  <text x="400" y="490" text-anchor="middle" font-size="11" fill="#fff" font-weight="bold">Depósito Interior de Agua</text>
+
+  <!-- Cuenco perforado sumergible (Tarjahara) que se hunde lentamente (Animado) -->
+  <g class="bowl-sinking">
+    <path d="M 370 420 Q 400 420 430 420 Q 415 450 400 450 Q 385 450 370 420 Z" class="ec-gold"/>
+    <!-- Orificio calibrado diminuto en el fondo -->
+    <circle cx="400" cy="450" r="2" fill="#222"/>
+    <!-- Cuerda que va a la polea superior -->
+    <line x1="400" y1="420" x2="400" y2="240" stroke="#333" stroke-width="2"/>
+  </g>
+
+  <!-- Torre y palanquín sobre el lomo del elefante -->
+  <rect x="330" y="240" width="140" height="120" class="ec-gold"/>
+  <!-- Cúpula de la torre -->
+  <path d="M 330 240 Q 400 180 470 240 Z" fill="#b45309" stroke="#78350f" stroke-width="3"/>
+
+  <!-- Balcón con el escriba autómata y su pluma indicadora -->
+  <rect x="360" y="160" width="80" height="40" fill="#fff" stroke="#333" stroke-width="2" rx="4"/>
+  <circle cx="400" cy="170" r="6" fill="#c59b27"/>
+  <g class="scribe-hand">
+    <line x1="400" y1="170" x2="430" y2="170" stroke="#b45309" stroke-width="4"/>
+    <circle cx="430" cy="170" r="3" fill="#222"/>
+  </g>
+  <text x="400" y="150" text-anchor="middle" class="ec-text" font-weight="bold">Escriba indicador</text>
+
+  <!-- Halcón y dragón que liberan la esfera (derecha) -->
+  <circle cx="500" cy="200" r="14" fill="#c59b27"/>
+  <polygon points="505,200 520,205 505,210" fill="#b45309"/>
+  <!-- Platillo de bronce sonoro inferior -->
+  <ellipse cx="620" cy="380" rx="25" ry="8" class="ec-gold"/>
+
+  <!-- Bola de bronce que cae del halcón al platillo cada media hora -->
+  <circle cx="510" cy="210" r="8" fill="#c59b27" stroke="#222" stroke-width="2" class="bronze-ball"/>
+
+  <!-- Panel didáctico -->
+  <rect x="40" y="110" width="220" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="135" class="ec-text" font-weight="bold">Ciclo de Media Hora:</text>
+  <text x="50" y="155" class="ec-text">1. Cuenco se hunde a flujo constante.</text>
+  <text x="50" y="175" class="ec-text">2. Disparo de polea: cae la bola.</text>
+  <text x="50" y="192" class="ec-text">3. Suena el platillo y rota el escriba.</text>
+</svg>

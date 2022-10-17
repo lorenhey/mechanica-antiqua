@@ -1,5 +1,80 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-    <rect x="100" y="50" width="20" height="150" fill="brown" />
-    <rect x="80" y="200" width="60" height="40" fill="gray" />
-    <text x="100" y="280" font-family="sans-serif" font-size="14">Batán hidráulico de Zonca</text>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .zm-bg { fill: #fcf9f2; }
+      .zm-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .zm-iron { fill: #444; stroke: #222; stroke-width: 2; }
+      .zm-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .zm-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-camshaft {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-fuller-1 {
+        0%, 100% { transform: rotate(0deg); }
+        40% { transform: rotate(-25deg); }
+        48% { transform: rotate(0deg); }
+      }
+      @keyframes anim-fuller-2 {
+        0%, 50% { transform: rotate(0deg); }
+        85% { transform: rotate(-25deg); }
+        92% { transform: rotate(0deg); }
+        100% { transform: rotate(0deg); }
+      }
+      
+      .cam-rotate {
+        transform-origin: 260px 280px;
+        animation: anim-camshaft 3s linear infinite;
+      }
+      .fuller-1 {
+        transform-origin: 460px 320px;
+        animation: anim-fuller-1 3s ease-in-out infinite;
+      }
+      .fuller-2 {
+        transform-origin: 560px 320px;
+        animation: anim-fuller-2 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="zm-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="zm-title">Molino de Batanado Textil (Mulino da Follo)</text>
+  <text x="400" y="70" text-anchor="middle" class="zm-text">Vittorio Zonca (1607) - Compactación y afieltrado mecánico de tejidos de lana</text>
+
+  <!-- Tina o pila de batanado inferior -->
+  <rect x="360" y="420" width="300" height="120" fill="#756752" stroke="#422812" stroke-width="4"/>
+  <rect x="370" y="440" width="280" height="90" fill="#a07246"/>
+  <text x="510" y="490" text-anchor="middle" fill="#fff" font-weight="bold" font-family="'Cinzel', serif">Cuba de Paños con Agua y Greda</text>
+
+  <!-- Árbol de levas -->
+  <g class="cam-rotate">
+    <circle cx="260" cy="280" r="45" class="zm-wood"/>
+    <circle cx="260" cy="280" r="14" class="zm-iron"/>
+    <path d="M 260 235 L 290 220 L 280 245 Z" fill="#c59b27"/>
+    <path d="M 260 325 L 230 340 L 240 315 Z" fill="#c59b27"/>
+  </g>
+
+  <!-- Batan 1 (Mazo basculante en ángulo oblicuo para empujar y rotar el paño) -->
+  <g class="fuller-1">
+    <polygon points="310,270 460,315 460,325 310,280" class="zm-wood"/>
+    <circle cx="460" cy="320" r="8" fill="#333"/>
+    <!-- Mazo pesado inclinado -->
+    <polygon points="430,360 480,360 450,460 410,460" class="zm-wood"/>
+  </g>
+
+  <!-- Batan 2 (Mazo alternativo) -->
+  <g class="fuller-2">
+    <polygon points="410,270 560,315 560,325 410,280" class="zm-wood"/>
+    <circle cx="560" cy="320" r="8" fill="#333"/>
+    <polygon points="530,360 580,360 550,460 510,460" class="zm-wood"/>
+  </g>
+
+  <!-- Panel explicativo -->
+  <rect x="40" y="140" width="200" height="85" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="165" class="zm-text" font-weight="bold">Efecto del Batanado:</text>
+  <text x="50" y="185" class="zm-text">• Mazos inclinados hacen rotar</text>
+  <text x="50" y="202" class="zm-text">  el paño dentro de la cuba.</text>
+  <text x="50" y="218" class="zm-text">• Compacta y afieltra la lana.</text>
 </svg>

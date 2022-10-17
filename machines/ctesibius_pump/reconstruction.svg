@@ -1,3 +1,103 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<g><rect x="100" y="400" width="600" height="50" fill="gray" stroke="black" stroke-width="1" /> <rect x="200" y="200" width="80" height="200" fill="lightblue" stroke="black" stroke-width="2" /> <rect x="520" y="200" width="80" height="200" fill="lightblue" stroke="black" stroke-width="2" /> <rect x="205" y="250" width="70" height="20" fill="black" stroke="black" stroke-width="1" /> <rect x="525" y="300" width="70" height="20" fill="black" stroke="black" stroke-width="1" /> <rect x="280" y="350" width="240" height="40" fill="blue" stroke="black" stroke-width="1" /> <rect x="380" y="100" width="40" height="250" fill="blue" stroke="black" stroke-width="1" /></g>
+  <defs>
+    <style>
+      .ct-bg { fill: #fcf9f2; }
+      .ct-bronze { fill: #c59b27; stroke: #806110; stroke-width: 2; }
+      .ct-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .ct-iron { fill: #444; stroke: #222; stroke-width: 2; }
+      .ct-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .ct-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-lever-rock {
+        0%, 100% { transform: rotate(-14deg); }
+        50% { transform: rotate(14deg); }
+      }
+      @keyframes anim-piston-left {
+        0%, 100% { transform: translateY(-28px); }
+        50% { transform: translateY(28px); }
+      }
+      @keyframes anim-piston-right {
+        0%, 100% { transform: translateY(28px); }
+        50% { transform: translateY(-28px); }
+      }
+      @keyframes anim-jet-pulse {
+        0%, 100% { stroke-width: 7; opacity: 0.85; }
+        50% { stroke-width: 9; opacity: 1; }
+      }
+      
+      .lever-oscillate {
+        transform-origin: 400px 140px;
+        animation: anim-lever-rock 2.4s ease-in-out infinite;
+      }
+      .piston-l {
+        animation: anim-piston-left 2.4s ease-in-out infinite;
+      }
+      .piston-r {
+        animation: anim-piston-right 2.4s ease-in-out infinite;
+      }
+      .water-jet {
+        animation: anim-jet-pulse 1.2s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="ct-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="ct-title">Bomba Aspirante-Impelente de Ctesibio (Machina Ctesibica)</text>
+  <text x="400" y="70" text-anchor="middle" class="ct-text">Alejandría (c. 250 a.C.) - Cilindros gemelos de bronce con campana de aire y contrafase</text>
+
+  <!-- Depósito inferior de agua -->
+  <rect x="180" y="500" width="440" height="80" class="ct-water"/>
+  <rect x="160" y="520" width="480" height="20" fill="#a08260"/>
+
+  <!-- Balancín central oscilante -->
+  <g class="lever-oscillate">
+    <polygon points="230,136 570,136 570,144 230,144" class="ct-bronze"/>
+    <circle cx="400" cy="140" r="14" class="ct-iron"/>
+    <circle cx="250" cy="140" r="8" class="ct-iron"/>
+    <circle cx="550" cy="140" r="8" class="ct-iron"/>
+  </g>
+  <!-- Soporte central del balancín -->
+  <polygon points="385,140 415,140 425,270 375,270" class="ct-iron"/>
+
+  <!-- Cilindro Izquierdo -->
+  <rect x="220" y="280" width="60" height="180" fill="none" stroke="#c59b27" stroke-width="6"/>
+  <rect x="223" y="320" width="54" height="140" class="ct-water"/>
+  
+  <!-- Cilindro Derecho -->
+  <rect x="520" y="280" width="60" height="180" fill="none" stroke="#c59b27" stroke-width="6"/>
+  <rect x="523" y="320" width="54" height="140" class="ct-water"/>
+
+  <!-- Pistón y Vástago Izquierdo -->
+  <g class="piston-l">
+    <rect x="246" y="140" width="8" height="200" class="ct-iron"/>
+    <rect x="224" y="340" width="52" height="18" class="ct-bronze"/>
+  </g>
+
+  <!-- Pistón y Vástago Derecho -->
+  <g class="piston-r">
+    <rect x="546" y="140" width="8" height="200" class="ct-iron"/>
+    <rect x="524" y="340" width="52" height="18" class="ct-bronze"/>
+  </g>
+
+  <!-- Conductos de impulsión hacia la campana central -->
+  <path d="M 280 430 L 370 430 L 370 380" fill="none" stroke="#c59b27" stroke-width="8"/>
+  <path d="M 520 430 L 430 430 L 430 380" fill="none" stroke="#c59b27" stroke-width="8"/>
+
+  <!-- Campana de aire central (amortiguador hidroneumático de Ctesibio) -->
+  <ellipse cx="400" cy="350" rx="45" ry="55" class="ct-bronze"/>
+  <ellipse cx="400" cy="365" rx="38" ry="35" class="ct-water"/>
+  <text x="400" y="345" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Cámara de Aire</text>
+
+  <!-- Tubo vertical de salida y tobera orientable -->
+  <rect x="394" y="220" width="12" height="90" class="ct-bronze"/>
+  <path d="M 400 220 Q 420 180 450 160" fill="none" stroke="#c59b27" stroke-width="10"/>
+
+  <!-- Chorro continuo de agua a presión -->
+  <path d="M 450 160 Q 560 110 700 130" fill="none" stroke="#4a90e2" class="water-jet"/>
+  
+  <rect x="40" y="470" width="130" height="60" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="48" y="492" class="ct-text" font-weight="bold">Contrafase 180°:</text>
+  <text x="48" y="510" class="ct-text">• Flujo continuo</text>
+  <text x="48" y="525" class="ct-text">• Presión constante</text>
 </svg>

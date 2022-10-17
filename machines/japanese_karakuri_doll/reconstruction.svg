@@ -1,25 +1,104 @@
-<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-  <!-- ASSUMED dimensions for visualization -->
-  <rect x="50" y="50" width="300" height="300" fill="#f0f0f0" stroke="black"/>
-  <text x="60" y="80" font-family="Arial" font-size="16">Autómata servidor de té (Chahakobi Ningyō)</text>
-  <text x="60" y="100" font-family="Arial" font-size="12">DOCUMENTADO: Resorte de ballena para propulsión</text>
-  <text x="60" y="120" font-family="Arial" font-size="12">RECONSTRUIDO - Fuerza del resorte: 1,20 N</text>
-  <text x="60" y="140" font-family="Arial" font-size="12">RECONSTRUIDO - Energía del resorte: 0,0120 J</text>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .kd-bg { fill: #fcf9f2; }
+      .kd-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .kd-gold { fill: #c59b27; stroke: #785a10; stroke-width: 2; }
+      .kd-robe { fill: #1e3a8a; stroke: #0f172a; stroke-width: 2; }
+      .kd-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .kd-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-doll-walk {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes anim-foot-left {
+        0%, 100% { transform: rotate(-12deg); }
+        50% { transform: rotate(12deg); }
+      }
+      @keyframes anim-foot-right {
+        0%, 100% { transform: rotate(12deg); }
+        50% { transform: rotate(-12deg); }
+      }
+      @keyframes anim-escapement {
+        0%, 100% { transform: rotate(-20deg); }
+        50% { transform: rotate(20deg); }
+      }
+      
+      .doll-bob {
+        animation: anim-doll-walk 1s ease-in-out infinite;
+      }
+      .foot-l {
+        transform-origin: 370px 480px;
+        animation: anim-foot-left 1s ease-in-out infinite;
+      }
+      .foot-r {
+        transform-origin: 430px 480px;
+        animation: anim-foot-right 1s ease-in-out infinite;
+      }
+      .balance-rock {
+        transform-origin: 400px 240px;
+        animation: anim-escapement 0.5s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="kd-bg"/>
   
-  <!-- Main Body -->
-  <rect x="150" y="150" width="100" height="150" fill="#cc9966" stroke="black"/>
-  <!-- Head -->
-  <circle cx="200" cy="120" r="30" fill="#ffe0bd" stroke="black"/>
-  <!-- Tray/Arms -->
-  <line x1="150" y1="200" x2="100" y2="200" stroke="black" stroke-width="5"/>
-  <rect x="80" y="190" width="40" height="10" fill="brown" stroke="black"/>
-  
-  <!-- Cams / Gears (INFERRED layout) -->
-  <circle cx="200" cy="250" r="20" fill="none" stroke="black" stroke-dasharray="4"/>
-  <circle cx="200" cy="250" r="24.393398282201787" fill="none" stroke="red" stroke-width="2"/>
-  <text x="230" y="255" font-family="Arial" font-size="10" fill="red">Leva de marcha</text>
-  
-  <!-- Spring -->
-  <path d="M 180 200 C 190 180, 210 180, 220 200" fill="none" stroke="blue" stroke-width="3"/>
-  <text x="230" y="200" font-family="Arial" font-size="10" fill="blue">Resorte de barba de ballena</text>
+  <text x="400" y="45" text-anchor="middle" class="kd-title">Autómata Servidor de Té (Chahakobi Ningyō)</text>
+  <text x="400" y="70" text-anchor="middle" class="kd-text">Hosokawa Hanzō, Karakuri Zui (1796) - Muelle de ballena, volante regulador y levas de paso</text>
+
+  <!-- SUELO Y TRAYECTORIA DE AVANCE -->
+  <line x1="100" y1="520" x2="700" y2="520" stroke="#7a5a10" stroke-width="4"/>
+
+  <!-- GRUPO MUÑECO COMPLETO (Animado en balanceo de marcha) -->
+  <g class="doll-bob">
+    <!-- Cabeza de madera lacada y tocado tradicional -->
+    <circle cx="400" cy="140" r="26" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
+    <!-- Moño superior (chonmage) -->
+    <ellipse cx="400" cy="115" rx="10" ry="6" fill="#222"/>
+
+    <!-- Traje kimono de gala -->
+    <path d="M 350 190 L 450 190 L 480 460 L 320 460 Z" class="kd-robe"/>
+    <path d="M 370 190 L 400 240 L 430 190" fill="none" stroke="#fff" stroke-width="3"/>
+
+    <!-- Brazos extendidos sosteniendo la bandeja de té -->
+    <rect x="360" y="270" width="130" height="14" class="kd-wood"/>
+    <!-- Bandeja lacada roja -->
+    <rect x="470" y="260" width="80" height="10" fill="#dc2626" rx="2"/>
+    <!-- Taza de té verde con vapor -->
+    <path d="M 495 240 L 525 240 L 520 260 L 500 260 Z" fill="#fff" stroke="#333" stroke-width="1.5"/>
+    <ellipse cx="510" cy="242" rx="10" ry="3" fill="#16a34a"/>
+    <path d="M 505 230 Q 510 220 515 210" fill="none" stroke="#999" stroke-width="1.5"/>
+
+    <!-- CORTE TÉCNICO DEL MECANISMO INTERNO VISIBLE EN EL PECHO -->
+    <rect x="350" y="210" width="100" height="110" rx="8" fill="#fff" stroke="#7a5a10" stroke-width="2"/>
+    
+    <!-- Volante regulador de inercia superior (Animado) -->
+    <g class="balance-rock">
+      <line x1="365" y1="240" x2="435" y2="240" stroke="#333" stroke-width="4"/>
+      <circle cx="365" cy="240" r="7" class="kd-gold"/>
+      <circle cx="435" cy="240" r="7" class="kd-gold"/>
+    </g>
+
+    <!-- Tren de engranajes y muelle de barba de ballena interior -->
+    <circle cx="400" cy="285" r="22" fill="#c59b27" stroke="#222" stroke-width="2"/>
+    <!-- Espiral del resorte de ballena -->
+    <path d="M 400 285 A 8 8 0 0 1 408 285 A 14 14 0 0 1 392 285 A 18 18 0 0 1 418 285" fill="none" stroke="#444" stroke-width="2"/>
+  </g>
+
+  <!-- PIES / RUEDAS EXCÉNTRICAS INFERIORES (Animados en contrafase) -->
+  <g class="foot-l">
+    <ellipse cx="370" cy="495" rx="22" ry="10" class="kd-wood"/>
+  </g>
+  <g class="foot-r">
+    <ellipse cx="430" cy="495" rx="22" ry="10" class="kd-wood"/>
+  </g>
+
+  <!-- Panel cinemático -->
+  <rect x="40" y="110" width="220" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="135" class="kd-text" font-weight="bold">Lógica del Autómata:</text>
+  <text x="50" y="155" class="kd-text">1. Avanza portando la taza de té.</text>
+  <text x="50" y="175" class="kd-text">2. Al levantar la taza: se detiene.</text>
+  <text x="50" y="192" class="kd-text">3. Al devolverla: gira 180° y regresa.</text>
 </svg>

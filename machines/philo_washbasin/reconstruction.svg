@@ -1,3 +1,82 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<g><rect x="300" y="100" width="150" height="200" fill="none" stroke="black" stroke-width="2" /> <rect x="300" y="150" width="150" height="150" fill="blue" stroke="black" stroke-width="1" /> <rect x="370" y="300" width="10" height="100" fill="gray" stroke="black" stroke-width="1" /> <rect x="250" y="400" width="250" height="50" fill="none" stroke="black" stroke-width="2" /> <rect x="250" y="420" width="250" height="30" fill="blue" stroke="black" stroke-width="1" /></g>
+  <defs>
+    <style>
+      .pw-bg { fill: #fcf9f2; }
+      .pw-vessel { fill: #c59b27; stroke: #785a10; stroke-width: 3; }
+      .pw-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .pw-air { fill: #ffffff; stroke: #4a90e2; stroke-width: 1.5; }
+      .pw-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .pw-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-water-level {
+        0%, 100% { height: 35px; y: 445px; }
+        45% { height: 12px; y: 468px; }
+        55% { height: 12px; y: 468px; }
+      }
+      @keyframes anim-flow-stream {
+        0%, 35% { opacity: 0; }
+        45%, 90% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes anim-bubble-rise {
+        0% { transform: translateY(0); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-160px); opacity: 0; }
+      }
+      
+      .basin-water {
+        animation: anim-water-level 6s ease-in-out infinite;
+      }
+      .water-fall {
+        animation: anim-flow-stream 6s ease-in-out infinite;
+      }
+      .bubble {
+        animation: anim-bubble-rise 3s ease-in infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="pw-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="pw-title">Lavamanos Neumático de Nivel Constante</text>
+  <text x="400" y="70" text-anchor="middle" class="pw-text">Filón de Bizancio (c. 220 a.C.) - Autorregulación hidrostática por obturación neumática</text>
+
+  <!-- Tanque superior hermético de agua -->
+  <rect x="300" y="120" width="200" height="220" rx="15" fill="#e8dfce" stroke="#785a10" stroke-width="4"/>
+  <rect x="306" y="160" width="188" height="174" class="pw-water"/>
+  <text x="400" y="145" text-anchor="middle" font-size="12" font-weight="bold" fill="#785a10">Depósito Hermético de Agua</text>
+
+  <!-- Tubo A: Descarga de agua hacia el cuenco inferior -->
+  <rect x="350" y="340" width="18" height="120" class="pw-vessel"/>
+  <!-- Chorro de agua cayendo -->
+  <line x1="359" y1="460" x2="359" y2="480" stroke="#4a90e2" stroke-width="6" class="water-fall"/>
+
+  <!-- Tubo B: Tubo de ventilación / respiración de aire -->
+  <rect x="430" y="280" width="16" height="180" class="pw-vessel"/>
+  <!-- Boca inferior del tubo de aire que se sumerge -->
+  <circle cx="438" cy="460" r="10" fill="none" stroke="#2563eb" stroke-width="2"/>
+
+  <!-- Burbujas de aire ascendiendo por el interior del depósito -->
+  <g transform="translate(438, 300)" class="bubble">
+    <circle cx="0" cy="0" r="6" class="pw-air"/>
+    <circle cx="-5" cy="40" r="5" class="pw-air"/>
+    <circle cx="4" cy="80" r="7" class="pw-air"/>
+  </g>
+
+  <!-- Cuenco inferior del lavamanos -->
+  <path d="M 240 450 Q 240 520 400 520 Q 560 520 560 450 Z" class="pw-vessel" fill="#e8dfce"/>
+  <!-- Nivel oscilante de agua en el cuenco -->
+  <ellipse cx="400" cy="480" rx="130" ry="25" class="pw-water basin-water"/>
+
+  <!-- Desagüe inferior -->
+  <rect x="390" y="520" width="20" height="40" class="pw-vessel"/>
+  <line x1="400" y1="560" x2="400" y2="590" stroke="#4a90e2" stroke-width="4"/>
+
+  <!-- Panel didáctico del principio -->
+  <rect x="40" y="240" width="230" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="265" class="pw-text" font-weight="bold">Ciclo de Autorregulación:</text>
+  <text x="50" y="285" class="pw-text">1. Agua fluye al cuenco.</text>
+  <text x="50" y="305" class="pw-text">2. Nivel tapa tubo de aire: cesa flujo.</text>
+  <text x="50" y="325" class="pw-text">3. Al lavarse las manos, baja nivel.</text>
+  <text x="50" y="342" class="pw-text">4. Entra aire y recomienza flujo.</text>
 </svg>

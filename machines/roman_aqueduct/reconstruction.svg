@@ -1,24 +1,80 @@
-<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
-    <rect width="100%" height="100%" fill="#e0f7fa"/>
-    <text x="20" y="30" font-size="20" font-family="Arial" fill="#006064">Sistema de acueducto romano (Vitruvio)</text>
-    
-    <!-- Open channel section -->
-    <rect x="50" y="100" width="200" height="20" fill="#b0bec5"/>
-    <text x="50" y="90" font-size="12" fill="#37474f">Flujo en canal (Manning)</text>
-    <text x="50" y="140" font-size="12" fill="#37474f">Velocidad: 1,46 m/s</text>
-    
-    <!-- Arched Viaduct -->
-    <path d="M 250 120 L 250 300 L 280 300 L 280 120 Z" fill="#78909c" />
-    <path d="M 340 120 L 340 300 L 370 300 L 370 120 Z" fill="#78909c" />
-    <path d="M 430 120 L 430 300 L 460 300 L 460 120 Z" fill="#78909c" />
-    
-    <path d="M 250 120 Q 310 50 370 120" fill="none" stroke="#78909c" stroke-width="6.0" />
-    <path d="M 340 120 Q 400 50 460 120" fill="none" stroke="#78909c" stroke-width="6.0" />
-    <rect x="250" y="100" width="210" height="20" fill="#b0bec5"/>
-    <text x="280" y="90" font-size="12" fill="#37474f">Arcos de mampostería (Empuje: 37,5 kN)</text>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .ra-bg { fill: #fcf9f2; }
+      .ra-masonry { fill: #b8a892; stroke: #5c4e3e; stroke-width: 2.5; }
+      .ra-channel { fill: #d5c7b0; stroke: #422812; stroke-width: 2; }
+      .ra-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .ra-lead { fill: none; stroke: #475569; stroke-width: 10; }
+      .ra-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .ra-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-flow-stream {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -30; }
+      }
+      .water-stream {
+        stroke: #2563eb;
+        stroke-width: 5;
+        stroke-dasharray: 8 5;
+        animation: anim-flow-stream 1s linear infinite;
+      }
+    </style>
+  </defs>
 
-    <!-- Sifón invertido -->
-    <path d="M 460 110 L 520 110 L 600 350 L 700 350 L 760 150 L 800 150" fill="none" stroke="#1565c0" stroke-width="10"/>
-    <text x="600" y="370" font-size="12" fill="#37474f">Sifón invertido</text>
-    <text x="600" y="385" font-size="12" fill="#37474f">Presión máx.: 490,5 kPa</text>
+  <rect width="800" height="600" class="ra-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="ra-title">Sistema de Acueducto Romano y Sifón Invertido</text>
+  <text x="400" y="70" text-anchor="middle" class="ra-text">Vitruvio, De Architectura (Libro VIII) - Canal por gravedad, viaducto en arquería y sifón de plomo</text>
+
+  <!-- Perfil topográfico del valle profundo -->
+  <path d="M 0 190 L 220 200 L 320 240 L 460 480 L 540 480 L 680 240 L 760 215 L 800 215 L 800 600 L 0 600 Z" fill="#d9cbba" stroke="#8c7853" stroke-width="2"/>
+
+  <!-- SECCIÓN 1: CANAL DE GRAVEDAD ABIERTO (Specus con solera de mortero hidráulico opus signinum) -->
+  <rect x="20" y="180" width="180" height="20" class="ra-channel"/>
+  <rect x="20" y="185" width="180" height="12" class="ra-water"/>
+  <path d="M 20 191 L 200 191" class="water-stream"/>
+  <text x="110" y="170" text-anchor="middle" class="ra-text" font-weight="bold">Specus (Pendiente 1:2000)</text>
+
+  <!-- SECCIÓN 2: VIADUCTO CON ARCADAS DE MAMPOSTERÍA -->
+  <!-- Pilares de piedra -->
+  <rect x="180" y="200" width="30" height="150" class="ra-masonry"/>
+  <rect x="260" y="220" width="30" height="160" class="ra-masonry"/>
+  <rect x="340" y="260" width="30" height="160" class="ra-masonry"/>
+  
+  <!-- Arcos de medio punto -->
+  <path d="M 180 240 Q 220 200 260 240" fill="none" stroke="#5c4e3e" stroke-width="8"/>
+  <path d="M 260 260 Q 300 220 340 260" fill="none" stroke="#5c4e3e" stroke-width="8"/>
+  <rect x="180" y="195" width="190" height="16" class="ra-channel"/>
+  <rect x="180" y="200" width="190" height="8" class="ra-water"/>
+  <text x="270" y="185" text-anchor="middle" class="ra-text">Arcadas de mampostería</text>
+
+  <!-- SECCIÓN 3: SIFÓN INVERTIDO DE PLOMO (Para cruzar la garganta profunda) -->
+  <!-- Torre de carga (venter superior izquierdo) -->
+  <rect x="360" y="210" width="40" height="80" class="ra-masonry"/>
+  <text x="380" y="195" text-anchor="middle" font-size="11" class="ra-text">Torre de carga</text>
+
+  <!-- Tuberías de plomo (fistulae) bajando al valle, cruzando el puente bajo y subiendo -->
+  <path d="M 390 270 L 460 470 L 540 470 L 610 270" class="ra-lead"/>
+  <path d="M 390 270 L 460 470 L 540 470 L 610 270" class="water-stream"/>
+  
+  <!-- Torre receptora de salida (derecha) -->
+  <rect x="600" y="210" width="40" height="80" class="ra-masonry"/>
+  <text x="620" y="195" text-anchor="middle" font-size="11" class="ra-text">Torre receptora</text>
+
+  <!-- Canal de continuación a la ciudad romana -->
+  <rect x="640" y="235" width="140" height="16" class="ra-channel"/>
+  <rect x="640" y="238" width="140" height="10" class="ra-water"/>
+  <text x="710" y="225" text-anchor="middle" class="ra-text" font-weight="bold">Hacia la ciudad</text>
+
+  <!-- Punto de máxima presión hidrostática en el fondo del valle -->
+  <circle cx="500" cy="470" r="14" fill="#ef4444"/>
+  <text x="500" y="515" text-anchor="middle" font-size="12" font-weight="bold" fill="#b91c1c">Presión hidrostática máx: p = ρ·g·h ≈ 490 kPa (5 atm)</text>
+
+  <!-- Panel hidráulico -->
+  <rect x="40" y="470" width="300" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="495" class="ra-text" font-weight="bold">Ingeniería Hidráulica Romana:</text>
+  <text x="50" y="515" class="ra-text">• Ecuación de Manning en flujo por gravedad.</text>
+  <text x="50" y="535" class="ra-text">• Sifón invertido en valles demasiado profundos</text>
+  <text x="50" y="552" class="ra-text">  para viaductos de arcos de piedra.</text>
 </svg>

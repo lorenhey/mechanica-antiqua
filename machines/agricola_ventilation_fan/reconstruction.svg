@@ -1,9 +1,78 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<circle cx="400" cy="300" r="150" stroke="black" stroke-width="2" fill="none" />
-<line x1="400" y1="300" x2="530.0" y2="300.0" stroke="black" stroke-width="2" />
-<line x1="400" y1="300" x2="465.0" y2="412.583302491977" stroke="black" stroke-width="2" />
-<line x1="400" y1="300" x2="335.0" y2="412.58330249197707" stroke="black" stroke-width="2" />
-<line x1="400" y1="300" x2="270.0" y2="300.0" stroke="black" stroke-width="2" />
-<line x1="400" y1="300" x2="334.99999999999994" y2="187.416697508023" stroke="black" stroke-width="2" />
-<line x1="400" y1="300" x2="465.0" y2="187.416697508023" stroke="black" stroke-width="2" />
+  <defs>
+    <style>
+      .vf-bg { fill: #fcf9f2; }
+      .vf-housing { fill: #d5c8b2; stroke: #6b5235; stroke-width: 6; }
+      .vf-rotor { fill: #8b5a2b; stroke: #422812; stroke-width: 2.5; }
+      .vf-air { stroke: #0284c7; stroke-width: 3.5; fill: none; stroke-dasharray: 8 6; }
+      .vf-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .vf-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-fan-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-air-flow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -28; }
+      }
+      
+      .fan-blade-rot {
+        transform-origin: 320px 320px;
+        animation: anim-fan-spin 2s linear infinite;
+      }
+      .air-gust {
+        animation: anim-air-flow 0.6s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="vf-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="vf-title">Ventilador Centrífugo Minero (Ventilator)</text>
+  <text x="400" y="70" text-anchor="middle" class="vf-text">Georgius Agricola (1556) - Tiro forzado para evacuación de gases y polvo en galerías</text>
+
+  <!-- Conducto de descarga tangencial hacia la galería subterránea -->
+  <path d="M 320 170 L 680 170 L 680 250 L 450 250" class="vf-housing" fill="#e5dbcb"/>
+  <text x="560" y="215" class="vf-text" font-weight="bold">Conducto de inyección de aire</text>
+
+  <!-- Carcasa cilíndrica de madera en sección (Diámetro 300) -->
+  <circle cx="320" cy="320" r="150" class="vf-housing"/>
+  <!-- Ojo de aspiración central de aire fresco -->
+  <circle cx="320" cy="320" r="60" fill="#fff" stroke="#8b7355" stroke-width="4"/>
+  <text x="320" y="325" text-anchor="middle" font-size="11" font-weight="bold" fill="#666">Aspiración</text>
+
+  <!-- RODETE ROTATORIO DE PALETAS (Animado) -->
+  <g class="fan-blade-rot">
+    <!-- Eje central -->
+    <circle cx="320" cy="320" r="20" fill="#333"/>
+    
+    <!-- 4 Aspas o paletas curvadas de madera fijadas al eje -->
+    <!-- Aspa 1 -->
+    <path d="M 320 300 Q 320 220 370 185" class="vf-rotor" stroke-width="8"/>
+    <!-- Aspa 2 -->
+    <path d="M 340 320 Q 420 320 455 370" class="vf-rotor" stroke-width="8"/>
+    <!-- Aspa 3 -->
+    <path d="M 320 340 Q 320 420 270 455" class="vf-rotor" stroke-width="8"/>
+    <!-- Aspa 4 -->
+    <path d="M 300 320 Q 220 320 185 270" class="vf-rotor" stroke-width="8"/>
+  </g>
+
+  <!-- Flujo de aire aerodinámico tangencial expulsado -->
+  <g class="air-gust">
+    <path d="M 380 190 L 750 190" class="vf-air"/>
+    <path d="M 380 210 L 750 210" class="vf-air"/>
+    <path d="M 400 230 L 750 230" class="vf-air"/>
+  </g>
+
+  <!-- Galería subterránea a la derecha -->
+  <rect x="720" y="150" width="80" height="350" fill="#2d2218"/>
+  <text x="760" y="300" text-anchor="middle" fill="#e0d6c3" font-family="'Cinzel', serif" transform="rotate(90, 760, 300)">Galería profunda</text>
+
+  <!-- Panel técnico -->
+  <rect x="40" y="470" width="310" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="495" class="vf-text" font-weight="bold">Dinámica de Fluidos (Tiro Forzado):</text>
+  <text x="50" y="515" class="vf-text">• La fuerza centrífuga acelera el aire radialmente.</text>
+  <text x="50" y="535" class="vf-text">• La carcasa helicoidal convierte energía cinética</text>
+  <text x="50" y="552" class="vf-text">  en presión estática para ventilar pozos.</text>
 </svg>

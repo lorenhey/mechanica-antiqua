@@ -1,5 +1,83 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-    <rect x="50" y="100" width="200" height="20" stroke="black" stroke-width="2" fill="silver" />
-    <polygon points="250,90 270,110 250,130" fill="gray" />
-    <text x="80" y="250" font-family="sans-serif" font-size="14">Torno de roscar de Besson</text>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bl-bg { fill: #fcf9f2; }
+      .bl-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .bl-metal { fill: #708090; stroke: #333; stroke-width: 2; }
+      .bl-thread { stroke: #c59b27; stroke-width: 3; fill: none; }
+      .bl-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .bl-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-spindle-rot {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-carriage-advance {
+        0% { transform: translateX(0); }
+        80% { transform: translateX(160px); }
+        100% { transform: translateX(0); }
+      }
+      
+      .spindle-spin {
+        transform-origin: 320px 240px;
+        animation: anim-spindle-rot 2s linear infinite;
+      }
+      .carriage-slide {
+        animation: anim-carriage-advance 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="bl-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="bl-title">Torno de Roscar con Husillo Patrón (Tour à fileter)</text>
+  <text x="400" y="70" text-anchor="middle" class="bl-text">Jacques Besson (1578) - Sincronización cinemática rígida entre rotación y avance</text>
+
+  <!-- Bancada del torno de madera maciza -->
+  <rect x="180" y="380" width="520" height="40" class="bl-wood"/>
+  <!-- Patas del torno -->
+  <rect x="200" y="420" width="35" height="130" class="bl-wood"/>
+  <rect x="640" y="420" width="35" height="130" class="bl-wood"/>
+
+  <!-- Cabezal fijo (izquierda) -->
+  <rect x="220" y="180" width="50" height="200" class="bl-wood"/>
+  <!-- Contracabezal móvil (derecha) -->
+  <rect x="620" y="240" width="40" height="140" class="bl-wood"/>
+
+  <!-- Husillo patrón superior roscado (Lead Screw) -->
+  <rect x="260" y="210" width="370" height="16" class="bl-metal"/>
+  <!-- Roscas helicoidales en el husillo patrón -->
+  <path d="M 270 210 L 280 226 M 290 210 L 300 226 M 310 210 L 320 226 M 330 210 L 340 226 M 350 210 L 360 226 M 370 210 L 380 226 M 390 210 L 400 226 M 410 210 L 420 226" class="bl-thread"/>
+  <text x="450" y="195" text-anchor="middle" class="bl-text">Husillo patrón con paso maestro</text>
+
+  <!-- Pieza de trabajo cilíndrica a tornear (abajo) -->
+  <rect x="270" y="310" width="350" height="26" class="bl-metal" fill="#b0c4de"/>
+
+  <!-- CARRO PORTAHERRAMIENTAS CON AVANCE (Animado) -->
+  <g class="carriage-slide">
+    <!-- Soporte deslizante que monta sobre las guías de la bancada -->
+    <rect x="310" y="200" width="45" height="180" fill="#333" stroke="#fff" stroke-width="1.5" rx="4"/>
+    
+    <!-- Tuerca seguidora que acopla con el husillo patrón superior -->
+    <rect x="305" y="205" width="55" height="25" fill="#c59b27" stroke="#222" stroke-width="2"/>
+    
+    <!-- Cuchilla de corte labrando la rosca -->
+    <polygon points="325,320 355,323 325,326" fill="#ef4444"/>
+    
+    <!-- Viruta metálica saliendo -->
+    <circle cx="360" cy="323" r="3" fill="#c59b27"/>
+  </g>
+
+  <!-- Poleas de accionamiento y contrapesos sincronizados -->
+  <circle cx="210" cy="180" r="30" class="bl-wood"/>
+  <line x1="180" y1="180" x2="180" y2="350" stroke="#444" stroke-width="3"/>
+  <rect x="165" y="350" width="30" height="40" fill="#222" rx="4"/>
+  <text x="180" y="375" text-anchor="middle" fill="#fff" font-size="10">Pesa</text>
+
+  <!-- Panel descriptivo -->
+  <rect x="40" y="85" width="220" height="85" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="110" class="bl-text" font-weight="bold">Innovación de Besson:</text>
+  <text x="50" y="130" class="bl-text">• Avance forzado por husillo</text>
+  <text x="50" y="148" class="bl-text">• Paso uniforme garantizado</text>
+  <text x="50" y="164" class="bl-text">• Elimina el pulso manual libre</text>
 </svg>

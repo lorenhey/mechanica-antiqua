@@ -1,20 +1,87 @@
-<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
-<circle cx="400" cy="400" r="200" stroke="black" stroke-width="2" fill="none" />
-<circle cx="400" cy="400" r="120" stroke="black" stroke-width="2" fill="none" />
-<circle cx="560.0" cy="400.0" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="515.4849415639109" y1="447.8354290456362" x2="580.1565088397009" y2="474.62326931119253" stroke="black" stroke-width="2" />
-<circle cx="513.1370849898476" cy="513.1370849898476" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="447.83542904563626" y1="515.4849415639109" x2="474.62326931119253" y2="580.1565088397009" stroke="black" stroke-width="2" />
-<circle cx="400.0" cy="560.0" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="352.1645709543638" y1="515.4849415639109" x2="325.37673068880747" y2="580.1565088397009" stroke="black" stroke-width="2" />
-<circle cx="286.8629150101524" cy="513.1370849898476" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="284.51505843608913" y1="447.83542904563626" x2="219.8434911602991" y2="474.62326931119253" stroke="black" stroke-width="2" />
-<circle cx="240.0" cy="400.0" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="284.51505843608913" y1="352.1645709543638" x2="219.84349116029907" y2="325.3767306888075" stroke="black" stroke-width="2" />
-<circle cx="286.8629150101524" cy="286.8629150101524" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="352.16457095436374" y1="284.5150584360892" x2="325.37673068880736" y2="219.84349116029912" stroke="black" stroke-width="2" />
-<circle cx="399.99999999999994" cy="240.0" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="447.83542904563626" y1="284.5150584360892" x2="474.62326931119253" y2="219.8434911602991" stroke="black" stroke-width="2" />
-<circle cx="513.1370849898476" cy="286.8629150101524" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="515.4849415639108" y1="352.1645709543637" x2="580.1565088397009" y2="325.37673068880736" stroke="black" stroke-width="2" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .lb-bg { fill: #fcf9f2; }
+      .lb-steel { fill: #94a3b8; stroke: #334155; stroke-width: 3; }
+      .lb-cage { fill: #c59b27; stroke: #78350f; stroke-width: 2.5; }
+      .lb-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .lb-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-bearing-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-ball-self {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-720deg); }
+      }
+      
+      .cage-orbital {
+        transform-origin: 400px 320px;
+        animation: anim-bearing-turn 6s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="lb-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="lb-title">Cojinete Axial de Bolas con Jaula (Códice Madrid I, 1493)</text>
+  <text x="400" y="70" text-anchor="middle" class="lb-text">Leonardo da Vinci - Jaula separadora para eliminar la fricción entre elementos rodantes contiguos</text>
+
+  <!-- Pista exterior fija de rodadura -->
+  <circle cx="400" cy="320" r="180" fill="none" stroke="#475569" stroke-width="18"/>
+  <circle cx="400" cy="320" r="189" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="400" cy="320" r="171" fill="none" stroke="#1e293b" stroke-width="2"/>
+
+  <!-- Pista interior / Eje central -->
+  <circle cx="400" cy="320" r="75" fill="#e2e8f0" stroke="#334155" stroke-width="12"/>
+  <circle cx="400" cy="320" r="28" fill="#334155"/>
+
+  <!-- CONJUNTO DE JAULA SEPARADORA Y BOLAS ORBITANTES (Animado) -->
+  <g class="cage-orbital">
+    <!-- Jaula separadora circular de bronce (anillo central) -->
+    <circle cx="400" cy="320" r="128" fill="none" stroke="#c59b27" stroke-width="14" stroke-opacity="0.8"/>
+    
+    <!-- 8 Bolas rodantes de acero alojadas en alvéolos equidistantes a 45° -->
+    <g transform="translate(400, 320)">
+      <!-- Bola 1 (0°) -->
+      <circle cx="128" cy="0" r="28" class="lb-steel"/>
+      <circle cx="128" cy="0" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 2 (45°) -->
+      <circle cx="90.5" cy="90.5" r="28" class="lb-steel"/>
+      <circle cx="90.5" cy="90.5" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 3 (90°) -->
+      <circle cx="0" cy="128" r="28" class="lb-steel"/>
+      <circle cx="0" cy="128" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 4 (135°) -->
+      <circle cx="-90.5" cy="90.5" r="28" class="lb-steel"/>
+      <circle cx="-90.5" cy="90.5" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 5 (180°) -->
+      <circle cx="-128" cy="0" r="28" class="lb-steel"/>
+      <circle cx="-128" cy="0" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 6 (225°) -->
+      <circle cx="-90.5" cy="-90.5" r="28" class="lb-steel"/>
+      <circle cx="-90.5" cy="-90.5" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 7 (270°) -->
+      <circle cx="0" cy="-128" r="28" class="lb-steel"/>
+      <circle cx="0" cy="-128" r="8" fill="#fff" opacity="0.6"/>
+
+      <!-- Bola 8 (315°) -->
+      <circle cx="90.5" cy="-90.5" r="28" class="lb-steel"/>
+      <circle cx="90.5" cy="-90.5" r="8" fill="#fff" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Panel tribológico de Leonardo -->
+  <rect x="40" y="100" width="240" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="125" class="lb-text" font-weight="bold">Tribología de Leonardo:</text>
+  <text x="50" y="145" class="lb-text">• Sin jaula: bolas contiguas rozan</text>
+  <text x="50" y="162" class="lb-text">  en sentido opuesto (v_rel = 2v).</text>
+  <text x="50" y="180" class="lb-text">• Con jaula: fricción pura de rodadura.</text>
 </svg>

@@ -1,35 +1,98 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-<circle cx="200" cy="400" r="100" stroke="black" stroke-width="2" fill="none" />
-<line x1="280.0" y1="400.0" x2="320.0" y2="400.0" stroke="black" stroke-width="2" />
-<line x1="256.5685424949238" y1="456.5685424949238" x2="284.8528137423857" y2="484.8528137423857" stroke="black" stroke-width="2" />
-<line x1="200.0" y1="480.0" x2="200.0" y2="520.0" stroke="black" stroke-width="2" />
-<line x1="143.4314575050762" y1="456.5685424949238" x2="115.14718625761431" y2="484.8528137423857" stroke="black" stroke-width="2" />
-<line x1="120.0" y1="400.0" x2="80.0" y2="400.0" stroke="black" stroke-width="2" />
-<line x1="143.4314575050762" y1="343.4314575050762" x2="115.14718625761428" y2="315.1471862576143" stroke="black" stroke-width="2" />
-<line x1="199.99999999999997" y1="320.0" x2="199.99999999999997" y2="280.0" stroke="black" stroke-width="2" />
-<line x1="256.5685424949238" y1="343.4314575050762" x2="284.8528137423857" y2="315.1471862576143" stroke="black" stroke-width="2" />
-<circle cx="200" cy="400" r="40" stroke="black" stroke-width="2" fill="none" />
-<line x1="228.2842712474619" y1="428.2842712474619" x2="400" y2="250" stroke="black" stroke-width="2" />
-<line x1="400" y1="150" x2="400" y2="350" stroke="black" stroke-width="2" />
-<line x1="400" y1="160" x2="390" y2="170" stroke="black" stroke-width="2" />
-<line x1="390" y1="170" x2="400" y2="180" stroke="black" stroke-width="2" />
-<line x1="400" y1="180" x2="390" y2="190" stroke="black" stroke-width="2" />
-<line x1="390" y1="190" x2="400" y2="200" stroke="black" stroke-width="2" />
-<line x1="400" y1="200" x2="390" y2="210" stroke="black" stroke-width="2" />
-<line x1="390" y1="210" x2="400" y2="220" stroke="black" stroke-width="2" />
-<line x1="400" y1="220" x2="390" y2="230" stroke="black" stroke-width="2" />
-<line x1="390" y1="230" x2="400" y2="240" stroke="black" stroke-width="2" />
-<line x1="400" y1="240" x2="390" y2="250" stroke="black" stroke-width="2" />
-<line x1="390" y1="250" x2="400" y2="260" stroke="black" stroke-width="2" />
-<line x1="400" y1="260" x2="390" y2="270" stroke="black" stroke-width="2" />
-<line x1="390" y1="270" x2="400" y2="280" stroke="black" stroke-width="2" />
-<line x1="400" y1="280" x2="390" y2="290" stroke="black" stroke-width="2" />
-<line x1="390" y1="290" x2="400" y2="300" stroke="black" stroke-width="2" />
-<line x1="400" y1="300" x2="390" y2="310" stroke="black" stroke-width="2" />
-<line x1="390" y1="310" x2="400" y2="320" stroke="black" stroke-width="2" />
-<line x1="400" y1="320" x2="390" y2="330" stroke="black" stroke-width="2" />
-<line x1="390" y1="330" x2="400" y2="340" stroke="black" stroke-width="2" />
-<line x1="400" y1="340" x2="390" y2="350" stroke="black" stroke-width="2" />
-<line x1="390" y1="350" x2="400" y2="360" stroke="black" stroke-width="2" />
-<rect x="380" y="250" width="200" height="50" stroke="black" stroke-width="2" fill="none" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .ms-bg { fill: #fcf9f2; }
+      .ms-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .ms-blade { fill: #9e9e9e; stroke: #333; stroke-width: 2; }
+      .ms-water { fill: #4a90e2; fill-opacity: 0.65; }
+      .ms-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .ms-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-crank-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-saw-vertical {
+        0%, 100% { transform: translateY(-40px); }
+        50% { transform: translateY(40px); }
+      }
+      @keyframes anim-log-advance {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-40px); }
+      }
+      
+      .crank-rot {
+        transform-origin: 220px 420px;
+        animation: anim-crank-turn 2s linear infinite;
+      }
+      .saw-reciprocate {
+        animation: anim-saw-vertical 2s ease-in-out infinite;
+      }
+      .log-forward {
+        animation: anim-log-advance 8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="ms-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="ms-title">Aserradero Hidráulico con Biela-Manivela</text>
+  <text x="400" y="70" text-anchor="middle" class="ms-text">Francesco di Giorgio Martini (c. 1480) - Conversión cinemática y avance continuo</text>
+
+  <!-- Rueda hidráulica y cigüeñal inferior -->
+  <g class="crank-rot">
+    <circle cx="220" cy="420" r="90" fill="none" stroke="#8b5a2b" stroke-width="12"/>
+    <circle cx="220" cy="420" r="18" fill="#333"/>
+    <line x1="220" y1="330" x2="220" y2="510" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="130" y1="420" x2="310" y2="420" stroke="#5c3a1e" stroke-width="6"/>
+    <!-- Manivela y muñón del cigüeñal -->
+    <line x1="220" y1="420" x2="260" y2="390" stroke="#c59b27" stroke-width="8"/>
+    <circle cx="260" cy="390" r="8" fill="#222"/>
+  </g>
+
+  <!-- Canal de agua motriz inferior -->
+  <rect x="0" y="520" width="400" height="80" class="ms-water"/>
+
+  <!-- Bastidor guía vertical de la sierra -->
+  <rect x="420" y="120" width="16" height="420" class="ms-wood"/>
+  <rect x="520" y="120" width="16" height="420" class="ms-wood"/>
+  <rect x="420" y="120" width="116" height="16" class="ms-wood"/>
+
+  <!-- MARCO DE SIERRA ALTERNATIVO (Animado arriba y abajo) -->
+  <g class="saw-reciprocate">
+    <!-- Marco de madera que sostiene la hoja -->
+    <rect x="432" y="200" width="92" height="180" fill="none" stroke="#5c3a1e" stroke-width="6"/>
+    <!-- Hoja de sierra dentada de acero -->
+    <line x1="478" y1="200" x2="478" y2="380" stroke="#444" stroke-width="6"/>
+    <!-- Dientes de sierra -->
+    <path d="M 478 220 L 484 225 L 478 230 M 478 240 L 484 245 L 478 250 M 478 260 L 484 265 L 478 270 M 478 280 L 484 285 L 478 290 M 478 300 L 484 305 L 478 310" stroke="#333" stroke-width="2"/>
+    
+    <!-- Pivote inferior donde engancha la biela -->
+    <circle cx="478" cy="380" r="6" fill="#c59b27"/>
+  </g>
+
+  <!-- Biela oblicua que une el cigüeñal con el marco de la sierra -->
+  <line x1="260" y1="390" x2="478" y2="340" stroke="#7a5a10" stroke-width="7"/>
+
+  <!-- Carro porta-tronco con avance (animado hacia la izquierda contra la sierra) -->
+  <g class="log-forward">
+    <!-- Ruedas y carro de madera -->
+    <rect x="490" y="325" width="250" height="20" class="ms-wood"/>
+    <circle cx="530" cy="355" r="12" fill="#333"/>
+    <circle cx="690" cy="355" r="12" fill="#333"/>
+    
+    <!-- Tronco cilíndrico de pino cortándose -->
+    <ellipse cx="480" cy="310" rx="18" ry="24" fill="#a07246" stroke="#5c3a1e" stroke-width="2"/>
+    <rect x="480" y="286" width="220" height="48" fill="#c2925b" stroke="#5c3a1e" stroke-width="2"/>
+  </g>
+
+  <!-- Rieles de avance -->
+  <line x1="460" y1="367" x2="780" y2="367" stroke="#333" stroke-width="5"/>
+
+  <!-- Panel cinemático -->
+  <rect x="40" y="110" width="240" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="135" class="ms-text" font-weight="bold">Mecanismo Biela-Manivela:</text>
+  <text x="50" y="155" class="ms-text">• Convierte rotación continua en vaivén</text>
+  <text x="50" y="175" class="ms-text">• Carrera vertical: s = 80 mm</text>
+  <text x="50" y="192" class="ms-text">• Trinquete de avance sincronizado</text>
 </svg>

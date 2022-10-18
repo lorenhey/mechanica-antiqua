@@ -71,6 +71,3 @@ No todas las reconstrucciones son iguales. Algunas fuentes proveen cotas milimé
 ## Licencia
 
 El código de simulación y el motor `mechanica` se distribuyen bajo la licencia [MIT](LICENSE). El texto original y la documentación se ofrecen bajo [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Las imágenes históricas provienen de colecciones de dominio público; por favor, respetá los derechos indicados en cada ficha particular si deseás reutilizarlas.
-
----
-*Que la fuerza de los engranajes y la presión del vapor te sean propicias.*

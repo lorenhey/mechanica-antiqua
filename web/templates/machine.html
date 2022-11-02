@@ -29,6 +29,9 @@
             <p><span class="meta-label">Tipo de Máquina:</span> {{ machine.machine_type }}</p>
             <p><span class="meta-label">Dominio Físico:</span> {{ machine.physical_domain }}</p>
             <p><span class="meta-label">Nivel de Reconstrucción:</span> {{ machine.reconstruction_status }}</p>
+            {% if machine.license %}
+            <p><span class="meta-label">Licencia / Derechos:</span> {{ machine.license }}</p>
+            {% endif %}
             
             <hr>
             

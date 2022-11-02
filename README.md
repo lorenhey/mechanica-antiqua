@@ -4,7 +4,7 @@
 > *Historical machines reconstructed with modern engineering.*
 
 [![CI](https://github.com/lorenhey/mechanica-antiqua/actions/workflows/ci.yml/badge.svg)](https://github.com/lorenhey/mechanica-antiqua/actions)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 [![Web](https://img.shields.io/badge/Catalog-GitHub_Pages-blue.svg)](https://lorenhey.github.io/mechanica-antiqua/)
 
 [🇪🇸 Español](#mechanica-antiqua-es) · [🇬🇧 English](#mechanica-antiqua-en)
@@ -98,11 +98,12 @@ Clasificamos cada reconstrucción en una escala de cinco niveles (**A** a **E**)
 
 Para más detalles sobre los criterios epistémicos, consultá [docs/methodology.md](docs/methodology.md) y [ABOUT.md](ABOUT.md).
 
-### Licencia
+### Licencia y Dedicatoria al Dominio Público
 
-* Código fuente y modelos matemáticos: Licencia [MIT](LICENSE).
-* Textos, documentación y metadatos: [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-* Láminas históricas: Obras en Dominio Público procedentes de repositorios históricos y bibliotecas patrimoniales.
+Todo lo susceptible de liberación de derechos se encuentra dedicado al **Dominio Público**:
+* **Código fuente, modelos matemáticos y simulaciones**: Dedicados al Dominio Público bajo [CC0 1.0 Universal](LICENSE).
+* **Textos, traducciones, documentación y esquemas vectoriales (SVG)**: Dedicados al Dominio Público bajo [CC0 1.0 Universal](LICENSE).
+* **Láminas, grabados y fuentes históricas**: Obras patrimoniales pertenecientes al Dominio Público mundial. Sin restricciones de uso, modificación ni distribución.
 
 ---
 
@@ -193,10 +194,11 @@ Each reconstruction is indexed on a five-tier confidence scale (**A** to **E**):
 
 See [docs/methodology.md](docs/methodology.md) and [ABOUT.md](ABOUT.md) for full epistemological guidelines.
 
-### License
+### License & Public Domain Dedication
 
-* Source code and computational models: [MIT License](LICENSE).
-* Written documentation, articles, and metadata: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-* Historical plate engravings: Public Domain collections.
+All eligible materials are dedicated to the **Public Domain**:
+* **Source code, mathematical models, and computational simulations**: Dedicated to the Public Domain under [CC0 1.0 Universal](LICENSE).
+* **Texts, translations, documentation, and parametric vector schematics (SVG)**: Dedicated to the Public Domain under [CC0 1.0 Universal](LICENSE).
+* **Historical plates, engravings, and primary sources**: Worldwide cultural heritage in the Public Domain. Free for any use, modification, and redistribution.
 
 ---

@@ -10,7 +10,7 @@ machine_type: Bomba helicoidal
 physical_domain: Hidráulica y Geometría
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: Vitruvio provee un algoritmo geométrico exacto para su trazado.
-license: Dominio Público
+license: Dominio Público (CC0 1.0)
 description: Una máquina para elevar agua inventada (o popularizada) por Arquímedes.
   Vitruvio da instrucciones extremadamente precisas para su construcción geométrica
   basada en una grilla de proporciones de 8 partes para el núcleo y el paso de la

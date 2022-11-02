@@ -56,6 +56,10 @@ El corpus abarca:
 * Los ingenios mecánicos de la **minería centroeuropea y los teatros de máquinas** (Agricola, Besson, Ramelli, Zonca).
 * La termodinámica embrionaria y el paso de la fuerza motriz biológica a la térmica en los albores de la **Revolución Industrial** (Papin, Savery, Newcomen, Leupold).
 
+### 5. Licencia y Dedicatoria al Dominio Público
+
+Todo lo que es susceptible de liberación de derechos ha sido dedicado formalmente al **Dominio Público** bajo [CC0 1.0 Universal](LICENSE). Podés utilizar, reproducir, modificar, integrar o comercializar cualquier parte del proyecto sin requerir permiso alguno.
+
 ---
 
 <a id="about-mechanica-antiqua-en"></a>
@@ -109,6 +113,10 @@ The history of technology has long suffered from an undue Eurocentric focus that
 * **European Middle Ages & Renaissance**: Villard de Honnecourt's spring-pole water-powered sawmill, Leonardo da Vinci's caged thrust bearings and globoidal worm drives, Francesco di Giorgio Martini's pumps and saws, and Gothic vaulted masonry statics.
 * **Early Modern Theatres of Machines**: Ramelli's epicyclic book wheel and rotary vane water pump, Besson's screw-cutting machine, Zonca's mills, and Georgius Agricola's mining engines.
 * **Early Industrial Steam Power**: Papin's atmospheric piston, Savery's vacuum displacement pump, Newcomen's beam engine, and Leupold's high-pressure dual-cylinder engine.
+
+### 5. License & Public Domain Dedication
+
+Everything eligible for release has been formally dedicated to the **Public Domain** under [CC0 1.0 Universal](LICENSE). You are completely free to use, adapt, modify, integrate, or commercialize any part of this work without requesting permission.
 
 ---
 

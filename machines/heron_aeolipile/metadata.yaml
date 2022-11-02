@@ -10,7 +10,7 @@ machine_type: Motor térmico de reacción
 physical_domain: Termodinámica y Dinámica de fluidos
 reconstruction_status: Nivel C (Paramétrica fuerte / principios físicos comprobados)
 confidence: Principio físico certero, dimensiones completamente supuestas.
-license: Dominio Público
+license: Dominio Público (CC0 1.0)
 description: Conocida como la primera máquina de vapor, la eolípila consiste en una
   esfera hueca montada sobre un eje soportado por un caldero. El vapor asciende por
   los soportes hacia la esfera y escapa a través de dos toberas acodadas tangenciales,

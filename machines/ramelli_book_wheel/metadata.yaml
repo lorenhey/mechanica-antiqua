@@ -10,7 +10,7 @@ machine_type: Mecanismo epicicloidal
 physical_domain: Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: Alta en el tren epicicloidal, inferida en cotas exactas.
-license: Dominio Público
+license: Dominio Público (CC0 1.0)
 description: La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples
   libros abiertos simultáneamente. A diferencia de una rueda de la fortuna simple,
   utiliza un tren de engranajes epicicloidal oculto para garantizar que los atriles

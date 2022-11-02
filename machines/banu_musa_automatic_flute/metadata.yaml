@@ -11,7 +11,7 @@ physical_domain: Neumática y Cinemática
 reconstruction_status: Nivel C (Paramétrica fuerte / principios físicos comprobados)
 confidence: 'Medio: concepto revolucionario de tambor de levas programable; dimensiones
   acústicas exactas hipotéticas.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Considerado uno de los primeros dispositivos con programa mecánico almacenable
   de la historia. Un cilindro rotativo provisto de clavijas o levas accionado por
   una rueda hidráulica modula las palancas de las llaves de una flauta, mientras dos

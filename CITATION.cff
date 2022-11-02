@@ -1,11 +1,18 @@
 cff-version: 1.2.0
-message: "Si utilizás este software en tu investigación histórica o de ingeniería, por favor citalo como se indica a continuación."
-title: "Mechanica Antiqua"
+message: "Si utilizás este proyecto en tu investigación histórica o de ingeniería, podés citarlo como se indica a continuación."
+title: "Mechanica Antiqua: An Expanding Computational Corpus of Historical Machinery"
 abstract: "Historical machines reconstructed with modern engineering."
 authors:
-  - family-names: "Antiqua"
-    given-names: "Mechanica"
+  - family-names: "Perez"
+    given-names: "Lorenzo"
 version: 1.0.0
-date-released: "2026-09-02"
-license: "MIT"
-repository-code: "https://github.com/tu-usuario/mechanica_antiqua"
+date-released: "2026-10-17"
+license: "CC0-1.0"
+repository-code: "https://github.com/lorenhey/mechanica-antiqua"
+url: "https://lorenhey.github.io/mechanica-antiqua/"
+keywords:
+  - history of technology
+  - mechanical engineering
+  - kinematics
+  - public domain
+  - archaeology

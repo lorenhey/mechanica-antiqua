@@ -11,7 +11,7 @@ physical_domain: Cinemática y Elasticidad
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: tratado con esquemas xilográficos de engranajes, volante regulador
   y levas de dirección.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Autómata mecánico del período Edo accionado por un muelle espiral de
   ballena. Avanza paso a paso portando una taza de té; cuando el comensal retira la
   taza, un balancín detiene el escape del mecanismo; al volver a colocar la taza vacía,

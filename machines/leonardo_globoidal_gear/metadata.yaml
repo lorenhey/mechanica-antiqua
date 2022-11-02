@@ -11,7 +11,7 @@ physical_domain: Mecánica analítica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto: geometría del tornillo de reloj de arena trazada con conocimiento
   cabal de la envolvente.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Transmisión por tornillo sin fin globoidal curvado para adaptarse a la
   curvatura de la rueda dentada conjugada. Esta geometría de envolvimiento incrementa
   significativamente el área de contacto superficial y la capacidad de carga respecto

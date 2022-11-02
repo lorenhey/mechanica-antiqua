@@ -11,7 +11,7 @@ physical_domain: Hidráulica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: tratado con diagramas mecánicos detallados de cada subconjunto;
   réplica escala 1:1 en Pekín y Taichung.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Monumental torre de relojería astronómica impulsada por una rueda hidráulica
   provista de un mecanismo de escape por peso (clepsidra de palanca). Sincronizaba
   una esfera armilar de observación continua, un globo celeste móvil y múltiples autómatas

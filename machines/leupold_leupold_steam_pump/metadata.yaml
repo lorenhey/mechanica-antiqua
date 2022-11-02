@@ -11,7 +11,7 @@ physical_domain: Termodinámica e Hidráulica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto: planos grabados en cobre con despiece completo de la válvula de
   cuatro vías.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Primer diseño documentado de una máquina de vapor de pistón de alta presión
   (no condensante). Utiliza una válvula rotativa de cuatro vías acoplada a dos cilindros
   verticales de simple efecto que empujan directamente vástagos para accionar bombas

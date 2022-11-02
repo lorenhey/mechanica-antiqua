@@ -9,16 +9,14 @@ source_pages: Libro VI, pp. 170-174
 machine_type: Bomba hidráulica
 physical_domain: Hidráulica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto: grabados renacentistas a escala y descripciones exhaustivas de
-  Agricola.'
+confidence: 'Alto: grabados renacentistas a escala y descripciones exhaustivas de Agricola.'
 license: Dominio Público (CC0 1.0)
-description: Bomba de rosario de esferas o discos de cuero unidos por una cadena de
-  hierro sin fin que asciende por el interior de un tubo de madera, arrastrando columnas
-  de agua desde el fondo de las galerías mineras. Impulsada por una rueda hidráulica
-  o un malacate de tracción animal.
+description: Bomba de rosario de esferas o discos de cuero unidos por una cadena de hierro sin fin que asciende por el interior de un tubo de madera, arrastrando columnas de agua desde el fondo de las galerías mineras. Impulsada por una rueda hidráulica o un malacate de tracción animal.
 related_machines:
 - agricola_reversible_hoist
 period: Renacimiento
 region: Sajonia / Bohemia
 would_it_actually_work: Sí, estándar de desagüe en minería europea del siglo XVI.
 display_year: '1556'
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional de la bomba de cadena y rosario de Georgius Agricola operando en una galería de mina subterránea.

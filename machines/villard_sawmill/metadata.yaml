@@ -11,12 +11,10 @@ physical_domain: Cinemática de levas y mecanismos
 reconstruction_status: Nivel D (Interpretación especulativa / fuente fragmentaria)
 confidence: Boceto muy primitivo. Requiere suposición fuerte de resortes de vara elástica.
 license: Dominio Público (CC0 1.0)
-description: Uno de los primeros esquemas europeos de un aserradero mecanizado. El
-  eje de la rueda hidráulica está provisto de levas que empujan la sierra hacia abajo,
-  mientras que una vara elástica (pértiga) en la parte superior provee la fuerza de
-  retorno. Además, un mecanismo acoplado avanza el tronco automáticamente.
+description: Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda hidráulica está provisto de levas que empujan la sierra hacia abajo, mientras que una vara elástica (pértiga) en la parte superior provee la fuerza de retorno. Además, un mecanismo acoplado avanza el tronco automáticamente.
 display_year: '1230'
 period: Edad Media
 region: Francia
-would_it_actually_work: Probablemente, con ensamblaje artesanal cuidadoso del resorte
-  elástico superior.
+would_it_actually_work: Probablemente, con ensamblaje artesanal cuidadoso del resorte elástico superior.
+visual_type: Dibujo técnico histórico
+visual_caption: Facsímil del dibujo a pluma del cuaderno medieval de Villard de Honnecourt (siglo XIII, BnF ms. fr. 19093), que ilustra el aserradero hidráulico con retorno elástico de pértiga.

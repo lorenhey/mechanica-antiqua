@@ -9,16 +9,13 @@ source_pages: Lámina 9
 machine_type: Torno de roscar
 physical_domain: Mecánica analítica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto (0,90): lámina renacentista con sincronismo mecánico preciso por
-  poleas y contrapesos.'
+confidence: 'Alto (0,90): lámina renacentista con sincronismo mecánico preciso por poleas y contrapesos.'
 license: Dominio Público (CC0 1.0)
-description: Torno pionero para el labrado cinemático y mecánico de roscas con pasos
-  variables y precisos. Utiliza un husillo patrón y un sistema de poleas y cables
-  que sincroniza con rigidez geométrica el avance longitudinal de la herramienta de
-  corte con la rotación de la pieza de trabajo.
+description: Torno pionero para el labrado cinemático y mecánico de roscas con pasos variables y precisos. Utiliza un husillo patrón y un sistema de poleas y cables que sincroniza con rigidez geométrica el avance longitudinal de la herramienta de corte con la rotación de la pieza de trabajo.
 related_machines: []
 period: Renacimiento
 region: Francia
-would_it_actually_work: Sí, fundamental en el nacimiento de la máquina herramienta
-  moderna.
+would_it_actually_work: Sí, fundamental en el nacimiento de la máquina herramienta moderna.
 display_year: '1578'
+visual_type: Grabado técnico histórico
+visual_caption: Lámina calcográfica original (Lámina 9) del Theatrum Instrumentorum et Machinarum de Jacques Besson (Lyon, 1578), mostrando el torno de roscar con husillo patrón.

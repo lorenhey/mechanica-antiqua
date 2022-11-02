@@ -9,16 +9,13 @@ source_pages: Libro VIII, Capítulos 5 y 6 (De aquis ducendis)
 machine_type: Infraestructura hidráulica
 physical_domain: Dinámica de fluidos y Estática de estructuras
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: miles de kilómetros de vestigios arqueológicos (Segovia, Pont du
-  Gard, Lyon).'
+confidence: 'Alto: miles de kilómetros de vestigios arqueológicos (Segovia, Pont du Gard, Lyon).'
 license: Dominio Público (CC0 1.0)
-description: Infraestructura hidráulica para transporte de agua por gravedad. Integra
-  canales con pendiente uniforme controlada, arcadas de mampostería para cruce de
-  depresiones y sifones invertidos de tuberías de plomo para salvar valles profundos
-  mediante carga hidrostática cerrada.
+description: Infraestructura hidráulica para transporte de agua por gravedad. Integra canales con pendiente uniforme controlada, arcadas de mampostería para cruce de depresiones y sifones invertidos de tuberías de plomo para salvar valles profundos mediante carga hidrostática cerrada.
 related_machines: []
 period: Antigüedad romana
 region: Imperio Romano
-would_it_actually_work: Sí, muchas de estas infraestructuras abastecieron ciudades
-  durante siglos.
+would_it_actually_work: Sí, muchas de estas infraestructuras abastecieron ciudades durante siglos.
 display_year: 15 a.C.
+visual_type: Fotografía de estructura real
+visual_caption: Fotografía del acueducto romano Pont du Gard (Francia), mostrando las tres hileras de arcadas superpuestas y el canal del specus en la cota superior.

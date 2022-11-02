@@ -48,10 +48,10 @@
         </div>
 
         {% if machine.realistic_image %}
-        <h2>Registro Visual y Reconstrucción Fotorrealista</h2>
+        <h2>Registro Visual: {{ machine.visual_type | default('Registro histórico') }}</h2>
         <div class="realistic-container">
-            <img src="{{ machine.realistic_image }}" alt="Reconstrucción fotorrealista de {{ machine.name }}" class="realistic-image">
-            <p class="realistic-caption"><em>Reconstrucción tridimensional hiperrealista / Registro visual arqueológico de {{ machine.name }}.</em></p>
+            <img src="{{ machine.realistic_image }}" alt="{{ machine.name }} - {{ machine.visual_type | default('Registro visual') }}" class="realistic-image">
+            <p class="realistic-caption"><em>{{ machine.visual_caption | default(machine.name) }}</em></p>
         </div>
         {% endif %}
 

@@ -9,17 +9,13 @@ source_pages: De Architectura, Libro IX, Capítulo 8
 machine_type: Reloj de agua
 physical_domain: Hidráulica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto (0,80): principios hidrostáticos y cinemáticos confirmados por Vitruvio
-  y arqueología alejandrina.'
+confidence: 'Alto (0,80): principios hidrostáticos y cinemáticos confirmados por Vitruvio y arqueología alejandrina.'
 license: Dominio Público (CC0 1.0)
-description: Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una
-  válvula de flotador de nivel constante que estabiliza la presión hidrostática y
-  garantiza un caudal volumétrico uniforme a través de un orificio de piedras duras.
-  El nivel ascendente eleva un flotador acoplado a una cremallera y piñón que desplaza
-  el indicador horario.
+description: Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una válvula de flotador de nivel constante que estabiliza la presión hidrostática y garantiza un caudal volumétrico uniforme a través de un orificio de piedras duras. El nivel ascendente eleva un flotador acoplado a una cremallera y piñón que desplaza el indicador horario.
 related_machines: []
 period: Antigüedad helenística
 region: Egipto helenístico (Alejandría)
-would_it_actually_work: Sí, primera regulación automática por realimentación de flotador
-  conocida.
+would_it_actually_work: Sí, primera regulación automática por realimentación de flotador conocida.
 display_year: 250 a.C.
+visual_type: Pieza de museo / Arqueología
+visual_caption: Fotografía arqueológica de clepsidra de fayenza de época ptolemaica con relieve de cinocéfalo y orificio calibrado (The Metropolitan Museum of Art).

@@ -11,11 +11,10 @@ physical_domain: Cinemática e Hidráulica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: Mecanismo claro, relaciones de cigüeñal inferidas de la lámina.
 license: Dominio Público (CC0 1.0)
-description: Bomba de succión operada por energía humana o hidráulica a través de
-  un cigüeñal, utilizada ampliamente en la minería de Sajonia y Bohemia en el siglo
-  XVI para mantener secas las galerías. La alternancia mecánica convierte el movimiento
-  circular continuo en lineal alternativo.
+description: Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada ampliamente en la minería de Sajonia y Bohemia en el siglo XVI para mantener secas las galerías. La alternancia mecánica convierte el movimiento circular continuo en lineal alternativo.
 display_year: '1556'
 period: Renacimiento
 region: Sajonia / Bohemia
 would_it_actually_work: Sí, ampliamente difundida en minería centroeuropea.
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional de la bomba de succión en madera por etapas para desagüe de pozos mineros profundos.

@@ -1,11 +1,7 @@
 name: Puente colgante de Q'eswachaka
 type: infrastructure
-description: Puente colgante de fibra de pasto andino (ichu o q'oya) trenzado en gruesos
-  cables estructurales anclados a estribos de roca viva sobre el cañón del río Apurímac.
-  Su comportamiento responde al modelo analítico de catenarias con cables de catenaria
-  portantes y péndolas laterales.
-would_it_actually_work: Sí, monumento viviente de ingeniería declarado Patrimonio
-  de la Humanidad.
+description: Puente colgante de fibra de pasto andino (ichu o q'oya) trenzado en gruesos cables estructurales anclados a estribos de roca viva sobre el cañón del río Apurímac. Su comportamiento responde al modelo analítico de catenarias con cables de catenaria portantes y péndolas laterales.
+would_it_actually_work: Sí, monumento viviente de ingeniería declarado Patrimonio de la Humanidad.
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 original_name: Q'eswachaka Chaka
 author: Ingenieros viales incas (Qhapaq Ñan)
@@ -16,9 +12,10 @@ edition: Canas, Cusco
 source_pages: Crónicas de Garcilaso de la Vega y tradición viva de renovación anual
 machine_type: Puente colgante de fibras naturales
 physical_domain: Estática de catenarias y Resistencia de materiales
-confidence: 'Alto: tradición continua ininterrumpida; el puente se renueva comunitariamente
-  todos los años en Perú.'
+confidence: 'Alto: tradición continua ininterrumpida; el puente se renueva comunitariamente todos los años en Perú.'
 period: Precolombino / Horizonte Tardío
 region: Cusco, Andes Peruanos
 language: Quechua
 license: Dominio Público (CC0 1.0)
+visual_type: Fotografía de estructura real
+visual_caption: Fotografía del puente colgante de fibras vegetales de ichu de Q'eswachaka (Cusco, Perú), renovado anualmente según la tradición incaica del Qhapaq Ñan.

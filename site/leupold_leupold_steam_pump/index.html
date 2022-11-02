@@ -2,41 +2,159 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>High-Pressure Steam Pump - Mechanica Antiqua</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina de vapor de alta presión de Leupold - Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <a href="../index.html" class="back-link">← Volver al Gabinete</a>
+    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
+        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
+        <a href="../about.html" class="back-link">Acerca de / About</a>
+    </nav>
     
     <header>
-        <h1>High-Pressure Steam Pump</h1>
-        <p><em>Leupold's Engine</em></p>
+        <h1>Máquina de vapor de alta presión de Leupold</h1>
+        
+        <p><em>Denominación histórica: Dampfmaschine (Theatrum Machinarum Generale)</em></p>
+        
     </header>
     
     <main>
         <div class="machine-card">
-            <p><span class="meta-label">Autor:</span> Jacob Leupold</p>
-            <p><span class="meta-label">Obra:</span> Theatrum Machinarum Generale (1724, 1st)</p>
-            <p><span class="meta-label">Páginas/Láminas:</span> Unknown</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Level A</p>
-            <p><span class="meta-label">Dominio Físico:</span> Thermodynamics and Hydraulics</p>
+            <p><span class="meta-label">Autor / Tradición:</span> Jacob Leupold</p>
+            <p><span class="meta-label">Tratado o Fuente:</span> Theatrum Machinarum Generale (1724, Leipzig)</p>
+            
+            <p><span class="meta-label">Páginas / Láminas:</span> Tabulae machinarum hydraulicarum</p>
+            
+            <p><span class="meta-label">Tipo de Máquina:</span> Máquina de vapor de alta presión</p>
+            <p><span class="meta-label">Dominio Físico:</span> Termodinámica e Hidráulica</p>
+            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel A (Completamente documentada y reproducible)</p>
+            
+            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
+            
             
             <hr>
             
-            <h3>Descripción</h3>
-            <p>First design for a high-pressure steam engine.</p>
+            <h3>Descripción Técnica</h3>
+            <p>Primer diseño documentado de una máquina de vapor de pistón de alta presión (no condensante). Utiliza una válvula rotativa de cuatro vías acoplada a dos cilindros verticales de simple efecto que empujan directamente vástagos para accionar bombas de pistón en pozos mineros.</p>
             
-            <h3>Nivel de Confianza</h3>
-            <p>High</p>
+            <h3>Evaluación Histórico-Técnica y Certeza</h3>
+            <p>Alto: planos grabados en cobre con despiece completo de la válvula de cuatro vías.</p>
+            
+            
+            <h3>Viabilidad Operativa</h3>
+            <p>Probablemente, requería una caldera resistente a presión superior a la metalurgia común de la época.</p>
+            
         </div>
 
         
-        <h2>Reconstrucción Matemática</h2>
+        <h2>Registro Visual: Grabado técnico histórico</h2>
+        <div class="realistic-container">
+            <img src="realistic.jpg" alt="Máquina de vapor de alta presión de Leupold - Grabado técnico histórico" class="realistic-image">
+            <p class="realistic-caption"><em>Lámina calcográfica en cobre original de Jacob Leupold en Theatrum Machinarum Generale (Leipzig, 1724), que describe la máquina de vapor de alta presión con válvula de cuatro vías.</em></p>
+        </div>
+        
+
+        
+        <h2>Reconstrucción Cinemática / Matemática</h2>
         <div class="svg-container">
-            <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="200" cy="200" rx="150" ry="100" fill="gold" />
-        <text x="120" y="200" fill="black">Leupold Engine</text>
-    </svg>
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .lp-bg { fill: #fcf9f2; }
+      .lp-metal { fill: #708090; stroke: #333; stroke-width: 2.5; }
+      .lp-brass { fill: #c59b27; stroke: #785a10; stroke-width: 2; }
+      .lp-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .lp-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .lp-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-valve-turn {
+        0%, 45% { transform: rotate(0deg); }
+        50%, 95% { transform: rotate(90deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes anim-piston-left {
+        0%, 45% { transform: translateY(-35px); }
+        50%, 95% { transform: translateY(35px); }
+        100% { transform: translateY(-35px); }
+      }
+      @keyframes anim-piston-right {
+        0%, 45% { transform: translateY(35px); }
+        50%, 95% { transform: translateY(-35px); }
+        100% { transform: translateY(35px); }
+      }
+      
+      .valve-rot {
+        transform-origin: 400px 380px;
+        animation: anim-valve-turn 4s ease-in-out infinite;
+      }
+      .piston-l {
+        animation: anim-piston-left 4s ease-in-out infinite;
+      }
+      .piston-r {
+        animation: anim-piston-right 4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="lp-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="lp-title">Máquina de Vapor de Alta Presión de Leupold (1724)</text>
+  <text x="400" y="70" text-anchor="middle" class="lp-text">Primer diseño de vapor a alta presión no condensante con válvula rotativa de cuatro vías</text>
+
+  <!-- Caldera de alta presión inferior -->
+  <rect x="280" y="460" width="240" height="100" rx="15" fill="#b87333" stroke="#6b3e15" stroke-width="4"/>
+  <text x="400" y="520" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Caldera de Alta Presión</text>
+
+  <!-- Válvula rotativa de 4 vías (distribuidor central) -->
+  <g class="valve-rot">
+    <circle cx="400" cy="380" r="35" class="lp-brass"/>
+    <line x1="400" y1="350" x2="400" y2="410" stroke="#fff" stroke-width="8"/>
+    <line x1="370" y1="380" x2="430" y2="380" stroke="#fff" stroke-width="8"/>
+  </g>
+  <text x="400" y="340" text-anchor="middle" class="lp-text" font-weight="bold">Válvula de 4 vías</text>
+
+  <!-- Cilindro Izquierdo de simple efecto -->
+  <rect x="250" y="160" width="70" height="180" fill="none" stroke="#333" stroke-width="6"/>
+  <rect x="254" y="160" width="62" height="180" fill="#fff" opacity="0.6"/>
+
+  <!-- Cilindro Derecho de simple efecto -->
+  <rect x="480" y="160" width="70" height="180" fill="none" stroke="#333" stroke-width="6"/>
+  <rect x="484" y="160" width="62" height="180" fill="#fff" opacity="0.6"/>
+
+  <!-- Pistón y Vástago Izquierdo (animado) -->
+  <g class="piston-l">
+    <rect x="254" y="240" width="62" height="20" class="lp-metal"/>
+    <rect x="280" y="100" width="10" height="140" class="lp-metal"/>
+    <!-- Balancín bomba izquierda -->
+    <circle cx="285" cy="100" r="6" fill="#c59b27"/>
+  </g>
+
+  <!-- Pistón y Vástago Derecho (animado) -->
+  <g class="piston-r">
+    <rect x="484" y="240" width="62" height="20" class="lp-metal"/>
+    <rect x="510" y="100" width="10" height="140" class="lp-metal"/>
+    <!-- Balancín bomba derecha -->
+    <circle cx="515" cy="100" r="6" fill="#c59b27"/>
+  </g>
+
+  <!-- Conductos de vapor desde la válvula a los dos cilindros -->
+  <path d="M 370 380 L 285 380 L 285 340" fill="none" stroke="#b87333" stroke-width="6"/>
+  <path d="M 430 380 L 515 380 L 515 340" fill="none" stroke="#b87333" stroke-width="6"/>
+  <line x1="400" y1="460" x2="400" y2="415" stroke="#b87333" stroke-width="8"/>
+
+  <!-- Escape de vapor atmosférico -->
+  <path d="M 400 380 L 400 345 L 340 320" fill="none" stroke="#999" stroke-width="4"/>
+  <text x="320" y="315" class="lp-text">Escape libre</text>
+
+  <!-- Panel explicativo -->
+  <rect x="40" y="220" width="180" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="245" class="lp-text" font-weight="bold">Ventaja de Leupold:</text>
+  <text x="50" y="265" class="lp-text">• Presión positiva p > p_atm</text>
+  <text x="50" y="285" class="lp-text">• Sin condensación de agua</text>
+  <text x="50" y="302" class="lp-text">• Ciclo alternado continuo</text>
+</svg>
+
         </div>
         <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
         

@@ -9,17 +9,14 @@ source_pages: Página 86, grabado en cobre
 machine_type: Molino
 physical_domain: Mecánica analítica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto (0,85): grabado técnico detallado con baterías de mazas y canalización
-  de agua.'
+confidence: 'Alto (0,85): grabado técnico detallado con baterías de mazas y canalización de agua.'
 license: Dominio Público (CC0 1.0)
-description: Instalación fabril accionada por rueda hidráulica para la fabricación
-  de papel. Un eje con levas distribuidas eleva y deja caer secuencialmente baterías
-  de mazos de madera con clavos sobre pilas de trapos sumergidos en agua, desfibrando
-  la materia prima en una pulpa uniforme.
+description: Instalación fabril accionada por rueda hidráulica para la fabricación de papel. Un eje con levas distribuidas eleva y deja caer secuencialmente baterías de mazos de madera con clavos sobre pilas de trapos sumergidos en agua, desfibrando la materia prima en una pulpa uniforme.
 related_machines:
 - zonca_stamping_mill
 period: Renacimiento tardío
 region: Italia (Véneto)
-would_it_actually_work: Sí, tecnología típica de las papeleras de Fabriano y la cuenca
-  veneciana.
+would_it_actually_work: Sí, tecnología típica de las papeleras de Fabriano y la cuenca veneciana.
 display_year: '1607'
+visual_type: Fotografía de instalación industrial
+visual_caption: Fotografía contemporánea de la planta de manufactura papelera Cartiere Fedrigoni, heredera de la tradición industrial de molienda y prensado papelero.

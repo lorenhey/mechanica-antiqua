@@ -2,41 +2,141 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Savery Engine - Mechanica Antiqua</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomba de vapor de Savery (El amigo del minero) - Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <a href="../index.html" class="back-link">← Volver al Gabinete</a>
+    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
+        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
+        <a href="../about.html" class="back-link">Acerca de / About</a>
+    </nav>
     
     <header>
-        <h1>Savery Engine</h1>
-        <p><em>The Miner's Friend</em></p>
+        <h1>Bomba de vapor de Savery (El amigo del minero)</h1>
+        
+        <p><em>Denominación histórica: The Miner's Friend</em></p>
+        
     </header>
     
     <main>
         <div class="machine-card">
-            <p><span class="meta-label">Autor:</span> Thomas Savery</p>
-            <p><span class="meta-label">Obra:</span> The Miner's Friend (1702, 1st)</p>
-            <p><span class="meta-label">Páginas/Láminas:</span> Unknown</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Level B</p>
-            <p><span class="meta-label">Dominio Físico:</span> Thermodynamics and Hydraulics</p>
+            <p><span class="meta-label">Autor / Tradición:</span> Thomas Savery</p>
+            <p><span class="meta-label">Tratado o Fuente:</span> The Miner's Friend (1702, Londres)</p>
+            
+            <p><span class="meta-label">Páginas / Láminas:</span> Tratado 'The Miner's Friend; or, An Engine to Raise Water by Fire'</p>
+            
+            <p><span class="meta-label">Tipo de Máquina:</span> Bomba térmica de agua</p>
+            <p><span class="meta-label">Dominio Físico:</span> Termodinámica e Hidráulica</p>
+            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+            
+            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
+            
             
             <hr>
             
-            <h3>Descripción</h3>
-            <p>An early commercial steam engine used for pumping water from coal mines.</p>
+            <h3>Descripción Técnica</h3>
+            <p>Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín). El agua de la mina era aspirada hacia una cámara receptora por la condensación de vapor (vacío) y posteriormente forzada a gran altura mediante la presión directa de vapor vivo proveniente de la caldera.</p>
             
-            <h3>Nivel de Confianza</h3>
-            <p>High</p>
+            <h3>Evaluación Histórico-Técnica y Certeza</h3>
+            <p>Alto: patente real de 1698 y folleto técnico explicativo impreso por Savery.</p>
+            
+            
+            <h3>Viabilidad Operativa</h3>
+            <p>Sí, operó comercialmente, aunque con bajo rendimiento térmico y riesgo de explosión de calderas.</p>
+            
         </div>
 
         
-        <h2>Reconstrucción Matemática</h2>
+        <h2>Registro Visual: Grabado técnico histórico</h2>
+        <div class="realistic-container">
+            <img src="realistic.jpg" alt="Bomba de vapor de Savery (El amigo del minero) - Grabado técnico histórico" class="realistic-image">
+            <p class="realistic-caption"><em>Lámina calcográfica original de Thomas Savery en el tratado The Miner's Friend (Londres, 1702), detallando la caldera y los recipientes de condensación para bombeo por vapor.</em></p>
+        </div>
+        
+
+        
+        <h2>Reconstrucción Cinemática / Matemática</h2>
         <div class="svg-container">
-            <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <rect x="50" y="50" width="300" height="300" fill="gray" />
-        <text x="100" y="200" fill="white">Savery Engine Reconstruction</text>
-    </svg>
+            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .sv-bg { fill: #fcf9f2; }
+      .sv-boiler { fill: #b87333; stroke: #6b3e15; stroke-width: 3; }
+      .sv-vessel { fill: #4a4a4a; stroke: #222; stroke-width: 3; }
+      .sv-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .sv-pipe { fill: none; stroke: #7a654b; stroke-width: 6; }
+      .sv-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .sv-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-vessel-fill {
+        0%, 40% { height: 130px; y: 260px; }
+        50%, 90% { height: 20px; y: 370px; }
+        100% { height: 130px; y: 260px; }
+      }
+      @keyframes anim-pipe-up {
+        0%, 40% { stroke-dashoffset: 0; }
+        50%, 90% { stroke-dashoffset: -30; }
+        100% { stroke-dashoffset: 0; }
+      }
+      
+      .vessel-water {
+        animation: anim-vessel-fill 6s ease-in-out infinite;
+      }
+      .rise-flow {
+        stroke: #2563eb;
+        stroke-width: 6;
+        stroke-dasharray: 8 6;
+        animation: anim-pipe-up 1s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="sv-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="sv-title">Bomba de Vapor de Savery (The Miner's Friend, 1702)</text>
+  <text x="400" y="70" text-anchor="middle" class="sv-text">Elevación térmica directa de agua sin órganos mecánicos móviles ni pistón</text>
+
+  <!-- Caldera de vapor a la izquierda -->
+  <ellipse cx="200" cy="380" rx="70" ry="90" class="sv-boiler"/>
+  <text x="200" y="385" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Caldera</text>
+
+  <!-- Fuego bajo la caldera -->
+  <path d="M 150 490 Q 175 450 200 490 Q 225 450 250 490 Z" fill="#ef4444"/>
+
+  <!-- Tubería de vapor de la caldera a la vasija receptora -->
+  <path d="M 200 290 L 200 240 L 400 240 L 400 260" class="sv-pipe" stroke="#b87333"/>
+  <circle cx="300" cy="240" r="10" fill="#c59b27"/>
+  <text x="300" y="225" text-anchor="middle" class="sv-text">Válvula de vapor</text>
+
+  <!-- Vasija receptora central (Condensador/Receptor) -->
+  <ellipse cx="400" cy="330" rx="60" ry="75" class="sv-vessel" fill="#e0d6c3"/>
+  <!-- Nivel de agua animado en la vasija -->
+  <ellipse cx="400" cy="330" rx="55" ry="70" class="vessel-water sv-water"/>
+  <text x="400" y="335" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">Vasija Receptora</text>
+
+  <!-- Tubería de aspiración desde el pozo minero (abajo) -->
+  <path d="M 400 405 L 400 560" class="sv-pipe"/>
+  <!-- Válvula de retención inferior -->
+  <circle cx="400" cy="450" r="8" fill="#c59b27"/>
+  <text x="400" y="580" text-anchor="middle" class="sv-text">Pozo de mina (Aspiración por vacío)</text>
+
+  <!-- Tubería de expulsión hacia la superficie (arriba) -->
+  <path d="M 400 260 L 400 120 L 650 120" class="sv-pipe"/>
+  <path d="M 400 260 L 400 120 L 650 120" fill="none" class="rise-flow"/>
+  <!-- Válvula de retención superior -->
+  <circle cx="400" cy="180" r="8" fill="#c59b27"/>
+  <text x="650" y="105" text-anchor="middle" class="sv-text" font-weight="bold">Descarga a superficie (Impulsión a presión)</text>
+
+  <!-- Panel termodinámico -->
+  <rect x="520" y="220" width="240" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="530" y="245" class="sv-text" font-weight="bold">Ciclo en Dos Tiempos:</text>
+  <text x="530" y="265" class="sv-text">1. Condensación: vacío succiona</text>
+  <text x="530" y="285" class="sv-text">   agua del fondo (hasta ~8 m).</text>
+  <text x="530" y="305" class="sv-text">2. Vapor vivo a presión expulsa</text>
+  <text x="530" y="322" class="sv-text">   el agua a gran altura.</text>
+</svg>
+
         </div>
         <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
         

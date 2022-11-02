@@ -9,16 +9,14 @@ source_pages: Libro VI, pp. 160-165
 machine_type: Malacate de elevación
 physical_domain: Cinemática e Hidráulica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: dimensiones estructurales documentadas; detalles de válvulas de
-  conmutación inferidos.'
+confidence: 'Alto: dimensiones estructurales documentadas; detalles de válvulas de conmutación inferidos.'
 license: Dominio Público (CC0 1.0)
-description: Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica
-  de doble corona de álabes contrapuestos. Al alternar el flujo de agua mediante compuertas,
-  se invierte el sentido de rotación del tambor de enrollamiento sin detener el curso
-  del caudal motriz.
+description: Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica de doble corona de álabes contrapuestos. Al alternar el flujo de agua mediante compuertas, se invierte el sentido de rotación del tambor de enrollamiento sin detener el curso del caudal motriz.
 related_machines:
 - agricola_chain_pump
 period: Renacimiento
 region: Sajonia / Bohemia
 would_it_actually_work: Sí, implementada en múltiples pozos de Joachimsthal.
 display_year: '1556'
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional del malacate hidráulico reversible de doble rueda motriz descrito en De re metallica (1556).

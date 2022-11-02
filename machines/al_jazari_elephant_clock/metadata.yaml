@@ -9,13 +9,9 @@ source_pages: Categoría I, Capítulo 4
 machine_type: Reloj de agua y autómatas
 physical_domain: Hidráulica, Cinemática y Estática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: manuscrito ricamente ilustrado con despieces mecánicos; reconstruido
-  con éxito moderno.'
+confidence: 'Alto: manuscrito ricamente ilustrado con despieces mecánicos; reconstruido con éxito moderno.'
 license: Dominio Público (CC0 1.0)
-description: Monumental autómata y reloj hidráulico con forma de elefante asiático.
-  En su interior, un cuenco perforado flota en un depósito y se sumerge a tasa constante;
-  al hundirse, activa un sistema de poleas, balancines y levas que liberan esferas
-  metálicas, hacen sonar un platillo y mueven autómatas mecánicos cada media hora.
+description: Monumental autómata y reloj hidráulico con forma de elefante asiático. En su interior, un cuenco perforado flota en un depósito y se sumerge a tasa constante; al hundirse, activa un sistema de poleas, balancines y levas que liberan esferas metálicas, hacen sonar un platillo y mueven autómatas mecánicos cada media hora.
 related_machines:
 - Castle Clock
 - Peacock Clock
@@ -23,3 +19,5 @@ period: Edad de Oro Islámica
 region: Anatolia / Mesopotamia (Dinastía Artúquida)
 would_it_actually_work: Sí, existen réplicas modernas funcionales en museos internacionales.
 display_year: '1206'
+visual_type: Fotografía de réplica histórica
+visual_caption: Fotografía de réplica física a escala real del reloj del elefante de al-Jazari en exhibición museográfica, con mecanismo hidromecánico de flotador y autómatas.

@@ -9,18 +9,15 @@ source_pages: Grabados de Barney (1719) y registros de la Royal Society
 machine_type: Máquina de vapor atmosférica
 physical_domain: Termodinámica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: abundante documentación técnica contemporánea, planos y ejemplares
-  conservados.'
+confidence: 'Alto: abundante documentación técnica contemporánea, planos y ejemplares conservados.'
 license: Dominio Público (CC0 1.0)
-description: Primera máquina motriz térmica práctica de la historia industrial. El
-  vapor ingresa a baja presión en el cilindro para expulsar el aire; una inyección
-  de agua fría condensa el vapor provocando un vacío parcial que permite a la presión
-  atmosférica descender el pistón y accionar el balancín de la bomba de pozo.
+description: Primera máquina motriz térmica práctica de la historia industrial. El vapor ingresa a baja presión en el cilindro para expulsar el aire; una inyección de agua fría condensa el vapor provocando un vacío parcial que permite a la presión atmosférica descender el pistón y accionar el balancín de la bomba de pozo.
 related_machines:
 - savery_engine
 - watt_steam_engine
 period: Revolución Industrial temprana
 region: Inglaterra
-would_it_actually_work: Sí, transformó el drenaje minero en toda Europa durante más
-  de medio siglo.
+would_it_actually_work: Sí, transformó el drenaje minero en toda Europa durante más de medio siglo.
 display_year: '1712'
+visual_type: Grabado técnico histórico
+visual_caption: Diagrama técnico grabado del motor atmosférico de Newcomen con balancín de madera oscilante, cilindro con inyección de condensación y caldera de vapor.

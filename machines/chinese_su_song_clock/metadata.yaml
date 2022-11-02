@@ -9,15 +9,13 @@ source_pages: Capítulos 1 a 3, xilografías completas
 machine_type: Reloj astronómico
 physical_domain: Hidráulica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: tratado con diagramas mecánicos detallados de cada subconjunto;
-  réplica escala 1:1 en Pekín y Taichung.'
+confidence: 'Alto: tratado con diagramas mecánicos detallados de cada subconjunto; réplica escala 1:1 en Pekín y Taichung.'
 license: Dominio Público (CC0 1.0)
-description: Monumental torre de relojería astronómica impulsada por una rueda hidráulica
-  provista de un mecanismo de escape por peso (clepsidra de palanca). Sincronizaba
-  una esfera armilar de observación continua, un globo celeste móvil y múltiples autómatas
-  mecánicos con campanas y gong que marcaban las horas solares.
+description: Monumental torre de relojería astronómica impulsada por una rueda hidráulica provista de un mecanismo de escape por peso (clepsidra de palanca). Sincronizaba una esfera armilar de observación continua, un globo celeste móvil y múltiples autómatas mecánicos con campanas y gong que marcaban las horas solares.
 related_machines: []
 period: Edad Media (Dinastía Song)
 region: China
 would_it_actually_work: Sí, operó con éxito histórico en Kaifeng entre 1092 y 1127.
 display_year: '1092'
+visual_type: Grabado técnico histórico
+visual_caption: Xilografía original del tratado Xin Yi Xiang Fa Yao de Su Song (1092), que ilustra la torre del reloj astronómico y su mecanismo de escape hidráulico.

@@ -11,13 +11,12 @@ physical_domain: Mecánica analítica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto (0,85): despiece de levas y cabeza de mazo para tratamiento de paños.'
 license: Dominio Público (CC0 1.0)
-description: Batán hidráulico accionado por árbol de levas para el acabado y desengrase
-  de tejidos de lana o la trituración de minerales. Los mazos basculantes golpean
-  rítmicamente el paño en cubas con tierra de batán o agua jabonosa para compactar
-  y afieltrar las fibras del tejido.
+description: Batán hidráulico accionado por árbol de levas para el acabado y desengrase de tejidos de lana o la trituración de minerales. Los mazos basculantes golpean rítmicamente el paño en cubas con tierra de batán o agua jabonosa para compactar y afieltrar las fibras del tejido.
 related_machines:
 - zonca_paper_mill
 period: Renacimiento tardío
 region: Italia (Véneto)
 would_it_actually_work: Sí, instalación textil estándar de la Europa moderna temprana.
 display_year: '1607'
+visual_type: Fotografía de maquinaria histórica
+visual_caption: Fotografía de rueda hidráulica motriz de cajones y engranaje de hierro fundido preservados en molino de batanado histórico.

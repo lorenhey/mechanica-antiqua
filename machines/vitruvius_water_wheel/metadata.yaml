@@ -9,16 +9,13 @@ source_pages: Libro X, Capítulo 5
 machine_type: Rueda hidráulica
 physical_domain: Hidráulica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto (0,95): descripción canónica vitruviana del engranaje en ángulo
-  recto y muela molinera.'
+confidence: 'Alto (0,95): descripción canónica vitruviana del engranaje en ángulo recto y muela molinera.'
 license: Dominio Público (CC0 1.0)
-description: Rueda hidráulica impulsada por la energía cinética del flujo inferior
-  de agua contra sus paletas sumergidas. Acoplada a través de un par de engranajes
-  en ángulo recto a muelas de piedra de grano, constituyó la base del molino hidráulico
-  romano para molienda a gran escala.
+description: Rueda hidráulica impulsada por la energía cinética del flujo inferior de agua contra sus paletas sumergidas. Acoplada a través de un par de engranajes en ángulo recto a muelas de piedra de grano, constituyó la base del molino hidráulico romano para molienda a gran escala.
 related_machines: []
 period: Antigüedad clásica
 region: Imperio Romano
-would_it_actually_work: Sí, base de los grandes complejos molineros imperiales romanos
-  como Barbegal.
+would_it_actually_work: Sí, base de los grandes complejos molineros imperiales romanos como Barbegal.
 display_year: 20 a.C.
+visual_type: Fotografía de estructura real
+visual_caption: Fotografía de rueda hidráulica vitruviana de madera con paletas rectas en canal fluvial histórico en funcionamiento operativo.

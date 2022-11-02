@@ -9,17 +9,14 @@ source_pages: Modelo 100
 machine_type: Autómata musical
 physical_domain: Neumática y Cinemática
 reconstruction_status: Nivel C (Paramétrica fuerte / principios físicos comprobados)
-confidence: 'Medio: concepto revolucionario de tambor de levas programable; dimensiones
-  acústicas exactas hipotéticas.'
+confidence: 'Medio: concepto revolucionario de tambor de levas programable; dimensiones acústicas exactas hipotéticas.'
 license: Dominio Público (CC0 1.0)
-description: Considerado uno de los primeros dispositivos con programa mecánico almacenable
-  de la historia. Un cilindro rotativo provisto de clavijas o levas accionado por
-  una rueda hidráulica modula las palancas de las llaves de una flauta, mientras dos
-  cámaras de flotador presurizan aire de manera continua hacia la embocadura.
+description: Considerado uno de los primeros dispositivos con programa mecánico almacenable de la historia. Un cilindro rotativo provisto de clavijas o levas accionado por una rueda hidráulica modula las palancas de las llaves de una flauta, mientras dos cámaras de flotador presurizan aire de manera continua hacia la embocadura.
 related_machines:
 - Hero's Automata
 period: Edad de Oro Islámica
 region: Califato Abásida (Bagdad)
-would_it_actually_work: Probablemente, los principios de cilindro de clavijas y compresión
-  de aire son plenamente viables.
+would_it_actually_work: Probablemente, los principios de cilindro de clavijas y compresión de aire son plenamente viables.
 display_year: '850'
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional del autómata flautista programable accionado por rueda hidráulica y cilindro de levas con clavijas.

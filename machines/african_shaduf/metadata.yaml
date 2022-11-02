@@ -11,12 +11,11 @@ physical_domain: Estática y Cinemática (Palanca de primer género)
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto: representado profusamente en iconografía y con pervivencia etnográfica.'
 license: Dominio Público (CC0 1.0)
-description: Mecanismo de palanca de primer género con contrapeso de arcilla o piedra
-  en un extremo y un cubo en el otro, pivotante sobre un soporte vertical. Permite
-  al operario elevar agua de ríos y canales con un mínimo esfuerzo físico mediante
-  el equilibrio de momentos estáticos.
+description: Mecanismo de palanca de primer género con contrapeso de arcilla o piedra en un extremo y un cubo en el otro, pivotante sobre un soporte vertical. Permite al operario elevar agua de ríos y canales con un mínimo esfuerzo físico mediante el equilibrio de momentos estáticos.
 related_machines: []
 period: Antigüedad
 region: África del Norte (Egipto / Nubia)
 would_it_actually_work: Sí, máquina elemental operada durante milenios.
 display_year: 2000 a.C.
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional de un shaduf ribereño egipcio con contrapeso de arcilla y pértiga basculante para elevación de agua.

@@ -9,17 +9,14 @@ source_pages: Categoría V, Capítulo 5
 machine_type: Bomba alternativa
 physical_domain: Hidráulica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: descripción detallada del cigüeñal y mecanismo de biela ranurada
-  con válvulas de clapeta.'
+confidence: 'Alto: descripción detallada del cigüeñal y mecanismo de biela ranurada con válvulas de clapeta.'
 license: Dominio Público (CC0 1.0)
-description: Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo
-  de ranura para convertir movimiento rotatorio en alternativo. Una rueda de paletas
-  mueve una rueda dentada con espiga que empuja y tira de dos pistones opuestos en
-  cilindros de cobre con válvulas de retención, elevando agua a presión.
+description: Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo de ranura para convertir movimiento rotatorio en alternativo. Una rueda de paletas mueve una rueda dentada con espiga que empuja y tira de dos pistones opuestos en cilindros de cobre con válvulas de retención, elevando agua a presión.
 related_machines:
 - Agricola Suction Pump
 period: Edad de Oro Islámica
 region: Mesopotamia
-would_it_actually_work: Sí, considerada un hito fundacional en la historia de las
-  máquinas volumétricas.
+would_it_actually_work: Sí, considerada un hito fundacional en la historia de las máquinas volumétricas.
 display_year: '1206'
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional de la bomba bicilíndrica de pistones opuestos con conversión de movimiento rotativo a lineal mediante biela-manivela.

@@ -9,17 +9,14 @@ source_pages: Tabulae machinarum hydraulicarum
 machine_type: Máquina de vapor de alta presión
 physical_domain: Termodinámica e Hidráulica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto: planos grabados en cobre con despiece completo de la válvula de
-  cuatro vías.'
+confidence: 'Alto: planos grabados en cobre con despiece completo de la válvula de cuatro vías.'
 license: Dominio Público (CC0 1.0)
-description: Primer diseño documentado de una máquina de vapor de pistón de alta presión
-  (no condensante). Utiliza una válvula rotativa de cuatro vías acoplada a dos cilindros
-  verticales de simple efecto que empujan directamente vástagos para accionar bombas
-  de pistón en pozos mineros.
+description: Primer diseño documentado de una máquina de vapor de pistón de alta presión (no condensante). Utiliza una válvula rotativa de cuatro vías acoplada a dos cilindros verticales de simple efecto que empujan directamente vástagos para accionar bombas de pistón en pozos mineros.
 related_machines:
 - newcomen_engine
 period: Siglo XVIII (Ilustración técnica)
 region: Alemania (Sajonia)
-would_it_actually_work: Probablemente, requería una caldera resistente a presión superior
-  a la metalurgia común de la época.
+would_it_actually_work: Probablemente, requería una caldera resistente a presión superior a la metalurgia común de la época.
 display_year: '1724'
+visual_type: Grabado técnico histórico
+visual_caption: Lámina calcográfica en cobre original de Jacob Leupold en Theatrum Machinarum Generale (Leipzig, 1724), que describe la máquina de vapor de alta presión con válvula de cuatro vías.

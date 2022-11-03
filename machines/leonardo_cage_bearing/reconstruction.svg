@@ -1,87 +1,192 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Patrón de grilla técnica -->
+    <pattern id="grid-leonardo" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid-leonardo-major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-leonardo)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#cbd5e1" stroke-width="1.2"/>
+    </pattern>
+    <pattern id="ground-hatch-lb" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="1.2"/>
+    </pattern>
+    <marker id="dim-arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 2 L 0 5 L 10 8 z" fill="#334155"/>
+    </marker>
+    <marker id="dim-arrow-end" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 z" fill="#334155"/>
+    </marker>
+
     <style>
-      .lb-bg { fill: #fcf9f2; }
-      .lb-steel { fill: #94a3b8; stroke: #334155; stroke-width: 3; }
-      .lb-cage { fill: #c59b27; stroke: #78350f; stroke-width: 2.5; }
-      .lb-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .lb-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
-      @keyframes anim-bearing-turn {
+      .lb-bg { fill: #fcfbf9; }
+      .lb-steel { fill: #94a3b8; stroke: #1e293b; stroke-width: 2.2; }
+      .lb-inner { fill: #cbd5e1; stroke: #0f172a; stroke-width: 2.5; }
+      .lb-cage { fill: #d97706; stroke: #78350f; stroke-width: 2; fill-opacity: 0.85; }
+      .lb-ball { fill: #f8fafc; stroke: #0f172a; stroke-width: 2.2; }
+      .lb-centerline { stroke: #dc2626; stroke-width: 1.2; stroke-dasharray: 14 3 3 3; }
+      .lb-pitchcircle { stroke: #2563eb; stroke-width: 1.2; stroke-dasharray: 6 3; fill: none; }
+      .lb-dim-line { stroke: #334155; stroke-width: 1.2; }
+      .lb-dim-text { font-family: 'Consolas', monospace; font-size: 11px; fill: #1e293b; font-weight: bold; }
+      .lb-title { font-family: 'Cinzel', serif; font-size: 19px; font-weight: bold; fill: #1e293b; }
+      .lb-subtitle { font-family: 'Consolas', monospace; font-size: 12px; fill: #475569; }
+      .lb-node-text { font-family: 'Consolas', monospace; font-size: 13px; font-weight: bold; fill: #b91c1c; }
+      .lb-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+
+      @keyframes anim-bearing-cage {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
-      @keyframes anim-ball-self {
+      @keyframes anim-shaft-turn {
         from { transform: rotate(0deg); }
-        to { transform: rotate(-720deg); }
+        to { transform: rotate(720deg); }
       }
-      
+      @keyframes anim-ball-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-1200deg); }
+      }
+
       .cage-orbital {
-        transform-origin: 400px 320px;
-        animation: anim-bearing-turn 6s linear infinite;
+        transform-origin: 400px 300px;
+        animation: anim-bearing-cage 8s linear infinite;
+      }
+      .shaft-rotate {
+        transform-origin: 400px 300px;
+        animation: anim-shaft-turn 8s linear infinite;
+      }
+      .ball-spin {
+        animation: anim-ball-spin 8s linear infinite;
       }
     </style>
   </defs>
 
+  <!-- Fondo cuadriculado técnico -->
   <rect width="800" height="600" class="lb-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="lb-title">Cojinete Axial de Bolas con Jaula (Códice Madrid I, 1493)</text>
-  <text x="400" y="70" text-anchor="middle" class="lb-text">Leonardo da Vinci - Jaula separadora para eliminar la fricción entre elementos rodantes contiguos</text>
+  <rect width="800" height="600" fill="url(#grid-leonardo-major)"/>
 
-  <!-- Pista exterior fija de rodadura -->
-  <circle cx="400" cy="320" r="180" fill="none" stroke="#475569" stroke-width="18"/>
-  <circle cx="400" cy="320" r="189" fill="none" stroke="#1e293b" stroke-width="2"/>
-  <circle cx="400" cy="320" r="171" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <!-- Encabezado técnico -->
+  <text x="400" y="38" text-anchor="middle" class="lb-title">COJINETE AXIAL DE BOLAS CON JAULA SEPARADORA (1493)</text>
+  <text x="400" y="58" text-anchor="middle" class="lb-subtitle">Leonardo da Vinci (Códice Madrid I) | Rodadura pura sin roce mutuo | ω_jaula = 0.5 · ω_eje</text>
 
-  <!-- Pista interior / Eje central -->
-  <circle cx="400" cy="320" r="75" fill="#e2e8f0" stroke="#334155" stroke-width="12"/>
-  <circle cx="400" cy="320" r="28" fill="#334155"/>
+  <!-- LÍNEAS DE CENTRO Y EJES DE SIMETRÍA (ISO) -->
+  <line x1="150" y1="300" x2="650" y2="300" class="lb-centerline"/>
+  <line x1="400" y1="60" x2="400" y2="540" class="lb-centerline"/>
 
-  <!-- CONJUNTO DE JAULA SEPARADORA Y BOLAS ORBITANTES (Animado) -->
-  <g class="cage-orbital">
-    <!-- Jaula separadora circular de bronce (anillo central) -->
-    <circle cx="400" cy="320" r="128" fill="none" stroke="#c59b27" stroke-width="14" stroke-opacity="0.8"/>
+  <!-- CIRCUNFERENCIA PRIMITIVA DE CENTRO DE BOLAS (D_pitch = 255 mm) -->
+  <circle cx="400" cy="300" r="127.5" class="lb-pitchcircle"/>
+
+  <!-- CARCASA EXTERIOR FIJA CON RAYADO A 45° -->
+  <!-- Anillo exterior fijo -->
+  <circle cx="400" cy="300" r="185" fill="none" stroke="#334155" stroke-width="2"/>
+  <circle cx="400" cy="300" r="215" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M 400 85 A 215 215 0 1 0 400 515 A 215 215 0 1 0 400 85 M 400 115 A 185 185 0 1 1 400 485 A 185 185 0 1 1 400 115" 
+        fill="url(#ground-hatch-lb)" fill-rule="evenodd"/>
+
+  <!-- Pista exterior templada de rodadura (D_out = 308 mm, r = 154 px) -->
+  <circle cx="400" cy="300" r="154" fill="none" stroke="#0f172a" stroke-width="3"/>
+
+  <!-- PISTA INTERIOR Y EJE GIRATORIO (Animado / Paramétrico) -->
+  <g class="shaft-rotate" id="inner-shaft">
+    <circle cx="400" cy="300" r="101" class="lb-inner"/>
+    <circle cx="400" cy="300" r="101" fill="none" stroke="#0f172a" stroke-width="3"/>
     
-    <!-- 8 Bolas rodantes de acero alojadas en alvéolos equidistantes a 45° -->
-    <g transform="translate(400, 320)">
-      <!-- Bola 1 (0°) -->
-      <circle cx="128" cy="0" r="28" class="lb-steel"/>
-      <circle cx="128" cy="0" r="8" fill="#fff" opacity="0.6"/>
+    <!-- Eje central con chavetero de transmisión -->
+    <circle cx="400" cy="300" r="35" fill="#475569" stroke="#0f172a" stroke-width="2"/>
+    <rect x="394" y="260" width="12" height="15" fill="#0f172a"/>
+    <circle cx="400" cy="300" r="6" fill="#ffffff"/>
+  </g>
+  <text x="415" y="295" class="lb-node-text">O</text>
 
-      <!-- Bola 2 (45°) -->
-      <circle cx="90.5" cy="90.5" r="28" class="lb-steel"/>
-      <circle cx="90.5" cy="90.5" r="8" fill="#fff" opacity="0.6"/>
+  <!-- CONJUNTO DE JAULA Y BOLAS ORBITANTES (Animado / Paramétrico) -->
+  <g class="cage-orbital" id="cage-assembly">
+    <!-- Anillo circular de la jaula separadora de bronce -->
+    <circle cx="400" cy="300" r="142" fill="none" stroke="#d97706" stroke-width="5"/>
+    <circle cx="400" cy="300" r="113" fill="none" stroke="#d97706" stroke-width="5"/>
 
-      <!-- Bola 3 (90°) -->
-      <circle cx="0" cy="128" r="28" class="lb-steel"/>
-      <circle cx="0" cy="128" r="8" fill="#fff" opacity="0.6"/>
+    <!-- Brazos separadores radiales entre bolas contiguas (8 alveolos) -->
+    <line x1="400" y1="187" x2="400" y2="158" stroke="#78350f" stroke-width="4"/>
+    <line x1="480" y1="220" x2="500" y2="200" stroke="#78350f" stroke-width="4"/>
+    <line x1="513" y1="300" x2="542" y2="300" stroke="#78350f" stroke-width="4"/>
+    <line x1="480" y1="380" x2="500" y2="400" stroke="#78350f" stroke-width="4"/>
+    <line x1="400" y1="413" x2="400" y2="442" stroke="#78350f" stroke-width="4"/>
+    <line x1="320" y1="380" x2="300" y2="400" stroke="#78350f" stroke-width="4"/>
+    <line x1="287" y1="300" x2="258" y2="300" stroke="#78350f" stroke-width="4"/>
+    <line x1="320" y1="220" x2="300" y2="200" stroke="#78350f" stroke-width="4"/>
 
-      <!-- Bola 4 (135°) -->
-      <circle cx="-90.5" cy="90.5" r="28" class="lb-steel"/>
-      <circle cx="-90.5" cy="90.5" r="8" fill="#fff" opacity="0.6"/>
-
-      <!-- Bola 5 (180°) -->
-      <circle cx="-128" cy="0" r="28" class="lb-steel"/>
-      <circle cx="-128" cy="0" r="8" fill="#fff" opacity="0.6"/>
-
-      <!-- Bola 6 (225°) -->
-      <circle cx="-90.5" cy="-90.5" r="28" class="lb-steel"/>
-      <circle cx="-90.5" cy="-90.5" r="8" fill="#fff" opacity="0.6"/>
-
-      <!-- Bola 7 (270°) -->
-      <circle cx="0" cy="-128" r="28" class="lb-steel"/>
-      <circle cx="0" cy="-128" r="8" fill="#fff" opacity="0.6"/>
-
-      <!-- Bola 8 (315°) -->
-      <circle cx="90.5" cy="-90.5" r="28" class="lb-steel"/>
-      <circle cx="90.5" cy="-90.5" r="8" fill="#fff" opacity="0.6"/>
+    <!-- 8 BOLAS DE ACERO DE DIÁMETRO d = 52.5 mm (Radio r = 26.25 px) -->
+    <!-- Bola 1 (0°) -->
+    <g transform="translate(527.5, 300)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#64748b" stroke-width="1.5" class="ball-spin"/>
+    </g>
+    <!-- Bola 2 (45°) -->
+    <g transform="translate(490.1, 390.1)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+    </g>
+    <!-- Bola 3 (90°) -->
+    <g transform="translate(400, 427.5)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+    </g>
+    <!-- Bola 4 (135°) -->
+    <g transform="translate(309.9, 390.1)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+    </g>
+    <!-- Bola 5 (180°) -->
+    <g transform="translate(272.5, 300)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+    </g>
+    <!-- Bola 6 (225°) -->
+    <g transform="translate(309.9, 209.9)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+    </g>
+    <!-- Bola 7 (270°) -->
+    <g transform="translate(400, 172.5)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
+    </g>
+    <!-- Bola 8 (315°) -->
+    <g transform="translate(490.1, 209.9)">
+      <circle cx="0" cy="0" r="26.5" class="lb-ball"/>
+      <circle cx="0" cy="0" r="3.5" fill="#dc2626"/>
     </g>
   </g>
 
-  <!-- Panel tribológico de Leonardo -->
-  <rect x="40" y="100" width="240" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="125" class="lb-text" font-weight="bold">Tribología de Leonardo:</text>
-  <text x="50" y="145" class="lb-text">• Sin jaula: bolas contiguas rozan</text>
-  <text x="50" y="162" class="lb-text">  en sentido opuesto (v_rel = 2v).</text>
-  <text x="50" y="180" class="lb-text">• Con jaula: fricción pura de rodadura.</text>
+  <!-- Puntos de contacto de rodadura pura (P_in, P_out) -->
+  <circle cx="501" cy="300" r="3" fill="#2563eb"/>
+  <circle cx="554" cy="300" r="3" fill="#2563eb"/>
+  <text x="495" y="290" class="lb-dim-text" fill="#2563eb">P_in</text>
+  <text x="560" y="290" class="lb-dim-text" fill="#2563eb">P_out</text>
+
+  <!-- LÍNEAS DE COTA TÉCNICA (ISO) -->
+  <!-- Cota diámetro de bolas (⌀ 53 mm) -->
+  <line x1="527.5" y1="230" x2="527.5" y2="273" class="lb-dim-line" marker-end="url(#dim-arrow-end)"/>
+  <text x="532" y="225" class="lb-dim-text">⌀ d = 53 mm</text>
+
+  <!-- Cota diámetro primitivo D_pitch = 255 mm -->
+  <line x1="272.5" y1="85" x2="527.5" y2="85" class="lb-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="272.5" y1="80" x2="272.5" y2="300" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2"/>
+  <line x1="527.5" y1="80" x2="527.5" y2="300" stroke="#64748b" stroke-width="1" stroke-dasharray="2 2"/>
+  <rect x="345" y="75" width="110" height="18" fill="#fcfbf9"/>
+  <text x="400" y="88" text-anchor="middle" class="lb-dim-text">D_m = 255 mm</text>
+
+  <!-- Cota diámetro exterior carcasa -->
+  <line x1="620" y1="146" x2="620" y2="454" class="lb-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="554" y1="146" x2="630" y2="146" stroke="#64748b" stroke-width="1"/>
+  <line x1="554" y1="454" x2="630" y2="454" stroke="#64748b" stroke-width="1"/>
+  <text x="635" y="304" class="lb-dim-text">⌀ D_ext = 360 mm</text>
+
+  <!-- PANEL DE TEORÍA CINEMÁTICA -->
+  <rect x="35" y="445" width="245" height="110" class="lb-card"/>
+  <text x="47" y="465" class="lb-subtitle" font-weight="bold" fill="#0f172a">CONDICIÓN DE RODADURA PURA:</text>
+  <text x="47" y="483" class="lb-dim-text">Velocidad en P_out: v(P_out) = 0</text>
+  <text x="47" y="500" class="lb-dim-text">Velocidad en P_in: v(P_in) = ω_eje · R_in</text>
+  <text x="47" y="517" class="lb-dim-text">Velocidad de jaula: ω_c = 0.5 · ω_eje</text>
+  <text x="47" y="534" class="lb-dim-text">Fricción por deslizamiento: μ_s → 0</text>
+  <text x="47" y="549" class="lb-dim-text">Z = 8 bolas esféricas independientes</text>
 </svg>

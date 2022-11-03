@@ -56,104 +56,257 @@
         
 
         
-        <h2>Reconstrucción Cinemática / Matemática</h2>
-        <div class="svg-container">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <h2>Reconstrucción Cinemática Analítica</h2>
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="archimedes_screw">
+            <div id="machine-svg-wrapper" class="svg-container">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Patrón de grilla técnica -->
+    <pattern id="grid-screw" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid-screw-major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-screw)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#cbd5e1" stroke-width="1.2"/>
+    </pattern>
+    <pattern id="ground-hatch-as" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="1.2"/>
+    </pattern>
+    <marker id="dim-arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 2 L 0 5 L 10 8 z" fill="#334155"/>
+    </marker>
+    <marker id="dim-arrow-end" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 z" fill="#334155"/>
+    </marker>
+
     <style>
-      .as-bg { fill: #fcf9f2; }
-      .as-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
-      .as-water { fill: #4a90e2; fill-opacity: 0.7; }
-      .as-casing { fill: #fff; fill-opacity: 0.25; stroke: #5c3a1e; stroke-width: 4; }
-      .as-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .as-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
-      @keyframes anim-helix-turn {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(-56px); }
-      }
-      @keyframes anim-water-packets {
+      .as-bg { fill: #fcfbf9; }
+      .as-wood { fill: #854d0e; stroke: #451a03; stroke-width: 2.2; }
+      .as-casing { fill: #ffffff; fill-opacity: 0.25; stroke: #451a03; stroke-width: 3; }
+      .as-water { fill: #38bdf8; fill-opacity: 0.75; }
+      .as-centerline { stroke: #dc2626; stroke-width: 1.2; stroke-dasharray: 14 3 3 3; }
+      .as-dim-line { stroke: #334155; stroke-width: 1.2; }
+      .as-dim-text { font-family: 'Consolas', monospace; font-size: 11px; fill: #1e293b; font-weight: bold; }
+      .as-title { font-family: 'Cinzel', serif; font-size: 19px; font-weight: bold; fill: #1e293b; }
+      .as-subtitle { font-family: 'Consolas', monospace; font-size: 12px; fill: #475569; }
+      .as-node-text { font-family: 'Consolas', monospace; font-size: 13px; font-weight: bold; fill: #b91c1c; }
+      .as-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+
+      @keyframes anim-helix-axial {
         0% { transform: translate(0, 0); }
-        100% { transform: translate(45px, -34px); }
+        100% { transform: translate(40px, -30px); }
       }
-      @keyframes anim-flow-stream {
-        0% { stroke-dashoffset: 0; }
-        100% { stroke-dashoffset: -20; }
+      @keyframes anim-water-packet {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(40px, -30px); }
       }
-      
-      .helix-move {
-        animation: anim-water-packets 1.6s linear infinite;
+
+      .helix-stream {
+        animation: anim-helix-axial 1.8s linear infinite;
       }
-      .water-flow {
-        stroke-dasharray: 6 4;
-        animation: anim-flow-stream 0.8s linear infinite;
+      .water-packet {
+        animation: anim-water-packet 1.8s linear infinite;
       }
     </style>
   </defs>
 
+  <!-- Fondo técnico cuadriculado -->
   <rect width="800" height="600" class="as-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="as-title">Tornillo de Arquímedes (Cochlea Vitruviana)</text>
-  <text x="400" y="70" text-anchor="middle" class="as-text">Vitruvio, De Architectura (Libro X) - Pendiente pitagórica 3:4:5 (~37°)</text>
+  <rect width="800" height="600" fill="url(#grid-screw-major)"/>
 
-  <!-- Estanque de agua inferior -->
-  <rect x="40" y="460" width="320" height="120" class="as-water"/>
-  <text x="140" y="530" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Estanque Inferior</text>
+  <!-- Encabezado técnico -->
+  <text x="400" y="38" text-anchor="middle" class="as-title">TORNILLO DE ARQUÍMEDES (COCHLEA VITRUVIANA, s. I a.C.)</text>
+  <text x="400" y="58" text-anchor="middle" class="as-subtitle">Vitruvio (De Architectura, X) | Pendiente pitagórica 3:4:5 (β = 36.87°) | Hélice helicoidal continua</text>
 
-  <!-- Canal receptor superior -->
-  <rect x="560" y="160" width="200" height="30" class="as-wood"/>
-  <rect x="560" y="150" width="200" height="20" class="as-water"/>
-  <path d="M 660 170 L 760 170" fill="none" stroke="#2563eb" stroke-width="4" class="water-flow"/>
-  <text x="660" y="140" text-anchor="middle" class="as-text" font-weight="bold">Canal Superior de Riego</text>
+  <!-- ESTANQUE INFERIOR DE AGUA -->
+  <rect x="40" y="470" width="280" height="110" class="as-water"/>
+  <line x1="40" y1="470" x2="320" y2="470" stroke="#0284c7" stroke-width="2"/>
+  <rect x="30" y="580" width="740" height="20" fill="url(#ground-hatch-as)" stroke="#334155" stroke-width="1.5"/>
 
-  <!-- ESTRUCTURA INCLINADA A 37 GRADOS -->
-  <!-- Grupo rotado a ~37° alrededor del pivote inferior -->
-  <g transform="translate(180, 500) rotate(-37)">
-    <!-- Cilindro exterior transparente (Carcasa de tablillas de madera con pez) -->
-    <rect x="0" y="-55" width="540" height="110" class="as-casing" rx="10"/>
+  <!-- CANAL SUPERIOR DE DESCARGA -->
+  <polygon points="560,210 690,210 690,230 560,230" class="as-wood"/>
+  <path d="M 690 220 Q 720 230 730 280" fill="none" stroke="#38bdf8" stroke-width="6" stroke-dasharray="4 2"/>
+  <text x="640" y="202" class="as-dim-text" text-anchor="middle">Canal de entrega</text>
+
+  <!-- SOPORTES Y COJINETES DE EXTREMO O1 (Inferior) y O2 (Superior) -->
+  <!-- Apoyo inferior sumergido -->
+  <polygon points="80,560 130,560 115,510 95,510" fill="#334155" stroke="#0f172a" stroke-width="1.5"/>
+  <circle cx="105" cy="510" r="10" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+  <text x="85" y="515" class="as-node-text">O₁</text>
+
+  <!-- Apoyo superior sobre caballete de madera -->
+  <polygon points="530,300 580,300 565,220 545,220" fill="#854d0e" stroke="#451a03" stroke-width="1.8"/>
+  <circle cx="555" cy="220" r="10" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+  <text x="575" y="215" class="as-node-text">O₂</text>
+
+  <!-- LÍNEA DE EJE LONGITUDINAL (Inclinación 3:4:5 a 36.87°) -->
+  <line x1="60" y1="543.75" x2="620" y2="123.75" class="as-centerline"/>
+
+  <!-- CONJUNTO ROTATIVO DEL TORNILLO (Encapsulado en tubo cilíndrico) -->
+  <!-- Grupo orientado a 36.87° (rotación de -36.87° centrada en O1 = (105, 510)) -->
+  <g transform="translate(105, 510) rotate(-36.87)">
     
-    <!-- Eje central de madera -->
-    <rect x="-30" y="-12" width="600" height="24" class="as-wood"/>
-    
-    <!-- Espiras helicoidales móviles (simuladas por desplazamiento continuo sincronizado) -->
-    <g class="helix-move">
-      <!-- Espiras de hélice (filetes de tablillas) -->
-      <path d="M 30 -50 Q 55 0 80 50 Q 105 0 130 -50" fill="none" stroke="#5c3a1e" stroke-width="8"/>
-      <path d="M 120 -50 Q 145 0 170 50 Q 195 0 220 -50" fill="none" stroke="#5c3a1e" stroke-width="8"/>
-      <path d="M 210 -50 Q 235 0 260 50 Q 285 0 310 -50" fill="none" stroke="#5c3a1e" stroke-width="8"/>
-      <path d="M 300 -50 Q 325 0 350 50 Q 375 0 400 -50" fill="none" stroke="#5c3a1e" stroke-width="8"/>
-      <path d="M 390 -50 Q 415 0 440 50 Q 465 0 490 -50" fill="none" stroke="#5c3a1e" stroke-width="8"/>
-      <path d="M 480 -50 Q 505 0 530 50 Q 555 0 580 -50" fill="none" stroke="#5c3a1e" stroke-width="8"/>
+    <!-- Eje central macizo de madera (Árbol central) -->
+    <rect x="0" y="-18" width="562" height="36" fill="#854d0e" stroke="#451a03" stroke-width="2"/>
+
+    <!-- Hélice helicoidal y paquetes de agua (Animados en dirección axial) -->
+    <g class="helix-stream">
+      <!-- Aspas de la hélice continua en corte axial -->
+      <path d="M 40 -60 L 60 60 M 100 -60 L 120 60 M 160 -60 L 180 60 M 220 -60 L 240 60 
+               M 280 -60 L 300 60 M 340 -60 L 360 60 M 400 -60 L 420 60 M 460 -60 L 480 60 
+               M 520 -60 L 540 60" 
+            stroke="#b45309" stroke-width="7" stroke-linecap="round"/>
       
-      <!-- Paquetes de agua atrapados en la concavidad inferior de cada espira -->
-      <ellipse cx="70" cy="28" rx="24" ry="12" class="as-water"/>
-      <ellipse cx="160" cy="28" rx="24" ry="12" class="as-water"/>
-      <ellipse cx="250" cy="28" rx="24" ry="12" class="as-water"/>
-      <ellipse cx="340" cy="28" rx="24" ry="12" class="as-water"/>
-      <ellipse cx="430" cy="28" rx="24" ry="12" class="as-water"/>
-      <ellipse cx="520" cy="28" rx="24" ry="12" class="as-water"/>
+      <!-- Bolsas aisladas de agua atrapadas por la gravedad en el fondo de cada hélice -->
+      <ellipse cx="75" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="135" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="195" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="255" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="315" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="375" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="435" cy="30" rx="20" ry="12" class="as-water"/>
+      <ellipse cx="495" cy="30" rx="20" ry="12" class="as-water"/>
     </g>
 
-    <!-- Manivela o rueda de pisar en el extremo superior -->
-    <circle cx="560" cy="0" r="30" class="as-wood"/>
-    <rect x="555" y="-60" width="10" height="120" fill="#333"/>
+    <!-- Camisa exterior cilíndrica de duelas embreadas (translúcida para ver el interior) -->
+    <rect x="40" y="-60" width="480" height="120" class="as-casing"/>
+    
+    <!-- Flejes metálicos de refuerzo circunferencial -->
+    <line x1="80" y1="-62" x2="80" y2="62" stroke="#0f172a" stroke-width="3"/>
+    <line x1="160" y1="-62" x2="160" y2="62" stroke="#0f172a" stroke-width="3"/>
+    <line x1="240" y1="-62" x2="240" y2="62" stroke="#0f172a" stroke-width="3"/>
+    <line x1="320" y1="-62" x2="320" y2="62" stroke="#0f172a" stroke-width="3"/>
+    <line x1="400" y1="-62" x2="400" y2="62" stroke="#0f172a" stroke-width="3"/>
+    <line x1="480" y1="-62" x2="480" y2="62" stroke="#0f172a" stroke-width="3"/>
+
+    <!-- Manivela superior de accionamiento -->
+    <line x1="562" y1="0" x2="600" y2="0" stroke="#0f172a" stroke-width="5"/>
+    <circle cx="600" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+    <line x1="600" y1="0" x2="600" y2="-45" stroke="#0f172a" stroke-width="4"/>
+    <circle cx="600" cy="-45" r="7" fill="#854d0e"/>
   </g>
 
-  <!-- Pivotes de apoyo -->
-  <polygon points="170,490 190,490 200,540 160,540" fill="#444"/>
-  <polygon points="600,180 620,180 630,240 590,240" fill="#444"/>
+  <!-- TRIÁNGULO PITAGÓRICO VITRUVIANO 3 : 4 : 5 -->
+  <polygon points="340,490 500,490 500,370" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-dasharray="4 2"/>
+  <rect x="485" y="475" width="15" height="15" fill="none" stroke="#2563eb" stroke-width="1.2"/>
+  <text x="420" y="508" class="as-dim-text" fill="#2563eb" text-anchor="middle">Base = 4</text>
+  <text x="515" y="435" class="as-dim-text" fill="#2563eb">Altura = 3</text>
+  <text x="400" y="415" class="as-dim-text" fill="#2563eb" transform="rotate(-36.87, 400, 415)">Hipotenusa = 5</text>
+  <text x="365" y="482" class="as-dim-text" fill="#2563eb">β = 36.9°</text>
 
-  <!-- Panel geométrico según Vitruvio -->
-  <rect x="40" y="270" width="280" height="100" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="295" class="as-text" font-weight="bold">Regla Proporcional Vitruviana:</text>
-  <text x="50" y="315" class="as-text">• Longitud L dividida en 8 partes</text>
-  <text x="50" y="335" class="as-text">• Paso de hélice = Diámetro exterior</text>
-  <text x="50" y="355" class="as-text">• Triángulo 3-4-5: Inclinación θ ≈ 36,87°</text>
+  <!-- LÍNEAS DE COTA TÉCNICA (ISO) -->
+  <!-- Cota diámetro exterior del tambor (⌀ 600 mm) -->
+  <line x1="140" y1="360" x2="212" y2="456" class="as-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <text x="160" y="420" class="as-dim-text">⌀ D = 600 mm</text>
+
+  <!-- Cota longitud del cilindro (L = 3000 mm) -->
+  <line x1="80" y1="410" x2="464" y2="122" class="as-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <rect x="235" y="255" width="105" height="18" fill="#fcfbf9"/>
+  <text x="287" y="268" text-anchor="middle" class="as-dim-text">L = 3000 mm</text>
+
+  <!-- PANEL DE TEORÍA HIDRODINÁMICA -->
+  <rect x="35" y="85" width="245" height="110" class="as-card"/>
+  <text x="47" y="105" class="as-subtitle" font-weight="bold" fill="#0f172a">CONDICIÓN DE ELEVACIÓN:</text>
+  <text x="47" y="123" class="as-dim-text">Ángulo de hélice: α &gt; β (inclinación)</text>
+  <text x="47" y="140" class="as-dim-text">Pendiente óptima: tan β = 3/4 = 0.75</text>
+  <text x="47" y="157" class="as-dim-text">Caudal teórico: Q = n · V_bolsa · ω/2π</text>
+  <text x="47" y="174" class="as-dim-text">Régimen: 30 a 45 rpm (hombre / molino)</text>
+  <text x="47" y="189" class="as-dim-text">Eficiencia volumétrica: η_v ≈ 0.65</text>
 </svg>
-
+            </div>
         </div>
-        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+
+        <div class="theory-card">
+            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
+            <p><strong>Mecanismo identificado:</strong> Tornillo Hidráulico Helicoidal (Cochlea)</p>
+            <p><strong>Topología estructural:</strong> Par helicoidal volumétrico continuo con retención gravitacional por inclinación</p>
+            
+            <table class="theory-table">
+                <tr>
+                    <th>Análisis Estructural</th>
+                    <th>Formulación y Valor</th>
+                </tr>
+                <tr>
+                    <td><strong>Eslabones constitutivos (n)</strong></td>
+                    <td>Cuerpo helicoidal de madera calafateada con eje central y apoyos de bronce en los extremos</td>
+                </tr>
+                <tr>
+                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                    <td>Pares R en extremos superior e inferior</td>
+                </tr>
+                <tr>
+                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
+                    <td><span class="formula-badge">F = 1 (accionamiento manual con peldaños de pisada / molino humano)</span> (Mecanismo desmodrómico determinado)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecuación de cierre de lazo</strong></td>
+                    <td><code>z_bolsa(t) = (p / 2π) · ω · t · sin(β)</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Leyes cinemáticas analíticas</strong></td>
+                    <td>
+                        Posición: <code>Desplazamiento axial de la bolsa: z(t) = v_axial · t</code><br>
+                        Velocidad: <code>Q_volumetrico = η_llenado · V_espira · (ω / 2π)</code><br>
+                        Aceleración: <code>Flujo continuo libre de aceleraciones alternativas</code>
+                    </td>
+                </tr>
+            </table>
+
+            
+            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
+            <table class="theory-table">
+                <tr>
+                    <th>Parámetro Físico</th>
+                    <th>Magnitud / Valor</th>
+                </tr>
+                
+                <tr>
+                    <td><code>outer_diameter_mm</code></td>
+                    <td><strong>400</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>core_diameter_mm</code></td>
+                    <td><strong>160</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>pitch_mm</code></td>
+                    <td><strong>400</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>inclination_deg</code></td>
+                    <td><strong>37.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>length_mm</code></td>
+                    <td><strong>3000</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>rpm_nominal</code></td>
+                    <td><strong>40</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>flow_rate_m3h</code></td>
+                    <td><strong>18.5</strong></td>
+                </tr>
+                
+            </table>
+            
+
+            
+            <div class="quote-block">
+                <strong>Nota del reconstructor:</strong> Vitruvio en De Architectura establece la regla del triángulo pitagórico 3-4-5 para la inclinación óptima (37°) que maximiza el volumen de la cavidad helicoidal antes del rebose.
+            </div>
+            
+        </div>
         
     </main>
+
+    <script src="../kinematics.js"></script>
 </body>
 </html>

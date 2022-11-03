@@ -56,9 +56,10 @@
         
 
         
-        <h2>Reconstrucción Cinemática / Matemática</h2>
-        <div class="svg-container">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <h2>Reconstrucción Cinemática Analítica</h2>
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+            <div id="machine-svg-wrapper" class="svg-container">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .ae-bg { fill: #fcf9f2; }
@@ -155,9 +156,75 @@
   <text x="50" y="192" class="ae-text">• Par de torsión: τ = 2 · F · R_esfera</text>
 </svg>
 
+            </div>
         </div>
-        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+
+        <div class="theory-card">
+            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
+            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
+            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            
+            <table class="theory-table">
+                <tr>
+                    <th>Análisis Estructural</th>
+                    <th>Formulación y Valor</th>
+                </tr>
+                <tr>
+                    <td><strong>Eslabones constitutivos (n)</strong></td>
+                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                </tr>
+                <tr>
+                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                </tr>
+                <tr>
+                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
+                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecuación de cierre de lazo</strong></td>
+                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Leyes cinemáticas analíticas</strong></td>
+                    <td>
+                        Posición: <code>θ(t) = ω · t</code><br>
+                        Velocidad: <code>ω_out = i · ω_in</code><br>
+                        Aceleración: <code>α_out = i · α_in</code>
+                    </td>
+                </tr>
+            </table>
+
+            
+            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
+            <table class="theory-table">
+                <tr>
+                    <th>Parámetro Físico</th>
+                    <th>Magnitud / Valor</th>
+                </tr>
+                
+                <tr>
+                    <td><code>rpm_nominal</code></td>
+                    <td><strong>30</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>efficiency</code></td>
+                    <td><strong>0.75</strong></td>
+                </tr>
+                
+            </table>
+            
+
+            
+            <div class="quote-block">
+                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+            </div>
+            
+        </div>
         
     </main>
+
+    <script src="../kinematics.js"></script>
 </body>
 </html>

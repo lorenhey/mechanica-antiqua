@@ -65,7 +65,7 @@
             this.canvas.style.aspectRatio = `${this.logicalW} / ${this.logicalH}`;
             this.canvas.style.display = 'block';
             this.canvas.style.margin = '0 auto';
-            this.canvas.style.borderRadius = '4px';
+            this.canvas.style.borderRadius = '0px';
 
             const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
             this.canvas.width = Math.round(this.logicalW * dpr);
@@ -111,20 +111,20 @@
             controlsCard.className = 'kinematic-controls-card';
             controlsCard.innerHTML = `
                 <div class="kc-toolbar">
-                    <button id="kc-play-pause" class="kc-btn kc-btn-primary">⏸ Pausar</button>
-                    <button id="kc-step-prev" class="kc-btn">◀ -15°</button>
-                    <button id="kc-step-next" class="kc-btn">+15° ▶</button>
+                    <button id="kc-play-pause" class="kc-btn kc-btn-primary">Pausar</button>
+                    <button id="kc-step-prev" class="kc-btn">-15°</button>
+                    <button id="kc-step-next" class="kc-btn">+15°</button>
                     <button id="kc-pos-pms" class="kc-btn kc-btn-secondary">${labels.pms}</button>
                     <button id="kc-pos-pmi" class="kc-btn kc-btn-secondary">${labels.pmi}</button>
                     
                     <div class="kc-speed-group">
-                        <span class="kc-label">Velocidad:</span>
+                        <span class="kc-label">Vel:</span>
                         <button class="kc-btn-speed" data-speed="0.5">0.5×</button>
                         <button class="kc-btn-speed active" data-speed="1.0">1×</button>
                         <button class="kc-btn-speed" data-speed="2.0">2×</button>
                     </div>
 
-                    <button id="kc-toggle-view" class="kc-btn kc-btn-toggle">Modo: Ensamblaje CAD</button>
+                    <button id="kc-toggle-view" class="kc-btn kc-btn-toggle">Vista: Ensamblaje</button>
                 </div>
 
                 <div class="kc-scrub-row">
@@ -171,41 +171,41 @@
 
             this.btnPlayPause.addEventListener('click', () => {
                 this.isPlaying = !this.isPlaying;
-                this.btnPlayPause.textContent = this.isPlaying ? '⏸ Pausar' : '▶ Reproducir';
+                this.btnPlayPause.textContent = this.isPlaying ? 'Pausar' : 'Reproducir';
                 this.btnPlayPause.classList.toggle('kc-btn-primary', this.isPlaying);
             });
 
             this.sliderAngle.addEventListener('input', (e) => {
                 this.isPlaying = false;
-                this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.textContent = 'Reproducir';
                 this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.setAngle(parseFloat(e.target.value) * (Math.PI / 180));
             });
 
             controlsCard.querySelector('#kc-step-prev').addEventListener('click', () => {
                 this.isPlaying = false;
-                this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.textContent = 'Reproducir';
                 this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.stepAngle(-15 * (Math.PI / 180));
             });
 
             controlsCard.querySelector('#kc-step-next').addEventListener('click', () => {
                 this.isPlaying = false;
-                this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.textContent = 'Reproducir';
                 this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.stepAngle(15 * (Math.PI / 180));
             });
 
             controlsCard.querySelector('#kc-pos-pms').addEventListener('click', () => {
                 this.isPlaying = false;
-                this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.textContent = 'Reproducir';
                 this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.setAngle(0);
             });
 
             controlsCard.querySelector('#kc-pos-pmi').addEventListener('click', () => {
                 this.isPlaying = false;
-                this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.textContent = 'Reproducir';
                 this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.setAngle(Math.PI);
             });
@@ -221,8 +221,8 @@
             this.btnToggleView.addEventListener('click', () => {
                 this.viewMode = this.viewMode === 'assembly' ? 'schematic' : 'assembly';
                 this.btnToggleView.textContent = this.viewMode === 'assembly'
-                    ? 'Modo: Ensamblaje CAD'
-                    : 'Modo: Esquema y Vectores';
+                    ? 'Vista: Ensamblaje'
+                    : 'Vista: Esquema y Vectores';
                 this.update();
             });
         }
@@ -232,30 +232,30 @@
             plotWrapper.className = 'kinematic-plot-card';
             plotWrapper.innerHTML = `
                 <div class="kc-plot-header">
-                    <h4>Curvas Analíticas del Ciclo Completo (0° a 360°)</h4>
+                    <h4>Curvas del ciclo (0° – 360°)</h4>
                     <div class="kc-plot-legend">
-                        <span class="legend-item"><span class="legend-dot dot-disp"></span> s(θ) Posición / Nivel</span>
-                        <span class="legend-item"><span class="legend-dot dot-vel"></span> v(θ) Velocidad / Tasa</span>
+                        <span class="legend-item"><span class="legend-dot dot-disp"></span> s(θ) Posición</span>
+                        <span class="legend-item"><span class="legend-dot dot-vel"></span> v(θ) Velocidad</span>
                         <span class="legend-item"><span class="legend-dot dot-acc"></span> a(θ) Aceleración</span>
                     </div>
                 </div>
                 <div class="kc-plot-svg-box">
                     <svg id="kc-cycle-plot" viewBox="0 0 720 180" preserveAspectRatio="none">
-                        <line x1="60" y1="90" x2="680" y2="90" stroke="#cbd5e1" stroke-width="1.5"/>
-                        <line x1="60" y1="20" x2="60" y2="160" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <line x1="60" y1="90" x2="680" y2="90" stroke="#ccc3b1" stroke-width="1.2"/>
+                        <line x1="60" y1="20" x2="60" y2="160" stroke="#ccc3b1" stroke-width="1.2"/>
                         
-                        <text x="60" y="105" font-size="11" fill="#64748b" text-anchor="middle">0°</text>
-                        <text x="215" y="105" font-size="11" fill="#64748b" text-anchor="middle">90°</text>
-                        <text x="370" y="105" font-size="11" fill="#64748b" text-anchor="middle">180°</text>
-                        <text x="525" y="105" font-size="11" fill="#64748b" text-anchor="middle">270°</text>
-                        <text x="680" y="105" font-size="11" fill="#64748b" text-anchor="middle">360°</text>
+                        <text x="60" y="106" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6e675d" text-anchor="middle">0°</text>
+                        <text x="215" y="106" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6e675d" text-anchor="middle">90°</text>
+                        <text x="370" y="106" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6e675d" text-anchor="middle">180°</text>
+                        <text x="525" y="106" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6e675d" text-anchor="middle">270°</text>
+                        <text x="680" y="106" font-family="IBM Plex Mono, monospace" font-size="11" fill="#6e675d" text-anchor="middle">360°</text>
 
-                        <path id="plot-path-disp" fill="none" stroke="#2563eb" stroke-width="2.5"/>
-                        <path id="plot-path-vel" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4 2"/>
-                        <path id="plot-path-acc" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="2 2"/>
+                        <path id="plot-path-disp" fill="none" stroke="#1d4968" stroke-width="2.2"/>
+                        <path id="plot-path-vel" fill="none" stroke="#2c6e49" stroke-width="1.8" stroke-dasharray="5 3"/>
+                        <path id="plot-path-acc" fill="none" stroke="#962b23" stroke-width="1.8" stroke-dasharray="2 2"/>
 
-                        <line id="kc-plot-cursor" x1="60" y1="15" x2="60" y2="165" stroke="#3d2b1f" stroke-width="2.5" stroke-dasharray="3 3"/>
-                        <circle id="kc-plot-cursor-point" cx="60" cy="90" r="4.5" fill="#3d2b1f"/>
+                        <line id="kc-plot-cursor" x1="60" y1="15" x2="60" y2="165" stroke="#1a1917" stroke-width="2"/>
+                        <circle id="kc-plot-cursor-point" cx="60" cy="90" r="3.5" fill="#962b23"/>
                     </svg>
                 </div>
             `;

@@ -3,599 +3,1772 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanica Antiqua - Corpus de Maquinaria Histórica</title>
+    <title>Mechanica Antiqua — Archivo de Maquinaria Histórica</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Mechanica Antiqua</h1>
-        <p><em>Un corpus computacional en expansión de maquinaria histórica</em></p>
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <h1 class="masthead-title"><a href="index.html">Mechanica Antiqua</a></h1>
+            <p class="masthead-sub">Reconstrucción cinemática, hidráulica y termodinámica de tratados técnicos</p>
+        </div>
         <nav class="site-nav">
-            <a href="index.html" class="active">Catálogo / Catalog</a> · 
-            <a href="about.html">Acerca de / About</a> · 
+            <a href="index.html" class="active">Catálogo</a>
+            <a href="about.html">Nota Metodológica</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
-    
+
     <main>
-        <div class="corpus-stats">
-            <strong>Estado del Corpus:</strong> 42 máquinas reconstruidas analíticamente.<br>
-            <em>Explorando tratados desde la Antigüedad hasta la Revolución Industrial temprana.</em>
-        </div>
+        <section class="corpus-intro">
+            <p>
+                Repertorio crítico de mecanismos documentados desde la Antigüedad hasta los inicios de la Revolución Industrial. Cada entrada somete las láminas originales a cierre geométrico de lazo, balance físico en unidades del Sistema Internacional y simulación paramétrica interactiva.
+            </p>
+            <div class="corpus-summary-ledger">
+                <div class="corpus-summary-row">
+                    <span>Total de láminas</span>
+                    <strong>42</strong>
+                </div>
+                <div class="corpus-summary-row">
+                    <span>Modelos cinemáticos</span>
+                    <strong>42 / 42</strong>
+                </div>
+                <div class="corpus-summary-row">
+                    <span>Autores / Tradiciones</span>
+                    <strong>30</strong>
+                </div>
+                <div class="corpus-summary-row">
+                    <span>Dedicación</span>
+                    <strong>CC0 1.0 (Dominio Público)</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="archive-toolbar" aria-label="Filtros del catálogo">
+            <div class="filter-tabs" role="tablist">
+                <button class="filter-tab active" data-filter="all">Todas (42)</button>
+                
+                <button class="filter-tab" data-filter="hidraulica">Hidráulica y Elevación (11)</button>
+                
+                <button class="filter-tab" data-filter="termica">Bombas, Vapor y Fluidos (12)</button>
+                
+                <button class="filter-tab" data-filter="mecanismos">Mecanismos y Relojería (14)</button>
+                
+                <button class="filter-tab" data-filter="estructuras">Estructuras y Balística (5)</button>
+                
+            </div>
+            <div class="toolbar-right">
+                <input type="search" id="archive-search" class="archive-search" placeholder="Buscar máquina, autor o año…" aria-label="Buscar en el inventario">
+                <div class="view-switch">
+                    <button id="btn-view-ledger" class="view-btn active" type="button">Índice</button>
+                    <button id="btn-view-plates" class="view-btn" type="button">Láminas</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-ledger" class="archive-ledger-wrap">
+            <table class="archive-ledger">
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Época</th>
+                        <th>Máquina y Mecanismo</th>
+                        <th>Autor / Fuente</th>
+                        <th>Categoría</th>
+                        <th>Registro Visual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr class="archive-item"
+                        data-cat="estructuras"
+                        data-search="átlatl (propulsor de dardos) culturas mesoamericanas (aztecas, mayas) hallazgos arqueológicos y códices mesoamericanos 10000 a.c. palanca propulsora (átlatl)">
+                        <td class="col-folio">01</td>
+                        <td class="col-year">10000 a.C.</td>
+                        <td class="col-machine">
+                            <a href="mesoamerican_atlatl/index.html">Átlatl (Propulsor de dardos)</a>
+                            <span class="col-machine-sub">Átlatl — Cadena Biomecánica Articulada y Dardo Elástico</span>
+                        </td>
+                        <td class="col-author">Culturas mesoamericanas (aztecas, mayas)</td>
+                        <td class="col-domain">Estructuras y Balística</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de arqueología experimental
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="shaduf (cigoñal) desconocido (egipto y nubia antiguos) pinturas sepulcrales egipcias (ej. tumba de ipuy) 2000 a.c. elevación de agua">
+                        <td class="col-folio">02</td>
+                        <td class="col-year">2000 a.C.</td>
+                        <td class="col-machine">
+                            <a href="african_shaduf/index.html">Shaduf (Cigoñal)</a>
+                            <span class="col-machine-sub">Cigoñal (Shaduf) — Palanca Contrapesada de Primer Género</span>
+                        </td>
+                        <td class="col-author">Desconocido (Egipto y Nubia antiguos)</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="rueca de hilar india (charkha) desconocido (tradición textil india) tradición artesanal milenaria antigüedad (~500 a.c.) rueca de hilar">
+                        <td class="col-folio">03</td>
+                        <td class="col-year">Antigüedad (~500 a.C.)</td>
+                        <td class="col-machine">
+                            <a href="indian_charkha/index.html">Rueca de hilar india (Charkha)</a>
+                            <span class="col-machine-sub">Rueca de Hilar India (Charkha) de Transmisión Multiplicadora</span>
+                        </td>
+                        <td class="col-author">Desconocido (Tradición textil india)</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de monumento patrimonial
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="clepsidra de flujo constante ctesibio pneumatica (documentado por vitruvio) 250 a.c. reloj de agua">
+                        <td class="col-folio">04</td>
+                        <td class="col-year">250 a.C.</td>
+                        <td class="col-machine">
+                            <a href="ctesibius_clepsydra/index.html">Clepsidra de flujo constante</a>
+                            <span class="col-machine-sub">Clepsidra de Flujo Constante y Regulador Cónico</span>
+                        </td>
+                        <td class="col-author">Ctesibio</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Pieza de museo / Arqueología
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="bomba aspirante-impelente de ctesibio ctesibio pneumatica (documentado por vitruvio) 250 a.c. bomba hidráulica">
+                        <td class="col-folio">05</td>
+                        <td class="col-year">250 a.C.</td>
+                        <td class="col-machine">
+                            <a href="ctesibius_pump/index.html">Bomba aspirante-impelente de Ctesibio</a>
+                            <span class="col-machine-sub">Bomba Aspirante-Impelente de Balancín y Cámara de Aire</span>
+                        </td>
+                        <td class="col-author">Ctesibio</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="lavamanos neumático de nivel constante filón de bizancio pneumatica 220 a.c. dispensador neumático de agua">
+                        <td class="col-folio">06</td>
+                        <td class="col-year">220 a.C.</td>
+                        <td class="col-machine">
+                            <a href="philo_washbasin/index.html">Lavamanos neumático de nivel constante</a>
+                            <span class="col-machine-sub">Lavamanos Neumático Autorregulado de Filón de Bizancio</span>
+                        </td>
+                        <td class="col-author">Filón de Bizancio</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="saqiya (rueda de cangilones) desconocido (tradición nilótica / helenística) evidencia arqueológica y papiros ptolemaicos 200 a.c. elevación de agua">
+                        <td class="col-folio">07</td>
+                        <td class="col-year">200 a.C.</td>
+                        <td class="col-machine">
+                            <a href="african_saqiya/index.html">Saqiya (Rueda de cangilones)</a>
+                            <span class="col-machine-sub">Saqiya (Noria de Cangilones con Engranaje en Ángulo Recto)</span>
+                        </td>
+                        <td class="col-author">Desconocido (Tradición nilótica / helenística)</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="tornillo de arquímedes vitruvio de architectura 20 a.c. bomba helicoidal">
+                        <td class="col-folio">08</td>
+                        <td class="col-year">20 a.C.</td>
+                        <td class="col-machine">
+                            <a href="vitruvius_archimedes_screw/index.html">Tornillo de Arquímedes</a>
+                            <span class="col-machine-sub">Tornillo de Arquímedes (Cochlea Hidráulica Inclinada)</span>
+                        </td>
+                        <td class="col-author">Vitruvio</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Diagrama técnico dimensional
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="rueda hidráulica vitruviana de paletas vitruvio de architectura 20 a.c. rueda hidráulica">
+                        <td class="col-folio">09</td>
+                        <td class="col-year">20 a.C.</td>
+                        <td class="col-machine">
+                            <a href="vitruvius_water_wheel/index.html">Rueda hidráulica vitruviana de paletas</a>
+                            <span class="col-machine-sub">Molino Hidráulico Vitruviano con Engranaje Linterna</span>
+                        </td>
+                        <td class="col-author">Vitruvio</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de estructura real
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="sistema de acueducto romano y sifón invertido vitruvio / ingenieros romanos de architectura (libro viii) 15 a.c. infraestructura hidráulica">
+                        <td class="col-folio">10</td>
+                        <td class="col-year">15 a.C.</td>
+                        <td class="col-machine">
+                            <a href="roman_aqueduct/index.html">Sistema de acueducto romano y sifón invertido</a>
+                            <span class="col-machine-sub">Acueducto Romano con Sifón Invertido Presurizado</span>
+                        </td>
+                        <td class="col-author">Vitruvio / Ingenieros romanos</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de estructura real
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="eolípila herón de alejandría pneumatica 50 d.c. motor térmico de reacción">
+                        <td class="col-folio">11</td>
+                        <td class="col-year">50 d.C.</td>
+                        <td class="col-machine">
+                            <a href="heron_aeolipile/index.html">Eolípila</a>
+                            <span class="col-machine-sub">Eolípila de Herón — Turbina Termodinámica de Reacción Pura</span>
+                        </td>
+                        <td class="col-author">Herón de Alejandría</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="estructuras"
+                        data-search="ballesta de repetición (zhuge nu) desconocido (atribuido a zhuge liang) crónicas de los tres reinos y tratados militares ming c. 200 d.c. armamento balístico">
+                        <td class="col-folio">12</td>
+                        <td class="col-year">c. 200 d.C.</td>
+                        <td class="col-machine">
+                            <a href="chinese_repeating_crossbow/index.html">Ballesta de repetición (Zhuge Nu)</a>
+                            <span class="col-machine-sub">Ballesta de Repetición Zhuge Nu (Ciclo Semiautomático)</span>
+                        </td>
+                        <td class="col-author">Desconocido (atribuido a Zhuge Liang)</td>
+                        <td class="col-domain">Estructuras y Balística</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="carro apuntador hacia el sur (zhinanche) ma jun (tres reinos) / yan su (dinastía song) song shi (historia de la dinastía song) 255 d.c. mecanismo de guía vehicular">
+                        <td class="col-folio">13</td>
+                        <td class="col-year">255 d.C.</td>
+                        <td class="col-machine">
+                            <a href="chinese_south_pointing_chariot/index.html">Carro apuntador hacia el sur (Zhinanche)</a>
+                            <span class="col-machine-sub">Carro Apuntador al Sur (Tren Diferencial Epicicloidal)</span>
+                        </td>
+                        <td class="col-author">Ma Jun (Tres Reinos) / Yan Su (Dinastía Song)</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="fuente de chorro alternante hermanos banū mūsā kitāb al-ḥiyal (el libro de los mecanismos ingeniosos) 850 fuente hidráulica automática">
+                        <td class="col-folio">14</td>
+                        <td class="col-year">850</td>
+                        <td class="col-machine">
+                            <a href="banu_musa_alternating_fountain/index.html">Fuente de chorro alternante</a>
+                            <span class="col-machine-sub">Fuente Automática de Chorro Alternante (Banu Musa)</span>
+                        </td>
+                        <td class="col-author">Hermanos Banū Mūsā</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="flautista autómata programable hermanos banū mūsā kitāb al-ḥiyal (el libro de los mecanismos ingeniosos) 850 autómata musical">
+                        <td class="col-folio">15</td>
+                        <td class="col-year">850</td>
+                        <td class="col-machine">
+                            <a href="banu_musa_automatic_flute/index.html">Flautista autómata programable</a>
+                            <span class="col-machine-sub">Flautista Autómata Programable de los Banu Musa (s. IX)</span>
+                        </td>
+                        <td class="col-author">Hermanos Banū Mūsā</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="torre del reloj astronómico de su song su song xin yi xiang fa yao 1092 reloj astronómico">
+                        <td class="col-folio">16</td>
+                        <td class="col-year">1092</td>
+                        <td class="col-machine">
+                            <a href="chinese_su_song_clock/index.html">Torre del reloj astronómico de Su Song</a>
+                            <span class="col-machine-sub">Escape Hidromecánico de Su Song (1088)</span>
+                        </td>
+                        <td class="col-author">Su Song</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Grabado técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="estructuras"
+                        data-search="estructura estática de la catedral gótica villard de honnecourt / maestros canteros medievales livre de portraiture c. 1150-1500 estructura arquitectónica">
+                        <td class="col-folio">17</td>
+                        <td class="col-year">c. 1150-1500</td>
+                        <td class="col-machine">
+                            <a href="gothic_cathedral/index.html">Estructura estática de la catedral gótica</a>
+                            <span class="col-machine-sub">Arco Ojival, Arbotante y Pináculo — Estática de Empujes</span>
+                        </td>
+                        <td class="col-author">Villard de Honnecourt / Maestros canteros medievales</td>
+                        <td class="col-domain">Estructuras y Balística</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de estructura real
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="reloj del elefante ismail al-jazari kitāb fī maʿrifat al-ḥiyal al-handasiyya 1206 reloj de agua y autómatas">
+                        <td class="col-folio">18</td>
+                        <td class="col-year">1206</td>
+                        <td class="col-machine">
+                            <a href="al_jazari_elephant_clock/index.html">Reloj del elefante</a>
+                            <span class="col-machine-sub">Reloj del Elefante con Flotador Perforado (Tarjahar)</span>
+                        </td>
+                        <td class="col-author">Ismail al-Jazari</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="bomba de pistón bicilíndrica ismail al-jazari kitāb fī maʿrifat al-ḥiyal al-handasiyya 1206 bomba alternativa">
+                        <td class="col-folio">19</td>
+                        <td class="col-year">1206</td>
+                        <td class="col-machine">
+                            <a href="al_jazari_suction_pump/index.html">Bomba de pistón bicilíndrica</a>
+                            <span class="col-machine-sub">Bomba Bicilíndrica Oposicional con Yugo Escocés</span>
+                        </td>
+                        <td class="col-author">Ismail al-Jazari</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="aserradero hidráulico con retorno elástico villard de honnecourt carnet de villard de honnecourt 1230 aserradero hidráulico">
+                        <td class="col-folio">20</td>
+                        <td class="col-year">1230</td>
+                        <td class="col-machine">
+                            <a href="villard_sawmill/index.html">Aserradero hidráulico con retorno elástico</a>
+                            <span class="col-machine-sub">Aserradero Hidráulico con Retorno Elástico por Pértiga</span>
+                        </td>
+                        <td class="col-author">Villard de Honnecourt</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Dibujo técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="horno de fundición eólico huayra metalúrgicos andinos (cultura inca) tradición metalúrgica andina prehispánica c. 1450 d.c. horno metalúrgico de tiro eólico">
+                        <td class="col-folio">21</td>
+                        <td class="col-year">c. 1450 d.C.</td>
+                        <td class="col-machine">
+                            <a href="inca_huayra_furnace/index.html">Horno de fundición eólico Huayra</a>
+                            <span class="col-machine-sub">Horno Metalúrgico Eólico Huayra (Tiro por Venturi)</span>
+                        </td>
+                        <td class="col-author">Metalúrgicos andinos (Cultura Inca)</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Dibujo técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="estructuras"
+                        data-search="matriz mnemotécnica de quipu quipucamayoc (contadores del tahuantinsuyo) sistema de registro y administración inca c. 1450 d.c. dispositivo mnemotécnico decimal">
+                        <td class="col-folio">22</td>
+                        <td class="col-year">c. 1450 d.C.</td>
+                        <td class="col-machine">
+                            <a href="inca_quipu_memory/index.html">Matriz mnemotécnica de Quipu</a>
+                            <span class="col-machine-sub">Matriz Mnemotécnica Decimal de Quipu (Registro Posicional)</span>
+                        </td>
+                        <td class="col-author">Quipucamayoc (Contadores del Tahuantinsuyo)</td>
+                        <td class="col-domain">Estructuras y Balística</td>
+                        <td class="col-plate">
+                            
+                            Pieza de museo / Arqueología
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="estructuras"
+                        data-search="puente colgante de q'eswachaka ingenieros viales incas (qhapaq ñan) ingeniería vial andina (red del camino del inca) c. 1450 d.c. puente colgante de fibras naturales">
+                        <td class="col-folio">23</td>
+                        <td class="col-year">c. 1450 d.C.</td>
+                        <td class="col-machine">
+                            <a href="inca_suspension_bridge/index.html">Puente colgante de Q'eswachaka</a>
+                            <span class="col-machine-sub">Puente Colgante Q'eswachaka — Catenaria Elástica bajo Carga</span>
+                        </td>
+                        <td class="col-author">Ingenieros viales incas (Qhapaq Ñan)</td>
+                        <td class="col-domain">Estructuras y Balística</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de estructura real
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="aserradero hidráulico con biela-manivela francesco di giorgio martini trattato di architettura, ingegneria e arte militare 1480 aserradero hidráulico">
+                        <td class="col-folio">24</td>
+                        <td class="col-year">1480</td>
+                        <td class="col-machine">
+                            <a href="martini_hydraulic_sawmill/index.html">Aserradero hidráulico con biela-manivela</a>
+                            <span class="col-machine-sub">Mecanismo Biela-Manivela-Corredera Vertical</span>
+                        </td>
+                        <td class="col-author">Francesco di Giorgio Martini</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de maquinaria histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="bomba aspirante-impelente con balancín francesco di giorgio martini trattato di architettura, ingegneria e arte militare 1480 bomba hidráulica">
+                        <td class="col-folio">25</td>
+                        <td class="col-year">1480</td>
+                        <td class="col-machine">
+                            <a href="martini_piston_pump/index.html">Bomba aspirante-impelente con balancín</a>
+                            <span class="col-machine-sub">Bomba Dúplex Accionada por Balancín Oscilante</span>
+                        </td>
+                        <td class="col-author">Francesco di Giorgio Martini</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Facsímil de manuscrito histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="cojinete axial de bolas con jaula de retención leonardo da vinci códice madrid i 1493 cojinete y rodamiento">
+                        <td class="col-folio">26</td>
+                        <td class="col-year">1493</td>
+                        <td class="col-machine">
+                            <a href="leonardo_cage_bearing/index.html">Cojinete axial de bolas con jaula de retención</a>
+                            <span class="col-machine-sub">Cojinete Axial de Bolas con Jaula Separadora (1493)</span>
+                        </td>
+                        <td class="col-author">Leonardo da Vinci</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="engranaje helicoidal globoidal (tornillo envolvente) leonardo da vinci códice madrid i 1493 engranajes de tornillo sin fin">
+                        <td class="col-folio">27</td>
+                        <td class="col-year">1493</td>
+                        <td class="col-machine">
+                            <a href="leonardo_globoidal_gear/index.html">Engranaje helicoidal globoidal (Tornillo envolvente)</a>
+                            <span class="col-machine-sub">Engranaje Sin Fin Globoidal Envolvente (Códice Madrid I)</span>
+                        </td>
+                        <td class="col-author">Leonardo da Vinci</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="bomba de cadena y rosario georgius agricola de re metallica 1556 bomba hidráulica">
+                        <td class="col-folio">28</td>
+                        <td class="col-year">1556</td>
+                        <td class="col-machine">
+                            <a href="agricola_chain_pump/index.html">Bomba de cadena y rosario</a>
+                            <span class="col-machine-sub">Bomba de Cadena y Rosario (Paternoster) en Pozo</span>
+                        </td>
+                        <td class="col-author">Georgius Agricola</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="hidraulica"
+                        data-search="malacate hidráulico reversible georgius agricola de re metallica 1556 malacate de elevación">
+                        <td class="col-folio">29</td>
+                        <td class="col-year">1556</td>
+                        <td class="col-machine">
+                            <a href="agricola_reversible_hoist/index.html">Malacate hidráulico reversible</a>
+                            <span class="col-machine-sub">Malacate Hidráulico Reversible de Doble Corona</span>
+                        </td>
+                        <td class="col-author">Georgius Agricola</td>
+                        <td class="col-domain">Hidráulica y Elevación</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="molino de martillos pisones (bocarte) georgius agricola de re metallica 1556 molino">
+                        <td class="col-folio">30</td>
+                        <td class="col-year">1556</td>
+                        <td class="col-machine">
+                            <a href="agricola_stamp_mill/index.html">Molino de martillos pisones (Bocarte)</a>
+                            <span class="col-machine-sub">Bocarte de Levas Desfasadas y Pilones Gravitatorios</span>
+                        </td>
+                        <td class="col-author">Georgius Agricola</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="bomba de succión minera georgius agricola de re metallica 1556 bomba alternativa de minería">
+                        <td class="col-folio">31</td>
+                        <td class="col-year">1556</td>
+                        <td class="col-machine">
+                            <a href="agricola_suction_pump/index.html">Bomba de succión minera</a>
+                            <span class="col-machine-sub">Bomba Alternativa de Minería (Biela-Manivela en Línea)</span>
+                        </td>
+                        <td class="col-author">Georgius Agricola</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="ventilador centrífugo minero georgius agricola de re metallica 1556 ventilación minera">
+                        <td class="col-folio">32</td>
+                        <td class="col-year">1556</td>
+                        <td class="col-machine">
+                            <a href="agricola_ventilation_fan/index.html">Ventilador centrífugo minero</a>
+                            <span class="col-machine-sub">Ventilador Centrífugo Minero en Carcasa Espiral (Voluta)</span>
+                        </td>
+                        <td class="col-author">Georgius Agricola</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Reconstrucción digital 3D
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="torno de roscar con husillo patrón jacques besson theatrum instrumentorum et machinarum 1578 torno de roscar">
+                        <td class="col-folio">33</td>
+                        <td class="col-year">1578</td>
+                        <td class="col-machine">
+                            <a href="besson_screw_lathe/index.html">Torno de roscar con husillo patrón</a>
+                            <span class="col-machine-sub">Torno de Roscar Sincronizado con Husillo Patrón (1578)</span>
+                        </td>
+                        <td class="col-author">Jacques Besson</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Grabado técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="rueda de lectura de ramelli agostino ramelli le diverse et artificiose machine 1588 mecanismo epicicloidal">
+                        <td class="col-folio">34</td>
+                        <td class="col-year">1588</td>
+                        <td class="col-machine">
+                            <a href="ramelli_book_wheel/index.html">Rueda de lectura de Ramelli</a>
+                            <span class="col-machine-sub">Rueda de Lectura con Tren Epicicloidal Planetario</span>
+                        </td>
+                        <td class="col-author">Agostino Ramelli</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de réplica histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="bomba rotativa de paletas deslizantes agostino ramelli le diverse et artificiose machine 1588 bomba hidráulica">
+                        <td class="col-folio">35</td>
+                        <td class="col-year">1588</td>
+                        <td class="col-machine">
+                            <a href="ramelli_rotary_pump/index.html">Bomba rotativa de paletas deslizantes</a>
+                            <span class="col-machine-sub">Bomba Rotativa Excéntrica de Paletas Deslizantes</span>
+                        </td>
+                        <td class="col-author">Agostino Ramelli</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Grabado técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="molino papelero de mazos batidores vittorio zonca novo teatro di machine et edificii 1607 molino">
+                        <td class="col-folio">36</td>
+                        <td class="col-year">1607</td>
+                        <td class="col-machine">
+                            <a href="zonca_paper_mill/index.html">Molino papelero de mazos batidores</a>
+                            <span class="col-machine-sub">Molino Papelero de Mazos Batidores Basculantes</span>
+                        </td>
+                        <td class="col-author">Vittorio Zonca</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de instalación industrial
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="molino de batanado textil y trituración vittorio zonca novo teatro di machine et edificii 1607 molino">
+                        <td class="col-folio">37</td>
+                        <td class="col-year">1607</td>
+                        <td class="col-machine">
+                            <a href="zonca_stamping_mill/index.html">Molino de batanado textil y trituración</a>
+                            <span class="col-machine-sub">Molino de Batanado Textil por Levas Escalonadas</span>
+                        </td>
+                        <td class="col-author">Vittorio Zonca</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Fotografía de maquinaria histórica
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="cilindro de vapor y pistón de papin denis papin acta eruditorum (nova methodus) 1690 máquina de vapor de pistón">
+                        <td class="col-folio">38</td>
+                        <td class="col-year">1690</td>
+                        <td class="col-machine">
+                            <a href="papin_papin_steam_engine/index.html">Cilindro de vapor y pistón de Papin</a>
+                            <span class="col-machine-sub">Cilindro de Vapor y Pistón Atmosférico de Papin (1690)</span>
+                        </td>
+                        <td class="col-author">Denis Papin</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Retrato histórico y grabado técnico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="bomba de vapor de savery (el amigo del minero) thomas savery the miner's friend 1702 bomba térmica de agua">
+                        <td class="col-folio">39</td>
+                        <td class="col-year">1702</td>
+                        <td class="col-machine">
+                            <a href="savery_savery_engine/index.html">Bomba de vapor de Savery (El amigo del minero)</a>
+                            <span class="col-machine-sub">Bomba Térmica de Savery ('El Amigo del Minero', 1698)</span>
+                        </td>
+                        <td class="col-author">Thomas Savery</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Grabado técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="máquina de vapor atmosférica de newcomen thomas newcomen instalaciones mineras de dudley castle 1712 máquina de vapor atmosférica">
+                        <td class="col-folio">40</td>
+                        <td class="col-year">1712</td>
+                        <td class="col-machine">
+                            <a href="newcomen_newcomen_engine/index.html">Máquina de vapor atmosférica de Newcomen</a>
+                            <span class="col-machine-sub">Máquina Atmosférica de Balancín con Cabezas de Arco</span>
+                        </td>
+                        <td class="col-author">Thomas Newcomen</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Grabado técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="termica"
+                        data-search="máquina de vapor de alta presión de leupold jacob leupold theatrum machinarum generale 1724 máquina de vapor de alta presión">
+                        <td class="col-folio">41</td>
+                        <td class="col-year">1724</td>
+                        <td class="col-machine">
+                            <a href="leupold_leupold_steam_pump/index.html">Máquina de vapor de alta presión de Leupold</a>
+                            <span class="col-machine-sub">Máquina de Vapor de Alta Presión con Válvula de 4 Vías (1725)</span>
+                        </td>
+                        <td class="col-author">Jacob Leupold</td>
+                        <td class="col-domain">Bombas, Vapor y Fluidos</td>
+                        <td class="col-plate">
+                            
+                            Grabado técnico histórico
+                            
+                        </td>
+                    </tr>
+                
+                    <tr class="archive-item"
+                        data-cat="mecanismos"
+                        data-search="autómata servidor de té (chahakobi ningyō) hosokawa hanzō karakuri zui (ilustración de máquinas ingeniosas) 1796 autómata mecánico">
+                        <td class="col-folio">42</td>
+                        <td class="col-year">1796</td>
+                        <td class="col-machine">
+                            <a href="japanese_karakuri_doll/index.html">Autómata servidor de té (Chahakobi Ningyō)</a>
+                            <span class="col-machine-sub">Autómata Servidor de Té (Chahakobi Ningyō, 1796)</span>
+                        </td>
+                        <td class="col-author">Hosokawa Hanzō</td>
+                        <td class="col-domain">Mecanismos y Relojería</td>
+                        <td class="col-plate">
+                            
+                            Pieza de museo / Objeto histórico
+                            
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+        </section>
+
+        <section id="view-plates" class="plate-grid is-hidden">
         
-        <h2>Inventario Cronológico</h2>
-        <div class="grid">
-        
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="estructuras"
+                     data-search="átlatl (propulsor de dardos) culturas mesoamericanas (aztecas, mayas) hallazgos arqueológicos y códices mesoamericanos 10000 a.c. palanca propulsora (átlatl)">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 01</strong>
+                    <span>10000 a.C.</span>
+                </div>
+                <a href="mesoamerican_atlatl/index.html" class="plate-thumb-link">
+                    
+                    <img src="mesoamerican_atlatl/realistic.jpg" alt="Átlatl (Propulsor de dardos)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="mesoamerican_atlatl/index.html">Átlatl (Propulsor de dardos)</a></h3>
-                <p><span class="meta-label">Autor:</span> Culturas mesoamericanas (aztecas, mayas) (10000 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Palanca propulsora (Átlatl)</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática, Elasticidad y Momento angular</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de arqueología experimental</span>
-                
-                <p><em>Instrumento balístico que actúa como extensión del brazo humano mediante una palanca de tercer género. Almacena energía elástica e...</em></p>
-            </div>
+                <p class="plate-entry-author">Culturas mesoamericanas (aztecas, mayas) · <em>Hallazgos arqueológicos y códices mesoamericanos</em></p>
+                <p class="plate-entry-desc">Instrumento balístico que actúa como extensión del brazo humano mediante una palanca de tercer género. Almacena energía elást…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="shaduf (cigoñal) desconocido (egipto y nubia antiguos) pinturas sepulcrales egipcias (ej. tumba de ipuy) 2000 a.c. elevación de agua">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 02</strong>
+                    <span>2000 a.C.</span>
+                </div>
+                <a href="african_shaduf/index.html" class="plate-thumb-link">
+                    
+                    <img src="african_shaduf/realistic.jpg" alt="Shaduf (Cigoñal)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="african_shaduf/index.html">Shaduf (Cigoñal)</a></h3>
-                <p><span class="meta-label">Autor:</span> Desconocido (Egipto y Nubia antiguos) (2000 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Elevación de agua</p>
-                <p><span class="meta-label">Dominio:</span> Estática y Cinemática (Palanca de primer género)</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Mecanismo de palanca de primer género con contrapeso de arcilla o piedra en un extremo y un cubo en el otro, pivotante sobre un so...</em></p>
-            </div>
+                <p class="plate-entry-author">Desconocido (Egipto y Nubia antiguos) · <em>Pinturas sepulcrales egipcias (ej. Tumba de Ipuy)</em></p>
+                <p class="plate-entry-desc">Mecanismo de palanca de primer género con contrapeso de arcilla o piedra en un extremo y un cubo en el otro, pivotante sobre …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="rueca de hilar india (charkha) desconocido (tradición textil india) tradición artesanal milenaria antigüedad (~500 a.c.) rueca de hilar">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 03</strong>
+                    <span>Antigüedad (~500 a.C.)</span>
+                </div>
+                <a href="indian_charkha/index.html" class="plate-thumb-link">
+                    
+                    <img src="indian_charkha/realistic.jpg" alt="Rueca de hilar india (Charkha)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="indian_charkha/index.html">Rueca de hilar india (Charkha)</a></h3>
-                <p><span class="meta-label">Autor:</span> Desconocido (Tradición textil india) (Antigüedad (~500 a.C.))</p>
-                <p><span class="meta-label">Tipo:</span> Rueca de hilar</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de monumento patrimonial</span>
-                
-                <p><em>Máquina manual de hilado que multiplica la velocidad angular mediante dos etapas cinemáticas con transmisión por cuerda sin fin: u...</em></p>
-            </div>
+                <p class="plate-entry-author">Desconocido (Tradición textil india) · <em>Tradición artesanal milenaria</em></p>
+                <p class="plate-entry-desc">Máquina manual de hilado que multiplica la velocidad angular mediante dos etapas cinemáticas con transmisión por cuerda sin f…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="clepsidra de flujo constante ctesibio pneumatica (documentado por vitruvio) 250 a.c. reloj de agua">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 04</strong>
+                    <span>250 a.C.</span>
+                </div>
+                <a href="ctesibius_clepsydra/index.html" class="plate-thumb-link">
+                    
+                    <img src="ctesibius_clepsydra/realistic.jpg" alt="Clepsidra de flujo constante" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="ctesibius_clepsydra/index.html">Clepsidra de flujo constante</a></h3>
-                <p><span class="meta-label">Autor:</span> Ctesibio (250 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Reloj de agua</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Pieza de museo / Arqueología</span>
-                
-                <p><em>Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una válvula de flotador de nivel constante que estabiliza la p...</em></p>
-            </div>
+                <p class="plate-entry-author">Ctesibio · <em>Pneumatica (documentado por Vitruvio)</em></p>
+                <p class="plate-entry-desc">Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una válvula de flotador de nivel constante que estabiliza…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="bomba aspirante-impelente de ctesibio ctesibio pneumatica (documentado por vitruvio) 250 a.c. bomba hidráulica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 05</strong>
+                    <span>250 a.C.</span>
+                </div>
+                <a href="ctesibius_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="ctesibius_pump/realistic.jpg" alt="Bomba aspirante-impelente de Ctesibio" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="ctesibius_pump/index.html">Bomba aspirante-impelente de Ctesibio</a></h3>
-                <p><span class="meta-label">Autor:</span> Ctesibio (250 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Bomba de pistón doble de bronce con acción alternativa mediante balancín central y válvulas de retención de asiento cónico. Diseña...</em></p>
-            </div>
+                <p class="plate-entry-author">Ctesibio · <em>Pneumatica (documentado por Vitruvio)</em></p>
+                <p class="plate-entry-desc">Bomba de pistón doble de bronce con acción alternativa mediante balancín central y válvulas de retención de asiento cónico. D…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="lavamanos neumático de nivel constante filón de bizancio pneumatica 220 a.c. dispensador neumático de agua">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 06</strong>
+                    <span>220 a.C.</span>
+                </div>
+                <a href="philo_washbasin/index.html" class="plate-thumb-link">
+                    
+                    <img src="philo_washbasin/realistic.jpg" alt="Lavamanos neumático de nivel constante" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="philo_washbasin/index.html">Lavamanos neumático de nivel constante</a></h3>
-                <p><span class="meta-label">Autor:</span> Filón de Bizancio (220 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Dispensador neumático de agua</p>
-                <p><span class="meta-label">Dominio:</span> Neumática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Dispensador neumático autorregulado de agua. Un depósito hermético superior suministra agua al cuenco; cuando el nivel del líquido...</em></p>
-            </div>
+                <p class="plate-entry-author">Filón de Bizancio · <em>Pneumatica</em></p>
+                <p class="plate-entry-desc">Dispensador neumático autorregulado de agua. Un depósito hermético superior suministra agua al cuenco; cuando el nivel del lí…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="saqiya (rueda de cangilones) desconocido (tradición nilótica / helenística) evidencia arqueológica y papiros ptolemaicos 200 a.c. elevación de agua">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 07</strong>
+                    <span>200 a.C.</span>
+                </div>
+                <a href="african_saqiya/index.html" class="plate-thumb-link">
+                    
+                    <img src="african_saqiya/realistic.jpg" alt="Saqiya (Rueda de cangilones)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="african_saqiya/index.html">Saqiya (Rueda de cangilones)</a></h3>
-                <p><span class="meta-label">Autor:</span> Desconocido (Tradición nilótica / helenística) (200 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Elevación de agua</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Rueda hidráulica accionada por tracción animal mediante un par de engranajes en ángulo recto (rueda de corona y piñón de linterna)...</em></p>
-            </div>
+                <p class="plate-entry-author">Desconocido (Tradición nilótica / helenística) · <em>Evidencia arqueológica y papiros ptolemaicos</em></p>
+                <p class="plate-entry-desc">Rueda hidráulica accionada por tracción animal mediante un par de engranajes en ángulo recto (rueda de corona y piñón de lint…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="tornillo de arquímedes vitruvio de architectura 20 a.c. bomba helicoidal">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 08</strong>
+                    <span>20 a.C.</span>
+                </div>
+                <a href="vitruvius_archimedes_screw/index.html" class="plate-thumb-link">
+                    
+                    <img src="vitruvius_archimedes_screw/realistic.jpg" alt="Tornillo de Arquímedes" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="vitruvius_archimedes_screw/index.html">Tornillo de Arquímedes</a></h3>
-                <p><span class="meta-label">Autor:</span> Vitruvio (20 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba helicoidal</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica y Geometría</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Diagrama técnico dimensional</span>
-                
-                <p><em>Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones extremadamente precisas para su ...</em></p>
-            </div>
+                <p class="plate-entry-author">Vitruvio · <em>De Architectura</em></p>
+                <p class="plate-entry-desc">Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones extremadamente precisas par…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="rueda hidráulica vitruviana de paletas vitruvio de architectura 20 a.c. rueda hidráulica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 09</strong>
+                    <span>20 a.C.</span>
+                </div>
+                <a href="vitruvius_water_wheel/index.html" class="plate-thumb-link">
+                    
+                    <img src="vitruvius_water_wheel/realistic.jpg" alt="Rueda hidráulica vitruviana de paletas" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="vitruvius_water_wheel/index.html">Rueda hidráulica vitruviana de paletas</a></h3>
-                <p><span class="meta-label">Autor:</span> Vitruvio (20 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Rueda hidráulica</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de estructura real</span>
-                
-                <p><em>Rueda hidráulica impulsada por la energía cinética del flujo inferior de agua contra sus paletas sumergidas. Acoplada a través de ...</em></p>
-            </div>
+                <p class="plate-entry-author">Vitruvio · <em>De Architectura</em></p>
+                <p class="plate-entry-desc">Rueda hidráulica impulsada por la energía cinética del flujo inferior de agua contra sus paletas sumergidas. Acoplada a travé…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="sistema de acueducto romano y sifón invertido vitruvio / ingenieros romanos de architectura (libro viii) 15 a.c. infraestructura hidráulica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 10</strong>
+                    <span>15 a.C.</span>
+                </div>
+                <a href="roman_aqueduct/index.html" class="plate-thumb-link">
+                    
+                    <img src="roman_aqueduct/realistic.jpg" alt="Sistema de acueducto romano y sifón invertido" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="roman_aqueduct/index.html">Sistema de acueducto romano y sifón invertido</a></h3>
-                <p><span class="meta-label">Autor:</span> Vitruvio / Ingenieros romanos (15 a.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Infraestructura hidráulica</p>
-                <p><span class="meta-label">Dominio:</span> Dinámica de fluidos y Estática de estructuras</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Fotografía de estructura real</span>
-                
-                <p><em>Infraestructura hidráulica para transporte de agua por gravedad. Integra canales con pendiente uniforme controlada, arcadas de mam...</em></p>
-            </div>
+                <p class="plate-entry-author">Vitruvio / Ingenieros romanos · <em>De Architectura (Libro VIII)</em></p>
+                <p class="plate-entry-desc">Infraestructura hidráulica para transporte de agua por gravedad. Integra canales con pendiente uniforme controlada, arcadas d…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="eolípila herón de alejandría pneumatica 50 d.c. motor térmico de reacción">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 11</strong>
+                    <span>50 d.C.</span>
+                </div>
+                <a href="heron_aeolipile/index.html" class="plate-thumb-link">
+                    
+                    <img src="heron_aeolipile/realistic.jpg" alt="Eolípila" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="heron_aeolipile/index.html">Eolípila</a></h3>
-                <p><span class="meta-label">Autor:</span> Herón de Alejandría (50 d.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Motor térmico de reacción</p>
-                <p><span class="meta-label">Dominio:</span> Termodinámica y Dinámica de fluidos</p>
-                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Conocida como la primera máquina de vapor, la eolípila consiste en una esfera hueca montada sobre un eje soportado por un caldero....</em></p>
-            </div>
+                <p class="plate-entry-author">Herón de Alejandría · <em>Pneumatica</em></p>
+                <p class="plate-entry-desc">Conocida como la primera máquina de vapor, la eolípila consiste en una esfera hueca montada sobre un eje soportado por un cal…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="estructuras"
+                     data-search="ballesta de repetición (zhuge nu) desconocido (atribuido a zhuge liang) crónicas de los tres reinos y tratados militares ming c. 200 d.c. armamento balístico">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 12</strong>
+                    <span>c. 200 d.C.</span>
+                </div>
+                <a href="chinese_repeating_crossbow/index.html" class="plate-thumb-link">
+                    
+                    <img src="chinese_repeating_crossbow/realistic.jpg" alt="Ballesta de repetición (Zhuge Nu)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="chinese_repeating_crossbow/index.html">Ballesta de repetición (Zhuge Nu)</a></h3>
-                <p><span class="meta-label">Autor:</span> Desconocido (atribuido a Zhuge Liang) (c. 200 d.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Armamento balístico</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática y Elasticidad</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Arma de proyectiles con ciclo de disparo semiautomático. Una palanca superior acciona simultáneamente el tensado de la cuerda elás...</em></p>
-            </div>
+                <p class="plate-entry-author">Desconocido (atribuido a Zhuge Liang) · <em>Crónicas de los Tres Reinos y tratados militares Ming</em></p>
+                <p class="plate-entry-desc">Arma de proyectiles con ciclo de disparo semiautomático. Una palanca superior acciona simultáneamente el tensado de la cuerda…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="carro apuntador hacia el sur (zhinanche) ma jun (tres reinos) / yan su (dinastía song) song shi (historia de la dinastía song) 255 d.c. mecanismo de guía vehicular">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 13</strong>
+                    <span>255 d.C.</span>
+                </div>
+                <a href="chinese_south_pointing_chariot/index.html" class="plate-thumb-link">
+                    
+                    <img src="chinese_south_pointing_chariot/realistic.jpg" alt="Carro apuntador hacia el sur (Zhinanche)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="chinese_south_pointing_chariot/index.html">Carro apuntador hacia el sur (Zhinanche)</a></h3>
-                <p><span class="meta-label">Autor:</span> Ma Jun (Tres Reinos) / Yan Su (Dinastía Song) (255 d.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Mecanismo de guía vehicular</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática y Engranajes diferenciales</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente hacia la misma dirección cardinal inicial (el sur...</em></p>
-            </div>
+                <p class="plate-entry-author">Ma Jun (Tres Reinos) / Yan Su (Dinastía Song) · <em>Song Shi (Historia de la dinastía Song)</em></p>
+                <p class="plate-entry-desc">Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente hacia la misma dirección cardinal inicial (e…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="fuente de chorro alternante hermanos banū mūsā kitāb al-ḥiyal (el libro de los mecanismos ingeniosos) 850 fuente hidráulica automática">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 14</strong>
+                    <span>850</span>
+                </div>
+                <a href="banu_musa_alternating_fountain/index.html" class="plate-thumb-link">
+                    
+                    <img src="banu_musa_alternating_fountain/realistic.jpg" alt="Fuente de chorro alternante" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="banu_musa_alternating_fountain/index.html">Fuente de chorro alternante</a></h3>
-                <p><span class="meta-label">Autor:</span> Hermanos Banū Mūsā (850)</p>
-                <p><span class="meta-label">Tipo:</span> Fuente hidráulica automática</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Fuente hidráulica automática que alterna periódicamente la forma del surtidor entre un chorro vertical único y una campana o domo ...</em></p>
-            </div>
+                <p class="plate-entry-author">Hermanos Banū Mūsā · <em>Kitāb al-Ḥiyal (El libro de los mecanismos ingeniosos)</em></p>
+                <p class="plate-entry-desc">Fuente hidráulica automática que alterna periódicamente la forma del surtidor entre un chorro vertical único y una campana o …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="flautista autómata programable hermanos banū mūsā kitāb al-ḥiyal (el libro de los mecanismos ingeniosos) 850 autómata musical">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 15</strong>
+                    <span>850</span>
+                </div>
+                <a href="banu_musa_automatic_flute/index.html" class="plate-thumb-link">
+                    
+                    <img src="banu_musa_automatic_flute/realistic.jpg" alt="Flautista autómata programable" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="banu_musa_automatic_flute/index.html">Flautista autómata programable</a></h3>
-                <p><span class="meta-label">Autor:</span> Hermanos Banū Mūsā (850)</p>
-                <p><span class="meta-label">Tipo:</span> Autómata musical</p>
-                <p><span class="meta-label">Dominio:</span> Neumática y Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Considerado uno de los primeros dispositivos con programa mecánico almacenable de la historia. Un cilindro rotativo provisto de cl...</em></p>
-            </div>
+                <p class="plate-entry-author">Hermanos Banū Mūsā · <em>Kitāb al-Ḥiyal (El libro de los mecanismos ingeniosos)</em></p>
+                <p class="plate-entry-desc">Considerado uno de los primeros dispositivos con programa mecánico almacenable de la historia. Un cilindro rotativo provisto …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="torre del reloj astronómico de su song su song xin yi xiang fa yao 1092 reloj astronómico">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 16</strong>
+                    <span>1092</span>
+                </div>
+                <a href="chinese_su_song_clock/index.html" class="plate-thumb-link">
+                    
+                    <img src="chinese_su_song_clock/realistic.jpg" alt="Torre del reloj astronómico de Su Song" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="chinese_su_song_clock/index.html">Torre del reloj astronómico de Su Song</a></h3>
-                <p><span class="meta-label">Autor:</span> Su Song (1092)</p>
-                <p><span class="meta-label">Tipo:</span> Reloj astronómico</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Grabado técnico histórico</span>
-                
-                <p><em>Monumental torre de relojería astronómica impulsada por una rueda hidráulica provista de un mecanismo de escape por peso (clepsidr...</em></p>
-            </div>
+                <p class="plate-entry-author">Su Song · <em>Xin Yi Xiang Fa Yao</em></p>
+                <p class="plate-entry-desc">Monumental torre de relojería astronómica impulsada por una rueda hidráulica provista de un mecanismo de escape por peso (cle…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="estructuras"
+                     data-search="estructura estática de la catedral gótica villard de honnecourt / maestros canteros medievales livre de portraiture c. 1150-1500 estructura arquitectónica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 17</strong>
+                    <span>c. 1150-1500</span>
+                </div>
+                <a href="gothic_cathedral/index.html" class="plate-thumb-link">
+                    
+                    <img src="gothic_cathedral/realistic.jpg" alt="Estructura estática de la catedral gótica" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="gothic_cathedral/index.html">Estructura estática de la catedral gótica</a></h3>
-                <p><span class="meta-label">Autor:</span> Villard de Honnecourt / Maestros canteros medievales (c. 1150-1500)</p>
-                <p><span class="meta-label">Tipo:</span> Estructura arquitectónica</p>
-                <p><span class="meta-label">Dominio:</span> Estática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Fotografía de estructura real</span>
-                
-                <p><em>Sistema estructural de mampostería basado en el arco ojival, la bóveda de crucería y los arbotantes exteriores. La resolución está...</em></p>
-            </div>
+                <p class="plate-entry-author">Villard de Honnecourt / Maestros canteros medievales · <em>Livre de portraiture</em></p>
+                <p class="plate-entry-desc">Sistema estructural de mampostería basado en el arco ojival, la bóveda de crucería y los arbotantes exteriores. La resolución…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="reloj del elefante ismail al-jazari kitāb fī maʿrifat al-ḥiyal al-handasiyya 1206 reloj de agua y autómatas">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 18</strong>
+                    <span>1206</span>
+                </div>
+                <a href="al_jazari_elephant_clock/index.html" class="plate-thumb-link">
+                    
+                    <img src="al_jazari_elephant_clock/realistic.jpg" alt="Reloj del elefante" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="al_jazari_elephant_clock/index.html">Reloj del elefante</a></h3>
-                <p><span class="meta-label">Autor:</span> Ismail al-Jazari (1206)</p>
-                <p><span class="meta-label">Tipo:</span> Reloj de agua y autómatas</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica, Cinemática y Estática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Monumental autómata y reloj hidráulico con forma de elefante asiático. En su interior, un cuenco perforado flota en un depósito y ...</em></p>
-            </div>
+                <p class="plate-entry-author">Ismail al-Jazari · <em>Kitāb fī maʿrifat al-ḥiyal al-handasiyya</em></p>
+                <p class="plate-entry-desc">Monumental autómata y reloj hidráulico con forma de elefante asiático. En su interior, un cuenco perforado flota en un depósi…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="bomba de pistón bicilíndrica ismail al-jazari kitāb fī maʿrifat al-ḥiyal al-handasiyya 1206 bomba alternativa">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 19</strong>
+                    <span>1206</span>
+                </div>
+                <a href="al_jazari_suction_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="al_jazari_suction_pump/realistic.jpg" alt="Bomba de pistón bicilíndrica" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="al_jazari_suction_pump/index.html">Bomba de pistón bicilíndrica</a></h3>
-                <p><span class="meta-label">Autor:</span> Ismail al-Jazari (1206)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba alternativa</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo de ranura para convertir movimiento rotatorio en altern...</em></p>
-            </div>
+                <p class="plate-entry-author">Ismail al-Jazari · <em>Kitāb fī maʿrifat al-ḥiyal al-handasiyya</em></p>
+                <p class="plate-entry-desc">Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo de ranura para convertir movimiento rotatorio en a…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="aserradero hidráulico con retorno elástico villard de honnecourt carnet de villard de honnecourt 1230 aserradero hidráulico">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 20</strong>
+                    <span>1230</span>
+                </div>
+                <a href="villard_sawmill/index.html" class="plate-thumb-link">
+                    
+                    <img src="villard_sawmill/realistic.jpg" alt="Aserradero hidráulico con retorno elástico" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="villard_sawmill/index.html">Aserradero hidráulico con retorno elástico</a></h3>
-                <p><span class="meta-label">Autor:</span> Villard de Honnecourt (1230)</p>
-                <p><span class="meta-label">Tipo:</span> Aserradero hidráulico</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática de levas y mecanismos</p>
-                <p><span class="meta-label">Nivel:</span> Nivel D (Interpretación especulativa / fuente fragmentaria)</p>
-                
-                <span class="badge-realistic">Dibujo técnico histórico</span>
-                
-                <p><em>Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda hidráulica está provisto de levas que empuja...</em></p>
-            </div>
+                <p class="plate-entry-author">Villard de Honnecourt · <em>Carnet de Villard de Honnecourt</em></p>
+                <p class="plate-entry-desc">Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda hidráulica está provisto de levas que e…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="horno de fundición eólico huayra metalúrgicos andinos (cultura inca) tradición metalúrgica andina prehispánica c. 1450 d.c. horno metalúrgico de tiro eólico">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 21</strong>
+                    <span>c. 1450 d.C.</span>
+                </div>
+                <a href="inca_huayra_furnace/index.html" class="plate-thumb-link">
+                    
+                    <img src="inca_huayra_furnace/realistic.jpg" alt="Horno de fundición eólico Huayra" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="inca_huayra_furnace/index.html">Horno de fundición eólico Huayra</a></h3>
-                <p><span class="meta-label">Autor:</span> Metalúrgicos andinos (Cultura Inca) (c. 1450 d.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Horno metalúrgico de tiro eólico</p>
-                <p><span class="meta-label">Dominio:</span> Termodinámica y Dinámica de fluidos (Efecto Venturi)</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Reconstrucción conceptual y física aceptada)</p>
-                
-                <span class="badge-realistic">Dibujo técnico histórico</span>
-                
-                <p><em>Horno cerámico vertical perforado para la fundición de plata y cobre, ubicado en las laderas montañosas de los Andes. Aprovecha lo...</em></p>
-            </div>
+                <p class="plate-entry-author">Metalúrgicos andinos (Cultura Inca) · <em>Tradición metalúrgica andina prehispánica</em></p>
+                <p class="plate-entry-desc">Horno cerámico vertical perforado para la fundición de plata y cobre, ubicado en las laderas montañosas de los Andes. Aprovec…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="estructuras"
+                     data-search="matriz mnemotécnica de quipu quipucamayoc (contadores del tahuantinsuyo) sistema de registro y administración inca c. 1450 d.c. dispositivo mnemotécnico decimal">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 22</strong>
+                    <span>c. 1450 d.C.</span>
+                </div>
+                <a href="inca_quipu_memory/index.html" class="plate-thumb-link">
+                    
+                    <img src="inca_quipu_memory/realistic.jpg" alt="Matriz mnemotécnica de Quipu" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="inca_quipu_memory/index.html">Matriz mnemotécnica de Quipu</a></h3>
-                <p><span class="meta-label">Autor:</span> Quipucamayoc (Contadores del Tahuantinsuyo) (c. 1450 d.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Dispositivo mnemotécnico decimal</p>
-                <p><span class="meta-label">Dominio:</span> Sistemas discretos y Combinatoria</p>
-                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
-                
-                <span class="badge-realistic">Pieza de museo / Arqueología</span>
-                
-                <p><em>Dispositivo mecánico de almacenamiento mnemotécnico y computacional basado en cuerdas de algodón y lana con nudos posicionales en ...</em></p>
-            </div>
+                <p class="plate-entry-author">Quipucamayoc (Contadores del Tahuantinsuyo) · <em>Sistema de registro y administración inca</em></p>
+                <p class="plate-entry-desc">Dispositivo mecánico de almacenamiento mnemotécnico y computacional basado en cuerdas de algodón y lana con nudos posicionale…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="estructuras"
+                     data-search="puente colgante de q'eswachaka ingenieros viales incas (qhapaq ñan) ingeniería vial andina (red del camino del inca) c. 1450 d.c. puente colgante de fibras naturales">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 23</strong>
+                    <span>c. 1450 d.C.</span>
+                </div>
+                <a href="inca_suspension_bridge/index.html" class="plate-thumb-link">
+                    
+                    <img src="inca_suspension_bridge/realistic.jpg" alt="Puente colgante de Q'eswachaka" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="inca_suspension_bridge/index.html">Puente colgante de Q'eswachaka</a></h3>
-                <p><span class="meta-label">Autor:</span> Ingenieros viales incas (Qhapaq Ñan) (c. 1450 d.C.)</p>
-                <p><span class="meta-label">Tipo:</span> Puente colgante de fibras naturales</p>
-                <p><span class="meta-label">Dominio:</span> Estática de catenarias y Resistencia de materiales</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de estructura real</span>
-                
-                <p><em>Puente colgante de fibra de pasto andino (ichu o q'oya) trenzado en gruesos cables estructurales anclados a estribos de roca viva ...</em></p>
-            </div>
+                <p class="plate-entry-author">Ingenieros viales incas (Qhapaq Ñan) · <em>Ingeniería vial andina (Red del Camino del Inca)</em></p>
+                <p class="plate-entry-desc">Puente colgante de fibra de pasto andino (ichu o q'oya) trenzado en gruesos cables estructurales anclados a estribos de roca …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="aserradero hidráulico con biela-manivela francesco di giorgio martini trattato di architettura, ingegneria e arte militare 1480 aserradero hidráulico">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 24</strong>
+                    <span>1480</span>
+                </div>
+                <a href="martini_hydraulic_sawmill/index.html" class="plate-thumb-link">
+                    
+                    <img src="martini_hydraulic_sawmill/realistic.jpg" alt="Aserradero hidráulico con biela-manivela" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="martini_hydraulic_sawmill/index.html">Aserradero hidráulico con biela-manivela</a></h3>
-                <p><span class="meta-label">Autor:</span> Francesco di Giorgio Martini (1480)</p>
-                <p><span class="meta-label">Tipo:</span> Aserradero hidráulico</p>
-                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de maquinaria histórica</span>
-                
-                <p><em>Aserradero mecanizado que utiliza una rueda hidráulica acoplada a un mecanismo de biela-cigüeñal para convertir la rotación contin...</em></p>
-            </div>
+                <p class="plate-entry-author">Francesco di Giorgio Martini · <em>Trattato di architettura, ingegneria e arte militare</em></p>
+                <p class="plate-entry-desc">Aserradero mecanizado que utiliza una rueda hidráulica acoplada a un mecanismo de biela-cigüeñal para convertir la rotación c…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="bomba aspirante-impelente con balancín francesco di giorgio martini trattato di architettura, ingegneria e arte militare 1480 bomba hidráulica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 25</strong>
+                    <span>1480</span>
+                </div>
+                <a href="martini_piston_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="martini_piston_pump/realistic.jpg" alt="Bomba aspirante-impelente con balancín" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="martini_piston_pump/index.html">Bomba aspirante-impelente con balancín</a></h3>
-                <p><span class="meta-label">Autor:</span> Francesco di Giorgio Martini (1480)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Facsímil de manuscrito histórico</span>
-                
-                <p><em>Bomba impelente para elevación de agua con pistón de cuero ajustado en cuerpo de bronce o madera torneada. Accionada por un brazo ...</em></p>
-            </div>
+                <p class="plate-entry-author">Francesco di Giorgio Martini · <em>Trattato di architettura, ingegneria e arte militare</em></p>
+                <p class="plate-entry-desc">Bomba impelente para elevación de agua con pistón de cuero ajustado en cuerpo de bronce o madera torneada. Accionada por un b…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="cojinete axial de bolas con jaula de retención leonardo da vinci códice madrid i 1493 cojinete y rodamiento">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 26</strong>
+                    <span>1493</span>
+                </div>
+                <a href="leonardo_cage_bearing/index.html" class="plate-thumb-link">
+                    
+                    <img src="leonardo_cage_bearing/realistic.jpg" alt="Cojinete axial de bolas con jaula de retención" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="leonardo_cage_bearing/index.html">Cojinete axial de bolas con jaula de retención</a></h3>
-                <p><span class="meta-label">Autor:</span> Leonardo da Vinci (1493)</p>
-                <p><span class="meta-label">Tipo:</span> Cojinete y rodamiento</p>
-                <p><span class="meta-label">Dominio:</span> Mecánica y Tribología</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos a fuertes cargas axiales. Introduce por primera vez u...</em></p>
-            </div>
+                <p class="plate-entry-author">Leonardo da Vinci · <em>Códice Madrid I</em></p>
+                <p class="plate-entry-desc">Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos a fuertes cargas axiales. Introduce por primera …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="engranaje helicoidal globoidal (tornillo envolvente) leonardo da vinci códice madrid i 1493 engranajes de tornillo sin fin">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 27</strong>
+                    <span>1493</span>
+                </div>
+                <a href="leonardo_globoidal_gear/index.html" class="plate-thumb-link">
+                    
+                    <img src="leonardo_globoidal_gear/realistic.jpg" alt="Engranaje helicoidal globoidal (Tornillo envolvente)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="leonardo_globoidal_gear/index.html">Engranaje helicoidal globoidal (Tornillo envolvente)</a></h3>
-                <p><span class="meta-label">Autor:</span> Leonardo da Vinci (1493)</p>
-                <p><span class="meta-label">Tipo:</span> Engranajes de tornillo sin fin</p>
-                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>Transmisión por tornillo sin fin globoidal curvado para adaptarse a la curvatura de la rueda dentada conjugada. Esta geometría de ...</em></p>
-            </div>
+                <p class="plate-entry-author">Leonardo da Vinci · <em>Códice Madrid I</em></p>
+                <p class="plate-entry-desc">Transmisión por tornillo sin fin globoidal curvado para adaptarse a la curvatura de la rueda dentada conjugada. Esta geometrí…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="bomba de cadena y rosario georgius agricola de re metallica 1556 bomba hidráulica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 28</strong>
+                    <span>1556</span>
+                </div>
+                <a href="agricola_chain_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="agricola_chain_pump/realistic.jpg" alt="Bomba de cadena y rosario" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="agricola_chain_pump/index.html">Bomba de cadena y rosario</a></h3>
-                <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Bomba de rosario de esferas o discos de cuero unidos por una cadena de hierro sin fin que asciende por el interior de un tubo de m...</em></p>
-            </div>
+                <p class="plate-entry-author">Georgius Agricola · <em>De re metallica</em></p>
+                <p class="plate-entry-desc">Bomba de rosario de esferas o discos de cuero unidos por una cadena de hierro sin fin que asciende por el interior de un tubo…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="hidraulica"
+                     data-search="malacate hidráulico reversible georgius agricola de re metallica 1556 malacate de elevación">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 29</strong>
+                    <span>1556</span>
+                </div>
+                <a href="agricola_reversible_hoist/index.html" class="plate-thumb-link">
+                    
+                    <img src="agricola_reversible_hoist/realistic.jpg" alt="Malacate hidráulico reversible" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="agricola_reversible_hoist/index.html">Malacate hidráulico reversible</a></h3>
-                <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Malacate de elevación</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática e Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica de doble corona de álabes contrapuestos. Al alternar...</em></p>
-            </div>
+                <p class="plate-entry-author">Georgius Agricola · <em>De re metallica</em></p>
+                <p class="plate-entry-desc">Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica de doble corona de álabes contrapuestos. Al alt…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="molino de martillos pisones (bocarte) georgius agricola de re metallica 1556 molino">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 30</strong>
+                    <span>1556</span>
+                </div>
+                <a href="agricola_stamp_mill/index.html" class="plate-thumb-link">
+                    
+                    <img src="agricola_stamp_mill/realistic.jpg" alt="Molino de martillos pisones (Bocarte)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="agricola_stamp_mill/index.html">Molino de martillos pisones (Bocarte)</a></h3>
-                <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Molino</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Molino hidráulico de trituración para minerales metalíferos. Un árbol de levas accionado por una rueda hidráulica eleva y deja cae...</em></p>
-            </div>
+                <p class="plate-entry-author">Georgius Agricola · <em>De re metallica</em></p>
+                <p class="plate-entry-desc">Molino hidráulico de trituración para minerales metalíferos. Un árbol de levas accionado por una rueda hidráulica eleva y dej…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="bomba de succión minera georgius agricola de re metallica 1556 bomba alternativa de minería">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 31</strong>
+                    <span>1556</span>
+                </div>
+                <a href="agricola_suction_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="agricola_suction_pump/realistic.jpg" alt="Bomba de succión minera" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="agricola_suction_pump/index.html">Bomba de succión minera</a></h3>
-                <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba alternativa de minería</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática e Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada ampliamente en la minería de Sajonia y...</em></p>
-            </div>
+                <p class="plate-entry-author">Georgius Agricola · <em>De re metallica</em></p>
+                <p class="plate-entry-desc">Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada ampliamente en la minería de Sajo…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="ventilador centrífugo minero georgius agricola de re metallica 1556 ventilación minera">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 32</strong>
+                    <span>1556</span>
+                </div>
+                <a href="agricola_ventilation_fan/index.html" class="plate-thumb-link">
+                    
+                    <img src="agricola_ventilation_fan/realistic.jpg" alt="Ventilador centrífugo minero" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="agricola_ventilation_fan/index.html">Ventilador centrífugo minero</a></h3>
-                <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Ventilación minera</p>
-                <p><span class="meta-label">Dominio:</span> Aerodinámica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Reconstrucción digital 3D</span>
-                
-                <p><em>Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de madera, utilizado para inyectar aire fresco o expulsar gases...</em></p>
-            </div>
+                <p class="plate-entry-author">Georgius Agricola · <em>De re metallica</em></p>
+                <p class="plate-entry-desc">Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de madera, utilizado para inyectar aire fresco o expulsar …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="torno de roscar con husillo patrón jacques besson theatrum instrumentorum et machinarum 1578 torno de roscar">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 33</strong>
+                    <span>1578</span>
+                </div>
+                <a href="besson_screw_lathe/index.html" class="plate-thumb-link">
+                    
+                    <img src="besson_screw_lathe/realistic.jpg" alt="Torno de roscar con husillo patrón" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="besson_screw_lathe/index.html">Torno de roscar con husillo patrón</a></h3>
-                <p><span class="meta-label">Autor:</span> Jacques Besson (1578)</p>
-                <p><span class="meta-label">Tipo:</span> Torno de roscar</p>
-                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Grabado técnico histórico</span>
-                
-                <p><em>Torno pionero para el labrado cinemático y mecánico de roscas con pasos variables y precisos. Utiliza un husillo patrón y un siste...</em></p>
-            </div>
+                <p class="plate-entry-author">Jacques Besson · <em>Theatrum Instrumentorum et Machinarum</em></p>
+                <p class="plate-entry-desc">Torno pionero para el labrado cinemático y mecánico de roscas con pasos variables y precisos. Utiliza un husillo patrón y un …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="rueda de lectura de ramelli agostino ramelli le diverse et artificiose machine 1588 mecanismo epicicloidal">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 34</strong>
+                    <span>1588</span>
+                </div>
+                <a href="ramelli_book_wheel/index.html" class="plate-thumb-link">
+                    
+                    <img src="ramelli_book_wheel/realistic.jpg" alt="Rueda de lectura de Ramelli" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="ramelli_book_wheel/index.html">Rueda de lectura de Ramelli</a></h3>
-                <p><span class="meta-label">Autor:</span> Agostino Ramelli (1588)</p>
-                <p><span class="meta-label">Tipo:</span> Mecanismo epicicloidal</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Fotografía de réplica histórica</span>
-                
-                <p><em>La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples libros abiertos simultáneamente. A diferencia de una r...</em></p>
-            </div>
+                <p class="plate-entry-author">Agostino Ramelli · <em>Le diverse et artificiose machine</em></p>
+                <p class="plate-entry-desc">La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples libros abiertos simultáneamente. A diferencia de …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="bomba rotativa de paletas deslizantes agostino ramelli le diverse et artificiose machine 1588 bomba hidráulica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 35</strong>
+                    <span>1588</span>
+                </div>
+                <a href="ramelli_rotary_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="ramelli_rotary_pump/realistic.jpg" alt="Bomba rotativa de paletas deslizantes" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="ramelli_rotary_pump/index.html">Bomba rotativa de paletas deslizantes</a></h3>
-                <p><span class="meta-label">Autor:</span> Agostino Ramelli (1588)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
-                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Grabado técnico histórico</span>
-                
-                <p><em>Bomba volumétrica rotativa precursora de las bombas industriales modernas de paletas. Un rotor excéntrico provisto de paletas metá...</em></p>
-            </div>
+                <p class="plate-entry-author">Agostino Ramelli · <em>Le diverse et artificiose machine</em></p>
+                <p class="plate-entry-desc">Bomba volumétrica rotativa precursora de las bombas industriales modernas de paletas. Un rotor excéntrico provisto de paletas…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="molino papelero de mazos batidores vittorio zonca novo teatro di machine et edificii 1607 molino">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 36</strong>
+                    <span>1607</span>
+                </div>
+                <a href="zonca_paper_mill/index.html" class="plate-thumb-link">
+                    
+                    <img src="zonca_paper_mill/realistic.jpg" alt="Molino papelero de mazos batidores" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="zonca_paper_mill/index.html">Molino papelero de mazos batidores</a></h3>
-                <p><span class="meta-label">Autor:</span> Vittorio Zonca (1607)</p>
-                <p><span class="meta-label">Tipo:</span> Molino</p>
-                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de instalación industrial</span>
-                
-                <p><em>Instalación fabril accionada por rueda hidráulica para la fabricación de papel. Un eje con levas distribuidas eleva y deja caer se...</em></p>
-            </div>
+                <p class="plate-entry-author">Vittorio Zonca · <em>Novo Teatro di Machine et Edificii</em></p>
+                <p class="plate-entry-desc">Instalación fabril accionada por rueda hidráulica para la fabricación de papel. Un eje con levas distribuidas eleva y deja ca…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="molino de batanado textil y trituración vittorio zonca novo teatro di machine et edificii 1607 molino">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 37</strong>
+                    <span>1607</span>
+                </div>
+                <a href="zonca_stamping_mill/index.html" class="plate-thumb-link">
+                    
+                    <img src="zonca_stamping_mill/realistic.jpg" alt="Molino de batanado textil y trituración" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="zonca_stamping_mill/index.html">Molino de batanado textil y trituración</a></h3>
-                <p><span class="meta-label">Autor:</span> Vittorio Zonca (1607)</p>
-                <p><span class="meta-label">Tipo:</span> Molino</p>
-                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Fotografía de maquinaria histórica</span>
-                
-                <p><em>Batán hidráulico accionado por árbol de levas para el acabado y desengrase de tejidos de lana o la trituración de minerales. Los m...</em></p>
-            </div>
+                <p class="plate-entry-author">Vittorio Zonca · <em>Novo Teatro di Machine et Edificii</em></p>
+                <p class="plate-entry-desc">Batán hidráulico accionado por árbol de levas para el acabado y desengrase de tejidos de lana o la trituración de minerales. …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="cilindro de vapor y pistón de papin denis papin acta eruditorum (nova methodus) 1690 máquina de vapor de pistón">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 38</strong>
+                    <span>1690</span>
+                </div>
+                <a href="papin_papin_steam_engine/index.html" class="plate-thumb-link">
+                    
+                    <img src="papin_papin_steam_engine/realistic.jpg" alt="Cilindro de vapor y pistón de Papin" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="papin_papin_steam_engine/index.html">Cilindro de vapor y pistón de Papin</a></h3>
-                <p><span class="meta-label">Autor:</span> Denis Papin (1690)</p>
-                <p><span class="meta-label">Tipo:</span> Máquina de vapor de pistón</p>
-                <p><span class="meta-label">Dominio:</span> Termodinámica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
-                
-                <span class="badge-realistic">Retrato histórico y grabado técnico</span>
-                
-                <p><em>Primer diseño conceptual de máquina térmica de cilindro y pistón de vapor. Papin generaba vapor directamente en el fondo del cilin...</em></p>
-            </div>
+                <p class="plate-entry-author">Denis Papin · <em>Acta Eruditorum (Nova methodus)</em></p>
+                <p class="plate-entry-desc">Primer diseño conceptual de máquina térmica de cilindro y pistón de vapor. Papin generaba vapor directamente en el fondo del …</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="bomba de vapor de savery (el amigo del minero) thomas savery the miner's friend 1702 bomba térmica de agua">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 39</strong>
+                    <span>1702</span>
+                </div>
+                <a href="savery_savery_engine/index.html" class="plate-thumb-link">
+                    
+                    <img src="savery_savery_engine/realistic.jpg" alt="Bomba de vapor de Savery (El amigo del minero)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="savery_savery_engine/index.html">Bomba de vapor de Savery (El amigo del minero)</a></h3>
-                <p><span class="meta-label">Autor:</span> Thomas Savery (1702)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba térmica de agua</p>
-                <p><span class="meta-label">Dominio:</span> Termodinámica e Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Grabado técnico histórico</span>
-                
-                <p><em>Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín). El agua de la mina era aspirada hacia una cámara rece...</em></p>
-            </div>
+                <p class="plate-entry-author">Thomas Savery · <em>The Miner's Friend</em></p>
+                <p class="plate-entry-desc">Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín). El agua de la mina era aspirada hacia una cámara…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="máquina de vapor atmosférica de newcomen thomas newcomen instalaciones mineras de dudley castle 1712 máquina de vapor atmosférica">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 40</strong>
+                    <span>1712</span>
+                </div>
+                <a href="newcomen_newcomen_engine/index.html" class="plate-thumb-link">
+                    
+                    <img src="newcomen_newcomen_engine/realistic.jpg" alt="Máquina de vapor atmosférica de Newcomen" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="newcomen_newcomen_engine/index.html">Máquina de vapor atmosférica de Newcomen</a></h3>
-                <p><span class="meta-label">Autor:</span> Thomas Newcomen (1712)</p>
-                <p><span class="meta-label">Tipo:</span> Máquina de vapor atmosférica</p>
-                <p><span class="meta-label">Dominio:</span> Termodinámica y Cinemática</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Grabado técnico histórico</span>
-                
-                <p><em>Primera máquina motriz térmica práctica de la historia industrial. El vapor ingresa a baja presión en el cilindro para expulsar el...</em></p>
-            </div>
+                <p class="plate-entry-author">Thomas Newcomen · <em>Instalaciones mineras de Dudley Castle</em></p>
+                <p class="plate-entry-desc">Primera máquina motriz térmica práctica de la historia industrial. El vapor ingresa a baja presión en el cilindro para expuls…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="termica"
+                     data-search="máquina de vapor de alta presión de leupold jacob leupold theatrum machinarum generale 1724 máquina de vapor de alta presión">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 41</strong>
+                    <span>1724</span>
+                </div>
+                <a href="leupold_leupold_steam_pump/index.html" class="plate-thumb-link">
+                    
+                    <img src="leupold_leupold_steam_pump/realistic.jpg" alt="Máquina de vapor de alta presión de Leupold" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="leupold_leupold_steam_pump/index.html">Máquina de vapor de alta presión de Leupold</a></h3>
-                <p><span class="meta-label">Autor:</span> Jacob Leupold (1724)</p>
-                <p><span class="meta-label">Tipo:</span> Máquina de vapor de alta presión</p>
-                <p><span class="meta-label">Dominio:</span> Termodinámica e Hidráulica</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
-                
-                <span class="badge-realistic">Grabado técnico histórico</span>
-                
-                <p><em>Primer diseño documentado de una máquina de vapor de pistón de alta presión (no condensante). Utiliza una válvula rotativa de cuat...</em></p>
-            </div>
+                <p class="plate-entry-author">Jacob Leupold · <em>Theatrum Machinarum Generale</em></p>
+                <p class="plate-entry-desc">Primer diseño documentado de una máquina de vapor de pistón de alta presión (no condensante). Utiliza una válvula rotativa de…</p>
+            </article>
         
-            <div class="machine-card">
+            <article class="plate-entry archive-item"
+                     data-cat="mecanismos"
+                     data-search="autómata servidor de té (chahakobi ningyō) hosokawa hanzō karakuri zui (ilustración de máquinas ingeniosas) 1796 autómata mecánico">
+                <div class="plate-entry-meta">
+                    <strong>LÁM. 42</strong>
+                    <span>1796</span>
+                </div>
+                <a href="japanese_karakuri_doll/index.html" class="plate-thumb-link">
+                    
+                    <img src="japanese_karakuri_doll/realistic.jpg" alt="Autómata servidor de té (Chahakobi Ningyō)" class="plate-thumb-img" loading="lazy">
+                    
+                </a>
                 <h3><a href="japanese_karakuri_doll/index.html">Autómata servidor de té (Chahakobi Ningyō)</a></h3>
-                <p><span class="meta-label">Autor:</span> Hosokawa Hanzō (1796)</p>
-                <p><span class="meta-label">Tipo:</span> Autómata mecánico</p>
-                <p><span class="meta-label">Dominio:</span> Cinemática y Elasticidad</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-                
-                <span class="badge-realistic">Pieza de museo / Objeto histórico</span>
-                
-                <p><em>Autómata mecánico del período Edo accionado por un muelle espiral de ballena. Avanza paso a paso portando una taza de té; cuando e...</em></p>
-            </div>
+                <p class="plate-entry-author">Hosokawa Hanzō · <em>Karakuri Zui (Ilustración de máquinas ingeniosas)</em></p>
+                <p class="plate-entry-desc">Autómata mecánico del período Edo accionado por un muelle espiral de ballena. Avanza paso a paso portando una taza de té; cua…</p>
+            </article>
         
-        </div>
+        </section>
+
+        <h2>Autores, Artífices y Tradiciones Técnicas</h2>
+        <ul class="authors-index">
         
-        <h2>Autores e Ingenieros Representados</h2>
-        <ul>
+            <li>
+                <span>Agostino Ramelli</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Desconocido (Tradición nilótica / helenística)</strong> (1 máquina)</li>
+            <li>
+                <span>Ctesibio</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Desconocido (Egipto y Nubia antiguos)</strong> (1 máquina)</li>
+            <li>
+                <span>Culturas mesoamericanas (aztecas, mayas)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Georgius Agricola</strong> (5 máquinas)</li>
+            <li>
+                <span>Denis Papin</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Ismail al-Jazari</strong> (2 máquinas)</li>
+            <li>
+                <span>Desconocido (Egipto y Nubia antiguos)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Hermanos Banū Mūsā</strong> (2 máquinas)</li>
+            <li>
+                <span>Desconocido (Tradición nilótica / helenística)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Jacques Besson</strong> (1 máquina)</li>
+            <li>
+                <span>Desconocido (Tradición textil india)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Desconocido (atribuido a Zhuge Liang)</strong> (1 máquina)</li>
+            <li>
+                <span>Desconocido (atribuido a Zhuge Liang)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Ma Jun (Tres Reinos) / Yan Su (Dinastía Song)</strong> (1 máquina)</li>
+            <li>
+                <span>Filón de Bizancio</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Su Song</strong> (1 máquina)</li>
+            <li>
+                <span>Francesco di Giorgio Martini</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Ctesibio</strong> (2 máquinas)</li>
+            <li>
+                <span>Georgius Agricola</span>
+                <span class="count">5</span>
+            </li>
         
-            <li><strong>Villard de Honnecourt / Maestros canteros medievales</strong> (1 máquina)</li>
+            <li>
+                <span>Hermanos Banū Mūsā</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Herón de Alejandría</strong> (1 máquina)</li>
+            <li>
+                <span>Herón de Alejandría</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Metalúrgicos andinos (Cultura Inca)</strong> (1 máquina)</li>
+            <li>
+                <span>Hosokawa Hanzō</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Quipucamayoc (Contadores del Tahuantinsuyo)</strong> (1 máquina)</li>
+            <li>
+                <span>Ingenieros viales incas (Qhapaq Ñan)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Ingenieros viales incas (Qhapaq Ñan)</strong> (1 máquina)</li>
+            <li>
+                <span>Ismail al-Jazari</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Desconocido (Tradición textil india)</strong> (1 máquina)</li>
+            <li>
+                <span>Jacob Leupold</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Hosokawa Hanzō</strong> (1 máquina)</li>
+            <li>
+                <span>Jacques Besson</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Leonardo da Vinci</strong> (2 máquinas)</li>
+            <li>
+                <span>Leonardo da Vinci</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Jacob Leupold</strong> (1 máquina)</li>
+            <li>
+                <span>Ma Jun (Tres Reinos) / Yan Su (Dinastía Song)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Francesco di Giorgio Martini</strong> (2 máquinas)</li>
+            <li>
+                <span>Metalúrgicos andinos (Cultura Inca)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Culturas mesoamericanas (aztecas, mayas)</strong> (1 máquina)</li>
+            <li>
+                <span>Quipucamayoc (Contadores del Tahuantinsuyo)</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Thomas Newcomen</strong> (1 máquina)</li>
+            <li>
+                <span>Su Song</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Denis Papin</strong> (1 máquina)</li>
+            <li>
+                <span>Thomas Newcomen</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Filón de Bizancio</strong> (1 máquina)</li>
+            <li>
+                <span>Thomas Savery</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Agostino Ramelli</strong> (2 máquinas)</li>
+            <li>
+                <span>Villard de Honnecourt</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Vitruvio / Ingenieros romanos</strong> (1 máquina)</li>
+            <li>
+                <span>Villard de Honnecourt / Maestros canteros medievales</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Thomas Savery</strong> (1 máquina)</li>
+            <li>
+                <span>Vitruvio</span>
+                <span class="count">2</span>
+            </li>
         
-            <li><strong>Villard de Honnecourt</strong> (1 máquina)</li>
+            <li>
+                <span>Vitruvio / Ingenieros romanos</span>
+                <span class="count">1</span>
+            </li>
         
-            <li><strong>Vitruvio</strong> (2 máquinas)</li>
-        
-            <li><strong>Vittorio Zonca</strong> (2 máquinas)</li>
+            <li>
+                <span>Vittorio Zonca</span>
+                <span class="count">2</span>
+            </li>
         
         </ul>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Reconstrucción analítica de maquinaria histórica</span>
+        <span>Dominio Público — Dedicación CC0 1.0 Universal</span>
+    </footer>
+
+    <script>
+    (function() {
+        const tabs = document.querySelectorAll('.filter-tab');
+        const searchInput = document.getElementById('archive-search');
+        const btnLedger = document.getElementById('btn-view-ledger');
+        const btnPlates = document.getElementById('btn-view-plates');
+        const viewLedger = document.getElementById('view-ledger');
+        const viewPlates = document.getElementById('view-plates');
+
+        let activeCat = 'all';
+        let query = '';
+
+        function applyFilters() {
+            const items = document.querySelectorAll('.archive-item');
+            items.forEach(el => {
+                const catMatch = (activeCat === 'all' || el.dataset.cat === activeCat);
+                const textMatch = (!query || el.dataset.search.includes(query));
+                el.classList.toggle('is-hidden', !(catMatch && textMatch));
+            });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                activeCat = tab.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            query = e.target.value.trim().toLowerCase();
+            applyFilters();
+        });
+
+        btnLedger.addEventListener('click', () => {
+            btnLedger.classList.add('active');
+            btnPlates.classList.remove('active');
+            viewLedger.classList.remove('is-hidden');
+            viewPlates.classList.add('is-hidden');
+        });
+
+        btnPlates.addEventListener('click', () => {
+            btnPlates.classList.add('active');
+            btnLedger.classList.remove('active');
+            viewPlates.classList.remove('is-hidden');
+            viewLedger.classList.add('is-hidden');
+        });
+    })();
+    </script>
 </body>
 </html>

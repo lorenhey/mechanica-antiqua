@@ -3,64 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bomba de succión minera - Mechanica Antiqua</title>
+    <title>Bomba de succión minera — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Bomba de succión minera</h1>
-        
-        <p><em>Denominación histórica: Machina tractoria</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 31 de 42 · Bombas, Vapor y Fluidos</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Georgius Agricola</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> De re metallica (1556, Basilea (Froben))</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Libro VI, varios grabados</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Bomba alternativa de minería</p>
-            <p><span class="meta-label">Dominio Físico:</span> Cinemática e Hidráulica</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada ampliamente en la minería de Sajonia y Bohemia en el siglo XVI para mantener secas las galerías. La alternancia mecánica convierte el movimiento circular continuo en lineal alternativo.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Mecanismo claro, relaciones de cigüeñal inferidas de la lámina.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, ampliamente difundida en minería centroeuropea.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Reconstrucción digital 3D</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Bomba de succión minera - Reconstrucción digital 3D" class="realistic-image">
-            <p class="realistic-caption"><em>Reconstrucción digital tridimensional de la bomba de succión en madera por etapas para desagüe de pozos mineros profundos.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 31 · 1556</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="agricola_suction_pump" data-model-type="crank_slider">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Georgius Agricola</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>De re metallica (1556, Basilea (Froben))</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-suction-pump">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Libro VI, varios grabados</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Bomba alternativa de minería</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Cinemática e Hidráulica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Reconstrucción digital 3D</span>
+                <img src="realistic.jpg" alt="Bomba de succión minera — Reconstrucción digital 3D">
+                <figcaption>Reconstrucción digital tridimensional de la bomba de succión en madera por etapas para desagüe de pozos mineros profundos.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">r_manivela_mm</td>
+                        <td class="param-val">175</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">L_biela_mm</td>
+                        <td class="param-val">800</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">relacion_lambda</td>
+                        <td class="param-val">0.219</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">carrera_mm</td>
+                        <td class="param-val">350</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">diametro_cilindro_mm</td>
+                        <td class="param-val">180</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">regimen_rpm</td>
+                        <td class="param-val">25</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">caudal_teorico_Lmin</td>
+                        <td class="param-val">222.6</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1556</div>
+                <h1>Bomba de succión minera</h1>
+                
+                <p class="monograph-original">Denominación histórica: Machina tractoria</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="agricola_suction_pump"
+                     data-model-type="crank_slider">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-suction-pump">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
     <pattern id="grid-asp" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -211,100 +286,98 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Caudal de achique: Q = 222.6 L/min</text>
   </g>
 </svg>
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Bomba Alternativa de Minería (Biela-Manivela en Línea)</p>
-            <p><strong>Topología estructural:</strong> Cuadrilátero biela-corredera centrado (In-line Slider-Crank)</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>4 eslabones: 1) Entibación y cuerpo de cilindro, 2) Manivela, 3) Biela motriz, 4) Vástago y émbolo</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 4 (3 pares R, 1 par P en camisa del cilindro). j₂ = 0</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(4 - 1) - 2(4) - 0 = 1</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>r · e^(iθ) + L · e^(iφ) - s(θ) · j = 0</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>s(θ) = r cos θ + √(L² - r² sin²θ)</code><br>
-                        Velocidad: <code>v(θ) = -r ω (sin θ + (r sin 2θ) / (2√(L² - r² sin²θ)))</code><br>
-                        Aceleración: <code>a(θ) ≈ -r ω² (cos θ + (r / L) cos 2θ)</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>r_manivela_mm</code></td>
-                    <td><strong>175</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>L_biela_mm</code></td>
-                    <td><strong>800</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>relacion_lambda</code></td>
-                    <td><strong>0.219</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>carrera_mm</code></td>
-                    <td><strong>350</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>diametro_cilindro_mm</code></td>
-                    <td><strong>180</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>regimen_rpm</code></td>
-                    <td><strong>25</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>caudal_teorico_Lmin</code></td>
-                    <td><strong>222.6</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada ampliamente en la minería de Sajonia y Bohemia en el siglo XVI para mantener secas las galerías. La alternancia mecánica convierte el movimiento circular continuo en lineal alternativo.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Mecanismo claro, relaciones de cigüeñal inferidas de la lámina.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, ampliamente difundida en minería centroeuropea.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Limitada físicamente a ~7.5 m de altura de aspiración por la presión atmosférica local y cavitación en la válvula de pie.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Bomba Alternativa de Minería (Biela-Manivela en Línea) — <em>Cuadrilátero biela-corredera centrado (In-line Slider-Crank)</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>4 eslabones: 1) Entibación y cuerpo de cilindro, 2) Manivela, 3) Biela motriz, 4) Vástago y émbolo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>j₁ = 4 (3 pares R, 1 par P en camisa del cilindro). j₂ = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 3(4 - 1) - 2(4) - 0 = 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>r · e^(iθ) + L · e^(iφ) - s(θ) · j = 0</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>s(θ) = r cos θ + √(L² - r² sin²θ)</code><br>
+                                Velocidad: <code>v(θ) = -r ω (sin θ + (r sin 2θ) / (2√(L² - r² sin²θ)))</code><br>
+                                Aceleración: <code>a(θ) ≈ -r ω² (cos θ + (r / L) cos 2θ)</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Limitada físicamente a ~7.5 m de altura de aspiración por la presión atmosférica local y cavitación en la válvula de pie.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../agricola_stamp_mill/index.html">
+                        <span class="folio-pager-label">Lámina anterior (30)</span>
+                        ← Molino de martillos pisones (Bocarte)
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../agricola_ventilation_fan/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (32)</span>
+                        Ventilador centrífugo minero →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 31 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

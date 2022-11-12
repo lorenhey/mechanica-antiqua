@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Molino papelero de mazos batidores - Mechanica Antiqua</title>
+    <title>Molino papelero de mazos batidores — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Molino papelero de mazos batidores</h1>
-        
-        <p><em>Denominación histórica: Cartiera</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 36 de 42 · Mecanismos y Relojería</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Vittorio Zonca</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Novo Teatro di Machine et Edificii (1607, Padua (Pietro Bertelli))</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Página 86, grabado en cobre</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Molino</p>
-            <p><span class="meta-label">Dominio Físico:</span> Mecánica analítica</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel A (Completamente documentada y reproducible)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Instalación fabril accionada por rueda hidráulica para la fabricación de papel. Un eje con levas distribuidas eleva y deja caer secuencialmente baterías de mazos de madera con clavos sobre pilas de trapos sumergidos en agua, desfibrando la materia prima en una pulpa uniforme.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Alto (0,85): grabado técnico detallado con baterías de mazas y canalización de agua.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, tecnología típica de las papeleras de Fabriano y la cuenca veneciana.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Fotografía de instalación industrial</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Molino papelero de mazos batidores - Fotografía de instalación industrial" class="realistic-image">
-            <p class="realistic-caption"><em>Fotografía contemporánea de la planta de manufactura papelera Cartiere Fedrigoni, heredera de la tradición industrial de molienda y prensado papelero.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 36 · 1607</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="zonca_paper_mill" data-model-type="cam_follower">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Vittorio Zonca</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Novo Teatro di Machine et Edificii (1607, Padua (Pietro Bertelli))</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Página 86, grabado en cobre</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Molino</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Mecánica analítica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Fotografía de instalación industrial</span>
+                <img src="realistic.jpg" alt="Molino papelero de mazos batidores — Fotografía de instalación industrial">
+                <figcaption>Fotografía contemporánea de la planta de manufactura papelera Cartiere Fedrigoni, heredera de la tradición industrial de molienda y prensado papelero.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">longitud_brazo_mm</td>
+                        <td class="param-val">1600</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">altura_levante_mm</td>
+                        <td class="param-val">280</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">masa_mazo_kg</td>
+                        <td class="param-val">38.0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">cadencia_golpes_min</td>
+                        <td class="param-val">55</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Mecanismos y Relojería · 1607</div>
+                <h1>Molino papelero de mazos batidores</h1>
+                
+                <p class="monograph-original">Denominación histórica: Cartiera</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="zonca_paper_mill"
+                     data-model-type="cam_follower">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .pm-bg { fill: #fcf9f2; }
@@ -166,85 +226,98 @@
   <text x="50" y="222" class="pm-text">• Pulpa homogénea para pliegos</text>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Molino Papelero de Mazos Batidores Basculantes</p>
-            <p><strong>Topología estructural:</strong> Árbol de levas accionando palancas pivotantes de primer género contra tina de pasta</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bastidor, rueda hidráulica, eje de levas con dientes radiales, mazos articulados en fulcro posterior</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares R en eje motriz y pivote de mazo; par superior j₂ en contacto de leva sobre cola del brazo</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(3 - 1) - 2(2) - 1 = 1</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>φ_mazo(θ) = φ_max (θ/θ_levante) hasta escape en el borde de la leva</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>h_cabeza(θ) = L_brazo · sin(φ(θ))</code><br>
-                        Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
-                        Aceleración: <code>α_caida = -(m g L_cg) / I_pivote</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>longitud_brazo_mm</code></td>
-                    <td><strong>1600</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>altura_levante_mm</code></td>
-                    <td><strong>280</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>masa_mazo_kg</code></td>
-                    <td><strong>38.0</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>cadencia_golpes_min</code></td>
-                    <td><strong>55</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Instalación fabril accionada por rueda hidráulica para la fabricación de papel. Un eje con levas distribuidas eleva y deja caer secuencialmente baterías de mazos de madera con clavos sobre pilas de trapos sumergidos en agua, desfibrando la materia prima en una pulpa uniforme.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Alto (0,85): grabado técnico detallado con baterías de mazas y canalización de agua.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, tecnología típica de las papeleras de Fabriano y la cuenca veneciana.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Vittorio Zonca (1607) detalla clavos ferrados de geometría diferenciada para deshilachar trapos de lino.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Molino Papelero de Mazos Batidores Basculantes — <em>Árbol de levas accionando palancas pivotantes de primer género contra tina de pasta</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>Bastidor, rueda hidráulica, eje de levas con dientes radiales, mazos articulados en fulcro posterior</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>Pares R en eje motriz y pivote de mazo; par superior j₂ en contacto de leva sobre cola del brazo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 3(3 - 1) - 2(2) - 1 = 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>φ_mazo(θ) = φ_max (θ/θ_levante) hasta escape en el borde de la leva</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>h_cabeza(θ) = L_brazo · sin(φ(θ))</code><br>
+                                Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
+                                Aceleración: <code>α_caida = -(m g L_cg) / I_pivote</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Vittorio Zonca (1607) detalla clavos ferrados de geometría diferenciada para deshilachar trapos de lino.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../ramelli_rotary_pump/index.html">
+                        <span class="folio-pager-label">Lámina anterior (35)</span>
+                        ← Bomba rotativa de paletas deslizantes
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../zonca_stamping_mill/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (37)</span>
+                        Molino de batanado textil y trituración →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 36 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

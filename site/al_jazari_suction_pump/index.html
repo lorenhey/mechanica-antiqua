@@ -3,64 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bomba de pistón bicilíndrica - Mechanica Antiqua</title>
+    <title>Bomba de pistón bicilíndrica — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Bomba de pistón bicilíndrica</h1>
-        
-        <p><em>Denominación histórica: Bomba aspirante-impelente con cilindros gemelos</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 19 de 42 · Bombas, Vapor y Fluidos</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Ismail al-Jazari</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Kitāb fī maʿrifat al-ḥiyal al-handasiyya (1206, Diyarbakır)</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Categoría V, Capítulo 5</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Bomba alternativa</p>
-            <p><span class="meta-label">Dominio Físico:</span> Hidráulica y Cinemática</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo de ranura para convertir movimiento rotatorio en alternativo. Una rueda de paletas mueve una rueda dentada con espiga que empuja y tira de dos pistones opuestos en cilindros de cobre con válvulas de retención, elevando agua a presión.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Alto: descripción detallada del cigüeñal y mecanismo de biela ranurada con válvulas de clapeta.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, considerada un hito fundacional en la historia de las máquinas volumétricas.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Reconstrucción digital 3D</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Bomba de pistón bicilíndrica - Reconstrucción digital 3D" class="realistic-image">
-            <p class="realistic-caption"><em>Reconstrucción digital tridimensional de la bomba bicilíndrica de pistones opuestos con conversión de movimiento rotativo a lineal mediante biela-manivela.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 19 · 1206</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="al_jazari_suction_pump" data-model-type="scotch_yoke">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Ismail al-Jazari</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Kitāb fī maʿrifat al-ḥiyal al-handasiyya (1206, Diyarbakır)</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-aljazari-pump">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Categoría V, Capítulo 5</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Bomba alternativa</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Hidráulica y Cinemática</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Reconstrucción digital 3D</span>
+                <img src="realistic.jpg" alt="Bomba de pistón bicilíndrica — Reconstrucción digital 3D">
+                <figcaption>Reconstrucción digital tridimensional de la bomba bicilíndrica de pistones opuestos con conversión de movimiento rotativo a lineal mediante biela-manivela.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">radio_excentrica_mm</td>
+                        <td class="param-val">160</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">carrera_mm</td>
+                        <td class="param-val">320</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">diametro_cilindro_mm</td>
+                        <td class="param-val">150</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">relacion_engranaje</td>
+                        <td class="param-val">1:1 (linterna)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">cilindrada_rev_L</td>
+                        <td class="param-val">11.31</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1206</div>
+                <h1>Bomba de pistón bicilíndrica</h1>
+                
+                <p class="monograph-original">Denominación histórica: Bomba aspirante-impelente con cilindros gemelos</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="al_jazari_suction_pump"
+                     data-model-type="scotch_yoke">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-aljazari-pump">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
     <pattern id="grid-aj" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -234,90 +299,98 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Desfase entre pistones: Δφ = 180° (Caudal continuo)</text>
   </g>
 </svg>
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Bomba Bicilíndrica Oposicional con Yugo Escocés</p>
-            <p><strong>Topología estructural:</strong> Mecanismo inversor sinusoidal exacto (Scotch Yoke)</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>4 eslabones: 1) Bancada, 2) Rueda con muñón excéntrico, 3) Marco ranurado (yugo), 4) Par de émbolos opuestos</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 3 (2 R, 1 P longitudinal), j₂ = 1 (par superior pin-ranura). F = 3(3) - 2(3) - 1 = 2? (con pin deslizante equivalente)</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(4 - 1) - 2(3) - 2(0) - 1(2) ... Equivalente 4R/P: F = 1</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>R · cos(θ) = x_yugo(θ) ; R · sin(θ) = y_ranura</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>x(θ) = R · cos(θ) [Armónico puro]</code><br>
-                        Velocidad: <code>v(θ) = -R · ω · sin(θ)</code><br>
-                        Aceleración: <code>a(θ) = -R · ω² · cos(θ)</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>radio_excentrica_mm</code></td>
-                    <td><strong>160</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>carrera_mm</code></td>
-                    <td><strong>320</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>diametro_cilindro_mm</code></td>
-                    <td><strong>150</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>relacion_engranaje</code></td>
-                    <td><strong>1:1 (linterna)</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>cilindrada_rev_L</code></td>
-                    <td><strong>11.31</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo de ranura para convertir movimiento rotatorio en alternativo. Una rueda de paletas mueve una rueda dentada con espiga que empuja y tira de dos pistones opuestos en cilindros de cobre con válvulas de retención, elevando agua a presión.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Alto: descripción detallada del cigüeñal y mecanismo de biela ranurada con válvulas de clapeta.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, considerada un hito fundacional en la historia de las máquinas volumétricas.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Primer uso documentado (1206) de la conversión rotativa-alternativa continua por ranura deslizante con flujo bidireccional.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Bomba Bicilíndrica Oposicional con Yugo Escocés — <em>Mecanismo inversor sinusoidal exacto (Scotch Yoke)</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>4 eslabones: 1) Bancada, 2) Rueda y brazo excéntrico, 3) Dado/corredera en ranura, 4) Yugo rígido con émbolos opuestos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>j₁ = 4 (2 R: eje O₂ y muñón A; 2 P: corredera en ranura vertical y guías horizontales del yugo). j₂ = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 3(4 - 1) - 2(4) - 0 = 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>R · cos(θ) = x_yugo(θ) ; R · sin(θ) = y_ranura</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>x(θ) = R · cos(θ) [Armónico puro]</code><br>
+                                Velocidad: <code>v(θ) = -R · ω · sin(θ)</code><br>
+                                Aceleración: <code>a(θ) = -R · ω² · cos(θ)</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Primer uso documentado (1206) de la conversión rotativa-alternativa continua por ranura deslizante con flujo bidireccional.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../al_jazari_elephant_clock/index.html">
+                        <span class="folio-pager-label">Lámina anterior (18)</span>
+                        ← Reloj del elefante
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../villard_sawmill/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (20)</span>
+                        Aserradero hidráulico con retorno elástico →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 19 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

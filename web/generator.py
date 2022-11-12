@@ -13,8 +13,52 @@ if base_dir not in sys.path:
 
 from mechanica.kinematic_catalog import get_kinematic_data
 
+DOMAIN_CATEGORIES = {
+    "hidraulica": {
+        "label": "Hidráulica y Elevación",
+        "ids": {
+            "vitruvius_archimedes_screw", "agricola_chain_pump", "african_saqiya",
+            "vitruvius_water_wheel", "agricola_reversible_hoist", "african_shaduf",
+            "roman_aqueduct", "ctesibius_clepsydra", "banu_musa_alternating_fountain",
+            "philo_washbasin", "al_jazari_elephant_clock"
+        }
+    },
+    "termica": {
+        "label": "Bombas, Vapor y Fluidos",
+        "ids": {
+            "newcomen_newcomen_engine", "papin_papin_steam_engine", "leupold_leupold_steam_pump",
+            "savery_savery_engine", "heron_aeolipile", "inca_huayra_furnace",
+            "agricola_ventilation_fan", "al_jazari_suction_pump", "agricola_suction_pump",
+            "ctesibius_pump", "martini_piston_pump", "ramelli_rotary_pump"
+        }
+    },
+    "mecanismos": {
+        "label": "Mecanismos y Relojería",
+        "ids": {
+            "martini_hydraulic_sawmill", "agricola_stamp_mill", "zonca_paper_mill",
+            "zonca_stamping_mill", "villard_sawmill", "ramelli_book_wheel",
+            "besson_screw_lathe", "leonardo_cage_bearing", "leonardo_globoidal_gear",
+            "chinese_south_pointing_chariot", "chinese_su_song_clock",
+            "japanese_karakuri_doll", "banu_musa_automatic_flute", "indian_charkha"
+        }
+    },
+    "estructuras": {
+        "label": "Estructuras y Balística",
+        "ids": {
+            "mesoamerican_atlatl", "chinese_repeating_crossbow", "gothic_cathedral",
+            "inca_suspension_bridge", "inca_quipu_memory"
+        }
+    }
+}
+
+def classify_category(machine_id: str):
+    for slug, info in DOMAIN_CATEGORIES.items():
+        if machine_id in info["ids"]:
+            return slug, info["label"]
+    return "mecanismos", "Mecanismos y Relojería"
+
 def build_site():
-    print("Construyendo corpus Mechanica Antiqua con banco cinemático interactivo...")
+    print("Construyendo archivo Mechanica Antiqua...")
     
     machines_dir = os.path.join(base_dir, "machines")
     site_dir = os.path.join(base_dir, "site")
@@ -37,7 +81,6 @@ def build_site():
                     meta = yaml.safe_load(f) or {}
                     meta['id'] = folder
                     
-                    # Garantizar display_year en español
                     if not meta.get('display_year'):
                         y = meta.get('year', 0)
                         if isinstance(y, (int, float)):
@@ -55,7 +98,6 @@ def build_site():
                     else:
                         meta['svg_content'] = None
                         
-                    # Detección de imagen realista (foto / 3D)
                     realistic_img = None
                     for ext in ["realistic.jpg", "realistic.png", "realistic.jpeg"]:
                         if os.path.exists(os.path.join(folder_path, ext)):
@@ -66,12 +108,13 @@ def build_site():
                     meta['visual_type'] = meta.get('visual_type')
                     meta['visual_caption'] = meta.get('visual_caption')
                     
-                    # Cargar modelo cinemático analítico
                     meta['kinematic'] = get_kinematic_data(folder)
+                    cat_slug, cat_label = classify_category(folder)
+                    meta['category_slug'] = cat_slug
+                    meta['category_label'] = cat_label
                     
                     machines.append(meta)
                     
-                    # Taxonomías en español
                     author = meta.get('author', 'Desconocido')
                     authors[author].append(meta)
                     
@@ -81,7 +124,6 @@ def build_site():
                     family = meta.get('machine_type', 'Sin clasificar')
                     families[family].append(meta)
     
-    # Ordenamiento cronológico de las máquinas
     def get_sort_year(m):
         y = m.get('year', 9999)
         if isinstance(y, (int, float)):
@@ -95,229 +137,1103 @@ def build_site():
         return 9999
 
     machines.sort(key=get_sort_year)
+
+    for idx, m in enumerate(machines, start=1):
+        m['folio_num'] = f"{idx:02d}"
     
-    # Copiar todos los scripts del motor cinemático y renderizadores CAD
+    # Copiar scripts estáticos CAD y de simulación
     static_dir = os.path.join(base_dir, "web", "static")
     if os.path.isdir(static_dir):
         for fname in os.listdir(static_dir):
             if fname.endswith(".js"):
                 shutil.copy2(os.path.join(static_dir, fname), os.path.join(site_dir, fname))
+
+    # Calcular conteos por categoría
+    cat_counts = {slug: sum(1 for m in machines if m['category_slug'] == slug) for slug in DOMAIN_CATEGORIES}
     
     # Renderizar index.html
     index_template = env.get_template("index.html")
     index_html = index_template.render(
         machines=machines,
-        authors=authors,
+        authors=dict(sorted(authors.items(), key=lambda x: x[0])),
         periods=periods,
         families=families,
+        categories=DOMAIN_CATEGORIES,
+        cat_counts=cat_counts,
         total=len(machines)
     )
     with open(os.path.join(site_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(index_html)
 
-    # Renderizar about.html (Bilingüe)
+    # Renderizar about.html
     if os.path.exists(os.path.join(templates_dir, "about.html")):
         about_template = env.get_template("about.html")
         about_html = about_template.render(total=len(machines))
         with open(os.path.join(site_dir, "about.html"), "w", encoding="utf-8") as f:
             f.write(about_html)
         
-    # Renderizar páginas individuales de cada máquina
+    # Renderizar páginas individuales con enlaces secuenciales anterior/siguiente
     machine_template = env.get_template("machine.html")
-    for m in machines:
+    for idx, m in enumerate(machines):
         m_dir = os.path.join(site_dir, m['id'])
         os.makedirs(m_dir, exist_ok=True)
         if m.get('realistic_image'):
             src_img = os.path.join(machines_dir, m['id'], m['realistic_image'])
             dst_img = os.path.join(m_dir, m['realistic_image'])
             shutil.copy2(src_img, dst_img)
+
+        prev_m = machines[idx - 1] if idx > 0 else None
+        next_m = machines[idx + 1] if idx + 1 < len(machines) else None
             
-        m_html = machine_template.render(machine=m)
+        m_html = machine_template.render(
+            machine=m,
+            prev_machine=prev_m,
+            next_machine=next_m,
+            total=len(machines)
+        )
         with open(os.path.join(m_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(m_html)
             
-    # Estilos CSS
-    css_content = """
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
-    
-    body { font-family: 'EB Garamond', serif; background-color: #fcf9f2; color: #2b2b2b; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 2rem; font-size: 1.1rem; }
-    h1, h2, h3, h4 { font-family: 'Cinzel', serif; border-bottom: 1px solid #d3c9b3; padding-bottom: 0.5rem; color: #3d2b1f; }
-    header { margin-bottom: 2rem; text-align: center; }
-    header h1 { border-bottom: none; font-size: 2.4rem; margin-bottom: 0.2rem; }
-    header p { margin-top: 0; font-size: 1.15rem; color: #5a4b3c; }
-    .corpus-stats { background: #f0ebe1; padding: 1.2rem; border: 1px solid #d3c9b3; border-radius: 4px; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-    .machine-card { border: 1px solid #d3c9b3; padding: 1.5rem; background: #fff; box-shadow: 2px 2px 8px rgba(0,0,0,0.05); border-radius: 4px; position: relative; }
-    .machine-card h3 { font-size: 1.25rem; margin-top: 0; }
-    .machine-card h3 a { color: #6b4c1a; text-decoration: none; }
-    .machine-card h3 a:hover { text-decoration: underline; }
-    .meta-label { font-weight: bold; color: #555; }
-    
-    .svg-container { text-align: center; margin: 1.5rem 0; padding: 1rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .svg-container svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
-    
-    .realistic-container { text-align: center; margin: 2rem 0; padding: 1.5rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-    .realistic-image { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,0.15); border: 1px solid #e0d7c7; }
-    .realistic-caption { margin-top: 0.9rem; font-size: 1rem; color: #5a4b3c; }
-    
-    .badge-realistic { display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: #e8ede3; color: #3b5e2b; border: 1px solid #c4d6b8; border-radius: 3px; font-size: 0.85rem; font-weight: bold; }
-    
-    .back-link { margin-bottom: 1.5rem; display: inline-block; text-decoration: none; color: #6b4c1a; font-weight: bold; border-bottom: 1px solid #6b4c1a; padding-bottom: 2px; }
-    .back-link:hover { color: #8a6224; border-color: #8a6224; }
-    ul { line-height: 1.8; }
-    hr { border: 0; border-top: 1px solid #e0d7c7; margin: 1.5rem 0; }
-    
-    .site-nav { margin: 1rem 0 0 0; text-align: center; font-size: 1.05rem; }
-    .site-nav a { color: #6b4c1a; text-decoration: none; margin: 0 0.5rem; font-weight: 600; padding: 0.2rem 0.5rem; }
-    .site-nav a:hover { text-decoration: underline; color: #8a6224; }
-    .site-nav a.active { color: #3d2b1f; border-bottom: 2px solid #8a6224; }
-    
-    /* Banco Cinemático Interactivo */
-    .kinematic-workbench-container { margin: 2rem 0; }
-    
-    .kinematic-controls-card {
-        background: #faf6ee;
-        border: 1px solid #d3c9b3;
-        border-radius: 6px;
-        padding: 1.25rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    
-    .kc-toolbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        align-items: center;
-        margin-bottom: 1rem;
-        padding-bottom: 0.8rem;
-        border-bottom: 1px solid #e5dcce;
-    }
-    
-    .kc-btn {
-        background: #fff;
-        border: 1px solid #c4b59d;
-        color: #3d2b1f;
-        padding: 0.4rem 0.85rem;
-        border-radius: 4px;
-        font-family: 'EB Garamond', serif;
-        font-size: 0.95rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.15s ease;
-    }
-    .kc-btn:hover { background: #f0e6d6; border-color: #8a6224; }
-    .kc-btn-primary { background: #8a6224; color: #fff; border-color: #6b4c1a; }
-    .kc-btn-primary:hover { background: #734f19; }
-    .kc-btn-secondary { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
-    .kc-btn-toggle { margin-left: auto; background: #eef2ea; color: #355227; border-color: #cad9c0; }
-    
-    .kc-speed-group {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        margin-left: 0.5rem;
-    }
-    .kc-btn-speed {
-        background: #fff;
-        border: 1px solid #cbd5e1;
-        padding: 0.25rem 0.5rem;
-        font-size: 0.85rem;
-        border-radius: 3px;
-        cursor: pointer;
-    }
-    .kc-btn-speed.active { background: #334155; color: #fff; border-color: #1e293b; font-weight: bold; }
-    
-    .kc-scrub-row {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.2rem;
-    }
-    .kc-label { font-weight: 600; color: #4a3525; font-size: 0.95rem; }
-    .kc-slider {
-        flex: 1;
-        accent-color: #8a6224;
-        cursor: pointer;
-        height: 6px;
-    }
-    .kc-numeric-readout {
-        font-family: monospace;
-        font-size: 1.05rem;
-        font-weight: bold;
-        color: #1e293b;
-        background: #fff;
-        padding: 0.25rem 0.6rem;
-        border: 1px solid #d3c9b3;
-        border-radius: 4px;
-        min-width: 140px;
-        text-align: center;
-    }
-    
-    .kc-telemetry-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 0.75rem;
-    }
-    .kc-telemetry-item {
-        background: #fff;
-        border: 1px solid #e0d7c7;
-        border-radius: 4px;
-        padding: 0.5rem 0.75rem;
-        display: flex;
-        flex-direction: column;
-    }
-    .kc-metric-label { font-size: 0.8rem; color: #64748b; font-weight: 600; }
-    .kc-metric-val { font-size: 1.15rem; font-weight: bold; color: #1e293b; font-family: monospace; }
-    
-    .kinematic-plot-card {
-        background: #fff;
-        border: 1px solid #d3c9b3;
-        border-radius: 6px;
-        padding: 1.25rem;
-        margin-top: 1.5rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
-    .kc-plot-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0.75rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-    .kc-plot-header h4 { margin: 0; font-family: 'Cinzel', serif; font-size: 1.05rem; color: #3d2b1f; border-bottom: none; padding-bottom: 0; }
-    .kc-plot-legend { display: flex; gap: 1rem; font-size: 0.85rem; color: #475569; }
-    .legend-item { display: flex; align-items: center; gap: 0.35rem; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-    .dot-disp { background: #2563eb; }
-    .dot-vel { background: #059669; }
-    .dot-acc { background: #dc2626; }
-    
-    .kc-plot-svg-box { width: 100%; height: 160px; overflow: hidden; }
-    .kc-plot-svg-box svg { width: 100%; height: 100%; }
+    # Estilos CSS — Estética de Monografía de Archivo Técnico & Plancha Grabada
+    css_content = """@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
 
-    /* Ficha de Análisis de Mecanismos */
-    .theory-card {
-        background: #fff;
-        border: 1px solid #d3c9b3;
-        border-radius: 6px;
-        padding: 1.75rem;
-        margin-top: 2rem;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+:root {
+    --paper: #f3efe6;
+    --paper-alt: #e9e3d5;
+    --plate: #faf8f3;
+    --ink: #1a1917;
+    --ink-2: #433f39;
+    --ink-muted: #6e675d;
+    --rule: #ccc3b1;
+    --rule-strong: #1a1917;
+    --vermilion: #962b23;
+    --prussian: #1d4968;
+    --ochre: #8c6222;
+    --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-serif);
+    background-color: var(--paper);
+    color: var(--ink);
+    line-height: 1.62;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+}
+
+/* Tipografía editorial */
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.015em;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(1.85rem, 3vw, 2.5rem);
+    line-height: 1.12;
+    margin-bottom: 0.45rem;
+}
+
+h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--rule-strong);
+    margin: 2.5rem 0 1.2rem;
+}
+
+h3 {
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin: 1.75rem 0 0.5rem;
+}
+
+a {
+    color: var(--ink);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    color: var(--vermilion);
+}
+
+code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--paper-alt);
+    padding: 0.1rem 0.35rem;
+    border: 1px solid var(--rule);
+}
+
+/* Cabecera editorial tipo portada de tratado */
+.masthead {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    padding-bottom: 1.15rem;
+    margin-bottom: 2.25rem;
+    border-bottom: 2px solid var(--rule-strong);
+    position: relative;
+}
+
+.masthead::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    border-bottom: 1px solid var(--rule);
+}
+
+.masthead-brand {
+    max-width: 620px;
+}
+
+.masthead-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--vermilion);
+    margin-bottom: 0.35rem;
+}
+
+.masthead-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 2.8vw, 2.35rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0;
+}
+
+.masthead-title a {
+    text-decoration: none;
+}
+
+.masthead-sub {
+    margin: 0.35rem 0 0;
+    font-size: 1rem;
+    color: var(--ink-2);
+    font-style: italic;
+}
+
+.site-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover {
+    color: var(--ink);
+}
+
+.site-nav a.active {
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom-color: var(--vermilion);
+}
+
+/* Banda de introducción del catálogo */
+.corpus-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(240px, 1fr);
+    gap: 2.5rem;
+    padding-bottom: 1.8rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+}
+
+.corpus-intro p {
+    margin: 0;
+    font-size: 1.08rem;
+    color: var(--ink-2);
+}
+
+.corpus-summary-ledger {
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 0.6rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+}
+
+.corpus-summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.22rem 0;
+    border-bottom: 1px dotted var(--rule);
+}
+
+.corpus-summary-row:last-child {
+    border-bottom: none;
+}
+
+/* Barra de filtros y búsqueda del índice */
+.archive-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule-strong);
+}
+
+.filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.15rem;
+}
+
+.filter-tab {
+    background: none;
+    border: none;
+    padding: 0.2rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.filter-tab:hover {
+    color: var(--ink);
+}
+
+.filter-tab.active {
+    color: var(--vermilion);
+    font-weight: 600;
+    border-bottom-color: var(--vermilion);
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.archive-search {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--ink-muted);
+    padding: 0.25rem 0.4rem;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--ink);
+    width: 210px;
+}
+
+.archive-search:focus {
+    outline: none;
+    border-bottom-color: var(--vermilion);
+}
+
+.view-switch {
+    display: inline-flex;
+    border: 1px solid var(--ink);
+}
+
+.view-btn {
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0.65rem;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    cursor: pointer;
+}
+
+.view-btn + .view-btn {
+    border-left: 1px solid var(--ink);
+}
+
+.view-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+/* Vista Tabular Principal (Archival Ledger) */
+.archive-ledger-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.archive-ledger {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.96rem;
+}
+
+.archive-ledger thead th {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-align: left;
+    padding: 0.55rem 0.75rem 0.55rem 0;
+    border-bottom: 1px solid var(--rule-strong);
+    white-space: nowrap;
+}
+
+.archive-ledger tbody tr {
+    border-bottom: 1px solid var(--rule);
+    transition: background-color 0.12s ease;
+}
+
+.archive-ledger tbody tr:hover {
+    background-color: var(--paper-alt);
+}
+
+.archive-ledger td {
+    padding: 0.72rem 0.75rem 0.72rem 0;
+    vertical-align: baseline;
+}
+
+.col-folio {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--vermilion);
+    font-weight: 600;
+    width: 3rem;
+}
+
+.col-year {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-2);
+    white-space: nowrap;
+    width: 6.5rem;
+}
+
+.col-machine a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.col-machine a:hover {
+    color: var(--vermilion);
+    text-decoration: underline;
+}
+
+.col-machine-sub {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    font-style: italic;
+}
+
+.col-author {
+    color: var(--ink-2);
+    font-size: 0.92rem;
+}
+
+.col-domain {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+}
+
+.col-plate {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--prussian);
+    white-space: nowrap;
+}
+
+/* Vista en Láminas (Opcional en barra) */
+.plate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem 1.5rem;
+    margin-top: 1rem;
+}
+
+.plate-entry {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.85rem 0 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.plate-entry-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+}
+
+.plate-entry-meta strong {
+    color: var(--vermilion);
+}
+
+.plate-thumb-link {
+    display: block;
+    border: 1px solid var(--rule);
+    background: var(--plate);
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.plate-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.plate-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    background-image: linear-gradient(to right, rgba(204,195,177,0.22) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(204,195,177,0.22) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.plate-thumb-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--prussian);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.plate-entry h3 {
+    font-size: 1.05rem;
+    margin: 0.25rem 0 0;
+    line-height: 1.25;
+}
+
+.plate-entry h3 a {
+    text-decoration: none;
+}
+
+.plate-entry h3 a:hover {
+    color: var(--vermilion);
+    text-decoration: underline;
+}
+
+.plate-entry-author {
+    font-size: 0.88rem;
+    color: var(--ink-2);
+    margin: 0;
+}
+
+.plate-entry-desc {
+    font-size: 0.88rem;
+    color: var(--ink-muted);
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* Índice de autores en columnas */
+.authors-index {
+    columns: 3;
+    column-gap: 2.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    font-size: 0.94rem;
+}
+
+.authors-index li {
+    break-inside: avoid;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.28rem 0;
+    border-bottom: 1px dotted var(--rule);
+}
+
+.authors-index .count {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+}
+
+/* Página Individual de Máquina — Diseño de Dossier + Monografía */
+.folio-layout {
+    display: grid;
+    grid-template-columns: 275px minmax(0, 1fr);
+    gap: 2.75rem;
+    align-items: start;
+}
+
+.dossier-rail {
+    border-top: 2px solid var(--ink);
+    padding-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.folio-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--vermilion);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.dossier-dl {
+    margin: 0 0 1.5rem;
+}
+
+.dossier-item {
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.dossier-item dt {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    margin-bottom: 0.12rem;
+}
+
+.dossier-item dd {
+    margin: 0;
+    color: var(--ink);
+    line-height: 1.4;
+}
+
+.rail-figure {
+    margin: 1.5rem 0;
+    border: 1px solid var(--rule-strong);
+    background: var(--plate);
+    padding: 0.5rem;
+}
+
+.rail-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.rail-figure figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--ink-2);
+}
+
+.rail-figure-label {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--prussian);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.monograph-header {
+    border-top: 2px solid var(--ink);
+    padding-top: 0.85rem;
+    margin-bottom: 1.75rem;
+}
+
+.monograph-kicker {
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.4rem;
+}
+
+.monograph-original {
+    font-style: italic;
+    color: var(--ink-2);
+    margin: 0.25rem 0 0;
+    font-size: 1.05rem;
+}
+
+.monograph-prose {
+    max-width: 68ch;
+}
+
+.monograph-prose p {
+    margin: 0 0 1.1rem;
+    color: var(--ink-2);
+}
+
+/* Plancha Cinemática Interactiva — Marco Técnico Sin Sombras */
+.plate-frame {
+    border: 1px solid var(--ink);
+    background: var(--plate);
+    margin: 1.75rem 0 2.25rem;
+}
+
+.kinematic-controls-card {
+    background: var(--paper-alt);
+    border-bottom: 1px solid var(--ink);
+    padding: 0.75rem 1rem;
+}
+
+.kc-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--rule);
+}
+
+.kc-btn {
+    background: var(--plate);
+    border: 1px solid var(--ink-muted);
+    color: var(--ink);
+    padding: 0.28rem 0.68rem;
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+}
+
+.kc-btn:hover {
+    border-color: var(--ink);
+    background: #fff;
+}
+
+.kc-btn-primary {
+    background: var(--ink);
+    color: var(--plate);
+    border-color: var(--ink);
+}
+
+.kc-btn-primary:hover {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+}
+
+.kc-btn-secondary {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+}
+
+.kc-btn-toggle {
+    margin-left: auto;
+    border-color: var(--prussian);
+    color: var(--prussian);
+}
+
+.kc-btn-toggle:hover {
+    background: var(--prussian);
+    color: var(--plate);
+}
+
+.kc-speed-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 0.35rem;
+}
+
+.kc-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.kc-btn-speed {
+    background: var(--plate);
+    border: 1px solid var(--rule);
+    padding: 0.2rem 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    cursor: pointer;
+    color: var(--ink-2);
+}
+
+.kc-btn-speed.active {
+    background: var(--ink);
+    color: var(--plate);
+    border-color: var(--ink);
+}
+
+.kc-scrub-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.65rem 0;
+}
+
+.kc-slider {
+    flex: 1;
+    accent-color: var(--vermilion);
+    cursor: pointer;
+    height: 4px;
+}
+
+.kc-numeric-readout {
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink);
+    background: var(--plate);
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--rule);
+    min-width: 145px;
+    text-align: center;
+}
+
+.kc-telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    border-top: 1px solid var(--rule);
+}
+
+.kc-telemetry-item {
+    padding: 0.45rem 0.6rem 0.2rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.kc-telemetry-item + .kc-telemetry-item {
+    padding-left: 0.65rem;
+    border-left: 1px solid var(--rule);
+}
+
+.kc-metric-label {
+    font-family: var(--font-sans);
+    font-size: 0.67rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+}
+
+.kc-metric-val {
+    font-family: var(--font-mono);
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.svg-container {
+    background: var(--plate);
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.svg-container svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.kinematic-plot-card {
+    border-top: 1px solid var(--rule);
+    padding: 0.85rem 1rem 0.75rem;
+    background: var(--plate);
+}
+
+.kc-plot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.kc-plot-header h4 {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.kc-plot-legend {
+    display: flex;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+}
+
+.dot-disp { background: var(--prussian); }
+.dot-vel { background: #2c6e49; }
+.dot-acc { background: var(--vermilion); }
+
+.kc-plot-svg-box {
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+}
+
+.kc-plot-svg-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Tablas estilo "Booktabs" (sólo reglas horizontales, sin grillas pesadas) */
+.booktabs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 1.75rem;
+    font-size: 0.94rem;
+}
+
+.booktabs-table thead th {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-align: left;
+    padding: 0.5rem 0.75rem 0.5rem 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+.booktabs-table tbody td {
+    padding: 0.6rem 0.75rem 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+}
+
+.booktabs-table tbody tr:last-child td {
+    border-bottom: 2px solid var(--ink);
+}
+
+.booktabs-table .param-key {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--ink-2);
+}
+
+.booktabs-table .param-val {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-align: right;
+    color: var(--ink);
+}
+
+.formula-inline {
+    font-family: var(--font-mono);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--vermilion);
+}
+
+/* Citas y notas marginales */
+.quote-block {
+    border-left: 2px solid var(--vermilion);
+    padding: 0.35rem 0 0.35rem 1.15rem;
+    margin: 1.5rem 0;
+    color: var(--ink-2);
+    font-style: italic;
+}
+
+/* Navegación secuencial entre folios */
+.folio-pager {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.1rem;
+    border-top: 2px solid var(--ink);
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+}
+
+.folio-pager a {
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.folio-pager a:hover {
+    color: var(--vermilion);
+}
+
+.folio-pager-label {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+}
+
+/* Página Acerca de */
+.lang-switch-bar {
+    display: flex;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.lang-switch-bar a {
+    text-decoration: none;
+    color: var(--ink-muted);
+}
+
+.lang-switch-bar a:hover {
+    color: var(--vermilion);
+}
+
+.bilingual-columns {
+    max-width: 72ch;
+}
+
+.lang-divider {
+    border-top: 2px solid var(--ink);
+    margin: 3.5rem 0 2.5rem;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+footer.site-footer {
+    margin-top: 4rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+}
+
+.is-hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+    .folio-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
-    .theory-card h3 { margin-top: 0; font-size: 1.3rem; border-bottom: 1px solid #e0d7c7; padding-bottom: 0.4rem; color: #3d2b1f; }
-    .theory-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 1rem; }
-    .theory-table th, .theory-table td { padding: 0.6rem 0.8rem; border: 1px solid #e0d7c7; text-align: left; }
-    .theory-table th { background: #f8f5ee; font-family: 'Cinzel', serif; font-size: 0.9rem; color: #4a3525; }
-    .formula-badge { font-family: monospace; background: #f1f5f9; padding: 0.2rem 0.5rem; border-radius: 3px; font-weight: bold; color: #0f172a; }
-    
-    footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #d3c9b3; font-size: 0.95rem; color: #7a6b5c; }
-    """
+    .plate-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .authors-index {
+        columns: 2;
+    }
+    .kc-telemetry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .kc-telemetry-item + .kc-telemetry-item {
+        border-left: none;
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding: 1.5rem 1rem 3rem;
+    }
+    .corpus-intro {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .plate-grid {
+        grid-template-columns: 1fr;
+    }
+    .authors-index {
+        columns: 1;
+    }
+    .archive-ledger .col-domain,
+    .archive-ledger .col-plate {
+        display: none;
+    }
+}
+"""
     with open(os.path.join(site_dir, "style.css"), "w", encoding="utf-8") as f:
         f.write(css_content)
         
-    print(f"Sitio construido con exito. Total de maquinas procesadas: {len(machines)}")
+    print(f"Archivo construido con exito. Total de laminas: {len(machines)}")
 
 if __name__ == "__main__":
     build_site()

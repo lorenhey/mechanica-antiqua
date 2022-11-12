@@ -3,128 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ machine.name }} - Mechanica Antiqua</title>
+    <title>{{ machine.name }} — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>{{ machine.name }}</h1>
-        {% if machine.original_name %}
-        <p><em>Denominación histórica: {{ machine.original_name }}</em></p>
-        {% endif %}
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina {{ machine.folio_num }} de {{ total }} · {{ machine.category_label }}</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> {{ machine.author }}</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> {{ machine.work }} ({{ machine.display_year }}{% if machine.edition %}, {{ machine.edition }}{% endif %})</p>
-            {% if machine.source_pages and machine.source_pages != 'N/A' %}
-            <p><span class="meta-label">Páginas / Láminas:</span> {{ machine.source_pages }}</p>
-            {% endif %}
-            <p><span class="meta-label">Tipo de Máquina:</span> {{ machine.machine_type }}</p>
-            <p><span class="meta-label">Dominio Físico:</span> {{ machine.physical_domain }}</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> {{ machine.reconstruction_status }}</p>
-            {% if machine.license %}
-            <p><span class="meta-label">Licencia / Derechos:</span> {{ machine.license }}</p>
-            {% endif %}
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>{{ machine.description }}</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>{{ machine.confidence }}</p>
-            
-            {% if machine.would_it_actually_work %}
-            <h3>Viabilidad Operativa</h3>
-            <p>{{ machine.would_it_actually_work }}</p>
-            {% endif %}
-        </div>
 
-        {% if machine.realistic_image %}
-        <h2>Registro Visual: {{ machine.visual_type | default('Registro histórico') }}</h2>
-        <div class="realistic-container">
-            <img src="{{ machine.realistic_image }}" alt="{{ machine.name }} - {{ machine.visual_type | default('Registro visual') }}" class="realistic-image">
-            <p class="realistic-caption"><em>{{ machine.visual_caption | default(machine.name) }}</em></p>
-        </div>
-        {% endif %}
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° {{ machine.folio_num }} · {{ machine.display_year }}</div>
 
-        {% if machine.svg_content or machine.kinematic %}
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="{{ machine.id }}" data-model-type="{{ machine.kinematic.model_type | default('crank_slider') }}">
-            <div id="machine-svg-wrapper" class="svg-container">
-                {% if machine.svg_content %}
-                {{ machine.svg_content | safe }}
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>{{ machine.author }}</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>{{ machine.work }} ({{ machine.display_year }}{% if machine.edition %}, {{ machine.edition }}{% endif %})</dd>
+                </div>
+                {% if machine.source_pages and machine.source_pages != 'N/A' %}
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>{{ machine.source_pages }}</dd>
+                </div>
                 {% endif %}
-            </div>
-        </div>
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>{{ machine.machine_type }}</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>{{ machine.physical_domain }}</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>{{ machine.reconstruction_status }}</dd>
+                </div>
+                {% if machine.license %}
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>{{ machine.license }}</dd>
+                </div>
+                {% endif %}
+            </dl>
 
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> {{ machine.kinematic.mechanism_name }}</p>
-            <p><strong>Topología estructural:</strong> {{ machine.kinematic.topology }}</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>{{ machine.kinematic.links }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>{{ machine.kinematic.joints }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">{{ machine.kinematic.dof_calc }}</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>{{ machine.kinematic.loop_equation }}</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>{{ machine.kinematic.position_eq }}</code><br>
-                        Velocidad: <code>{{ machine.kinematic.velocity_eq }}</code><br>
-                        Aceleración: <code>{{ machine.kinematic.acceleration_eq }}</code>
-                    </td>
-                </tr>
-            </table>
+            {% if machine.realistic_image %}
+            <figure class="rail-figure">
+                <span class="rail-figure-label">{{ machine.visual_type | default('Registro histórico') }}</span>
+                <img src="{{ machine.realistic_image }}" alt="{{ machine.name }} — {{ machine.visual_type | default('Registro visual') }}">
+                <figcaption>{{ machine.visual_caption | default(machine.name) }}</figcaption>
+            </figure>
+            {% endif %}
 
             {% if machine.kinematic.nominal_params %}
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                {% for param, val in machine.kinematic.nominal_params.items() %}
-                <tr>
-                    <td><code>{{ param }}</code></td>
-                    <td><strong>{{ val }}</strong></td>
-                </tr>
-                {% endfor %}
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for param, val in machine.kinematic.nominal_params.items() %}
+                    <tr>
+                        <td class="param-key">{{ param }}</td>
+                        <td class="param-val">{{ val }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </table>
             {% endif %}
+        </aside>
 
-            {% if machine.kinematic.notes %}
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> {{ machine.kinematic.notes }}
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">{{ machine.category_label }} · {{ machine.display_year }}</div>
+                <h1>{{ machine.name }}</h1>
+                {% if machine.original_name %}
+                <p class="monograph-original">Denominación histórica: {{ machine.original_name }}</p>
+                {% endif %}
             </div>
+
+            {% if machine.svg_content or machine.kinematic %}
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="{{ machine.id }}"
+                     data-model-type="{{ machine.kinematic.model_type | default('crank_slider') }}">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        {% if machine.svg_content %}
+                        {{ machine.svg_content | safe }}
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
             {% endif %}
-        </div>
-        {% endif %}
+
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>{{ machine.description }}</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>{{ machine.confidence }}</p>
+
+                {% if machine.would_it_actually_work %}
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>{{ machine.would_it_actually_work }}</p>
+                {% endif %}
+            </section>
+
+            {% if machine.kinematic %}
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> {{ machine.kinematic.mechanism_name }} — <em>{{ machine.kinematic.topology }}</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>{{ machine.kinematic.links }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>{{ machine.kinematic.joints }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">{{ machine.kinematic.dof_calc }}</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>{{ machine.kinematic.loop_equation }}</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>{{ machine.kinematic.position_eq }}</code><br>
+                                Velocidad: <code>{{ machine.kinematic.velocity_eq }}</code><br>
+                                Aceleración: <code>{{ machine.kinematic.acceleration_eq }}</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                {% if machine.kinematic.notes %}
+                <div class="quote-block">
+                    {{ machine.kinematic.notes }}
+                </div>
+                {% endif %}
+            </section>
+            {% endif %}
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    {% if prev_machine %}
+                    <a href="../{{ prev_machine.id }}/index.html">
+                        <span class="folio-pager-label">Lámina anterior ({{ prev_machine.folio_num }})</span>
+                        ← {{ prev_machine.name }}
+                    </a>
+                    {% else %}
+                    <a href="../index.html">
+                        <span class="folio-pager-label">Índice</span>
+                        ← Volver al catálogo
+                    </a>
+                    {% endif %}
+                </div>
+                <div style="text-align:right">
+                    {% if next_machine %}
+                    <a href="../{{ next_machine.id }}/index.html">
+                        <span class="folio-pager-label">Lámina siguiente ({{ next_machine.folio_num }})</span>
+                        {{ next_machine.name }} →
+                    </a>
+                    {% else %}
+                    <a href="../index.html">
+                        <span class="folio-pager-label">Fin del corpus</span>
+                        Volver al catálogo →
+                    </a>
+                    {% endif %}
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina {{ machine.folio_num }} / {{ total }}</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

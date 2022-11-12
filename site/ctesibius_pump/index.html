@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bomba aspirante-impelente de Ctesibio - Mechanica Antiqua</title>
+    <title>Bomba aspirante-impelente de Ctesibio — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Bomba aspirante-impelente de Ctesibio</h1>
-        
-        <p><em>Denominación histórica: Machina Ctesibica</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 05 de 42 · Bombas, Vapor y Fluidos</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Ctesibio</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Pneumatica (documentado por Vitruvio) (250 a.C., Alejandría)</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> De Architectura, Libro X, Capítulo 7</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Bomba hidráulica</p>
-            <p><span class="meta-label">Dominio Físico:</span> Hidráulica</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Bomba de pistón doble de bronce con acción alternativa mediante balancín central y válvulas de retención de asiento cónico. Diseñada tanto para suministro urbano como para extinción de incendios (sifón de fuego), produciendo un chorro continuo de agua bajo presión hidrostática sostenida.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Alto (0,85): numerosos restos arqueológicos romanos en bronce (ej. Bolsena, Silchester).</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, ejemplares arqueológicos conservados en museos funcionan perfectamente.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Fotografía de réplica histórica</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Bomba aspirante-impelente de Ctesibio - Fotografía de réplica histórica" class="realistic-image">
-            <p class="realistic-caption"><em>Fotografía de réplica museográfica en bronce de la bomba aspirante-impelente de doble cilindro con balancín central y cámara esférica de aire.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 05 · 250 a.C.</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="ctesibius_pump" data-model-type="beam_engine">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Ctesibio</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Pneumatica (documentado por Vitruvio) (250 a.C., Alejandría)</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>De Architectura, Libro X, Capítulo 7</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Bomba hidráulica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Hidráulica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Fotografía de réplica histórica</span>
+                <img src="realistic.jpg" alt="Bomba aspirante-impelente de Ctesibio — Fotografía de réplica histórica">
+                <figcaption>Fotografía de réplica museográfica en bronce de la bomba aspirante-impelente de doble cilindro con balancín central y cámara esférica de aire.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">diametro_cilindros_mm</td>
+                        <td class="param-val">100</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">carrera_mm</td>
+                        <td class="param-val">220</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">presion_descarga_bar</td>
+                        <td class="param-val">1.8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">caudal_continuo_Lmin</td>
+                        <td class="param-val">95.0</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 250 a.C.</div>
+                <h1>Bomba aspirante-impelente de Ctesibio</h1>
+                
+                <p class="monograph-original">Denominación histórica: Machina Ctesibica</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="ctesibius_pump"
+                     data-model-type="beam_engine">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .ct-bg { fill: #fcf9f2; }
@@ -164,85 +224,98 @@
   <text x="48" y="525" class="ct-text">• Presión constante</text>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Bomba Aspirante-Impelente de Balancín y Cámara de Aire</p>
-            <p><strong>Topología estructural:</strong> Palanca de primer género articulada a doble cilindro sumergido en contrafase</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bastidor, palanca central en O₂, 2 bielas cortas de acoplamiento, 2 émbolos de bronce</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 5 (3 R, 2 P). j₂ = 0</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>y_L(θ) = -a sin ψ(θ) ; y_R(θ) = +a sin ψ(θ)</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>s₁,₂(θ) = ± (S/2) · sin θ</code><br>
-                        Velocidad: <code>v₁,₂(θ) = ± (S/2) · ω · cos θ</code><br>
-                        Aceleración: <code>P_camara · V_aire = cte [Ley de Boyle estabilizando el chorro]</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>diametro_cilindros_mm</code></td>
-                    <td><strong>100</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>carrera_mm</code></td>
-                    <td><strong>220</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>presion_descarga_bar</code></td>
-                    <td><strong>1.8</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>caudal_continuo_Lmin</code></td>
-                    <td><strong>95.0</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Bomba de pistón doble de bronce con acción alternativa mediante balancín central y válvulas de retención de asiento cónico. Diseñada tanto para suministro urbano como para extinción de incendios (sifón de fuego), produciendo un chorro continuo de agua bajo presión hidrostática sostenida.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Alto (0,85): numerosos restos arqueológicos romanos en bronce (ej. Bolsena, Silchester).</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, ejemplares arqueológicos conservados en museos funcionan perfectamente.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> El colchón neumático en el plenum superior suaviza las pulsaciones convirtiendo el flujo alternativo en chorro continuo.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Bomba Aspirante-Impelente de Balancín y Cámara de Aire — <em>Palanca de primer género articulada a doble cilindro sumergido en contrafase</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>Bastidor, palanca central en O₂, 2 bielas cortas de acoplamiento, 2 émbolos de bronce</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>j₁ = 5 (3 R, 2 P). j₂ = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>y_L(θ) = -a sin ψ(θ) ; y_R(θ) = +a sin ψ(θ)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>s₁,₂(θ) = ± (S/2) · sin θ</code><br>
+                                Velocidad: <code>v₁,₂(θ) = ± (S/2) · ω · cos θ</code><br>
+                                Aceleración: <code>P_camara · V_aire = cte [Ley de Boyle estabilizando el chorro]</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    El colchón neumático en el plenum superior suaviza las pulsaciones convirtiendo el flujo alternativo en chorro continuo.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../ctesibius_clepsydra/index.html">
+                        <span class="folio-pager-label">Lámina anterior (04)</span>
+                        ← Clepsidra de flujo constante
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../philo_washbasin/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (06)</span>
+                        Lavamanos neumático de nivel constante →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 05 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

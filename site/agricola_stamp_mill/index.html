@@ -7,125 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 30 de 42 · Mecanismos y Relojería</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 30 · 1556</div>
+    <main>
+        <div class="machine-header">
+            <h1>Molino de martillos pisones (Bocarte)</h1>
+            <p class="machine-sub">
+                Georgius Agricola · <em>De re metallica</em> (1556) · Machina tundens
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Georgius Agricola</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>De re metallica (1556, Basilea (Froben))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Libro VIII, pp. 280-286</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Molino</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Cinemática</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Reconstrucción digital 3D</span>
-                <img src="realistic.jpg" alt="Molino de martillos pisones (Bocarte) — Reconstrucción digital 3D">
-                <figcaption>Reconstrucción digital tridimensional de una batería de martillos pisones (bocarte) para trituración de mineral accionada por rueda hidráulica.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="agricola_stamp_mill"
+                 data-model-type="cam_follower">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">num_pilones</td>
-                        <td class="param-val">3</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">altura_elevacion_mm</td>
-                        <td class="param-val">320</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">masa_pilon_kg</td>
-                        <td class="param-val">45.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">velocidad_impacto_ms</td>
-                        <td class="param-val">2.51</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">energia_golpe_J</td>
-                        <td class="param-val">141.3</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Mecanismos y Relojería · 1556</div>
-                <h1>Molino de martillos pisones (Bocarte)</h1>
-                
-                <p class="monograph-original">Denominación histórica: Machina tundens</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="agricola_stamp_mill"
-                     data-model-type="cam_follower">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-stampmill">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-stampmill">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
     <pattern id="grid-sm" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -274,97 +181,106 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Energía de impacto: E = m·g·h = 294.3 Joules</text>
   </g>
 </svg>
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Molino hidráulico de trituración para minerales metalíferos. Un árbol de levas accionado por una rueda hidráulica eleva y deja caer sucesivamente una batería de pisones o mazas de madera con puntas de hierro forjado, pulverizando el mineral sobre un mortero inferior.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: láminas técnicas minuciosas con detalles de árbol de levas y baterías de mazas.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, equipo clave en la preparación mecánica de menas mineras.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Bocarte de Levas Desfasadas y Pilones Gravitatorios — <em>Tren de 3 levas radiales sobre eje motriz y seguidores traslacionales de gravedad</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Bocarte de Levas Desfasadas y Pilones Gravitatorios.</strong> Tren de 3 levas radiales sobre eje motriz y seguidores traslacionales de gravedad. 5 eslabones: Bastidor, árbol de levas, 3 mazos pisones guiados verticalmente.</p>
+                
+                <p class="math-line">
+                    <code>F_por_pilon = 3(3 - 1) - 2(2) - 1 = 1</code>
+                     · <code>y(θ) = h_max (θ/θ_asc) [Ascenso]; y(t) = h_max - ½ g t² [Caída libre]</code>
+                </p>
+                
+                
+                <p>El desfase de 120° entre levas uniformiza el par resistente sobre la rueda hidráulica.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Molino de martillos pisones (Bocarte)">
+                    <figcaption>Reconstrucción digital tridimensional de una batería de martillos pisones (bocarte) para trituración de mineral accionada por rueda hidráulica.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>5 eslabones: Bastidor, árbol de levas, 3 mazos pisones guiados verticalmente</td>
+                            <th>Procedencia</th>
+                            <td>Sajonia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>j₁ = 4 (1 R árbol, 3 P guías verticales), j₂ = 3 (leva-taqué)</td>
+                            <th>Fuente</th>
+                            <td>Libro VIII, pp. 280-286</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F_por_pilon = 3(3 - 1) - 2(2) - 1 = 1</span></td>
+                            <th>Pilones</th>
+                            <td class="spec-val">3</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>y(θ) = h_max (θ/θ_asc) [Ascenso]; y(t) = h_max - ½ g t² [Caída libre]</code></td>
+                            <th>Altura elevación</th>
+                            <td class="spec-val">320 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>y(θ) = h_max · f_leva(θ mod 120°)</code><br>
-                                Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
-                                Aceleración: <code>a_caida = -g = -9.81 m/s²</code>
-                            </td>
+                            <th>Masa pilon</th>
+                            <td class="spec-val">45.0 kg</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Velocidad impacto</th>
+                            <td class="spec-val">2.51 m/s</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Energía por golpe</th>
+                            <td class="spec-val">141.3 J</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    El desfase de 120° entre levas uniformiza el par resistente sobre la rueda hidráulica.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../agricola_reversible_hoist/index.html" class="pager-prev">← Malacate hidráulico reversible</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../agricola_reversible_hoist/index.html">
-                        <span class="folio-pager-label">Lámina anterior (29)</span>
-                        ← Malacate hidráulico reversible
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../agricola_suction_pump/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (31)</span>
-                        Bomba de succión minera →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../agricola_suction_pump/index.html" class="pager-next">Bomba de succión minera →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 30 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

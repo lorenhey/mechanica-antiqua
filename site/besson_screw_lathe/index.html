@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 33 de 42 · Mecanismos y Relojería</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 33 · 1578</div>
+    <main>
+        <div class="machine-header">
+            <h1>Torno de roscar con husillo patrón</h1>
+            <p class="machine-sub">
+                Jacques Besson · <em>Theatrum Instrumentorum et Machinarum</em> (1578) · Tour à fileter
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Jacques Besson</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Theatrum Instrumentorum et Machinarum (1578, Lyon)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Lámina 9</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Torno de roscar</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Mecánica analítica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Grabado técnico histórico</span>
-                <img src="realistic.jpg" alt="Torno de roscar con husillo patrón — Grabado técnico histórico">
-                <figcaption>Lámina calcográfica original (Lámina 9) del Theatrum Instrumentorum et Machinarum de Jacques Besson (Lyon, 1578), mostrando el torno de roscar con husillo patrón.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="besson_screw_lathe"
+                 data-model-type="lead_screw">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">paso_husillo_mm</td>
-                        <td class="param-val">8.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">longitud_util_mm</td>
-                        <td class="param-val">350</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">relacion_poleas</td>
-                        <td class="param-val">1 : 1</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">ventaja_mecanica_teorica</td>
-                        <td class="param-val">117.8</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Mecanismos y Relojería · 1578</div>
-                <h1>Torno de roscar con husillo patrón</h1>
-                
-                <p class="monograph-original">Denominación histórica: Tour à fileter</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="besson_screw_lathe"
-                     data-model-type="lead_screw">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Patrón de grilla técnica milimétrica -->
     <pattern id="grid-besson" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -298,97 +210,101 @@
   <text x="47" y="517" class="bl-dim-text">Ventaja mecánica MA ≈ 118</text>
   <text x="47" y="534" class="bl-dim-text">F = 3(3 - 1) - 2(2) - 1 = 1 DOF</text>
 </svg>
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Torno pionero para el labrado cinemático y mecánico de roscas con pasos variables y precisos. Utiliza un husillo patrón y un sistema de poleas y cables que sincroniza con rigidez geométrica el avance longitudinal de la herramienta de corte con la rotación de la pieza de trabajo.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto (0,90): lámina renacentista con sincronismo mecánico preciso por poleas y contrapesos.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, fundamental en el nacimiento de la máquina herramienta moderna.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Torno de Roscar Sincronizado con Husillo Patrón (1578) — <em>Cadena espacial R-H-P de sincronización rígida entre giro de pieza y traslación de carro</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Torno de Roscar Sincronizado con Husillo Patrón (1578).</strong> Cadena espacial R-H-P de sincronización rígida entre giro de pieza y traslación de carro. Bancada fija, husillo de pieza + husillo patrón (1:1), carro portaherramientas.</p>
+                
+                <p class="math-line">
+                    <code>F = 3(4 - 1) - 2(4) = 1</code>
+                     · <code>x_carro(θ) = (p / 2π) · θ</code>
+                </p>
+                
+                
+                <p>Primera mecanización automática de roscas cilíndricas y filetes ornamentales mediante guía maestra.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Torno de roscar con husillo patrón">
+                    <figcaption>Lámina calcográfica original (Lámina 9) del Theatrum Instrumentorum et Machinarum de Jacques Besson (Lyon, 1578), mostrando el torno de roscar con husillo patrón.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Bancada fija, husillo de pieza + husillo patrón (1:1), carro portaherramientas</td>
+                            <th>Procedencia</th>
+                            <td>Francia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>j₁ = 4 (2 R, 1 P guías, 1 par helicoidal H₁ de paso p)</td>
+                            <th>Fuente</th>
+                            <td>Lámina 9</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 3(4 - 1) - 2(4) = 1</span></td>
+                            <th>Paso del husillo</th>
+                            <td class="spec-val">8.0 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>x_carro(θ) = (p / 2π) · θ</code></td>
+                            <th>Recorrido útil</th>
+                            <td class="spec-val">350 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>x(θ) = (p / 2π) · θ [Avance lineal constante]</code><br>
-                                Velocidad: <code>v_x = (p / 2π) · ω = cte</code><br>
-                                Aceleración: <code>a_x = 0 [Régimen estacionario]</code>
-                            </td>
+                            <th>Relación de poleas</th>
+                            <td class="spec-val">1 : 1</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Ventaja mecánica teórica</th>
+                            <td class="spec-val">117.8</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Primera mecanización automática de roscas cilíndricas y filetes ornamentales mediante guía maestra.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../agricola_ventilation_fan/index.html" class="pager-prev">← Ventilador centrífugo minero</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../agricola_ventilation_fan/index.html">
-                        <span class="folio-pager-label">Lámina anterior (32)</span>
-                        ← Ventilador centrífugo minero
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../ramelli_book_wheel/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (34)</span>
-                        Rueda de lectura de Ramelli →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../ramelli_book_wheel/index.html" class="pager-next">Rueda de lectura de Ramelli →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 33 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 37 de 42 · Mecanismos y Relojería</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 37 · 1607</div>
+    <main>
+        <div class="machine-header">
+            <h1>Molino de batanado textil y trituración</h1>
+            <p class="machine-sub">
+                Vittorio Zonca · <em>Novo Teatro di Machine et Edificii</em> (1607) · Mulino da follo
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Vittorio Zonca</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Novo Teatro di Machine et Edificii (1607, Padua (Pietro Bertelli))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Página 94, grabado en cobre</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Molino</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Mecánica analítica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Fotografía de maquinaria histórica</span>
-                <img src="realistic.jpg" alt="Molino de batanado textil y trituración — Fotografía de maquinaria histórica">
-                <figcaption>Fotografía de rueda hidráulica motriz de cajones y engranaje de hierro fundido preservados en molino de batanado histórico.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="zonca_stamping_mill"
+                 data-model-type="cam_follower">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">num_mazos</td>
-                        <td class="param-val">3</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">alzada_mm</td>
-                        <td class="param-val">300</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">masa_mazo_kg</td>
-                        <td class="param-val">52.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">energia_impacto_J</td>
-                        <td class="param-val">153.0</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Mecanismos y Relojería · 1607</div>
-                <h1>Molino de batanado textil y trituración</h1>
-                
-                <p class="monograph-original">Denominación histórica: Mulino da follo</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="zonca_stamping_mill"
-                     data-model-type="cam_follower">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .zm-bg { fill: #fcf9f2; }
@@ -201,97 +113,101 @@
   <text x="50" y="218" class="zm-text">• Compacta y afieltra la lana.</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Batán hidráulico accionado por árbol de levas para el acabado y desengrase de tejidos de lana o la trituración de minerales. Los mazos basculantes golpean rítmicamente el paño en cubas con tierra de batán o agua jabonosa para compactar y afieltrar las fibras del tejido.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto (0,85): despiece de levas y cabeza de mazo para tratamiento de paños.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, instalación textil estándar de la Europa moderna temprana.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Molino de Batanado Textil por Levas Escalonadas — <em>Engranaje corona-linterna acoplado a árbol de levas múltiple con guías verticales</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Molino de Batanado Textil por Levas Escalonadas.</strong> Engranaje corona-linterna acoplado a árbol de levas múltiple con guías verticales. Bastidor de roble, rueda motriz, eje con levas helicoidales, mazos de madera dura.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 por cada estación de batanado</code>
+                     · <code>y(θ) = h_max (θ / θ_0) para 0 ≤ θ < θ_0</code>
+                </p>
+                
+                
+                <p>Compactación y enfieltrado continuo de paños de lana mediante golpes rítmicos en baño caliente.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Molino de batanado textil y trituración">
+                    <figcaption>Fotografía de rueda hidráulica motriz de cajones y engranaje de hierro fundido preservados en molino de batanado histórico.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Bastidor de roble, rueda motriz, eje con levas helicoidales, mazos de madera dura</td>
+                            <th>Procedencia</th>
+                            <td>Italia (Véneto)</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Pares R en ejes, pares P en guías de mazo, j₂ en contacto leva-taqué</td>
+                            <th>Fuente</th>
+                            <td>Página 94, grabado en cobre</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 por cada estación de batanado</span></td>
+                            <th>Mazos</th>
+                            <td class="spec-val">3</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>y(θ) = h_max (θ / θ_0) para 0 ≤ θ < θ_0</code></td>
+                            <th>Alzada</th>
+                            <td class="spec-val">300 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>y(θ) = h_max · ramp(θ mod 120°)</code><br>
-                                Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
-                                Aceleración: <code>a = -g durante la descarga en artesa</code>
-                            </td>
+                            <th>Masa mazo</th>
+                            <td class="spec-val">52.0 kg</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Energía de impacto</th>
+                            <td class="spec-val">153.0 J</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Compactación y enfieltrado continuo de paños de lana mediante golpes rítmicos en baño caliente.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../zonca_paper_mill/index.html" class="pager-prev">← Molino papelero de mazos batidores</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../zonca_paper_mill/index.html">
-                        <span class="folio-pager-label">Lámina anterior (36)</span>
-                        ← Molino papelero de mazos batidores
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../papin_papin_steam_engine/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (38)</span>
-                        Cilindro de vapor y pistón de Papin →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../papin_papin_steam_engine/index.html" class="pager-next">Cilindro de vapor y pistón de Papin →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 37 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

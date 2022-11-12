@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 41 de 42 · Bombas, Vapor y Fluidos</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 41 · 1724</div>
+    <main>
+        <div class="machine-header">
+            <h1>Máquina de vapor de alta presión de Leupold</h1>
+            <p class="machine-sub">
+                Jacob Leupold · <em>Theatrum Machinarum Generale</em> (1724) · Dampfmaschine (Theatrum Machinarum Generale)
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Jacob Leupold</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Theatrum Machinarum Generale (1724, Leipzig)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Tabulae machinarum hydraulicarum</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Máquina de vapor de alta presión</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Termodinámica e Hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Grabado técnico histórico</span>
-                <img src="realistic.jpg" alt="Máquina de vapor de alta presión de Leupold — Grabado técnico histórico">
-                <figcaption>Lámina calcográfica en cobre original de Jacob Leupold en Theatrum Machinarum Generale (Leipzig, 1724), que describe la máquina de vapor de alta presión con válvula de cuatro vías.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="leupold_leupold_steam_pump"
+                 data-model-type="beam_engine">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">presion_caldera_bar</td>
-                        <td class="param-val">4.5</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">diametro_cilindro_mm</td>
-                        <td class="param-val">200</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">altura_bombeo_m</td>
-                        <td class="param-val">32.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">ciclos_min</td>
-                        <td class="param-val">18</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1724</div>
-                <h1>Máquina de vapor de alta presión de Leupold</h1>
-                
-                <p class="monograph-original">Denominación histórica: Dampfmaschine (Theatrum Machinarum Generale)</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="leupold_leupold_steam_pump"
-                     data-model-type="beam_engine">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .lp-bg { fill: #fcf9f2; }
@@ -217,97 +129,101 @@
   <text x="50" y="302" class="lp-text">• Ciclo alternado continuo</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Primer diseño documentado de una máquina de vapor de pistón de alta presión (no condensante). Utiliza una válvula rotativa de cuatro vías acoplada a dos cilindros verticales de simple efecto que empujan directamente vástagos para accionar bombas de pistón en pozos mineros.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: planos grabados en cobre con despiece completo de la válvula de cuatro vías.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Probablemente, requería una caldera resistente a presión superior a la metalurgia común de la época.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Máquina de Vapor de Alta Presión con Válvula de 4 Vías (1725) — <em>Doble balancín independiente acoplado a válvula distribuidora rotativa de 4 puertos</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Máquina de Vapor de Alta Presión con Válvula de 4 Vías (1725).</strong> Doble balancín independiente acoplado a válvula distribuidora rotativa de 4 puertos. Caldera alta presión, llave rotativa de 4 vías, 2 cilindros motores, 2 balancines y bombas.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (controlado por fase de válvula de 4 vías)</code>
+                     · <code>P₁(θ) = P_alta (0..π), P_atm (π..2π) ; P₂(θ) = P₁(θ + π)</code>
+                </p>
+                
+                
+                <p>Jacob Leupold diseñó la primera máquina de vapor sin condensación, descargando directamente a la atmósfera.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Máquina de vapor de alta presión de Leupold">
+                    <figcaption>Lámina calcográfica en cobre original de Jacob Leupold en Theatrum Machinarum Generale (Leipzig, 1724), que describe la máquina de vapor de alta presión con válvula de cuatro vías.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Caldera alta presión, llave rotativa de 4 vías, 2 cilindros motores, 2 balancines y bombas</td>
+                            <th>Procedencia</th>
+                            <td>Alemania (Sajonia)</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Pares R en fulcros y llave de paso; 4 pares P en cilindros</td>
+                            <th>Fuente</th>
+                            <td>Tabulae machinarum hydraulicarum</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (controlado por fase de válvula de 4 vías)</span></td>
+                            <th>Presión de caldera</th>
+                            <td class="spec-val">4.5 bar</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>P₁(θ) = P_alta (0..π), P_atm (π..2π) ; P₂(θ) = P₁(θ + π)</code></td>
+                            <th>Diámetro cilindro</th>
+                            <td class="spec-val">200 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>s₁,₂(θ) = ± (S/2) · cos θ</code><br>
-                                Velocidad: <code>v₁,₂(θ) = ∓ (S/2) · ω · sin θ</code><br>
-                                Aceleración: <code>F_empuje = ΔP · A_piston = (3.5 bar) · A</code>
-                            </td>
+                            <th>Altura bombeo</th>
+                            <td class="spec-val">32.0 m</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Cadencia</th>
+                            <td class="spec-val">18/min</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Jacob Leupold diseñó la primera máquina de vapor sin condensación, descargando directamente a la atmósfera.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../newcomen_newcomen_engine/index.html" class="pager-prev">← Máquina de vapor atmosférica de Newcomen</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../newcomen_newcomen_engine/index.html">
-                        <span class="folio-pager-label">Lámina anterior (40)</span>
-                        ← Máquina de vapor atmosférica de Newcomen
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../japanese_karakuri_doll/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (42)</span>
-                        Autómata servidor de té (Chahakobi Ningyō) →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../japanese_karakuri_doll/index.html" class="pager-next">Autómata servidor de té (Chahakobi Ningyō) →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 41 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

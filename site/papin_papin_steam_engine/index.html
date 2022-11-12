@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 38 de 42 · Bombas, Vapor y Fluidos</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 38 · 1690</div>
+    <main>
+        <div class="machine-header">
+            <h1>Cilindro de vapor y pistón de Papin</h1>
+            <p class="machine-sub">
+                Denis Papin · <em>Acta Eruditorum (Nova methodus)</em> (1690) · Nova methodus ad vires motrices validissimas levi pretio comparandas
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Denis Papin</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Acta Eruditorum (Nova methodus) (1690, Leipzig)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Acta Eruditorum, Agosto 1690, pp. 410-414</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Máquina de vapor de pistón</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Termodinámica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel C (Paramétrica fuerte / principios físicos comprobados)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Retrato histórico y grabado técnico</span>
-                <img src="realistic.jpg" alt="Cilindro de vapor y pistón de Papin — Retrato histórico y grabado técnico">
-                <figcaption>Retrato al óleo de Denis Papin fechado en 1689 sosteniendo la lámina con el diseño original del cilindro de vapor y émbolo publicado en Acta Eruditorum.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="papin_papin_steam_engine"
+                 data-model-type="beam_engine">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">diametro_cilindro_mm</td>
-                        <td class="param-val">120</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">carrera_mm</td>
-                        <td class="param-val">450</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">masa_elevada_kg</td>
-                        <td class="param-val">27.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">presion_vacio_bar</td>
-                        <td class="param-val">0.25</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1690</div>
-                <h1>Cilindro de vapor y pistón de Papin</h1>
-                
-                <p class="monograph-original">Denominación histórica: Nova methodus ad vires motrices validissimas levi pretio comparandas</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="papin_papin_steam_engine"
-                     data-model-type="beam_engine">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .pp-bg { fill: #fcf9f2; }
@@ -207,97 +119,101 @@
   <text x="50" y="302" class="pp-text">3. El vacío eleva la carga útil.</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Primer diseño conceptual de máquina térmica de cilindro y pistón de vapor. Papin generaba vapor directamente en el fondo del cilindro metálico para elevar el pistón y, al retirar el fuego, el enfriamiento producía el vacío y el descenso por presión atmosférica.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Medio: demostrador de laboratorio de pistón único descripto rigurosamente por Papin.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Probablemente, funcionó a escala de laboratorio; sentó el principio directo adoptado por Newcomen.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Cilindro de Vapor y Pistón Atmosférico de Papin (1690) — <em>Actuador lineal vertical mono-cilíndrico de ciclo vapor-condensación</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Cilindro de Vapor y Pistón Atmosférico de Papin (1690).</strong> Actuador lineal vertical mono-cilíndrico de ciclo vapor-condensación. Cilindro de latón (base), pistón con traba mecánica superior, polea de izado y contrapeso.</p>
+                
+                <p class="math-line">
+                    <code>F = 1</code>
+                     · <code>F_net(t) = (P_int(t) - P_atm) · A_piston - W_piston</code>
+                </p>
+                
+                
+                <p>Demostración fundacional del uso de un pistón sólido separado de la caldera como motor de vacío térmico.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Cilindro de vapor y pistón de Papin">
+                    <figcaption>Retrato al óleo de Denis Papin fechado en 1689 sosteniendo la lámina con el diseño original del cilindro de vapor y émbolo publicado en Acta Eruditorum.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Cilindro de latón (base), pistón con traba mecánica superior, polea de izado y contrapeso</td>
+                            <th>Procedencia</th>
+                            <td>Francia / Alemania (Kassel)</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>1 par P (pistón en camisa), 1 par R (polea superior)</td>
+                            <th>Fuente</th>
+                            <td>Acta Eruditorum, Agosto 1690, pp. 410-414</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1</span></td>
+                            <th>Diámetro cilindro</th>
+                            <td class="spec-val">120 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>F_net(t) = (P_int(t) - P_atm) · A_piston - W_piston</code></td>
+                            <th>Carrera</th>
+                            <td class="spec-val">450 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>y(θ) = S · f_termodinamica(θ)</code><br>
-                                Velocidad: <code>v(θ) = dy/dt [Expansión lenta, carrera descendente rápida por vacío]</code><br>
-                                Aceleración: <code>W_util = ∫ (P_atm - P_vac) A dy ≈ 420 J/ciclo</code>
-                            </td>
+                            <th>Masa elevada</th>
+                            <td class="spec-val">27.0 kg</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Presión de vacío</th>
+                            <td class="spec-val">0.25 bar</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Demostración fundacional del uso de un pistón sólido separado de la caldera como motor de vacío térmico.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../zonca_stamping_mill/index.html" class="pager-prev">← Molino de batanado textil y trituración</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../zonca_stamping_mill/index.html">
-                        <span class="folio-pager-label">Lámina anterior (37)</span>
-                        ← Molino de batanado textil y trituración
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../savery_savery_engine/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (39)</span>
-                        Bomba de vapor de Savery (El amigo del minero) →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../savery_savery_engine/index.html" class="pager-next">Bomba de vapor de Savery (El amigo del minero) →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 38 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

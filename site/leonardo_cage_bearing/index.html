@@ -7,125 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 26 de 42 · Mecanismos y Relojería</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 26 · 1493</div>
+    <main>
+        <div class="machine-header">
+            <h1>Cojinete axial de bolas con jaula de retención</h1>
+            <p class="machine-sub">
+                Leonardo da Vinci · <em>Códice Madrid I</em> (1493) · Cuscinetto a sfere con gabbia
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Leonardo da Vinci</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Códice Madrid I (1493, Biblioteca Nacional de España (Códice Madrid I))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Folio 20v</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Cojinete y rodamiento</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Mecánica y Tribología</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Fotografía de réplica histórica</span>
-                <img src="realistic.jpg" alt="Cojinete axial de bolas con jaula de retención — Fotografía de réplica histórica">
-                <figcaption>Fotografía de modelo funcional en madera del cojinete axial con bolas y jaula distanciadora según el diseño de Leonardo da Vinci en el Códice Madrid I (fol. 20v).</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="leonardo_cage_bearing"
+                 data-model-type="ball_bearing">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">diametro_primitivo_Dm_mm</td>
-                        <td class="param-val">255</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">diametro_bolas_d_mm</td>
-                        <td class="param-val">52.5</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">num_bolas_Z</td>
-                        <td class="param-val">8</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">relacion_jaula_eje</td>
-                        <td class="param-val">0.5</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">coef_friccion_equivalente</td>
-                        <td class="param-val">0.002</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Mecanismos y Relojería · 1493</div>
-                <h1>Cojinete axial de bolas con jaula de retención</h1>
-                
-                <p class="monograph-original">Denominación histórica: Cuscinetto a sfere con gabbia</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="leonardo_cage_bearing"
-                     data-model-type="ball_bearing">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Patrón de grilla técnica -->
     <pattern id="grid-leonardo" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -317,97 +224,106 @@
   <text x="47" y="534" class="lb-dim-text">Fricción por deslizamiento: μ_s → 0</text>
   <text x="47" y="549" class="lb-dim-text">Z = 8 bolas esféricas independientes</text>
 </svg>
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos a fuertes cargas axiales. Introduce por primera vez una jaula separadora para mantener equidistantes las bolas rodantes, eliminando el rozamiento entre elementos contiguos y anticipando el diseño moderno de rodamientos.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: dibujo técnico analítico autógrafo extraordinariamente nítido con jaula separadora.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, reduce el coeficiente de fricción de manera drástica respecto al contacto de deslizamiento.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Cojinete Axial de Bolas con Jaula Separadora (1493) — <em>Mecanismo de rodadura pura sin deslizamiento con elemento intermedio retenedor</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Cojinete Axial de Bolas con Jaula Separadora (1493).</strong> Mecanismo de rodadura pura sin deslizamiento con elemento intermedio retenedor. Pista exterior fija, eje interior motriz, jaula separadora de bronce, 8 bolas de acero.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (Velocidad de jaula determinada por condición de no deslizamiento)</code>
+                     · <code>ω_jaula = ½ ω_eje · (1 - (d / D_m) cos α)</code>
+                </p>
+                
+                
+                <p>La jaula de Leonardo evita el roce en sentido inverso de bolas adyacentes, reduciendo drásticamente el desgaste.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Cojinete axial de bolas con jaula de retención">
+                    <figcaption>Fotografía de modelo funcional en madera del cojinete axial con bolas y jaula distanciadora según el diseño de Leonardo da Vinci en el Códice Madrid I (fol. 20v).</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Pista exterior fija, eje interior motriz, jaula separadora de bronce, 8 bolas de acero</td>
+                            <th>Procedencia</th>
+                            <td>Italia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Rodadura pura sin deslizamiento en pistas interior (P_in) y exterior (P_out)</td>
+                            <th>Fuente</th>
+                            <td>Folio 20v</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (Velocidad de jaula determinada por condición de no deslizamiento)</span></td>
+                            <th>Diámetro primitivo</th>
+                            <td class="spec-val">255 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>ω_jaula = ½ ω_eje · (1 - (d / D_m) cos α)</code></td>
+                            <th>Diámetro de bolas</th>
+                            <td class="spec-val">52.5 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>θ_jaula = 0.5 · θ_eje</code><br>
-                                Velocidad: <code>v_centro_bola = 0.5 · R_in · ω_eje</code><br>
-                                Aceleración: <code>ω_bola = (D_m / 2d) ω_eje (1 - d²/D_m²)</code>
-                            </td>
+                            <th>Cantidad de bolas</th>
+                            <td class="spec-val">8</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Relación jaula / eje</th>
+                            <td class="spec-val">0.5</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Rozamiento equivalente</th>
+                            <td class="spec-val">0.002</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    La jaula de Leonardo evita el roce en sentido inverso de bolas adyacentes, reduciendo drásticamente el desgaste.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../martini_piston_pump/index.html" class="pager-prev">← Bomba aspirante-impelente con balancín</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../martini_piston_pump/index.html">
-                        <span class="folio-pager-label">Lámina anterior (25)</span>
-                        ← Bomba aspirante-impelente con balancín
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../leonardo_globoidal_gear/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (27)</span>
-                        Engranaje helicoidal globoidal (Tornillo envolvente) →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../leonardo_globoidal_gear/index.html" class="pager-next">Engranaje helicoidal globoidal (Tornillo envolvente) →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 26 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 09 de 42 · Hidráulica y Elevación</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 09 · 20 a.C.</div>
+    <main>
+        <div class="machine-header">
+            <h1>Rueda hidráulica vitruviana de paletas</h1>
+            <p class="machine-sub">
+                Vitruvio · <em>De Architectura</em> (20 a.C.) · Rota Aquaria
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Vitruvio</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>De Architectura (20 a.C., Roma imperial)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Libro X, Capítulo 5</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Rueda hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Fotografía de estructura real</span>
-                <img src="realistic.jpg" alt="Rueda hidráulica vitruviana de paletas — Fotografía de estructura real">
-                <figcaption>Fotografía de rueda hidráulica vitruviana de madera con paletas rectas en canal fluvial histórico en funcionamiento operativo.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="vitruvius_water_wheel"
+                 data-model-type="archimedes_screw">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">diametro_rueda_m</td>
-                        <td class="param-val">2.4</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">relacion_multiplicadora</td>
-                        <td class="param-val">5 : 1</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">regimen_muela_rpm</td>
-                        <td class="param-val">65</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">potencia_util_kW</td>
-                        <td class="param-val">1.8</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Hidráulica y Elevación · 20 a.C.</div>
-                <h1>Rueda hidráulica vitruviana de paletas</h1>
-                
-                <p class="monograph-original">Denominación histórica: Rota Aquaria</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="vitruvius_water_wheel"
-                     data-model-type="archimedes_screw">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .vw-bg { fill: #fcf9f2; }
@@ -227,97 +139,101 @@
   <text x="50" y="192" class="vw-text">• Velocidad muela: ~20 a 25 RPM</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Rueda hidráulica impulsada por la energía cinética del flujo inferior de agua contra sus paletas sumergidas. Acoplada a través de un par de engranajes en ángulo recto a muelas de piedra de grano, constituyó la base del molino hidráulico romano para molienda a gran escala.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto (0,95): descripción canónica vitruviana del engranaje en ángulo recto y muela molinera.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, base de los grandes complejos molineros imperiales romanos como Barbegal.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Molino Hidráulico Vitruviano con Engranaje Linterna — <em>Transmisión en ángulo recto de rueda de paletas inferior a muela vertical</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Molino Hidráulico Vitruviano con Engranaje Linterna.</strong> Transmisión en ángulo recto de rueda de paletas inferior a muela vertical. Rueda hidráulica, eje horizontal con rueda dentada (Z₁), linterna de husillos (Z₂) y piedra volandera.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (Multiplicación de velocidad ω_piedra = (Z₁/Z₂) ω_rueda)</code>
+                     · <code>θ_muela = (Z₁ / Z₂) · θ_rueda</code>
+                </p>
+                
+                
+                <p>Vitruvio invirtió la relación de la saqiya para multiplicar el par lento fluvial en altas RPM para molienda de cereal.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Rueda hidráulica vitruviana de paletas">
+                    <figcaption>Fotografía de rueda hidráulica vitruviana de madera con paletas rectas en canal fluvial histórico en funcionamiento operativo.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Rueda hidráulica, eje horizontal con rueda dentada (Z₁), linterna de husillos (Z₂) y piedra volandera</td>
+                            <th>Procedencia</th>
+                            <td>Imperio Romano</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>2 pares R ortogonales, engrane de jaula de husillos</td>
+                            <th>Fuente</th>
+                            <td>Libro X, Capítulo 5</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (Multiplicación de velocidad ω_piedra = (Z₁/Z₂) ω_rueda)</span></td>
+                            <th>Diámetro rueda</th>
+                            <td class="spec-val">2.4 m</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>θ_muela = (Z₁ / Z₂) · θ_rueda</code></td>
+                            <th>Multiplicación</th>
+                            <td class="spec-val">5 : 1</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>ω_muela = 5 · ω_rueda</code><br>
-                                Velocidad: <code>P_eje = ½ ρ A v_agua³ · C_p</code><br>
-                                Aceleración: <code>τ_molienda = P_eje / ω_muela</code>
-                            </td>
+                            <th>Régimen de la muela</th>
+                            <td class="spec-val">65 rpm</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Potencia util</th>
+                            <td class="spec-val">1.8 kW</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Vitruvio invirtió la relación de la saqiya para multiplicar el par lento fluvial en altas RPM para molienda de cereal.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../vitruvius_archimedes_screw/index.html" class="pager-prev">← Tornillo de Arquímedes</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../vitruvius_archimedes_screw/index.html">
-                        <span class="folio-pager-label">Lámina anterior (08)</span>
-                        ← Tornillo de Arquímedes
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../roman_aqueduct/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (10)</span>
-                        Sistema de acueducto romano y sifón invertido →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../roman_aqueduct/index.html" class="pager-next">Sistema de acueducto romano y sifón invertido →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 09 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

@@ -7,130 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 08 de 42 · Hidráulica y Elevación</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 08 · 20 a.C.</div>
+    <main>
+        <div class="machine-header">
+            <h1>Tornillo de Arquímedes</h1>
+            <p class="machine-sub">
+                Vitruvio · <em>De Architectura</em> (20 a.C.) · Cochlea
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Vitruvio</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>De Architectura (20 a.C., Roma imperial)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Libro X, Capítulo 6</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Bomba helicoidal</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Hidráulica y Geometría</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Diagrama técnico dimensional</span>
-                <img src="realistic.jpg" alt="Tornillo de Arquímedes — Diagrama técnico dimensional">
-                <figcaption>Diagrama de ingeniería analítica y parámetros geométricos acotados (paso, diámetro, ángulo de inclinación y niveles de agua) del tornillo hidráulico helicoidal.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="vitruvius_archimedes_screw"
+                 data-model-type="archimedes_screw">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">inclinacion_deg</td>
-                        <td class="param-val">36.87</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">pendiente_pitagorica</td>
-                        <td class="param-val">3 : 4 : 5</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">diametro_tambor_mm</td>
-                        <td class="param-val">600</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">paso_helice_mm</td>
-                        <td class="param-val">450</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">longitud_mm</td>
-                        <td class="param-val">3000</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">caudal_nominal_m3h</td>
-                        <td class="param-val">18.5</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Hidráulica y Elevación · 20 a.C.</div>
-                <h1>Tornillo de Arquímedes</h1>
-                
-                <p class="monograph-original">Denominación histórica: Cochlea</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="vitruvius_archimedes_screw"
-                     data-model-type="archimedes_screw">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Patrón de grilla técnica -->
     <pattern id="grid-screw" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -284,97 +186,111 @@
   <text x="47" y="174" class="as-dim-text">Régimen: 30 a 45 rpm (hombre / molino)</text>
   <text x="47" y="189" class="as-dim-text">Eficiencia volumétrica: η_v ≈ 0.65</text>
 </svg>
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones extremadamente precisas para su construcción geométrica basada en una grilla de proporciones de 8 partes para el núcleo y el paso de la hélice, estableciendo también un ángulo de inclinación específico (triángulo pitagórico 3-4-5, es decir, ~37 grados).</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Vitruvio provee un algoritmo geométrico exacto para su trazado.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, ampliamente utilizado desde la Antigüedad hasta nuestros días.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Tornillo de Arquímedes (Cochlea Hidráulica Inclinada) — <em>Par helicoidal continuo inclinado confinador de bolsas fluidas gravitatorias</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Tornillo de Arquímedes (Cochlea Hidráulica Inclinada).</strong> Par helicoidal continuo inclinado confinador de bolsas fluidas gravitatorias. Soporte inclinado (β = 36.87°), camisa cilíndrica con hélice interior rotativa.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (Elevación neta positiva si ángulo de hélice α > β)</code>
+                     · <code>s_agua(θ) = (p / 2π) · θ</code>
+                </p>
+                
+                
+                <p>Cada revolución desplaza un volumen discreto atrapado por la propia gravedad en el fondo de la espira.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Tornillo de Arquímedes">
+                    <figcaption>Diagrama de ingeniería analítica y parámetros geométricos acotados (paso, diámetro, ángulo de inclinación y niveles de agua) del tornillo hidráulico helicoidal.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Soporte inclinado (β = 36.87°), camisa cilíndrica con hélice interior rotativa</td>
+                            <th>Procedencia</th>
+                            <td>Imperio Romano</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>2 pares R en cojinetes extremos, transporte axial continuo de cavidades de agua</td>
+                            <th>Fuente</th>
+                            <td>Libro X, Capítulo 6</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (Elevación neta positiva si ángulo de hélice α > β)</span></td>
+                            <th>Inclinación</th>
+                            <td class="spec-val">36.87°</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>s_agua(θ) = (p / 2π) · θ</code></td>
+                            <th>Pendiente pitagórica</th>
+                            <td class="spec-val">3 : 4 : 5</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>Δz(θ) = s_agua(θ) · sin(β)</code><br>
-                                Velocidad: <code>v_axial = (p / 2π) · ω</code><br>
-                                Aceleración: <code>Q_teorico = n_inicios · V_bolsa · (ω / 2π)</code>
-                            </td>
+                            <th>Diámetro tambor</th>
+                            <td class="spec-val">600 mm</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Paso de hélice</th>
+                            <td class="spec-val">450 mm</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Longitud</th>
+                            <td class="spec-val">3000 mm</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Caudal nominal</th>
+                            <td class="spec-val">18.5 m³/h</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Cada revolución desplaza un volumen discreto atrapado por la propia gravedad en el fondo de la espira.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../african_saqiya/index.html" class="pager-prev">← Saqiya (Rueda de cangilones)</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../african_saqiya/index.html">
-                        <span class="folio-pager-label">Lámina anterior (07)</span>
-                        ← Saqiya (Rueda de cangilones)
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../vitruvius_water_wheel/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (09)</span>
-                        Rueda hidráulica vitruviana de paletas →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../vitruvius_water_wheel/index.html" class="pager-next">Rueda hidráulica vitruviana de paletas →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 08 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 29 de 42 · Hidráulica y Elevación</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 29 · 1556</div>
+    <main>
+        <div class="machine-header">
+            <h1>Malacate hidráulico reversible</h1>
+            <p class="machine-sub">
+                Georgius Agricola · <em>De re metallica</em> (1556) · Machina tractoria aquarum
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Georgius Agricola</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>De re metallica (1556, Basilea (Froben))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Libro VI, pp. 160-165</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Malacate de elevación</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Cinemática e Hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Reconstrucción digital 3D</span>
-                <img src="realistic.jpg" alt="Malacate hidráulico reversible — Reconstrucción digital 3D">
-                <figcaption>Reconstrucción digital tridimensional del malacate hidráulico reversible de doble rueda motriz descrito en De re metallica (1556).</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="agricola_reversible_hoist"
+                 data-model-type="archimedes_screw">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">diametro_rueda_m</td>
-                        <td class="param-val">10.5</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">diametro_tambor_m</td>
-                        <td class="param-val">1.2</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">profundidad_tiro_m</td>
-                        <td class="param-val">120</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">carga_util_kg</td>
-                        <td class="param-val">450</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Hidráulica y Elevación · 1556</div>
-                <h1>Malacate hidráulico reversible</h1>
-                
-                <p class="monograph-original">Denominación histórica: Machina tractoria aquarum</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="agricola_reversible_hoist"
-                     data-model-type="archimedes_screw">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .rh-bg { fill: #fcf9f2; }
@@ -226,97 +138,101 @@
   <text x="50" y="542" class="rh-text">  cubas vacías invirtiendo la rotación.</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica de doble corona de álabes contrapuestos. Al alternar el flujo de agua mediante compuertas, se invierte el sentido de rotación del tambor de enrollamiento sin detener el curso del caudal motriz.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: dimensiones estructurales documentadas; detalles de válvulas de conmutación inferidos.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, implementada en múltiples pozos de Joachimsthal.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Malacate Hidráulico Reversible de Doble Corona — <em>Rueda hidráulica bidireccional con compuerta selectora y freno de tambor de izado</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Malacate Hidráulico Reversible de Doble Corona.</strong> Rueda hidráulica bidireccional con compuerta selectora y freno de tambor de izado. Doble canal de alimentación, rueda doble de álabes opuestos, eje común y cable de mina.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (signo de ω gobernado por compuerta hidráulica izquierda/derecha)</code>
+                     · <code>z_cubo(θ) = z₀ ± R_tambor · θ</code>
+                </p>
+                
+                
+                <p>La mayor máquina de la minería renacentista, capaz de invertir marcha en segundos sin embragues mecánicos.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Malacate hidráulico reversible">
+                    <figcaption>Reconstrucción digital tridimensional del malacate hidráulico reversible de doble rueda motriz descrito en De re metallica (1556).</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Doble canal de alimentación, rueda doble de álabes opuestos, eje común y cable de mina</td>
+                            <th>Procedencia</th>
+                            <td>Sajonia / Bohemia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>1 par R principal + par de arrollamiento de cable de cáñamo</td>
+                            <th>Fuente</th>
+                            <td>Libro VI, pp. 160-165</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (signo de ω gobernado por compuerta hidráulica izquierda/derecha)</span></td>
+                            <th>Diámetro rueda</th>
+                            <td class="spec-val">10.5 m</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>z_cubo(θ) = z₀ ± R_tambor · θ</code></td>
+                            <th>Diámetro tambor</th>
+                            <td class="spec-val">1.2 m</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>z(θ) = R_tambor · θ · sgn(compuerta)</code><br>
-                                Velocidad: <code>v_izado = ± R_tambor · ω</code><br>
-                                Aceleración: <code>P_izado = m_carga · g · v_izado</code>
-                            </td>
+                            <th>Profundidad tiro</th>
+                            <td class="spec-val">120 m</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Carga util</th>
+                            <td class="spec-val">450 kg</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    La mayor máquina de la minería renacentista, capaz de invertir marcha en segundos sin embragues mecánicos.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../agricola_chain_pump/index.html" class="pager-prev">← Bomba de cadena y rosario</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../agricola_chain_pump/index.html">
-                        <span class="folio-pager-label">Lámina anterior (28)</span>
-                        ← Bomba de cadena y rosario
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../agricola_stamp_mill/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (30)</span>
-                        Molino de martillos pisones (Bocarte) →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../agricola_stamp_mill/index.html" class="pager-next">Molino de martillos pisones (Bocarte) →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 29 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

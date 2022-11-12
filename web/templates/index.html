@@ -3,190 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanica Antiqua — Archivo de Maquinaria Histórica</title>
+    <title>Mechanica Antiqua</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <h1 class="masthead-title"><a href="index.html">Mechanica Antiqua</a></h1>
-            <p class="masthead-sub">Reconstrucción cinemática, hidráulica y termodinámica de tratados técnicos</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="index.html" class="active">Catálogo</a>
-            <a href="about.html">Nota Metodológica</a>
+            <a href="about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
     <main>
-        <section class="corpus-intro">
-            <p>
-                Repertorio crítico de mecanismos documentados desde la Antigüedad hasta los inicios de la Revolución Industrial. Cada entrada somete las láminas originales a cierre geométrico de lazo, balance físico en unidades del Sistema Internacional y simulación paramétrica interactiva.
-            </p>
-            <div class="corpus-summary-ledger">
-                <div class="corpus-summary-row">
-                    <span>Total de láminas</span>
-                    <strong>{{ total }}</strong>
-                </div>
-                <div class="corpus-summary-row">
-                    <span>Modelos cinemáticos</span>
-                    <strong>{{ total }} / {{ total }}</strong>
-                </div>
-                <div class="corpus-summary-row">
-                    <span>Autores / Tradiciones</span>
-                    <strong>{{ authors|length }}</strong>
-                </div>
-                <div class="corpus-summary-row">
-                    <span>Dedicación</span>
-                    <strong>CC0 1.0 (Dominio Público)</strong>
-                </div>
-            </div>
-        </section>
+        <p class="lead">
+            Reconstrucción cinemática y análisis físico de {{ total }} máquinas documentadas en tratados técnicos históricos, desde la Antigüedad hasta la Revolución Industrial temprana.
+        </p>
 
-        <section class="archive-toolbar" aria-label="Filtros del catálogo">
-            <div class="filter-tabs" role="tablist">
-                <button class="filter-tab active" data-filter="all">Todas ({{ total }})</button>
+        <div class="toolbar">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all" type="button">Todas ({{ total }})</button>
                 {% for slug, info in categories.items() %}
-                <button class="filter-tab" data-filter="{{ slug }}">{{ info.label }} ({{ cat_counts[slug] }})</button>
+                <button class="filter-btn" data-filter="{{ slug }}" type="button">{{ info.short_label }} ({{ cat_counts[slug] }})</button>
                 {% endfor %}
             </div>
             <div class="toolbar-right">
-                <input type="search" id="archive-search" class="archive-search" placeholder="Buscar máquina, autor o año…" aria-label="Buscar en el inventario">
-                <div class="view-switch">
-                    <button id="btn-view-ledger" class="view-btn active" type="button">Índice</button>
-                    <button id="btn-view-plates" class="view-btn" type="button">Láminas</button>
+                <input type="search" id="archive-search" class="search-input" placeholder="Buscar…" aria-label="Buscar máquina o autor">
+                <div class="view-toggle">
+                    <button id="btn-view-list" class="vbtn active" type="button">Lista</button>
+                    <button id="btn-view-grid" class="vbtn" type="button">Galería</button>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="view-ledger" class="archive-ledger-wrap">
-            <table class="archive-ledger">
+        <div id="view-list">
+            <table class="catalog-table">
                 <thead>
                     <tr>
-                        <th>N°</th>
-                        <th>Época</th>
-                        <th>Máquina y Mecanismo</th>
-                        <th>Autor / Fuente</th>
-                        <th>Categoría</th>
-                        <th>Registro Visual</th>
+                        <th>Año</th>
+                        <th>Máquina</th>
+                        <th>Autor / Tratado</th>
+                        <th>Área</th>
                     </tr>
                 </thead>
                 <tbody>
                 {% for m in machines %}
-                    <tr class="archive-item"
+                    <tr class="cat-item"
                         data-cat="{{ m.category_slug }}"
-                        data-search="{{ (m.name ~ ' ' ~ m.author ~ ' ' ~ m.work ~ ' ' ~ m.display_year ~ ' ' ~ m.machine_type)|lower }}">
-                        <td class="col-folio">{{ m.folio_num }}</td>
-                        <td class="col-year">{{ m.display_year }}</td>
-                        <td class="col-machine">
-                            <a href="{{ m.id }}/index.html">{{ m.name }}</a>
-                            <span class="col-machine-sub">{{ m.kinematic.mechanism_name }}</span>
-                        </td>
-                        <td class="col-author">{{ m.author }}</td>
-                        <td class="col-domain">{{ m.category_label }}</td>
-                        <td class="col-plate">
-                            {% if m.has_realistic_image %}
-                            {{ m.visual_type | default('Archivo visual') }}
-                            {% else %}
-                            Solo esquema CAD
-                            {% endif %}
-                        </td>
+                        data-search="{{ (m.name ~ ' ' ~ m.author ~ ' ' ~ m.work ~ ' ' ~ m.display_year)|lower }}">
+                        <td class="td-year">{{ m.display_year }}</td>
+                        <td class="td-name"><a href="{{ m.id }}/index.html">{{ m.name }}</a></td>
+                        <td class="td-author">{{ m.author }}{% if m.work and m.work != 'N/A' %} — <span>{{ m.work }}</span>{% endif %}</td>
+                        <td class="td-cat">{{ m.category_short }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-        </section>
+        </div>
 
-        <section id="view-plates" class="plate-grid is-hidden">
+        <div id="view-grid" class="gallery-grid is-hidden">
         {% for m in machines %}
-            <article class="plate-entry archive-item"
-                     data-cat="{{ m.category_slug }}"
-                     data-search="{{ (m.name ~ ' ' ~ m.author ~ ' ' ~ m.work ~ ' ' ~ m.display_year ~ ' ' ~ m.machine_type)|lower }}">
-                <div class="plate-entry-meta">
-                    <strong>LÁM. {{ m.folio_num }}</strong>
-                    <span>{{ m.display_year }}</span>
-                </div>
-                <a href="{{ m.id }}/index.html" class="plate-thumb-link">
+            <a href="{{ m.id }}/index.html"
+               class="gallery-card cat-item"
+               data-cat="{{ m.category_slug }}"
+               data-search="{{ (m.name ~ ' ' ~ m.author ~ ' ' ~ m.work ~ ' ' ~ m.display_year)|lower }}">
+                <div class="gallery-thumb">
                     {% if m.has_realistic_image %}
-                    <img src="{{ m.id }}/{{ m.realistic_image }}" alt="{{ m.name }}" class="plate-thumb-img" loading="lazy">
+                    <img src="{{ m.id }}/{{ m.realistic_image }}" alt="{{ m.name }}" loading="lazy">
                     {% else %}
-                    <div class="plate-thumb-placeholder">
-                        <span>{{ m.kinematic.dof_calc }}</span>
-                    </div>
+                    <span class="gallery-noimg">{{ m.display_year }}</span>
                     {% endif %}
-                </a>
-                <h3><a href="{{ m.id }}/index.html">{{ m.name }}</a></h3>
-                <p class="plate-entry-author">{{ m.author }} · <em>{{ m.work }}</em></p>
-                <p class="plate-entry-desc">{{ m.description[:125] }}{% if m.description|length > 125 %}…{% endif %}</p>
-            </article>
+                </div>
+                <div class="gallery-info">
+                    <div class="gallery-title">{{ m.name }}</div>
+                    <div class="gallery-meta">{{ m.author }} · {{ m.display_year }}</div>
+                </div>
+            </a>
         {% endfor %}
-        </section>
-
-        <h2>Autores, Artífices y Tradiciones Técnicas</h2>
-        <ul class="authors-index">
-        {% for author, machs in authors.items() %}
-            <li>
-                <span>{{ author }}</span>
-                <span class="count">{{ machs|length }}</span>
-            </li>
-        {% endfor %}
-        </ul>
+        </div>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Reconstrucción analítica de maquinaria histórica</span>
-        <span>Dominio Público — Dedicación CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script>
     (function() {
-        const tabs = document.querySelectorAll('.filter-tab');
-        const searchInput = document.getElementById('archive-search');
-        const btnLedger = document.getElementById('btn-view-ledger');
-        const btnPlates = document.getElementById('btn-view-plates');
-        const viewLedger = document.getElementById('view-ledger');
-        const viewPlates = document.getElementById('view-plates');
+        const btns = document.querySelectorAll('.filter-btn');
+        const input = document.getElementById('archive-search');
+        const btnList = document.getElementById('btn-view-list');
+        const btnGrid = document.getElementById('btn-view-grid');
+        const viewList = document.getElementById('view-list');
+        const viewGrid = document.getElementById('view-grid');
 
         let activeCat = 'all';
         let query = '';
 
-        function applyFilters() {
-            const items = document.querySelectorAll('.archive-item');
-            items.forEach(el => {
-                const catMatch = (activeCat === 'all' || el.dataset.cat === activeCat);
-                const textMatch = (!query || el.dataset.search.includes(query));
-                el.classList.toggle('is-hidden', !(catMatch && textMatch));
+        function filter() {
+            document.querySelectorAll('.cat-item').forEach(el => {
+                const c = (activeCat === 'all' || el.dataset.cat === activeCat);
+                const q = (!query || el.dataset.search.includes(query));
+                el.classList.toggle('is-hidden', !(c && q));
             });
         }
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                activeCat = tab.dataset.filter;
-                applyFilters();
-            });
-        });
+        btns.forEach(b => b.addEventListener('click', () => {
+            btns.forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            activeCat = b.dataset.filter;
+            filter();
+        }));
 
-        searchInput.addEventListener('input', (e) => {
+        input.addEventListener('input', e => {
             query = e.target.value.trim().toLowerCase();
-            applyFilters();
+            filter();
         });
 
-        btnLedger.addEventListener('click', () => {
-            btnLedger.classList.add('active');
-            btnPlates.classList.remove('active');
-            viewLedger.classList.remove('is-hidden');
-            viewPlates.classList.add('is-hidden');
+        btnList.addEventListener('click', () => {
+            btnList.classList.add('active');
+            btnGrid.classList.remove('active');
+            viewList.classList.remove('is-hidden');
+            viewGrid.classList.add('is-hidden');
         });
 
-        btnPlates.addEventListener('click', () => {
-            btnPlates.classList.add('active');
-            btnLedger.classList.remove('active');
-            viewPlates.classList.remove('is-hidden');
-            viewLedger.classList.add('is-hidden');
+        btnGrid.addEventListener('click', () => {
+            btnGrid.classList.add('active');
+            btnList.classList.remove('active');
+            viewGrid.classList.remove('is-hidden');
+            viewList.classList.add('is-hidden');
         });
     })();
     </script>

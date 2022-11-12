@@ -55,11 +55,13 @@
         </div>
         {% endif %}
 
-        {% if machine.svg_content %}
+        {% if machine.svg_content or machine.kinematic %}
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="{{ machine.kinematic.model_type | default('generic_rotary') }}">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="{{ machine.id }}" data-model-type="{{ machine.kinematic.model_type | default('crank_slider') }}">
             <div id="machine-svg-wrapper" class="svg-container">
+                {% if machine.svg_content %}
                 {{ machine.svg_content | safe }}
+                {% endif %}
             </div>
         </div>
 
@@ -124,6 +126,9 @@
         {% endif %}
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

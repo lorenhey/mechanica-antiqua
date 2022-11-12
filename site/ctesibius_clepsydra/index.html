@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="ctesibius_clepsydra" data-model-type="hydraulic_control">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -158,13 +159,14 @@
   <text x="510" y="502" class="cl-text">• Conversión directa cremallera-piñón</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Clepsidra de Flujo Constante y Regulador Cónico</p>
+            <p><strong>Topología estructural:</strong> Sistema hidráulico de lazo cerrado (nivel h constante) + cremallera-piñón flotante</p>
             
             <table class="theory-table">
                 <tr>
@@ -173,26 +175,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Válvula cónica flotante (regulador P), cilindro acumulador graduado, flotador-cremallera, piñón indicador</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Regulación proporcional de caudal + par cremallera-piñón</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (dh₂/dt = Q_const / A_cilindro = cte)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>Q = C_d · A_orificio · √(2 · g · h_const)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>h_flotador(t) = v_ascenso · t ; θ_aguja = h / R_pinon</code><br>
+                        Velocidad: <code>dh/dt = cte [Independiente de presión de suministro]</code><br>
+                        Aceleración: <code>d²h/dt² = 0</code>
                     </td>
                 </tr>
             </table>
@@ -206,13 +208,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>altura_carga_h0_mm</code></td>
+                    <td><strong>120</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>caudal_regulado_Lh</code></td>
+                    <td><strong>1.85</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>error_diario_min</code></td>
+                    <td><strong>4.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>carrera_flotador_mm</code></td>
+                    <td><strong>600</strong></td>
                 </tr>
                 
             </table>
@@ -220,13 +232,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Primera implementación conocida de realimentación negativa mecánica (control proporcional de nivel).
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="epicyclic">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="ramelli_book_wheel" data-model-type="epicyclic">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-ramelli-bookwheel">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
@@ -257,13 +258,14 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Capacidad: 8 tratados simultáneos</text>
   </g>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Rueda de Lectura con Tren de Engranajes Epicicloidal</p>
-            <p><strong>Topología estructural:</strong> Tren epicicloidal planetario invertido con sol estacionario y satélites con inversión de marcha</p>
+            <p><strong>Mecanismo identificado:</strong> Rueda de Lectura con Tren Epicicloidal Planetario</p>
+            <p><strong>Topología estructural:</strong> Tren de engranajes planetarios con relación unitaria inversora (i = -1)</p>
             
             <table class="theory-table">
                 <tr>
@@ -272,26 +274,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Eslabones: 1) Bastidor de la cabina, 2) Tambor portaplanetarios principal, 3..10) Ruedas satélite y atriles basculantes, 11..18) Ruedas intermedias parásitas</td>
+                    <td>Bancada con sol central fijo (Z₁), portador (tambor giratorio), engranajes intermedios (Z₂) y 8 atriles (Z₃ = Z₁)</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares de revolución en cada eje y contactos de engranaje (j₁ y j₂)</td>
+                    <td>j₁ = 17 (pares R), j₂ = 16 (engranes dentados). i = ω_atril / ω_tambor = 0</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (accionamiento manual por el lector mediante manivela)</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (relación epicicloidal Θ_atril = Θ_tambor - Θ_tambor = 0°)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>ω_atril = ω_tambor + (ω_sol - ω_tambor) · (Z_sol / Z_satelite) = 0</code></td>
+                    <td><code>ω_atril = ω_portador · (1 - Z_sol / Z_planeta) = 0</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ_atril(t) = θ_tambor(t) - θ_tambor(t) = 0° (Constante horizontal)</code><br>
-                        Velocidad: <code>ω_atril = 0 rad/s (en el marco inercial de la habitación)</code><br>
-                        Aceleración: <code>a_angular = 0 rad/s²</code>
+                        Posición: <code>θ_atril(t) = 0° [Invariante absoluta respecto a tierra]</code><br>
+                        Velocidad: <code>v_tangencial = R_tambor · ω_tambor</code><br>
+                        Aceleración: <code>a_centripeta = R_tambor · ω_tambor²</code>
                     </td>
                 </tr>
             </table>
@@ -305,28 +307,28 @@
                 </tr>
                 
                 <tr>
-                    <td><code>R_drum_mm</code></td>
-                    <td><strong>850</strong></td>
+                    <td><code>radio_tambor_mm</code></td>
+                    <td><strong>680</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>num_desks</code></td>
+                    <td><code>num_atriles</code></td>
                     <td><strong>8</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>gear_ratio_sun_planet</code></td>
-                    <td><strong>1.0</strong></td>
+                    <td><code>dientes_sol_Z1</code></td>
+                    <td><strong>24</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>transmission_type</code></td>
-                    <td><strong>Epicicloidal con engranajes parásitos de inversión</strong></td>
+                    <td><code>dientes_planeta_Z3</code></td>
+                    <td><strong>24</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>condition</code></td>
-                    <td><strong>Nivelación absoluta de los libros para evitar su caída por gravedad</strong></td>
+                    <td><code>inclinacion_atril_deg</code></td>
+                    <td><strong>0.0</strong></td>
                 </tr>
                 
             </table>
@@ -334,13 +336,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Agostino Ramelli (1588) diseñó este ingenio para permitir el estudio simultáneo de múltiples tratados sin mover al lector ni desordenar los libros.
+                <strong>Nota del reconstructor:</strong> Agostino Ramelli (1588) compensa exactamente la rotación del tambor mediante un tren epicicloidal para evitar que caigan los volúmenes.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

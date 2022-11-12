@@ -1,6 +1,6 @@
 /**
- * Mechanica Antiqua - Motor Cinemático Interactivo
- * Simulación paramétrica en tiempo real y telemetría analítica en el cliente.
+ * Mechanica Antiqua - Motor Cinemático Interactivo y Renderizador CAD HiDPI
+ * Simulación paramétrica en tiempo real (60 fps) y telemetría analítica para las 42 máquinas.
  */
 
 (function() {
@@ -11,112 +11,102 @@
             this.container = document.getElementById('kinematic-workbench');
             if (!this.container) return;
 
+            this.machineId = this.container.dataset.machineId || '';
             this.modelType = this.container.dataset.modelType || 'crank_slider';
             this.svgContainer = document.getElementById('machine-svg-wrapper');
-            this.svg = this.svgContainer ? this.svgContainer.querySelector('svg') : null;
-            if (!this.svg) return;
+            if (!this.svgContainer) return;
 
             // Parámetros y estado de la simulación
-            this.theta = 0; // Ángulo actual en radianes
-            this.omega = 2.0; // rad/s nominal
+            this.theta = 0; // Ángulo/fase actual en [0, 2π)
+            this.omega = 1.65; // rad/s nominal
             this.isPlaying = true;
             this.speedFactor = 1.0;
             this.viewMode = 'assembly'; // 'assembly' | 'schematic'
             this.lastTimestamp = null;
 
-            // Extraer o inferir geometría básica del modelo
+            this.logicalW = 800;
+            this.logicalH = 560;
+
             this.setupGeometry();
+            this.mountCanvas();
             this.createControls();
             this.createPlot();
-            this.cacheDOMElements();
 
-            // Iniciar bucle de animación
+            this.update();
             this.animate = this.animate.bind(this);
             requestAnimationFrame(this.animate);
         }
 
         setupGeometry() {
-            // Dimensiones nominales en píxeles de canvas y unidades de ingeniería
-            switch(this.modelType) {
-                case 'crank_slider':
-                    this.r = 60; // Radio de manivela (px)
-                    this.L = 240; // Longitud de biela (px)
-                    this.lambda = this.r / this.L; // 0.25
-                    this.strokeMm = 300;
-                    break;
-                case 'scotch_yoke':
-                    this.r = 55;
-                    this.strokeMm = 320;
-                    break;
-                case 'cam_follower':
-                    this.hMax = 60;
-                    this.numCams = 3;
-                    break;
-                case 'epicyclic':
-                    this.R_drum = 170;
-                    this.numDesks = 8;
-                    break;
-                case 'lead_screw':
-                    this.pitch = 8;
-                    this.maxTravel = 180;
-                    break;
-                case 'ball_bearing':
-                    this.numBalls = 8;
-                    this.R_pitch = 128;
-                    break;
-                case 'beam_engine':
-                    this.L_beam = 200;
-                    this.psiMax = 0.22; // rad (~12.6°)
-                    break;
-                default:
-                    this.r = 50;
+            this.r = 60;
+            this.L = 240;
+            this.lambda = 0.25;
+            this.strokeMm = 300;
+            if (this.modelType === 'scotch_yoke') {
+                this.r = 55;
+                this.strokeMm = 320;
+            } else if (this.modelType === 'beam_engine') {
+                this.psiMax = 0.19;
             }
         }
 
-        cacheDOMElements() {
-            // Cachear elementos SVG para manipulación directa de alto rendimiento
-            this.elCrank = this.svg.querySelector('.crank-rot, .wheel-rotate, .crank-rotate, [id*="crank"]');
-            this.elRod = this.svg.querySelector('[id*="rod"], line[stroke-width="7"], line[stroke-width="6"]');
-            this.elSlider = this.svg.querySelector('.saw-reciprocate, .piston-group, .slot-shuttle, [id*="slider"]');
-            
-            // Elementos para balancines y máquinas atmosféricas
-            this.elBeam = this.svg.querySelector('.beam-oscillate, #nc-beam-assembly');
-            this.elSteamPiston = this.svg.querySelector('.steam-piston');
-            this.elPumpRod = this.svg.querySelector('.pump-rod');
-            this.elSpray = this.svg.querySelector('.cold-spray');
+        mountCanvas() {
+            // Reemplazar la lámina SVG estática por el viewport CAD HiDPI interactivo
+            const fallbackSvg = this.svgContainer.querySelector('svg');
+            if (fallbackSvg) {
+                fallbackSvg.style.display = 'none';
+            }
 
-            // Elementos para tornos y husillos
-            this.elSpindle = this.svg.querySelector('.spindle-spin');
-            this.elCarriage = this.svg.querySelector('.carriage-slide, #lathe-carriage');
+            this.canvas = document.createElement('canvas');
+            this.canvas.id = 'kinematic-canvas';
+            this.canvas.style.width = '100%';
+            this.canvas.style.maxWidth = '800px';
+            this.canvas.style.height = 'auto';
+            this.canvas.style.aspectRatio = `${this.logicalW} / ${this.logicalH}`;
+            this.canvas.style.display = 'block';
+            this.canvas.style.margin = '0 auto';
+            this.canvas.style.borderRadius = '4px';
 
-            // Elementos para cojinetes de bolas
-            this.elCage = this.svg.querySelector('.cage-orbital, #cage-assembly');
-            this.elShaft = this.svg.querySelector('.shaft-rotate, #inner-shaft');
-            this.elBalls = this.svg.querySelectorAll('.ball-spin');
+            const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+            this.canvas.width = Math.round(this.logicalW * dpr);
+            this.canvas.height = Math.round(this.logicalH * dpr);
+            this.ctx = this.canvas.getContext('2d');
+            this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-            // Elementos para el carro de Ma Jun
-            this.elWheelL = this.svg.querySelector('.wheel-l, #wheel-left');
-            this.elWheelR = this.svg.querySelector('.wheel-r, #wheel-right');
-            this.elDiff = this.svg.querySelector('.diff-center, #diff-assembly');
-            this.elPointer = this.svg.querySelector('#south-pointer');
+            this.svgContainer.appendChild(this.canvas);
+        }
 
-            // Elementos para tornillo de Arquímedes
-            this.elHelix = this.svg.querySelector('.helix-stream, .helix-move');
-
-            // Desactivar animaciones CSS toscas en favor del motor cinemático analítico
-            const animElements = [
-                this.elCrank, this.elSlider, this.elBeam, this.elSteamPiston, 
-                this.elPumpRod, this.elSpray, this.elSpindle, this.elCarriage,
-                this.elCage, this.elShaft, this.elWheelL, this.elWheelR,
-                this.elDiff, this.elHelix
-            ];
-            animElements.forEach(el => {
-                if (el) el.style.animation = 'none';
-            });
-            this.svg.querySelectorAll('.ball-spin').forEach(el => el.style.animation = 'none');
+        getMetricLabels() {
+            switch (this.modelType) {
+                case 'ballistic_lever':
+                    return {
+                        angleLabel: 'Fase del Ciclo de Disparo (θ):',
+                        pms: 'Carga (0°)', pmi: 'Suelta (180°)',
+                        l1: 'Extensión / Arco', l2: 'Velocidad Punta', l3: 'Aceleración', l4: 'Ángulo Brazo/Arco', l5: 'Factor Energía'
+                    };
+                case 'structural_static':
+                    return {
+                        angleLabel: 'Parámetro de Carga / Estado (θ):',
+                        pms: 'Estado Base (0°)', pmi: 'Carga Máx (180°)',
+                        l1: 'Flecha / Excentr.', l2: 'Variación Tasa', l3: 'Gradiente', l4: 'Ángulo Empuje', l5: 'Coef. Seguridad'
+                    };
+                case 'hydraulic_control':
+                    return {
+                        angleLabel: 'Fase Hidráulica / Térmica (θ):',
+                        pms: 'Inicio Ciclo (0°)', pmi: 'Mitad Ciclo (180°)',
+                        l1: 'Nivel Columna h', l2: 'Velocidad Fluido', l3: 'Aceleración', l4: 'Estado Válvula', l5: 'Presión Relativa'
+                    };
+                default:
+                    return {
+                        angleLabel: 'Ángulo / Fase Motriz (θ):',
+                        pms: 'PMS (0°)', pmi: 'PMI (180°)',
+                        l1: 'Desplazamiento s(θ)', l2: 'Velocidad v(θ)', l3: 'Aceleración a(θ)', l4: 'Ángulo φ(θ)', l5: 'Ventaja Mec. (MA)'
+                    };
+            }
         }
 
         createControls() {
+            const labels = this.getMetricLabels();
             const controlsCard = document.createElement('div');
             controlsCard.className = 'kinematic-controls-card';
             controlsCard.innerHTML = `
@@ -124,44 +114,44 @@
                     <button id="kc-play-pause" class="kc-btn kc-btn-primary">⏸ Pausar</button>
                     <button id="kc-step-prev" class="kc-btn">◀ -15°</button>
                     <button id="kc-step-next" class="kc-btn">+15° ▶</button>
-                    <button id="kc-pos-pms" class="kc-btn kc-btn-secondary">PMS (0°)</button>
-                    <button id="kc-pos-pmi" class="kc-btn kc-btn-secondary">PMI (180°)</button>
+                    <button id="kc-pos-pms" class="kc-btn kc-btn-secondary">${labels.pms}</button>
+                    <button id="kc-pos-pmi" class="kc-btn kc-btn-secondary">${labels.pmi}</button>
                     
                     <div class="kc-speed-group">
                         <span class="kc-label">Velocidad:</span>
-                        <button class="kc-btn-speed active" data-speed="1.0">1×</button>
                         <button class="kc-btn-speed" data-speed="0.5">0.5×</button>
+                        <button class="kc-btn-speed active" data-speed="1.0">1×</button>
                         <button class="kc-btn-speed" data-speed="2.0">2×</button>
                     </div>
 
-                    <button id="kc-toggle-view" class="kc-btn kc-btn-toggle">Modo: Ensamblaje</button>
+                    <button id="kc-toggle-view" class="kc-btn kc-btn-toggle">Modo: Ensamblaje CAD</button>
                 </div>
 
                 <div class="kc-scrub-row">
-                    <label for="kc-angle-slider" class="kc-label">Ángulo de Manivela (θ):</label>
+                    <label for="kc-angle-slider" class="kc-label">${labels.angleLabel}</label>
                     <input type="range" id="kc-angle-slider" min="0" max="360" value="0" step="1" class="kc-slider">
                     <span id="kc-angle-readout" class="kc-numeric-readout">0.0° (0.00 rad)</span>
                 </div>
 
                 <div class="kc-telemetry-grid">
                     <div class="kc-telemetry-item">
-                        <span class="kc-metric-label">Desplazamiento s(θ)</span>
+                        <span class="kc-metric-label">${labels.l1}</span>
                         <span id="kc-val-disp" class="kc-metric-val">0.0 mm</span>
                     </div>
                     <div class="kc-telemetry-item">
-                        <span class="kc-metric-label">Velocidad v(θ)</span>
+                        <span class="kc-metric-label">${labels.l2}</span>
                         <span id="kc-val-vel" class="kc-metric-val">0.00 m/s</span>
                     </div>
                     <div class="kc-telemetry-item">
-                        <span class="kc-metric-label">Aceleración a(θ)</span>
+                        <span class="kc-metric-label">${labels.l3}</span>
                         <span id="kc-val-acc" class="kc-metric-val">0.00 m/s²</span>
                     </div>
                     <div class="kc-telemetry-item">
-                        <span class="kc-metric-label">Ángulo de Biela φ(θ)</span>
+                        <span class="kc-metric-label">${labels.l4}</span>
                         <span id="kc-val-phi" class="kc-metric-val">0.0°</span>
                     </div>
                     <div class="kc-telemetry-item">
-                        <span class="kc-metric-label">Ventaja Mecánica (MA)</span>
+                        <span class="kc-metric-label">${labels.l5}</span>
                         <span id="kc-val-ma" class="kc-metric-val">1.00</span>
                     </div>
                 </div>
@@ -169,7 +159,6 @@
 
             this.svgContainer.parentNode.insertBefore(controlsCard, this.svgContainer);
 
-            // Bindeo de eventos
             this.btnPlayPause = controlsCard.querySelector('#kc-play-pause');
             this.sliderAngle = controlsCard.querySelector('#kc-angle-slider');
             this.txtAngle = controlsCard.querySelector('#kc-angle-readout');
@@ -196,24 +185,28 @@
             controlsCard.querySelector('#kc-step-prev').addEventListener('click', () => {
                 this.isPlaying = false;
                 this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.stepAngle(-15 * (Math.PI / 180));
             });
 
             controlsCard.querySelector('#kc-step-next').addEventListener('click', () => {
                 this.isPlaying = false;
                 this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.stepAngle(15 * (Math.PI / 180));
             });
 
             controlsCard.querySelector('#kc-pos-pms').addEventListener('click', () => {
                 this.isPlaying = false;
                 this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.setAngle(0);
             });
 
             controlsCard.querySelector('#kc-pos-pmi').addEventListener('click', () => {
                 this.isPlaying = false;
                 this.btnPlayPause.textContent = '▶ Reproducir';
+                this.btnPlayPause.classList.remove('kc-btn-primary');
                 this.setAngle(Math.PI);
             });
 
@@ -227,21 +220,22 @@
 
             this.btnToggleView.addEventListener('click', () => {
                 this.viewMode = this.viewMode === 'assembly' ? 'schematic' : 'assembly';
-                this.btnToggleView.textContent = this.viewMode === 'assembly' ? 'Modo: Ensamblaje' : 'Modo: Diagrama Cinemático';
-                this.svg.classList.toggle('schematic-view', this.viewMode === 'schematic');
+                this.btnToggleView.textContent = this.viewMode === 'assembly'
+                    ? 'Modo: Ensamblaje CAD'
+                    : 'Modo: Esquema y Vectores';
+                this.update();
             });
         }
 
         createPlot() {
-            // Crear el gráfico vectorial sincronizado de s(θ), v(θ), a(θ)
             const plotWrapper = document.createElement('div');
             plotWrapper.className = 'kinematic-plot-card';
             plotWrapper.innerHTML = `
                 <div class="kc-plot-header">
-                    <h4>Curvas Cinemáticas del Ciclo Completo (0° a 360°)</h4>
+                    <h4>Curvas Analíticas del Ciclo Completo (0° a 360°)</h4>
                     <div class="kc-plot-legend">
-                        <span class="legend-item"><span class="legend-dot dot-disp"></span> s(θ) Desplazamiento</span>
-                        <span class="legend-item"><span class="legend-dot dot-vel"></span> v(θ) Velocidad</span>
+                        <span class="legend-item"><span class="legend-dot dot-disp"></span> s(θ) Posición / Nivel</span>
+                        <span class="legend-item"><span class="legend-dot dot-vel"></span> v(θ) Velocidad / Tasa</span>
                         <span class="legend-item"><span class="legend-dot dot-acc"></span> a(θ) Aceleración</span>
                     </div>
                 </div>
@@ -250,19 +244,16 @@
                         <line x1="60" y1="90" x2="680" y2="90" stroke="#cbd5e1" stroke-width="1.5"/>
                         <line x1="60" y1="20" x2="60" y2="160" stroke="#cbd5e1" stroke-width="1.5"/>
                         
-                        <!-- Marcas angulares -->
                         <text x="60" y="105" font-size="11" fill="#64748b" text-anchor="middle">0°</text>
                         <text x="215" y="105" font-size="11" fill="#64748b" text-anchor="middle">90°</text>
                         <text x="370" y="105" font-size="11" fill="#64748b" text-anchor="middle">180°</text>
                         <text x="525" y="105" font-size="11" fill="#64748b" text-anchor="middle">270°</text>
                         <text x="680" y="105" font-size="11" fill="#64748b" text-anchor="middle">360°</text>
 
-                        <!-- Curvas precalculadas -->
-                        <path id="plot-path-disp" class="path-disp" fill="none" stroke="#2563eb" stroke-width="2.5"/>
-                        <path id="plot-path-vel" class="path-vel" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4 2"/>
-                        <path id="plot-path-acc" class="path-acc" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="2 2"/>
+                        <path id="plot-path-disp" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+                        <path id="plot-path-vel" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="4 2"/>
+                        <path id="plot-path-acc" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="2 2"/>
 
-                        <!-- Cursor vertical interactivo móvil -->
                         <line id="kc-plot-cursor" x1="60" y1="15" x2="60" y2="165" stroke="#3d2b1f" stroke-width="2.5" stroke-dasharray="3 3"/>
                         <circle id="kc-plot-cursor-point" cx="60" cy="90" r="4.5" fill="#3d2b1f"/>
                     </svg>
@@ -270,7 +261,6 @@
             `;
 
             this.svgContainer.parentNode.insertBefore(plotWrapper, this.svgContainer.nextSibling);
-
             this.plotCursor = plotWrapper.querySelector('#kc-plot-cursor');
             this.plotPoint = plotWrapper.querySelector('#kc-plot-cursor-point');
             this.generatePlotCurves(plotWrapper);
@@ -281,21 +271,16 @@
             const pathVel = plotWrapper.querySelector('#plot-path-vel');
             const pathAcc = plotWrapper.querySelector('#plot-path-acc');
 
-            let dDisp = '';
-            let dVel = '';
-            let dAcc = '';
-
-            const N = 120;
-            const x0 = 60, x1 = 680, yMid = 90, scaleY = 65;
+            let dDisp = '', dVel = '', dAcc = '';
+            const N = 120, x0 = 60, x1 = 680, yMid = 90, scaleY = 65;
 
             for (let i = 0; i <= N; i++) {
                 const th = (i / N) * 2 * Math.PI;
                 const px = x0 + (i / N) * (x1 - x0);
-
                 const k = this.calculateKinematics(th);
-                const pyDisp = yMid - k.normDisp * scaleY;
-                const pyVel = yMid - k.normVel * scaleY;
-                const pyAcc = yMid - k.normAcc * scaleY;
+                const pyDisp = yMid - Math.max(-1.05, Math.min(1.05, k.normDisp)) * scaleY;
+                const pyVel = yMid - Math.max(-1.05, Math.min(1.05, k.normVel)) * scaleY;
+                const pyAcc = yMid - Math.max(-1.05, Math.min(1.05, k.normAcc)) * scaleY;
 
                 dDisp += (i === 0 ? 'M ' : ' L ') + `${px.toFixed(1)} ${pyDisp.toFixed(1)}`;
                 dVel += (i === 0 ? 'M ' : ' L ') + `${px.toFixed(1)} ${pyVel.toFixed(1)}`;
@@ -308,51 +293,44 @@
         }
 
         calculateKinematics(th) {
-            // Modelo analítico según el mecanismo
             const sinT = Math.sin(th);
             const cosT = Math.cos(th);
 
             if (this.modelType === 'crank_slider') {
-                const lambda = this.lambda || 0.25;
-                // Desplazamiento desde el PMS
+                const lambda = this.lambda || 0.22;
                 const s = 1 - cosT + (lambda / 2) * (sinT * sinT);
                 const v = sinT + (lambda / 2) * Math.sin(2 * th);
                 const a = cosT + lambda * Math.cos(2 * th);
                 const phi = Math.asin(lambda * sinT);
-                const ma = Math.abs(cosT) < 0.05 ? 10.0 : Math.min(10.0, 1.0 / Math.max(0.1, Math.abs(sinT)));
-
+                const ma = Math.abs(sinT) < 0.08 ? 10.0 : Math.min(10.0, 1.0 / Math.abs(sinT));
                 return {
-                    normDisp: (s / 2) * 2 - 1, // [-1, 1]
-                    normVel: v / 1.25,
+                    normDisp: s - 1,
+                    normVel: v / 1.15,
                     normAcc: a / (1 + lambda),
                     sMm: (s / 2) * this.strokeMm,
-                    vMs: v * 1.5,
-                    aMs2: a * 15.0,
-                    phiDeg: (phi * 180 / Math.PI),
+                    vMs: v * 1.45,
+                    aMs2: a * 14.5,
+                    phiDeg: phi * 180 / Math.PI,
                     ma: ma
                 };
             } else if (this.modelType === 'scotch_yoke') {
-                // Movimiento armónico simple puro
-                const s = cosT;
-                const v = -sinT;
-                const a = -cosT;
                 return {
-                    normDisp: s,
-                    normVel: v,
-                    normAcc: a,
+                    normDisp: cosT,
+                    normVel: -sinT,
+                    normAcc: -cosT,
                     sMm: ((1 - cosT) / 2) * this.strokeMm,
-                    vMs: v * 1.2,
-                    aMs2: a * 12.0,
+                    vMs: -sinT * 1.25,
+                    aMs2: -cosT * 12.0,
                     phiDeg: 0,
-                    ma: 1.0 / Math.max(0.1, Math.abs(sinT))
+                    ma: Math.min(10.0, 1.0 / Math.max(0.1, Math.abs(sinT)))
                 };
             } else if (this.modelType === 'cam_follower') {
-                const liftAngle = (2 * Math.PI) / 3; // 120°
+                const liftAngle = (2 * Math.PI) / 3;
                 const rem = th % liftAngle;
                 let sNorm, vNorm, aNorm;
                 if (rem < liftAngle * 0.7) {
                     sNorm = rem / (liftAngle * 0.7);
-                    vNorm = 0.8;
+                    vNorm = 0.7;
                     aNorm = 0;
                 } else {
                     const t = (rem - liftAngle * 0.7) / (liftAngle * 0.3);
@@ -362,41 +340,37 @@
                 }
                 return {
                     normDisp: sNorm * 2 - 1,
-                    normVel: vNorm,
+                    normVel: vNorm * 0.5,
                     normAcc: aNorm,
-                    sMm: sNorm * 250,
-                    vMs: vNorm * 2.2,
+                    sMm: sNorm * 280,
+                    vMs: vNorm * 1.8,
                     aMs2: aNorm * 9.81,
                     phiDeg: 0,
                     ma: 1.5
                 };
             } else if (this.modelType === 'beam_engine') {
-                const psiMax = 10.0 * (Math.PI / 180); // 10° oscilación
-                const psi = psiMax * Math.sin(th);
-                const s = 900 * (1 - Math.cos(th)); // Carrera total 1800 mm
-                const v = 900 * (Math.PI / 2.25) * Math.sin(th) * 0.001;
-                const a = 900 * Math.pow(Math.PI / 2.25, 2) * Math.cos(th) * 0.001;
+                const psi = 11.0 * sinT;
                 return {
-                    normDisp: -Math.cos(th),
-                    normVel: Math.sin(th),
-                    normAcc: Math.cos(th),
-                    sMm: s,
-                    vMs: v,
-                    aMs2: a,
-                    phiDeg: (psi * 180 / Math.PI),
+                    normDisp: -cosT,
+                    normVel: sinT,
+                    normAcc: cosT,
+                    sMm: 450 * (1 - cosT),
+                    vMs: sinT * 1.15,
+                    aMs2: cosT * 2.4,
+                    phiDeg: psi,
                     ma: 1.0
                 };
             } else if (this.modelType === 'lead_screw') {
-                const cycle = (th % (2 * Math.PI)) / (2 * Math.PI);
+                const c = (th / (Math.PI * 2));
                 return {
-                    normDisp: cycle * 2 - 1,
-                    normVel: 1.0,
-                    normAcc: 0.0,
-                    sMm: cycle * 350,
+                    normDisp: c * 2 - 1,
+                    normVel: 0.6,
+                    normAcc: 0,
+                    sMm: c * 350,
                     vMs: 0.025,
-                    aMs2: 0.0,
+                    aMs2: 0,
                     phiDeg: 0,
-                    ma: 118.0 // (2 * pi * r) / p
+                    ma: 117.8
                 };
             } else if (this.modelType === 'ball_bearing') {
                 return {
@@ -406,30 +380,58 @@
                     sMm: 127.5 * (1 - Math.cos(th * 0.5)),
                     vMs: -0.65 * Math.sin(th * 0.5),
                     aMs2: -0.33 * Math.cos(th * 0.5),
-                    phiDeg: ((th * 180 / Math.PI) * 2.43) % 360,
+                    phiDeg: ((th * 180 / Math.PI) * 0.5) % 360,
                     ma: 2.0
                 };
-            } else if (this.modelType === 'epicyclic') {
+            } else if (this.modelType === 'ballistic_lever') {
+                const c = th / (Math.PI * 2);
+                const preRelease = c < 0.48;
+                const sN = preRelease ? (c / 0.48) * 2 - 1 : 1 - ((c - 0.48) / 0.52) * 2;
+                const vN = preRelease ? Math.sin((c / 0.48) * Math.PI) : 0.85;
+                const aN = preRelease ? Math.cos((c / 0.48) * Math.PI) : -0.35;
                 return {
-                    normDisp: Math.cos(th),
-                    normVel: -Math.sin(th),
-                    normAcc: -Math.cos(th),
-                    sMm: 340 * (1 - Math.cos(th)),
-                    vMs: -1.2 * Math.sin(th),
-                    aMs2: -1.2 * Math.cos(th),
-                    phiDeg: 0.0, // Nivel horizontal constante
+                    normDisp: sN,
+                    normVel: vN,
+                    normAcc: aN,
+                    sMm: preRelease ? (c / 0.48) * 580 : 580,
+                    vMs: vN * 38.5,
+                    aMs2: aN * 140.0,
+                    phiDeg: -50 + c * 90,
+                    ma: 4.0
+                };
+            } else if (this.modelType === 'structural_static') {
+                return {
+                    normDisp: cosT,
+                    normVel: -sinT * 0.5,
+                    normAcc: -cosT * 0.2,
+                    sMm: 35 + 25 * (0.5 + 0.5 * cosT),
+                    vMs: -sinT * 0.2,
+                    aMs2: 0,
+                    phiDeg: 18 + 12 * sinT,
+                    ma: 1.65
+                };
+            } else if (this.modelType === 'hydraulic_control' || this.modelType === 'escapement') {
+                const c = th / (Math.PI * 2);
+                return {
+                    normDisp: c * 2 - 1,
+                    normVel: 0.75 + 0.15 * cosT,
+                    normAcc: -0.15 * sinT,
+                    sMm: c * 220,
+                    vMs: 1.45,
+                    aMs2: 0,
+                    phiDeg: (th * 180 / Math.PI) % 360,
                     ma: 1.0
                 };
             } else {
-                // Rotativo / Armónico estándar
+                // archimedes_screw, epicyclic, differential, fluid_thermal
                 return {
                     normDisp: cosT,
                     normVel: -sinT,
                     normAcc: -cosT,
-                    sMm: 50 * (1 - cosT),
-                    vMs: -sinT * 1.0,
-                    aMs2: -cosT * 9.8,
-                    phiDeg: 0,
+                    sMm: 160 * (1 - cosT),
+                    vMs: -sinT * 1.35,
+                    aMs2: -cosT * 3.2,
+                    phiDeg: this.modelType === 'epicyclic' ? 0.0 : (sinT * 18),
                     ma: 1.0
                 };
             }
@@ -448,18 +450,15 @@
             const deg = (this.theta * 180 / Math.PI);
             const k = this.calculateKinematics(this.theta);
 
-            // Actualizar controles UI
             if (this.sliderAngle) this.sliderAngle.value = Math.round(deg);
             if (this.txtAngle) this.txtAngle.textContent = `${deg.toFixed(1)}° (${this.theta.toFixed(2)} rad)`;
 
-            // Actualizar telemetría
             if (this.valDisp) this.valDisp.textContent = `${k.sMm.toFixed(1)} mm`;
             if (this.valVel) this.valVel.textContent = `${k.vMs.toFixed(2)} m/s`;
             if (this.valAcc) this.valAcc.textContent = `${k.aMs2.toFixed(2)} m/s²`;
             if (this.valPhi) this.valPhi.textContent = `${k.phiDeg.toFixed(1)}°`;
             if (this.valMa) this.valMa.textContent = `${k.ma.toFixed(2)}`;
 
-            // Actualizar cursor del gráfico de ciclo
             if (this.plotCursor) {
                 const x0 = 60, x1 = 680;
                 const curX = x0 + (this.theta / (2 * Math.PI)) * (x1 - x0);
@@ -467,128 +466,26 @@
                 this.plotCursor.setAttribute('x2', curX);
                 if (this.plotPoint) {
                     const yMid = 90, scaleY = 65;
+                    const clampedY = yMid - Math.max(-1.05, Math.min(1.05, k.normDisp)) * scaleY;
                     this.plotPoint.setAttribute('cx', curX);
-                    this.plotPoint.setAttribute('cy', (yMid - k.normDisp * scaleY).toFixed(1));
+                    this.plotPoint.setAttribute('cy', clampedY.toFixed(1));
                 }
             }
 
-            // Actualizar geometría SVG paramétricamente
-            this.updateSVG(this.theta, k);
+            // Renderizar cuadro CAD 2D HiDPI del mecanismo específico
+            this.renderFrame(k);
         }
 
-        updateSVG(th, k) {
-            const deg = (th * 180 / Math.PI);
-
-            // 1. Manivela / Rueda motriz genérica
-            if (this.elCrank) {
-                this.elCrank.style.transform = `rotate(${deg}deg)`;
-            }
-
-            // 2. Cursor / Pistón / Sierra genérico
-            if (this.elSlider) {
-                if (this.modelType === 'crank_slider') {
-                    const travelPx = (k.sMm / this.strokeMm) * 80 - 40;
-                    this.elSlider.style.transform = `translateY(${travelPx.toFixed(1)}px)`;
-                } else if (this.modelType === 'scotch_yoke') {
-                    const travelPx = Math.cos(th) * 45;
-                    this.elSlider.style.transform = `translateX(${travelPx.toFixed(1)}px)`;
-                } else if (this.modelType === 'cam_follower') {
-                    const liftPx = -(k.sMm / 250) * 55;
-                    this.elSlider.style.transform = `translateY(${liftPx.toFixed(1)}px)`;
-                }
-            }
-
-            // 3. Articulación de Biela (Connecting Rod)
-            if (this.elRod && this.modelType === 'crank_slider') {
-                if (this.elRod.tagName.toLowerCase() === 'line') {
-                    const xO = 220, yO = 420;
-                    const r = 50;
-                    const xA = xO + r * Math.cos(th);
-                    const yA = yO + r * Math.sin(th);
-                    const xB = 478;
-                    const travelPx = (k.sMm / this.strokeMm) * 80 - 40;
-                    const yB = 340 + travelPx;
-
-                    this.elRod.setAttribute('x1', xA.toFixed(1));
-                    this.elRod.setAttribute('y1', yA.toFixed(1));
-                    this.elRod.setAttribute('x2', xB.toFixed(1));
-                    this.elRod.setAttribute('y2', yB.toFixed(1));
-                }
-            }
-
-            // 4. Balancín y cilindro Newcomen (Beam Engine)
-            if (this.modelType === 'beam_engine') {
-                const psiDeg = 10.0 * Math.sin(th);
-                if (this.elBeam) {
-                    this.elBeam.style.transformOrigin = '400px 140px';
-                    this.elBeam.style.transform = `rotate(${psiDeg.toFixed(2)}deg)`;
-                }
-                const pistonDisp = -28 * Math.sin(th);
-                const pumpDisp = 28 * Math.sin(th);
-                if (this.elSteamPiston) {
-                    this.elSteamPiston.style.transform = `translateY(${pistonDisp.toFixed(1)}px)`;
-                }
-                if (this.elPumpRod) {
-                    this.elPumpRod.style.transform = `translateY(${pumpDisp.toFixed(1)}px)`;
-                }
-                if (this.elSpray) {
-                    this.elSpray.style.opacity = (Math.sin(th) > 0.3) ? '1' : '0';
-                }
-            }
-
-            // 5. Torno con husillo patrón (Lead Screw)
-            if (this.modelType === 'lead_screw') {
-                if (this.elSpindle) {
-                    this.elSpindle.style.transformOrigin = '245px 240px';
-                    this.elSpindle.style.transform = `rotate(${deg}deg)`;
-                }
-                if (this.elCarriage) {
-                    const cycle = (th % (2 * Math.PI)) / (2 * Math.PI);
-                    const travelX = cycle * 150;
-                    this.elCarriage.style.transform = `translateX(${travelX.toFixed(1)}px)`;
-                }
-            }
-
-            // 6. Cojinete de bolas con jaula (Ball Bearing)
-            if (this.modelType === 'ball_bearing') {
-                if (this.elCage) {
-                    this.elCage.style.transformOrigin = '400px 300px';
-                    this.elCage.style.transform = `rotate(${(deg * 0.5).toFixed(2)}deg)`;
-                }
-                if (this.elShaft) {
-                    this.elShaft.style.transformOrigin = '400px 300px';
-                    this.elShaft.style.transform = `rotate(${deg}deg)`;
-                }
-                if (this.elBalls && this.elBalls.length > 0) {
-                    const spinAngle = -(deg * 2.43);
-                    this.elBalls.forEach(ball => {
-                        ball.style.transformOrigin = '0px 0px';
-                        ball.style.transform = `rotate(${spinAngle.toFixed(1)}deg)`;
-                    });
-                }
-            }
-
-            // 7. Carro que apunta al sur (South-pointing chariot)
-            if (this.modelType === 'differential' || this.elDiff) {
-                if (this.elWheelL) {
-                    this.elWheelL.style.transformOrigin = '220px 420px';
-                    this.elWheelL.style.transform = `rotate(${deg}deg)`;
-                }
-                if (this.elWheelR) {
-                    this.elWheelR.style.transformOrigin = '580px 420px';
-                    this.elWheelR.style.transform = `rotate(${(deg * 0.5).toFixed(1)}deg)`;
-                }
-                if (this.elDiff) {
-                    this.elDiff.style.transformOrigin = '400px 320px';
-                    this.elDiff.style.transform = `rotate(${(deg * 0.25).toFixed(1)}deg)`;
-                }
-            }
-
-            // 8. Tornillo de Arquímedes
-            if (this.elHelix) {
-                const shift = ((th % (2 * Math.PI)) / (2 * Math.PI)) * 40;
-                const shiftY = -shift * 0.75;
-                this.elHelix.style.transform = `translate(${shift.toFixed(1)}px, ${shiftY.toFixed(1)}px)`;
+        renderFrame(k) {
+            if (!this.ctx) return;
+            const schematic = (this.viewMode === 'schematic');
+            const renderer = window.MACHINE_RENDERERS && window.MACHINE_RENDERERS[this.machineId];
+            if (typeof renderer === 'function') {
+                renderer(this.ctx, this.logicalW, this.logicalH, this.theta, k, schematic);
+            } else {
+                CAD.clearAndGrid(this.ctx, this.logicalW, this.logicalH, this.machineId, 'Modelo analítico genérico', schematic);
+                CAD.drawWaterwheel(this.ctx, 400, 300, 120, 12, this.theta, schematic);
+                CAD.drawFixedPivot(this.ctx, 400, 300, 8, 'O₂');
             }
         }
 
@@ -608,7 +505,6 @@
         }
     }
 
-    // Inicializar cuando el DOM esté listo
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => new KinematicsWorkbench());
     } else {

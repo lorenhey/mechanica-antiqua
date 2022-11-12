@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="zonca_stamping_mill" data-model-type="cam_follower">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -140,13 +141,14 @@
   <text x="50" y="218" class="zm-text">• Compacta y afieltra la lana.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Molino de Batanado Textil por Levas Escalonadas</p>
+            <p><strong>Topología estructural:</strong> Engranaje corona-linterna acoplado a árbol de levas múltiple con guías verticales</p>
             
             <table class="theory-table">
                 <tr>
@@ -155,26 +157,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Bastidor de roble, rueda motriz, eje con levas helicoidales, mazos de madera dura</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Pares R en ejes, pares P en guías de mazo, j₂ en contacto leva-taqué</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 por cada estación de batanado</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>y(θ) = h_max (θ / θ_0) para 0 ≤ θ < θ_0</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>y(θ) = h_max · ramp(θ mod 120°)</code><br>
+                        Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
+                        Aceleración: <code>a = -g durante la descarga en artesa</code>
                     </td>
                 </tr>
             </table>
@@ -188,13 +190,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>num_mazos</code></td>
+                    <td><strong>3</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>alzada_mm</code></td>
+                    <td><strong>300</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>masa_mazo_kg</code></td>
+                    <td><strong>52.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>energia_impacto_J</code></td>
+                    <td><strong>153.0</strong></td>
                 </tr>
                 
             </table>
@@ -202,13 +214,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Compactación y enfieltrado continuo de paños de lana mediante golpes rítmicos en baño caliente.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

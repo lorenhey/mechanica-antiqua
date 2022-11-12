@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="papin_papin_steam_engine" data-model-type="beam_engine">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -146,13 +147,14 @@
   <text x="50" y="302" class="pp-text">3. El vacío eleva la carga útil.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Cilindro de Vapor y Pistón Atmosférico de Papin (1690)</p>
+            <p><strong>Topología estructural:</strong> Actuador lineal vertical mono-cilíndrico de ciclo vapor-condensación</p>
             
             <table class="theory-table">
                 <tr>
@@ -161,11 +163,11 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Cilindro de latón (base), pistón con traba mecánica superior, polea de izado y contrapeso</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>1 par P (pistón en camisa), 1 par R (polea superior)</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
@@ -173,14 +175,14 @@
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>F_net(t) = (P_int(t) - P_atm) · A_piston - W_piston</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>y(θ) = S · f_termodinamica(θ)</code><br>
+                        Velocidad: <code>v(θ) = dy/dt [Expansión lenta, carrera descendente rápida por vacío]</code><br>
+                        Aceleración: <code>W_util = ∫ (P_atm - P_vac) A dy ≈ 420 J/ciclo</code>
                     </td>
                 </tr>
             </table>
@@ -194,13 +196,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>diametro_cilindro_mm</code></td>
+                    <td><strong>120</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>carrera_mm</code></td>
+                    <td><strong>450</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>masa_elevada_kg</code></td>
+                    <td><strong>27.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>presion_vacio_bar</code></td>
+                    <td><strong>0.25</strong></td>
                 </tr>
                 
             </table>
@@ -208,13 +220,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Demostración fundacional del uso de un pistón sólido separado de la caldera como motor de vacío térmico.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="al_jazari_elephant_clock" data-model-type="hydraulic_control">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -160,13 +161,14 @@
   <text x="50" y="192" class="ec-text">3. Suena el platillo y rota el escriba.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Reloj del Elefante con Flotador Perforado (Tarjahar)</p>
+            <p><strong>Topología estructural:</strong> Oscilador de relajación hidráulica de periodo discreto (30 minutos)</p>
             
             <table class="theory-table">
                 <tr>
@@ -175,26 +177,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Cuenco tarjahar perforado, cadena disparadora, depósito de bolas, autómata escriba y tambor</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Oscilación gravitatoria-flotante + mecanismo secuencial por gravedad</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (ciclo de vaciado calibrado hasta inmersión límite)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>m_agua(t) = ∫ ρ A_orif √(2 g Δh) dt ⇒ t_hundimiento = 1800 s</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>h_cuenco(θ) = h_0 - h_max · (θ / 2π)</code><br>
+                        Velocidad: <code>Q_entrada = C_d A_o √(2 g Δh)</code><br>
+                        Aceleración: <code>Disparo de bola metálica en θ = 2π (reinicio automático)</code>
                     </td>
                 </tr>
             </table>
@@ -208,13 +210,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>periodo_ciclo_min</code></td>
+                    <td><strong>30.0</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>diametro_orificio_mm</code></td>
+                    <td><strong>1.6</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>masa_bola_bronce_g</code></td>
+                    <td><strong>180</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>num_esferas_carga</code></td>
+                    <td><strong>30</strong></td>
                 </tr>
                 
             </table>
@@ -222,13 +234,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Al-Jazari diseñó el orificio del cuenco para compensar las horas estacionales desiguales mediante calibración empírica.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

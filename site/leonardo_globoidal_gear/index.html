@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="leonardo_globoidal_gear" data-model-type="epicyclic">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -138,13 +139,14 @@
   <text x="50" y="552" class="lg-text">• Soporta cargas axiales masivas sin rotura.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Engranaje Sin Fin Globoidal Envolvente (Códice Madrid I)</p>
+            <p><strong>Topología estructural:</strong> Par espacial cruzado a 90° con geometría hiperboloide envolvente</p>
             
             <table class="theory-table">
                 <tr>
@@ -153,26 +155,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Bancada, tornillo sinfín de garganta cóncava, rueda dentada tangencial de 30 dientes</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>2 pares R ortogonales, 1 contacto helicoidal multi-diente simultáneo</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (Relación de reducción i = Z_rueda / Z_entradas = 30:1)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>θ_rueda = θ_tornillo / Z_rueda</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>θ_out = θ_in / 30</code><br>
+                        Velocidad: <code>ω_out = ω_in / 30</code><br>
+                        Aceleración: <code>T_out = η · 30 · T_in</code>
                     </td>
                 </tr>
             </table>
@@ -186,13 +188,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>relacion_transmision</code></td>
+                    <td><strong>30 : 1</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>dientes_simultaneos_contacto</code></td>
+                    <td><strong>4</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>angulo_helice_deg</code></td>
+                    <td><strong>6.5</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>eficiencia_estimada</code></td>
+                    <td><strong>0.68</strong></td>
                 </tr>
                 
             </table>
@@ -200,13 +212,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Al abrazar la curvatura de la rueda, Leonardo distribuye la presión de contacto entre múltiples filetes simultáneamente.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

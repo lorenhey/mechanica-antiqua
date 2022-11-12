@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="lead_screw">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="besson_screw_lathe" data-model-type="lead_screw">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Patrón de grilla técnica milimétrica -->
@@ -237,13 +238,14 @@
   <text x="47" y="517" class="bl-dim-text">Ventaja mecánica MA ≈ 118</text>
   <text x="47" y="534" class="bl-dim-text">F = 3(3 - 1) - 2(2) - 1 = 1 DOF</text>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Torno de Roscar con Husillo Patrón y Sincronismo Cinemático</p>
-            <p><strong>Topología estructural:</strong> Transmisión cinemática helicoidal rígida por cadena de poleas cruzadas y husillo maestro</p>
+            <p><strong>Mecanismo identificado:</strong> Torno de Roscar Sincronizado con Husillo Patrón (1578)</p>
+            <p><strong>Topología estructural:</strong> Cadena espacial R-H-P de sincronización rígida entre giro de pieza y traslación de carro</p>
             
             <table class="theory-table">
                 <tr>
@@ -252,26 +254,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada, husillo patrón maestro, árbol portapieza, carro portaherramientas transversal/longitudinal</td>
+                    <td>Bancada fija, husillo de pieza + husillo patrón (1:1), carro portaherramientas</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares de revolución, par helicoidal H (husillo) y par prismático (guías del carro)</td>
+                    <td>j₁ = 4 (2 R, 1 P guías, 1 par helicoidal H₁ de paso p)</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (sincronismo forzado entre rotación de la pieza y avance de la cuchilla)</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 3(4 - 1) - 2(4) = 1</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>z_carro(θ) = p_maestro · (θ / 2π) · i_poleas</code></td>
+                    <td><code>x_carro(θ) = (p / 2π) · θ</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>z(θ) = p_efectivo · (θ / 2π)</code><br>
-                        Velocidad: <code>v_avance = (p_efectivo / 2π) · ω</code><br>
-                        Aceleración: <code>a_avance = (p_efectivo / 2π) · α</code>
+                        Posición: <code>x(θ) = (p / 2π) · θ [Avance lineal constante]</code><br>
+                        Velocidad: <code>v_x = (p / 2π) · ω = cte</code><br>
+                        Aceleración: <code>a_x = 0 [Régimen estacionario]</code>
                     </td>
                 </tr>
             </table>
@@ -285,28 +287,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>lead_screw_pitch_mm</code></td>
-                    <td><strong>6.0</strong></td>
+                    <td><code>paso_husillo_mm</code></td>
+                    <td><strong>8.0</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>spindle_ratio_i</code></td>
-                    <td><strong>1.0</strong></td>
+                    <td><code>longitud_util_mm</code></td>
+                    <td><strong>350</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>cutting_advance_per_rev_mm</code></td>
-                    <td><strong>6.0</strong></td>
+                    <td><code>relacion_poleas</code></td>
+                    <td><strong>1 : 1</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>workpiece_diameter_mm</code></td>
-                    <td><strong>60</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>sync_mechanism</code></td>
-                    <td><strong>Poleas y cables tensados por contrapesos de plomo</strong></td>
+                    <td><code>ventaja_mecanica_teorica</code></td>
+                    <td><strong>117.8</strong></td>
                 </tr>
                 
             </table>
@@ -314,13 +311,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Jacques Besson (1578) inventó la máquina herramienta de roscado donde el paso no depende de la habilidad manual del tornero sino de la geometría del husillo patrón.
+                <strong>Nota del reconstructor:</strong> Primera mecanización automática de roscas cilíndricas y filetes ornamentales mediante guía maestra.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

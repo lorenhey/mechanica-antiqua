@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="martini_piston_pump" data-model-type="crank_slider">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -138,13 +139,14 @@
   <rect x="606" y="490" width="108" height="45" class="mp-water"/>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Bomba Dúplex Accionada por Balancín Oscilante</p>
+            <p><strong>Topología estructural:</strong> Cadena de 6 eslabones (manivela-balancín acoplada a doble corredera)</p>
             
             <table class="theory-table">
                 <tr>
@@ -153,26 +155,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>6 eslabones: Bancada, manivela motriz, biela primaria, balancín central, y 2 émbolos opuestos</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>j₁ = 7 (5 pares R, 2 pares P en cilindros). j₂ = 0</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 3(6 - 1) - 2(7) - 0 = 1</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>r e^(iθ) + b e^(iγ) = c e^(iψ)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>s₁,₂(θ) = ± L_arm · sin(ψ(θ))</code><br>
+                        Velocidad: <code>v₁,₂(θ) = ± L_arm · ψ̇ cos(ψ)</code><br>
+                        Aceleración: <code>a₁,₂(θ) = ± L_arm (ψ̈ cos ψ - ψ̇² sin ψ)</code>
                     </td>
                 </tr>
             </table>
@@ -186,13 +188,28 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>brazo_balancin_mm</code></td>
+                    <td><strong>600</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>carrera_mm</code></td>
+                    <td><strong>260</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>diametro_embolo_mm</code></td>
+                    <td><strong>140</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>desfase_cilindros_deg</code></td>
+                    <td><strong>180</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>caudal_Lmin</code></td>
+                    <td><strong>192.0</strong></td>
                 </tr>
                 
             </table>
@@ -200,13 +217,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Martini desacopla el empuje lateral del vástago usando un balancín simétrico que reduce el desgaste de la empaquetadura de cuero.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

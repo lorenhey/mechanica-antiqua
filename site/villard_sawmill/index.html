@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="villard_sawmill" data-model-type="cam_follower">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -145,13 +146,14 @@
   <text x="50" y="265" class="vs-text">2. La pértiga la devuelve arriba.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Aserradero Hidráulico con Retorno Elástico por Pértiga</p>
+            <p><strong>Topología estructural:</strong> Sistema leva-seguidor con resorte elástico de viga en voladizo (Villard de Honnecourt, c. 1230)</p>
             
             <table class="theory-table">
                 <tr>
@@ -160,26 +162,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Bastidor, eje hidráulico con 4 levas, hoja de sierra vertical, pértiga de fresno empotrada</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>j₁ = 2 (1 R, 1 P), j₂ = 1 (contacto leva), más restricción elástica EI</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (carrera descendente por leva, ascendente por restitución elástica)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>F_resorte = (3 E I / L³) · δ(θ)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>δ(θ) = δ_max · (θ mod 90°) / 72°</code><br>
+                        Velocidad: <code>v_retorno = √((3 E I / m L³) · (δ_max² - δ²))</code><br>
+                        Aceleración: <code>a_retorno = -(3 E I / m L³) · δ</code>
                     </td>
                 </tr>
             </table>
@@ -193,13 +195,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>num_levas</code></td>
+                    <td><strong>4</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>longitud_pertiga_mm</code></td>
+                    <td><strong>2800</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>deflexion_max_mm</code></td>
+                    <td><strong>220</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>rigidez_elastica_Nm</code></td>
+                    <td><strong>1450</strong></td>
                 </tr>
                 
             </table>
@@ -207,13 +219,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Primera representación europea de una sierra mecánica automatizada previa al uso del cigüeñal.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

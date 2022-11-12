@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="beam_engine">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="newcomen_newcomen_engine" data-model-type="beam_engine">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Patrón de grilla milimétrica técnica -->
@@ -254,13 +255,14 @@
   <text x="42" y="537" class="nc-dim-text">3. Carrera motriz: p_atm desciende C</text>
   <text x="42" y="552" class="nc-dim-text">Fuerza neta F_net ≈ 18.2 kN</text>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Máquina de Vapor Atmosférica con Balancín Oscilante</p>
-            <p><strong>Topología estructural:</strong> Mecanismo oscilante de balancín con transmisión flexible por cadenas sobre cabezas de arco</p>
+            <p><strong>Mecanismo identificado:</strong> Máquina Atmosférica de Balancín con Cabezas de Arco</p>
+            <p><strong>Topología estructural:</strong> Balancín oscilante acoplado por cadenas flexibles tangenciales a cilindros verticales</p>
             
             <table class="theory-table">
                 <tr>
@@ -269,26 +271,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>1) Muro de mampostería y pivote central, 2) Balancín de madera oscilante, 3) Pistón de vapor, 4) Vástago de la bomba del pozo</td>
+                    <td>Muro portante (tierra), gran balancín con cabezas de arco, cadena motriz de pistón, cadena de bomba</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 3 (1 par R en fulcro, 2 pares P en cilindros conectados por arcos de circunferencia)</td>
+                    <td>1 R (fulcro O₂), pares P en cilindro de vapor y camisa de bomba, uniones tangentes por cadena</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(3 - 1) - 2(2) = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (carrera útil por diferencial de presión atmosférica ΔP ≈ 0.85 bar)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>y_vapor(t) = L_arco · sin(ψ(t)),  y_bomba(t) = -L_arco · sin(ψ(t))</code></td>
+                    <td><code>y_piston(θ) = R_arco · ψ(θ) ; y_bomba(θ) = -R_arco · ψ(θ)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>ψ(θ) = ψ_max · sin(θ);  s_piston = 2 · L_arco · sin(ψ_max)</code><br>
-                        Velocidad: <code>v_piston = L_arco · ψ_max · ω · cos(θ)</code><br>
-                        Aceleración: <code>a_piston = -L_arco · ψ_max · ω² · sin(θ)</code>
+                        Posición: <code>s(θ) = (S / 2) · (1 - cos θ)</code><br>
+                        Velocidad: <code>v(θ) = (S / 2) · ω · sin θ</code><br>
+                        Aceleración: <code>a(θ) = (S / 2) · ω² · cos θ</code>
                     </td>
                 </tr>
             </table>
@@ -302,33 +304,28 @@
                 </tr>
                 
                 <tr>
-                    <td><code>beam_half_length_mm</code></td>
-                    <td><strong>3500</strong></td>
+                    <td><code>diametro_cilindro_mm</code></td>
+                    <td><strong>533</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>cylinder_bore_mm</code></td>
-                    <td><strong>530</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>stroke_mm</code></td>
+                    <td><code>carrera_mm</code></td>
                     <td><strong>1800</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>cycles_per_minute</code></td>
+                    <td><code>longitud_balancin_mm</code></td>
+                    <td><strong>4800</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>fuerza_atmosferica_kN</code></td>
+                    <td><strong>18.2</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>ciclos_min</code></td>
                     <td><strong>12</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>net_steam_force_kN</code></td>
-                    <td><strong>18.5</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>working_vacuum_bar</code></td>
-                    <td><strong>0.85</strong></td>
                 </tr>
                 
             </table>
@@ -336,13 +333,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Thomas Newcomen (1712) utilizó las cabezas de arco (arch-heads) con cadenas para garantizar que las fuerzas axiales sobre el émbolo permanecieran estrictamente colineales al cilindro.
+                <strong>Nota del reconstructor:</strong> Las cabezas circulares mantienen la cadena tangente a la vertical del vástago, eliminando fuerzas laterales en el cilindro.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

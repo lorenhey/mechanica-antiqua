@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="cam_follower">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="agricola_stamp_mill" data-model-type="cam_follower">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-stampmill">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
@@ -208,13 +209,14 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Energía de impacto: E = m·g·h = 294.3 Joules</text>
   </g>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Árbol de Levas con Mazos Pisones de Caída Gravitatoria</p>
-            <p><strong>Topología estructural:</strong> Conjunto de mecanismos de leva abierta con seguidor de traslación y desenganche brusco</p>
+            <p><strong>Mecanismo identificado:</strong> Bocarte de Levas Desfasadas y Pilones Gravitatorios</p>
+            <p><strong>Topología estructural:</strong> Tren de 3 levas radiales sobre eje motriz y seguidores traslacionales de gravedad</p>
             
             <table class="theory-table">
                 <tr>
@@ -223,26 +225,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>3 eslabones por pisón: 1) Bastidor y guías de madera, 2) Árbol de levas motriz, 3) Pisón de madera con zapata de fundición (alza y maza)</td>
+                    <td>5 eslabones: Bastidor, árbol de levas, 3 mazos pisones guiados verticalmente</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 2 (1 par R en árbol, 1 par P en guías). j₂ = 1 (contacto leva-alza de orden superior con pérdida de contacto)</td>
+                    <td>j₁ = 4 (1 R árbol, 3 P guías verticales), j₂ = 3 (leva-taqué)</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(3 - 1) - 2(2) - 1(1) = 1 (durante la carrera de ascenso)</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F_por_pilon = 3(3 - 1) - 2(2) - 1 = 1</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>y_lift(θ) = r_cam(θ) · tan(α),  y_fall(t) = h_max - (1/2) · g · t²</code></td>
+                    <td><code>y(θ) = h_max (θ/θ_asc) [Ascenso]; y(t) = h_max - ½ g t² [Caída libre]</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>Ascenso: y(θ) = h_max · (θ / θ_lift); Caída: y(t) = h_max - 0.5 · g · t²</code><br>
-                        Velocidad: <code>v_impact = √(2 · g · h_max)</code><br>
-                        Aceleración: <code>Ascenso: a = 0; Caída libre: a = -g = -9.81 m/s²</code>
+                        Posición: <code>y(θ) = h_max · f_leva(θ mod 120°)</code><br>
+                        Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
+                        Aceleración: <code>a_caida = -g = -9.81 m/s²</code>
                     </td>
                 </tr>
             </table>
@@ -256,33 +258,28 @@
                 </tr>
                 
                 <tr>
-                    <td><code>lift_height_mm</code></td>
-                    <td><strong>250</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>stamper_mass_kg</code></td>
-                    <td><strong>120</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>cam_angular_speed_rpm</code></td>
-                    <td><strong>30</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>num_stampers</code></td>
+                    <td><code>num_pilones</code></td>
                     <td><strong>3</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>impact_velocity_ms</code></td>
-                    <td><strong>2.21</strong></td>
+                    <td><code>altura_elevacion_mm</code></td>
+                    <td><strong>320</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>impact_energy_J</code></td>
-                    <td><strong>294.3</strong></td>
+                    <td><code>masa_pilon_kg</code></td>
+                    <td><strong>45.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>velocidad_impacto_ms</code></td>
+                    <td><strong>2.51</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>energia_golpe_J</code></td>
+                    <td><strong>141.3</strong></td>
                 </tr>
                 
             </table>
@@ -290,13 +287,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Bocarte minero clásico: las levas escalonadas a 120° equilibran el par motor en la rueda hidráulica y aseguran impacto cíclico en el mortero.
+                <strong>Nota del reconstructor:</strong> El desfase de 120° entre levas uniformiza el par resistente sobre la rueda hidráulica.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

@@ -129,6 +129,6 @@ Si utilizás Mechanica Antiqua en investigaciones académicas, publicaciones de 
   author = {Perez, Lorenzo and Contributors},
   title = {Mechanica Antiqua: An Expanding Computational Corpus of Historical Machinery},
   url = {https://github.com/lorenhey/mechanica-antiqua},
-  year = {2026}
+  year = {2022}
 }
 ```

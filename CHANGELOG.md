@@ -5,7 +5,7 @@ Todos los cambios notables de Mechanica Antiqua serán documentados en este arch
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2026-09-02
+## [1.0.0] - 2022-09-02
 
 ### Añadido
 - Inicialización del proyecto Mechanica Antiqua.

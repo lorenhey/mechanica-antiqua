@@ -1,0 +1,18 @@
+name: "Constant-Head Washbasin"
+original_name: "Philo's Washbasin"
+author: "Philo of Byzantium"
+work: "Pneumatica"
+edition: "N/A"
+year: -220
+language: "Arabic (translation) / Greek (original lost)"
+source_pages: "Chapter 15"
+machine_type: "Washbasin"
+physical_domain: "Pneumatics"
+reconstruction_status: "Level B"
+confidence: 0.90
+license: "MIT"
+description: "A pneumatic mechanism using air pressure to maintain a constant water level in a basin."
+related_machines: []
+period: "Antiquity"
+region: "Hellenistic Egypt"
+would_it_actually_work: "YES"

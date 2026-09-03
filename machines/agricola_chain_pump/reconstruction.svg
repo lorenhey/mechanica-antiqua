@@ -1,0 +1,18 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+<circle cx="400" cy="150" r="60" stroke="black" stroke-width="2" fill="none" />
+<circle cx="400" cy="450" r="60" stroke="black" stroke-width="2" fill="none" />
+<line x1="340" y1="150" x2="340" y2="450" stroke="black" stroke-width="2" />
+<line x1="460" y1="150" x2="460" y2="450" stroke="black" stroke-width="2" />
+<circle cx="340" cy="150" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="460" cy="175" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="340" cy="200" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="460" cy="225" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="340" cy="250" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="460" cy="275" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="340" cy="300" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="460" cy="325" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="340" cy="350" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="460" cy="375" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="340" cy="400" r="10" stroke="black" stroke-width="2" fill="none" />
+<circle cx="460" cy="425" r="10" stroke="black" stroke-width="2" fill="none" />
+</svg>

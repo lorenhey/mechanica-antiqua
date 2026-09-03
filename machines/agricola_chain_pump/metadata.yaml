@@ -1,0 +1,18 @@
+name: "Chain Pump"
+original_name: "Antlia catenaria"
+author: "Georgius Agricola"
+work: "De re metallica"
+edition: "1st Edition"
+year: 1556
+language: "Latin"
+source_pages: "Book VI"
+machine_type: "Pump"
+physical_domain: "Hydraulics"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A chain pump used for dewatering mines, powered by a water wheel or animal power."
+related_machines: ["agricola_reversible_hoist"]
+period: "Renaissance"
+region: "Germany"
+would_it_actually_work: "YES"

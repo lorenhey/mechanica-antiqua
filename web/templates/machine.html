@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ machine.name }} - Mechanica Antiqua</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <a href="../index.html" class="back-link">← Volver al Gabinete</a>
+    
+    <header>
+        <h1>{{ machine.name }}</h1>
+        <p><em>{{ machine.original_name }}</em></p>
+    </header>
+    
+    <main>
+        <div class="machine-card">
+            <p><span class="meta-label">Autor:</span> {{ machine.author }}</p>
+            <p><span class="meta-label">Obra:</span> {{ machine.work }} ({{ machine.year }}, {{ machine.edition }})</p>
+            <p><span class="meta-label">Páginas/Láminas:</span> {{ machine.source_pages }}</p>
+            <p><span class="meta-label">Nivel de Reconstrucción:</span> {{ machine.reconstruction_status }}</p>
+            <p><span class="meta-label">Dominio Físico:</span> {{ machine.physical_domain }}</p>
+            
+            <hr>
+            
+            <h3>Descripción</h3>
+            <p>{{ machine.description }}</p>
+            
+            <h3>Nivel de Confianza</h3>
+            <p>{{ machine.confidence }}</p>
+        </div>
+
+        {% if machine.svg_content %}
+        <h2>Reconstrucción Matemática</h2>
+        <div class="svg-container">
+            {{ machine.svg_content | safe }}
+        </div>
+        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+        {% endif %}
+    </main>
+</body>
+</html>

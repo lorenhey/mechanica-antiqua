@@ -1,0 +1,30 @@
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+def calculate_power():
+    # ASSUMED: water head and flow
+    head = 2.0 # meters
+    flow = 0.5 # m^3/s
+    efficiency = 0.4
+    
+    # RECONSTRUCTED: power output
+    density = 1000
+    g = 9.81
+    power = density * g * head * flow * efficiency
+    return power
+
+def generate_svg():
+    svg_content = """<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="100" stroke="brown" stroke-width="4" fill="none" />
+    <rect x="140" y="150" width="20" height="120" fill="brown" />
+    <text x="100" y="280" font-family="sans-serif" font-size="14">Zonca Paper Mill</text>
+</svg>"""
+    with open(os.path.join(os.path.dirname(__file__), 'reconstruction.svg'), 'w') as f:
+        f.write(svg_content)
+
+if __name__ == "__main__":
+    power = calculate_power()
+    generate_svg()
+    print(f"Generated SVG. Power: {power} W")

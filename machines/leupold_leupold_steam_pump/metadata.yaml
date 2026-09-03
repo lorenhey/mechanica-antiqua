@@ -1,0 +1,19 @@
+name: High-Pressure Steam Pump
+original_name: Leupold's Engine
+author: Jacob Leupold
+work: Theatrum Machinarum Generale
+edition: 1st
+year: 1724
+language: German
+source_pages: Unknown
+machine_type: High-pressure steam engine
+physical_domain: Thermodynamics and Hydraulics
+reconstruction_status: Level A
+confidence: High
+license: MIT
+description: First design for a high-pressure steam engine.
+related_machines:
+  - newcomen_engine
+period: 18th Century
+region: Germany
+would_it_actually_work: PROBABLY

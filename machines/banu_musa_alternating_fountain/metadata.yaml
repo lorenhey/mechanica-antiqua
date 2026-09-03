@@ -1,0 +1,18 @@
+name: "Alternating Fountain"
+original_name: "Fountain that changes its shape"
+author: "Banū Mūsā"
+work: "Kitāb al-Ḥiyal (The Book of Ingenious Devices)"
+edition: "c. 850"
+year: 850
+language: "Arabic"
+source_pages: "Model 91"
+machine_type: "Fountain"
+physical_domain: "Hydraulics, Kinematics"
+reconstruction_status: "B"
+confidence: "High"
+license: "MIT"
+description: "A fountain that alternates its spray pattern between a single straight vertical jet and a wide shield-like spray. It achieves this using a clever hidden mechanism with a water-driven balance beam (like a tipping bucket) that directs the water flow into alternating pipes."
+related_machines: ["Trick Vessels", "Hero's Fountain"]
+period: "Islamic Golden Age"
+region: "Abbasid Caliphate (Baghdad)"
+would_it_actually_work: "YES"

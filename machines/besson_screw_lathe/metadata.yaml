@@ -1,0 +1,18 @@
+name: "Screw-cutting Lathe"
+original_name: "Tour à fileter"
+author: "Jacques Besson"
+work: "Theatrum Instrumentorum et Machinarum"
+edition: "1st"
+year: 1578
+language: "Latin"
+source_pages: "Plate 9"
+machine_type: "Lathe"
+physical_domain: "Mechanics"
+reconstruction_status: "Level B"
+confidence: 0.9
+license: "CC-BY-4.0"
+description: "An early screw-cutting lathe capable of cutting precise threads using a lead screw and templates."
+related_machines: []
+period: "Renaissance"
+region: "France"
+would_it_actually_work: "YES"

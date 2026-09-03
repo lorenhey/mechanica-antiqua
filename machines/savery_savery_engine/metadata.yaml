@@ -1,0 +1,20 @@
+name: Savery Engine
+original_name: The Miner's Friend
+author: Thomas Savery
+work: The Miner's Friend
+edition: 1st
+year: 1702
+language: English
+source_pages: Unknown
+machine_type: Thermal water pump
+physical_domain: Thermodynamics and Hydraulics
+reconstruction_status: Level B
+confidence: High
+license: MIT
+description: An early commercial steam engine used for pumping water from coal mines.
+related_machines:
+  - newcomen_engine
+  - papin_steam_engine
+period: Early Industrial Revolution
+region: England
+would_it_actually_work: YES

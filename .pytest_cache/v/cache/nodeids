@@ -1,0 +1,4 @@
+[
+  "tests/test_kinematics.py::test_crank_slider",
+  "tests/test_kinematics.py::test_epicyclic_train"
+]

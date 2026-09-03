@@ -1,0 +1,18 @@
+name: "Cage Ball Bearing"
+original_name: "Cuscinetto a sfere"
+author: "Leonardo da Vinci"
+work: "Codex Madrid I"
+edition: "N/A"
+year: 1493
+language: "Italian"
+source_pages: "Folio 20v"
+machine_type: "Bearing"
+physical_domain: "Mechanics / Tribology"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A thrust bearing design incorporating caged balls to reduce friction, an early anticipation of modern ball bearings."
+related_machines: []
+period: "Renaissance"
+region: "Italy"
+would_it_actually_work: "YES"

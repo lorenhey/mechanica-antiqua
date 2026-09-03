@@ -1,0 +1,18 @@
+name: "Aserradero Hidráulico"
+original_name: "Scierie à eau"
+author: "Villard de Honnecourt"
+work: "Carnet de Villard de Honnecourt"
+edition: "Francia"
+year: 1230 # aprox
+language: "Picardo / Latín antiguo"
+source_pages: "Folio 22v"
+machine_type: "Máquina de procesamiento"
+physical_domain: "Cinemática de levas"
+reconstruction_status: "Nivel D (Interpretación especulativa)"
+confidence: "Boceto muy primitivo. Requiere suposición fuerte de resortes de vara elástica."
+license: "Dominio Público"
+description: >
+  Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda 
+  hidráulica está provisto de levas que empujan la sierra hacia abajo, mientras que una 
+  vara elástica (pértiga) en la parte superior provee la fuerza de retorno. Además, un 
+  mecanismo acoplado avanza el tronco automáticamente.

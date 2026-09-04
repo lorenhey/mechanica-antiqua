@@ -1,0 +1,18 @@
+name: "South-Pointing Chariot"
+original_name: "Zhinanche"
+author: "Ma Jun (Three Kingdoms) / Yen Su (Song Dynasty)"
+work: "Song Shi (History of Song)"
+edition: "N/A"
+year: 255
+language: "Chinese"
+source_pages: "N/A"
+machine_type: "Vehicle / Mechanism"
+physical_domain: "Kinematics / Differential Gearing"
+reconstruction_status: "Level A"
+confidence: "Medium"
+license: "MIT"
+description: "A two-wheeled vehicle that acts as a compass using a differential gear system. A pointer mounted on the chariot always points in the same direction (usually south) regardless of how the chariot turns."
+related_machines: ["Differential Gear"]
+period: "Antiquity / Imperial China"
+region: "China"
+would_it_actually_work: "PROBABLY"

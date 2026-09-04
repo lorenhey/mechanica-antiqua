@@ -82,3 +82,12 @@ def differential_gear_speed(omega_left: float, omega_right: float, ratio: float 
     """
     return (omega_left + omega_right) * ratio
 
+def perpendicular_gear_transmission(omega_input: float, n_teeth_input: int, n_teeth_output: int) -> float:
+    """
+    Calculates the output angular velocity for a perpendicular gear transmission,
+    such as a crown and lantern gear arrangement.
+    """
+    if n_teeth_output == 0:
+        raise ValueError("Number of output teeth cannot be zero.")
+    return omega_input * (n_teeth_input / n_teeth_output)
+

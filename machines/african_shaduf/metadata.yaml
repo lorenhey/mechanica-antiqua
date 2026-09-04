@@ -1,0 +1,18 @@
+name: "Shaduf"
+original_name: "Shaduf"
+author: "Unknown"
+work: "Tomb Paintings (e.g., Tomb of Ipuy)"
+edition: "Ancient Egypt / Nubia"
+year: -2000
+language: "Egyptian"
+source_pages: "Various"
+machine_type: "Water Lifting Device"
+physical_domain: "Statics, Kinematics (First-class lever)"
+reconstruction_status: "Level A"
+confidence: "High"
+license: "MIT"
+description: "A first-class lever with a counterweight used for lifting water. Common in Ancient Egypt and Nubia."
+related_machines: []
+period: "Antiquity"
+region: "Africa"
+would_it_actually_work: "YES"

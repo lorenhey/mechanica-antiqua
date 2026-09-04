@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg" style="background-color: #f5f5f5;">
+    <!-- Ground -->
+    <line x1="50" y1="750" x2="750" y2="750" stroke="black" stroke-width="4"/>
+    
+    <!-- Central Nave Piers -->
+    <rect x="350" y="400" width="20" height="350" fill="gray" stroke="black"/>
+    <rect x="430" y="400" width="20" height="350" fill="gray" stroke="black"/>
+
+    <!-- Pointed Arch (Arco Ojival) -->
+    <!-- Springing from x=370 and x=430, y=400 -->
+    <!-- Left arc: center at ~430, radius ~60. Right arc: center at ~370, radius ~60 -->
+    <path d="M 370 400 A 60 60 0 0 1 400 320 A 60 60 0 0 1 430 400" fill="none" stroke="#8b4513" stroke-width="5"/>
+    <path d="M 370 400 A 80 80 0 0 1 400 290 A 80 80 0 0 1 430 400" fill="none" stroke="#8b4513" stroke-width="3"/>
+    
+    <!-- Rib Vaults Representation (cross section) -->
+    <line x1="370" y1="400" x2="400" y2="360" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="430" y1="400" x2="400" y2="360" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+
+    <!-- Outer Piers (Pillars for Buttresses) -->
+    <rect x="200" y="500" width="30" height="250" fill="gray" stroke="black"/>
+    <rect x="570" y="500" width="30" height="250" fill="gray" stroke="black"/>
+    
+    <!-- Outer Walls (Aisles) -->
+    <rect x="250" y="600" width="20" height="150" fill="lightgray" stroke="black"/>
+    <rect x="530" y="600" width="20" height="150" fill="lightgray" stroke="black"/>
+
+    <!-- Flying Buttresses (Arbotantes) -->
+    <!-- Left Buttress -->
+    <path d="M 230 500 Q 300 450 350 420" fill="none" stroke="gray" stroke-width="10"/>
+    <path d="M 230 540 Q 290 500 350 480" fill="none" stroke="gray" stroke-width="6"/>
+    
+    <!-- Right Buttress -->
+    <path d="M 570 500 Q 500 450 450 420" fill="none" stroke="gray" stroke-width="10"/>
+    <path d="M 570 540 Q 510 500 450 480" fill="none" stroke="gray" stroke-width="6"/>
+
+    <!-- Pinnacles (Pinaáculos) -->
+    <polygon points="200,500 215,450 230,500" fill="darkgray" stroke="black"/>
+    <polygon points="570,500 585,450 600,500" fill="darkgray" stroke="black"/>
+
+    <!-- Roof over Nave -->
+    <polygon points="330,320 400,200 470,320" fill="#a52a2a" stroke="black" stroke-width="2"/>
+    
+    <!-- Labels -->
+    <text x="350" y="270" font-family="Arial" font-size="12" fill="black">Pointed Arch (Arco Ojival)</text>
+    <text x="120" y="470" font-family="Arial" font-size="12" fill="black">Flying Buttress (Arbotante)</text>
+    <text x="610" y="470" font-family="Arial" font-size="12" fill="black">Flying Buttress (Arbotante)</text>
+    <text x="350" y="520" font-family="Arial" font-size="12" fill="black">Nave Pier</text>
+    <text x="130" y="620" font-family="Arial" font-size="12" fill="black">Outer Pier</text>
+
+    <!-- Thrust Vectors -->
+    <line x1="370" y1="420" x2="310" y2="420" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="430" y1="420" x2="490" y2="420" stroke="red" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" fill="red" />
+        </marker>
+    </defs>
+</svg>

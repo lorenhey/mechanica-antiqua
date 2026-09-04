@@ -91,3 +91,12 @@ def perpendicular_gear_transmission(omega_input: float, n_teeth_input: int, n_te
         raise ValueError("Number of output teeth cannot be zero.")
     return omega_input * (n_teeth_input / n_teeth_output)
 
+def belt_drive_transmission(omega_input: float, d_input: float, d_output: float) -> float:
+    """
+    Calculates the output angular velocity for a belt-drive transmission.
+    Uses the ratio of diameters (or radii).
+    """
+    if d_output == 0:
+        raise ValueError("Output diameter cannot be zero.")
+    return omega_input * (d_input / d_output)
+

@@ -1,0 +1,21 @@
+name: "Saqiya"
+original_name: "Saqiya"
+author: "Unknown"
+work: "Archaeological Evidence"
+edition: "N/A"
+year: "-200"
+language: "N/A"
+source_pages: "N/A"
+machine_type: "Water Lifting Device"
+physical_domain: "Hydraulics and Kinematics"
+reconstruction_status: "Level B"
+confidence: "High"
+license: "MIT"
+description: >
+  An animal-driven water wheel utilizing a right-angle gear transmission 
+  (lantern and crown gears) to drive a continuous chain of pots (compartmented wheel or pot-garland).
+  Widely used in Egypt, Kush, and later the Islamic world for irrigation.
+related_machines: ["Noria", "Archimedes Screw", "Tympanum"]
+period: "Antiquity"
+region: "Egypt / Kush"
+would_it_actually_work: "YES"

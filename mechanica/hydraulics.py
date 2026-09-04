@@ -67,3 +67,19 @@ def inverted_siphon_pressure(head_difference: float, fluid_density: float = 1000
     """
     g = 9.81
     return fluid_density * g * head_difference
+
+def steelyard_clepsydra_escapement_time(flow_rate_m3_s: float, trigger_mass_kg: float, fluid_density: float = 1000.0) -> float:
+    """
+    Calculates the time interval (in seconds) between escapement steps for a 
+    waterwheel steelyard clepsydra (like Su Song's clock).
+    
+    flow_rate_m3_s: The constant volumetric flow rate into the scoop.
+    trigger_mass_kg: The mass of water required in a scoop to trip the steelyard mechanism.
+    fluid_density: Density of the fluid (default 1000 kg/m^3 for water).
+    
+    Returns: time in seconds per step.
+    """
+    if flow_rate_m3_s <= 0:
+        return float("inf")
+    mass_flow_rate = flow_rate_m3_s * fluid_density
+    return trigger_mass_kg / mass_flow_rate

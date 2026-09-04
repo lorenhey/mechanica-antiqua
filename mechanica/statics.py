@@ -87,3 +87,16 @@ def flying_buttress_counter_thrust(arch_thrust: float, height: float, angle: flo
     """
     return arch_thrust * math.cos(math.radians(angle))
 
+
+
+def first_class_lever_balance(load_mass: float, load_arm: float, counterweight_arm: float, lever_linear_density: float = 0.0) -> float:
+    """
+    Calculates the required counterweight mass to balance a first-class lever.
+    """
+    load_side_torque = load_mass * load_arm + (lever_linear_density * load_arm) * (load_arm / 2.0)
+    cw_lever_torque = (lever_linear_density * counterweight_arm) * (counterweight_arm / 2.0)
+    
+    cw_mass = (load_side_torque - cw_lever_torque) / counterweight_arm
+    # Ensure we don't return negative mass, if the lever itself is heavier than needed.
+    return max(0.0, cw_mass)
+

@@ -1,0 +1,20 @@
+name: "Atlatl"
+original_name: "Atlatl"
+author: "Mesoamerican cultures (Aztecs, Maya, etc.)"
+work: "Archaeological findings & Codices"
+edition: "Mesoamerica"
+year: -10000 # Prehistoric to Post-Classic period
+language: "Nahuatl (name origin)"
+source_pages: "N/A"
+machine_type: "Third-class lever / Spear-thrower"
+physical_domain: "Kinematics, Elasticity, Angular Momentum"
+reconstruction_status: "Nivel A (Completamente documentada y reproducible)"
+confidence: "Extensive archaeological evidence and modern practical reconstructions."
+license: "Dominio Público"
+would_it_actually_work: "Yes, it is highly effective and significantly increases the range and penetrating power of darts."
+historical_period: "Pre-Columbian Mesoamerica (and global prehistory)"
+description: >
+  The atlatl is a tool that uses leverage to achieve greater velocity in dart-throwing, 
+  and includes a bearing surface which allows the user to store energy during the throw. 
+  It acts as an extension of the human arm (a third-class lever) and transfers elastic 
+  potential energy as the dart flexes and rebounds.

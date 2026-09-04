@@ -34,3 +34,20 @@ def nozzle_mass_flow(pressure_pa: float, temp_k: float, nozzle_area: float) -> f
     
     velocity = math.sqrt(2 * (pressure_pa - P_atm) / density)
     return density * nozzle_area * velocity
+
+def bernoulli_velocity(area_1: float, velocity_1: float, area_2: float) -> float:
+    """
+    Calculates velocity in a narrowed conduit using continuity equation.
+    Q = A1 * V1 = A2 * V2
+    """
+    if area_2 == 0:
+        return 0.0
+    return (area_1 * velocity_1) / area_2
+
+def pressure_head(velocity: float) -> float:
+    """
+    Calculates pressure head from velocity.
+    h = v^2 / (2 * g)
+    """
+    g = 9.81
+    return (velocity**2) / (2 * g)

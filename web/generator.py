@@ -49,7 +49,20 @@ def build_site():
                     families[family].append(meta)
     
     # Sort machines chronologically
-    machines.sort(key=lambda x: x.get('year', 9999))
+    def get_sort_year(m):
+        y = m.get('year', 9999)
+        if isinstance(y, (int, float)):
+            return int(y)
+        if isinstance(y, str):
+            import re
+            is_bc = any(w in y.upper() for w in ['BC', 'A.C.', 'B.C.'])
+            m_digit = re.search(r'-?\d+', y)
+            if m_digit:
+                val = int(m_digit.group(0))
+                return -abs(val) if is_bc else val
+        return 9999
+
+    machines.sort(key=get_sort_year)
     
     # Render index
     index_template = env.get_template("index.html")

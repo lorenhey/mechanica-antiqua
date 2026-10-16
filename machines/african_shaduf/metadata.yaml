@@ -1,18 +1,22 @@
-name: "Shaduf"
-original_name: "Shaduf"
-author: "Unknown"
-work: "Tomb Paintings (e.g., Tomb of Ipuy)"
-edition: "Ancient Egypt / Nubia"
+name: Shaduf (Cigoñal)
+original_name: Shaduf (شادوف)
+author: Desconocido (Egipto y Nubia antiguos)
+work: Pinturas sepulcrales egipcias (ej. Tumba de Ipuy)
+edition: Imperio Nuevo egipcio / Nubia
 year: -2000
-language: "Egyptian"
-source_pages: "Various"
-machine_type: "Water Lifting Device"
-physical_domain: "Statics, Kinematics (First-class lever)"
-reconstruction_status: "Level A"
-confidence: "High"
-license: "MIT"
-description: "A first-class lever with a counterweight used for lifting water. Common in Ancient Egypt and Nubia."
+language: Egipcio antiguo
+source_pages: Murales y relieves de Deir el-Medina
+machine_type: Elevación de agua
+physical_domain: Estática y Cinemática (Palanca de primer género)
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: representado profusamente en iconografía y con pervivencia etnográfica.'
+license: MIT
+description: Mecanismo de palanca de primer género con contrapeso de arcilla o piedra
+  en un extremo y un cubo en el otro, pivotante sobre un soporte vertical. Permite
+  al operario elevar agua de ríos y canales con un mínimo esfuerzo físico mediante
+  el equilibrio de momentos estáticos.
 related_machines: []
-period: "Antiquity"
-region: "Africa"
-would_it_actually_work: "YES"
+period: Antigüedad
+region: África del Norte (Egipto / Nubia)
+would_it_actually_work: Sí, máquina elemental operada durante milenios.
+display_year: 2000 a.C.

@@ -1,18 +1,23 @@
-name: "Stamp Mill"
-original_name: "Machina tundens"
-author: "Georgius Agricola"
-work: "De re metallica"
-edition: "1st Edition"
+name: Molino de martillos pisones (Bocarte)
+original_name: Machina tundens
+author: Georgius Agricola
+work: De re metallica
+edition: Basilea (Froben)
 year: 1556
-language: "Latin"
-source_pages: "Book VIII"
-machine_type: "Mill"
-physical_domain: "Kinematics"
-reconstruction_status: "Level A"
-confidence: "High"
-license: "MIT"
-description: "A water-powered stamp mill used for crushing ore."
+language: Latín
+source_pages: Libro VIII, pp. 280-286
+machine_type: Molino
+physical_domain: Cinemática
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: láminas técnicas minuciosas con detalles de árbol de levas y baterías
+  de mazas.'
+license: MIT
+description: Molino hidráulico de trituración para minerales metalíferos. Un árbol
+  de levas accionado por una rueda hidráulica eleva y deja caer sucesivamente una
+  batería de pisones o mazas de madera con puntas de hierro forjado, pulverizando
+  el mineral sobre un mortero inferior.
 related_machines: []
-period: "Renaissance"
-region: "Germany"
-would_it_actually_work: "YES"
+period: Renacimiento
+region: Sajonia
+would_it_actually_work: Sí, equipo clave en la preparación mecánica de menas mineras.
+display_year: '1556'

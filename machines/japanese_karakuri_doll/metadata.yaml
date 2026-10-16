@@ -1,18 +1,26 @@
-name: "Karakuri Tea-Serving Doll"
-original_name: "Chahakobi Ningyo"
-author: "Hosokawa Hanzo"
-work: "Karakuri Zui"
-edition: "1"
-year: "1796"
-language: "Japanese"
-source_pages: "Vol 1"
-machine_type: "Automaton"
-physical_domain: "Kinematics and Elasticity"
-reconstruction_status: "Level B"
-confidence: "High"
-license: "MIT"
-description: "A mechanical doll that walks forward carrying a tea cup, stops when the cup is removed, and turns around and returns when the empty cup is replaced."
-related_machines: ["Al-Jazari's Automata", "Vaucanson's Duck"]
-period: "Edo Period"
-region: "Japan"
-would_it_actually_work: "YES"
+name: Autómata servidor de té (Chahakobi Ningyō)
+original_name: Chahakobi Ningyō (茶運人形)
+author: Hosokawa Hanzō
+work: Karakuri Zui (Ilustración de máquinas ingeniosas)
+edition: Kioto / Edo
+year: 1796
+language: Japonés clásico
+source_pages: Volumen 1, láminas de despiece
+machine_type: Autómata mecánico
+physical_domain: Cinemática y Elasticidad
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: tratado con esquemas xilográficos de engranajes, volante regulador
+  y levas de dirección.'
+license: MIT
+description: Autómata mecánico del período Edo accionado por un muelle espiral de
+  ballena. Avanza paso a paso portando una taza de té; cuando el comensal retira la
+  taza, un balancín detiene el escape del mecanismo; al volver a colocar la taza vacía,
+  el autómata gira 180 grados sobre su eje y regresa a la posición de partida.
+related_machines:
+- Al-Jazari's Automata
+- Vaucanson's Duck
+period: Período Edo
+region: Japón
+would_it_actually_work: Sí, existen ejemplares históricos conservados del siglo XVIII
+  plenamente operativos.
+display_year: '1796'

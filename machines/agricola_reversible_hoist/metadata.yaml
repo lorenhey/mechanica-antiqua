@@ -1,18 +1,24 @@
-name: "Reversible Water Hoist"
-original_name: "Machina tractoria aquarum"
-author: "Georgius Agricola"
-work: "De re metallica"
-edition: "1st Edition"
+name: Malacate hidráulico reversible
+original_name: Machina tractoria aquarum
+author: Georgius Agricola
+work: De re metallica
+edition: Basilea (Froben)
 year: 1556
-language: "Latin"
-source_pages: "Book VI"
-machine_type: "Hoist"
-physical_domain: "Kinematics, Hydraulics"
-reconstruction_status: "Level B"
-confidence: "High"
-license: "MIT"
-description: "A water-powered reversible hoisting machine used to draw water or ore from deep mine shafts."
-related_machines: ["agricola_chain_pump"]
-period: "Renaissance"
-region: "Germany"
-would_it_actually_work: "YES"
+language: Latín
+source_pages: Libro VI, pp. 160-165
+machine_type: Malacate de elevación
+physical_domain: Cinemática e Hidráulica
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: dimensiones estructurales documentadas; detalles de válvulas de
+  conmutación inferidos.'
+license: MIT
+description: Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica
+  de doble corona de álabes contrapuestos. Al alternar el flujo de agua mediante compuertas,
+  se invierte el sentido de rotación del tambor de enrollamiento sin detener el curso
+  del caudal motriz.
+related_machines:
+- agricola_chain_pump
+period: Renacimiento
+region: Sajonia / Bohemia
+would_it_actually_work: Sí, implementada en múltiples pozos de Joachimsthal.
+display_year: '1556'

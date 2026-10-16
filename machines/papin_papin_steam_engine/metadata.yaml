@@ -1,20 +1,26 @@
-name: Papin Steam Engine
-original_name: Nova methodus engine
+name: Cilindro de vapor y pistón de Papin
+original_name: Nova methodus ad vires motrices validissimas levi pretio comparandas
 author: Denis Papin
-work: Nova methodus ad vires motrices validissimas levi pretio comparandas
-edition: 1st
+work: Acta Eruditorum (Nova methodus)
+edition: Leipzig
 year: 1690
-language: Latin
-source_pages: Whole
-machine_type: Piston steam engine
-physical_domain: Thermodynamics
-reconstruction_status: Level C
-confidence: Medium
+language: Latín
+source_pages: Acta Eruditorum, Agosto 1690, pp. 410-414
+machine_type: Máquina de vapor de pistón
+physical_domain: Termodinámica
+reconstruction_status: Nivel C (Paramétrica fuerte / principios físicos comprobados)
+confidence: 'Medio: demostrador de laboratorio de pistón único descripto rigurosamente
+  por Papin.'
 license: MIT
-description: First conceptual piston steam engine.
+description: Primer diseño conceptual de máquina térmica de cilindro y pistón de vapor.
+  Papin generaba vapor directamente en el fondo del cilindro metálico para elevar
+  el pistón y, al retirar el fuego, el enfriamiento producía el vacío y el descenso
+  por presión atmosférica.
 related_machines:
-  - savery_engine
-  - newcomen_engine
-period: 17th Century
-region: France/Germany
-would_it_actually_work: PROBABLY
+- savery_engine
+- newcomen_engine
+period: Siglo XVII (Revolución Científica)
+region: Francia / Alemania (Kassel)
+would_it_actually_work: Probablemente, funcionó a escala de laboratorio; sentó el
+  principio directo adoptado por Newcomen.
+display_year: '1690'

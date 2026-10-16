@@ -1,18 +1,23 @@
-name: "Piston Pump"
-original_name: "Pompa a stantuffo"
-author: "Francesco di Giorgio Martini"
-work: "Trattato di architettura, ingegneria e arte militare"
-edition: "Codex Ashburnham 361"
+name: Bomba aspirante-impelente con balancín
+original_name: Pompa a stantuffo
+author: Francesco di Giorgio Martini
+work: Trattato di architettura, ingegneria e arte militare
+edition: Códice Ashburnham 361
 year: 1480
-language: "Italian"
-source_pages: "Various"
-machine_type: "Pump"
-physical_domain: "Hydraulics"
-reconstruction_status: "Level A"
-confidence: "High"
-license: "MIT"
-description: "A piston pump mechanism designed to lift water, often powered by a crank or lever system."
+language: Italiano renacentista
+source_pages: Láminas de hidráulica civil y militar
+machine_type: Bomba hidráulica
+physical_domain: Hidráulica
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: detalles de pistón guarnecido de cuero y válvulas cónicas de madera
+  o bronce.'
+license: MIT
+description: Bomba impelente para elevación de agua con pistón de cuero ajustado en
+  cuerpo de bronce o madera torneada. Accionada por un brazo de palanca o manivela
+  con contrapeso, empleada para abastecer fortalezas y fuentes renacentistas.
 related_machines: []
-period: "Renaissance"
-region: "Italy"
-would_it_actually_work: "YES"
+period: Renacimiento
+region: Italia (Siena)
+would_it_actually_work: Sí, bomba clásica de alta eficiencia hidrostática para suministro
+  urbano.
+display_year: '1480'

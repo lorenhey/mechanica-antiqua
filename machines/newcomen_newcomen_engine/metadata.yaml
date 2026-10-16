@@ -1,20 +1,26 @@
-name: Atmospheric Engine
+name: Máquina de vapor atmosférica de Newcomen
 original_name: Atmospheric Engine
 author: Thomas Newcomen
-work: None
-edition: N/A
+work: Instalaciones mineras de Dudley Castle
+edition: Inglaterra (Staffordshire)
 year: 1712
-language: English
-source_pages: N/A
-machine_type: Atmospheric steam engine
-physical_domain: Thermodynamics and Kinematics
-reconstruction_status: Level B
-confidence: High
+language: Inglés
+source_pages: Grabados de Barney (1719) y registros de la Royal Society
+machine_type: Máquina de vapor atmosférica
+physical_domain: Termodinámica y Cinemática
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: abundante documentación técnica contemporánea, planos y ejemplares
+  conservados.'
 license: MIT
-description: First practical steam engine using atmospheric pressure to do work.
+description: Primera máquina motriz térmica práctica de la historia industrial. El
+  vapor ingresa a baja presión en el cilindro para expulsar el aire; una inyección
+  de agua fría condensa el vapor provocando un vacío parcial que permite a la presión
+  atmosférica descender el pistón y accionar el balancín de la bomba de pozo.
 related_machines:
-  - savery_engine
-  - watt_steam_engine
-period: Early Industrial Revolution
-region: England
-would_it_actually_work: YES
+- savery_engine
+- watt_steam_engine
+period: Revolución Industrial temprana
+region: Inglaterra
+would_it_actually_work: Sí, transformó el drenaje minero en toda Europa durante más
+  de medio siglo.
+display_year: '1712'

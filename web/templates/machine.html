@@ -2,32 +2,43 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ machine.name }} - Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <a href="../index.html" class="back-link">← Volver al Gabinete</a>
+    <a href="../index.html" class="back-link">← Volver al Inventario</a>
     
     <header>
         <h1>{{ machine.name }}</h1>
-        <p><em>{{ machine.original_name }}</em></p>
+        {% if machine.original_name %}
+        <p><em>Denominación histórica: {{ machine.original_name }}</em></p>
+        {% endif %}
     </header>
     
     <main>
         <div class="machine-card">
-            <p><span class="meta-label">Autor:</span> {{ machine.author }}</p>
-            <p><span class="meta-label">Obra:</span> {{ machine.work }} ({{ machine.year }}, {{ machine.edition }})</p>
-            <p><span class="meta-label">Páginas/Láminas:</span> {{ machine.source_pages }}</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> {{ machine.reconstruction_status }}</p>
+            <p><span class="meta-label">Autor / Tradición:</span> {{ machine.author }}</p>
+            <p><span class="meta-label">Tratado o Fuente:</span> {{ machine.work }} ({{ machine.display_year }}{% if machine.edition %}, {{ machine.edition }}{% endif %})</p>
+            {% if machine.source_pages and machine.source_pages != 'N/A' %}
+            <p><span class="meta-label">Páginas / Láminas:</span> {{ machine.source_pages }}</p>
+            {% endif %}
+            <p><span class="meta-label">Tipo de Máquina:</span> {{ machine.machine_type }}</p>
             <p><span class="meta-label">Dominio Físico:</span> {{ machine.physical_domain }}</p>
+            <p><span class="meta-label">Nivel de Reconstrucción:</span> {{ machine.reconstruction_status }}</p>
             
             <hr>
             
-            <h3>Descripción</h3>
+            <h3>Descripción Técnica</h3>
             <p>{{ machine.description }}</p>
             
-            <h3>Nivel de Confianza</h3>
+            <h3>Evaluación Histórico-Técnica y Certeza</h3>
             <p>{{ machine.confidence }}</p>
+            
+            {% if machine.would_it_actually_work %}
+            <h3>Viabilidad Operativa</h3>
+            <p>{{ machine.would_it_actually_work }}</p>
+            {% endif %}
         </div>
 
         {% if machine.svg_content %}

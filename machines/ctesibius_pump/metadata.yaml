@@ -1,18 +1,25 @@
-name: "Ctesibian Pump"
-original_name: "Machina Ctesibica"
-author: "Ctesibius"
-work: "Pneumatica (documented by Vitruvius)"
-edition: "N/A"
+name: Bomba aspirante-impelente de Ctesibio
+original_name: Machina Ctesibica
+author: Ctesibio
+work: Pneumatica (documentado por Vitruvio)
+edition: Alejandría
 year: -250
-language: "Greek (Original) / Latin (Vitruvius)"
-source_pages: "De Architectura Book X, Chapter 7"
-machine_type: "Pump"
-physical_domain: "Hydraulics"
-reconstruction_status: "Level B"
-confidence: 0.85
-license: "MIT"
-description: "A double-cylinder force pump used for raising water, operating with pistons and valves."
-related_machines: ["vitruvius_archimedes_screw"]
-period: "Antiquity"
-region: "Hellenistic Egypt"
-would_it_actually_work: "YES"
+language: Griego antiguo / Latín
+source_pages: De Architectura, Libro X, Capítulo 7
+machine_type: Bomba hidráulica
+physical_domain: Hidráulica
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto (0,85): numerosos restos arqueológicos romanos en bronce (ej. Bolsena,
+  Silchester).'
+license: MIT
+description: Bomba de pistón doble de bronce con acción alternativa mediante balancín
+  central y válvulas de retención de asiento cónico. Diseñada tanto para suministro
+  urbano como para extinción de incendios (sifón de fuego), produciendo un chorro
+  continuo de agua bajo presión hidrostática sostenida.
+related_machines:
+- vitruvius_archimedes_screw
+period: Antigüedad helenística
+region: Egipto helenístico
+would_it_actually_work: Sí, ejemplares arqueológicos conservados en museos funcionan
+  perfectamente.
+display_year: 250 a.C.

@@ -1,18 +1,23 @@
-name: "Rueda de Libros"
-original_name: "Ruota dei libri"
-author: "Agostino Ramelli"
-work: "Le diverse et artificiose machine"
-edition: "Paris"
+name: Rueda de lectura de Ramelli
+original_name: Ruota dei libri
+author: Agostino Ramelli
+work: Le diverse et artificiose machine
+edition: París
 year: 1588
-language: "Italian / French"
-source_pages: "Fig. 188"
-machine_type: "Mecanismo de transmisión"
-physical_domain: "Cinemática"
-reconstruction_status: "Nivel B (Parcialmente inferida)"
-confidence: "Alta en el tren epicicloidal, inferida en cotas exactas."
-license: "Dominio Público"
-description: >
-  La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples libros 
-  abiertos simultáneamente. A diferencia de una rueda de la fortuna simple, utiliza 
-  un tren de engranajes epicicloidal oculto para garantizar que los atriles se mantengan 
-  estrictamente horizontales independientemente de la rotación del tambor principal.
+language: Italiano / Francés
+source_pages: Figura 188
+machine_type: Mecanismo epicicloidal
+physical_domain: Cinemática
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: Alta en el tren epicicloidal, inferida en cotas exactas.
+license: Dominio Público
+description: La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples
+  libros abiertos simultáneamente. A diferencia de una rueda de la fortuna simple,
+  utiliza un tren de engranajes epicicloidal oculto para garantizar que los atriles
+  se mantengan estrictamente horizontales independientemente de la rotación del tambor
+  principal.
+display_year: '1588'
+period: Renacimiento
+region: Italia / Francia
+would_it_actually_work: Sí, existen reconstrucciones funcionales en bibliotecas históricas
+  europeas.

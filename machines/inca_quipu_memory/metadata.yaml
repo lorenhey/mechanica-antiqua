@@ -1,5 +1,22 @@
-machine_name: Inca Quipu Memory Array
-historical_period: Inca Empire
-would_it_actually_work: Yes
-reconstruction_status: Conceptual
-description: A base-10 knot-based mechanical memory array for numerical data storage.
+would_it_actually_work: Sí, sistema administrativo operativo del mayor imperio de
+  América precolombina.
+reconstruction_status: Nivel C (Paramétrica fuerte / principios físicos comprobados)
+description: Dispositivo mecánico de almacenamiento mnemotécnico y computacional basado
+  en cuerdas de algodón y lana con nudos posicionales en base decimal. Permitía la
+  codificación jerárquica de inventarios, censos, tributos y series estadísticas con
+  estructura análoga a una memoria matricial.
+name: Matriz mnemotécnica de Quipu
+original_name: Khipu (Quipu)
+author: Quipucamayoc (Contadores del Tahuantinsuyo)
+work: Sistema de registro y administración inca
+year: 1450
+display_year: c. 1450 d.C.
+edition: Tahuantinsuyo
+source_pages: Estudios de Ascher & Ascher y Proyecto Khipu de Harvard
+machine_type: Dispositivo mnemotécnico decimal
+physical_domain: Sistemas discretos y Combinatoria
+confidence: 'Alto: cientos de ejemplares catalogados en museos con estructura aritmética
+  base 10 comprobada.'
+period: Precolombino / Horizonte Tardío
+region: Andes Centrales
+language: Quechua

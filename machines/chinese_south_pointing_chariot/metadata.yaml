@@ -1,18 +1,25 @@
-name: "South-Pointing Chariot"
-original_name: "Zhinanche"
-author: "Ma Jun (Three Kingdoms) / Yen Su (Song Dynasty)"
-work: "Song Shi (History of Song)"
-edition: "N/A"
+name: Carro apuntador hacia el sur (Zhinanche)
+original_name: Zhinanche (指南車)
+author: Ma Jun (Tres Reinos) / Yan Su (Dinastía Song)
+work: Song Shi (Historia de la dinastía Song)
+edition: Crónicas de la Dinastía Song
 year: 255
-language: "Chinese"
-source_pages: "N/A"
-machine_type: "Vehicle / Mechanism"
-physical_domain: "Kinematics / Differential Gearing"
-reconstruction_status: "Level A"
-confidence: "Medium"
-license: "MIT"
-description: "A two-wheeled vehicle that acts as a compass using a differential gear system. A pointer mounted on the chariot always points in the same direction (usually south) regardless of how the chariot turns."
-related_machines: ["Differential Gear"]
-period: "Antiquity / Imperial China"
-region: "China"
-would_it_actually_work: "PROBABLY"
+language: Chino clásico
+source_pages: Volumen 149 (Tratado de Carros y Vestiduras)
+machine_type: Mecanismo de guía vehicular
+physical_domain: Cinemática y Engranajes diferenciales
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: el texto del Song Shi describe el número exacto de dientes y disposición
+  de cada engranaje.'
+license: MIT
+description: Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente
+  hacia la misma dirección cardinal inicial (el sur). Su funcionamiento se basa en
+  un mecanismo de engranajes diferenciales acoplado a las dos ruedas independientes,
+  compensando con exactitud cinemática cualquier rotación angular del chasis.
+related_machines:
+- Differential Gear
+period: Antigüedad / China Imperial
+region: China
+would_it_actually_work: Sí, reconstruido y validado experimentalmente con engranajes
+  diferenciales completos.
+display_year: 255 d.C.

@@ -1,18 +1,24 @@
-name: "Screw-cutting Lathe"
-original_name: "Tour à fileter"
-author: "Jacques Besson"
-work: "Theatrum Instrumentorum et Machinarum"
-edition: "1st"
+name: Torno de roscar con husillo patrón
+original_name: Tour à fileter
+author: Jacques Besson
+work: Theatrum Instrumentorum et Machinarum
+edition: Lyon
 year: 1578
-language: "Latin"
-source_pages: "Plate 9"
-machine_type: "Lathe"
-physical_domain: "Mechanics"
-reconstruction_status: "Level B"
-confidence: 0.9
-license: "CC-BY-4.0"
-description: "An early screw-cutting lathe capable of cutting precise threads using a lead screw and templates."
+language: Latín / Francés
+source_pages: Lámina 9
+machine_type: Torno de roscar
+physical_domain: Mecánica analítica
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto (0,90): lámina renacentista con sincronismo mecánico preciso por
+  poleas y contrapesos.'
+license: CC-BY-4.0
+description: Torno pionero para el labrado cinemático y mecánico de roscas con pasos
+  variables y precisos. Utiliza un husillo patrón y un sistema de poleas y cables
+  que sincroniza con rigidez geométrica el avance longitudinal de la herramienta de
+  corte con la rotación de la pieza de trabajo.
 related_machines: []
-period: "Renaissance"
-region: "France"
-would_it_actually_work: "YES"
+period: Renacimiento
+region: Francia
+would_it_actually_work: Sí, fundamental en el nacimiento de la máquina herramienta
+  moderna.
+display_year: '1578'

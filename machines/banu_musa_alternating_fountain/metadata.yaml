@@ -1,18 +1,25 @@
-name: "Alternating Fountain"
-original_name: "Fountain that changes its shape"
-author: "Banū Mūsā"
-work: "Kitāb al-Ḥiyal (The Book of Ingenious Devices)"
-edition: "c. 850"
+name: Fuente de chorro alternante
+original_name: Kitāb al-Ḥiyal (Fuente que cambia de forma)
+author: Hermanos Banū Mūsā
+work: Kitāb al-Ḥiyal (El libro de los mecanismos ingeniosos)
+edition: Bagdad (Casa de la Sabiduría)
 year: 850
-language: "Arabic"
-source_pages: "Model 91"
-machine_type: "Fountain"
-physical_domain: "Hydraulics, Kinematics"
-reconstruction_status: "B"
-confidence: "High"
-license: "MIT"
-description: "A fountain that alternates its spray pattern between a single straight vertical jet and a wide shield-like spray. It achieves this using a clever hidden mechanism with a water-driven balance beam (like a tipping bucket) that directs the water flow into alternating pipes."
-related_machines: ["Trick Vessels", "Hero's Fountain"]
-period: "Islamic Golden Age"
-region: "Abbasid Caliphate (Baghdad)"
-would_it_actually_work: "YES"
+language: Árabe
+source_pages: Modelo 91
+machine_type: Fuente hidráulica automática
+physical_domain: Hidráulica y Cinemática
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: diagramas y principios de conmutación por peso hidrostático exhaustivamente
+  detallados.'
+license: MIT
+description: Fuente hidráulica automática que alterna periódicamente la forma del
+  surtidor entre un chorro vertical único y una campana o domo laminar de agua. Opera
+  mediante un mecanismo autorregulado con una báscula basculante accionada por el
+  propio caudal que conmuta las válvulas internas sin intervención humana.
+related_machines:
+- Trick Vessels
+- Hero's Fountain
+period: Edad de Oro Islámica
+region: Califato Abásida (Bagdad)
+would_it_actually_work: Sí, diseño hidrostático completamente riguroso y reproducible.
+display_year: '850'

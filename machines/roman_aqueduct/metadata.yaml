@@ -1,18 +1,24 @@
-name: Roman Aqueduct
+name: Sistema de acueducto romano y sifón invertido
 original_name: Aquaeductus
-author: Vitruvius / Roman Engineers
-work: De Architectura / Various
-edition: "1st century BC"
-year: 15 BC
-language: Latin
-source_pages: "Book VIII"
-machine_type: Hydraulic Infrastructure
-physical_domain: Fluid Dynamics (Gravity Flow, Siphons), Statics (Masonry Arches)
-reconstruction_status: Level B
-confidence: High
+author: Vitruvio / Ingenieros romanos
+work: De Architectura (Libro VIII)
+edition: Roma imperial
+year: -15
+language: Latín
+source_pages: Libro VIII, Capítulos 5 y 6 (De aquis ducendis)
+machine_type: Infraestructura hidráulica
+physical_domain: Dinámica de fluidos y Estática de estructuras
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: miles de kilómetros de vestigios arqueológicos (Segovia, Pont du
+  Gard, Lyon).'
 license: MIT
-description: "A comprehensive reconstruction of a Roman aqueduct system, featuring open-channel gravity flow, masonry arch viaducts for valley crossings, and inverted siphons (siphones) for deep valleys where arched bridges were impractical."
+description: Infraestructura hidráulica para transporte de agua por gravedad. Integra
+  canales con pendiente uniforme controlada, arcadas de mampostería para cruce de
+  depresiones y sifones invertidos de tuberías de plomo para salvar valles profundos
+  mediante carga hidrostática cerrada.
 related_machines: []
-period: Antiquity
-region: Roman Empire
-would_it_actually_work: YES
+period: Antigüedad romana
+region: Imperio Romano
+would_it_actually_work: Sí, muchas de estas infraestructuras abastecieron ciudades
+  durante siglos.
+display_year: 15 a.C.

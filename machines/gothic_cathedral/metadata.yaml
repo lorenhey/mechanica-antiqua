@@ -1,18 +1,24 @@
-name: Gothic Cathedral
+name: Estructura estática de la catedral gótica
 original_name: Cathédrale Gothique
-author: Various (Villard de Honnecourt)
-work: Various (Livre de portraiture)
-edition: 1
-year: 1150-1500
-language: Latin/French
-source_pages: N/A
-machine_type: Structural
-physical_domain: Statics
-reconstruction_status: Level B
-confidence: High
+author: Villard de Honnecourt / Maestros canteros medievales
+work: Livre de portraiture
+edition: Manuscrito de París (BnF MS Fr 19093)
+year: 1200
+language: Francés medieval / Latín
+source_pages: Folios de trazado y proporción geométrica
+machine_type: Estructura arquitectónica
+physical_domain: Estática
+reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
+confidence: 'Alto: análisis estático estructural validado en catedrales de Chartres,
+  Reims y Amiens.'
 license: MIT
-description: Structural system of a Gothic cathedral focusing on pointed arches, rib vaults, and flying buttresses.
+description: Sistema estructural de mampostería basado en el arco ojival, la bóveda
+  de crucería y los arbotantes exteriores. La resolución estática permite descargar
+  los empujes laterales hacia contrafuertes externos, liberando los muros portantes
+  y habilitando grandes vanos acristalados.
 related_machines: []
-period: Medieval
-region: Europe
-would_it_actually_work: YES
+period: Edad Media
+region: Europa (Francia)
+would_it_actually_work: Sí, monumento y tecnología estructural viva durante más de
+  ocho siglos.
+display_year: c. 1150-1500

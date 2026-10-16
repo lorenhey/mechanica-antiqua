@@ -1,18 +1,23 @@
-name: "Stamping Mill"
-original_name: "Mulino da follo"
-author: "Vittorio Zonca"
-work: "Novo Teatro di Machine et Edificii"
-edition: "1st"
+name: Molino de batanado textil y trituración
+original_name: Mulino da follo
+author: Vittorio Zonca
+work: Novo Teatro di Machine et Edificii
+edition: Padua (Pietro Bertelli)
 year: 1607
-language: "Italian"
-source_pages: "p. 94"
-machine_type: "Mill"
-physical_domain: "Mechanics"
-reconstruction_status: "Level A"
-confidence: 0.85
-license: "CC-BY-4.0"
-description: "A water-driven stamping mill used for metal ores or fulling cloth."
-related_machines: ["zonca_paper_mill"]
-period: "Renaissance"
-region: "Italy"
-would_it_actually_work: "YES"
+language: Italiano
+source_pages: Página 94, grabado en cobre
+machine_type: Molino
+physical_domain: Mecánica analítica
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto (0,85): despiece de levas y cabeza de mazo para tratamiento de paños.'
+license: CC-BY-4.0
+description: Batán hidráulico accionado por árbol de levas para el acabado y desengrase
+  de tejidos de lana o la trituración de minerales. Los mazos basculantes golpean
+  rítmicamente el paño en cubas con tierra de batán o agua jabonosa para compactar
+  y afieltrar las fibras del tejido.
+related_machines:
+- zonca_paper_mill
+period: Renacimiento tardío
+region: Italia (Véneto)
+would_it_actually_work: Sí, instalación textil estándar de la Europa moderna temprana.
+display_year: '1607'

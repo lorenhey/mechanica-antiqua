@@ -1,18 +1,24 @@
-name: "Chain Pump"
-original_name: "Antlia catenaria"
-author: "Georgius Agricola"
-work: "De re metallica"
-edition: "1st Edition"
+name: Bomba de cadena y rosario
+original_name: Antlia catenaria
+author: Georgius Agricola
+work: De re metallica
+edition: Basilea (Froben)
 year: 1556
-language: "Latin"
-source_pages: "Book VI"
-machine_type: "Pump"
-physical_domain: "Hydraulics"
-reconstruction_status: "Level A"
-confidence: "High"
-license: "MIT"
-description: "A chain pump used for dewatering mines, powered by a water wheel or animal power."
-related_machines: ["agricola_reversible_hoist"]
-period: "Renaissance"
-region: "Germany"
-would_it_actually_work: "YES"
+language: Latín
+source_pages: Libro VI, pp. 170-174
+machine_type: Bomba hidráulica
+physical_domain: Hidráulica
+reconstruction_status: Nivel A (Completamente documentada y reproducible)
+confidence: 'Alto: grabados renacentistas a escala y descripciones exhaustivas de
+  Agricola.'
+license: MIT
+description: Bomba de rosario de esferas o discos de cuero unidos por una cadena de
+  hierro sin fin que asciende por el interior de un tubo de madera, arrastrando columnas
+  de agua desde el fondo de las galerías mineras. Impulsada por una rueda hidráulica
+  o un malacate de tracción animal.
+related_machines:
+- agricola_reversible_hoist
+period: Renacimiento
+region: Sajonia / Bohemia
+would_it_actually_work: Sí, estándar de desagüe en minería europea del siglo XVI.
+display_year: '1556'

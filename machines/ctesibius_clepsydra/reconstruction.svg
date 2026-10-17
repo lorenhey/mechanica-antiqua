@@ -1,3 +1,98 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<g><rect x="300" y="200" width="100" height="200" fill="none" stroke="black" stroke-width="2" /> <rect x="300" y="250" width="100" height="150" fill="blue" stroke="black" stroke-width="1" /> <rect x="320" y="230" width="60" height="20" fill="brown" stroke="black" stroke-width="1" /> <rect x="345" y="100" width="10" height="130" fill="gray" stroke="black" stroke-width="1" /> <circle cx="380" cy="120" r="30" stroke="black" stroke-width="2" fill="none" /> <rect x="380" y="115" width="60" height="10" fill="red" stroke="black" stroke-width="1" /></g>
+  <defs>
+    <style>
+      .cl-bg { fill: #fcf9f2; }
+      .cl-bronze { fill: #c59b27; stroke: #7a5a10; stroke-width: 2.5; }
+      .cl-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .cl-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .cl-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-float-rise {
+        0% { transform: translateY(0); }
+        90% { transform: translateY(-160px); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes anim-dial-turn {
+        0% { transform: rotate(0deg); }
+        90% { transform: rotate(330deg); }
+        100% { transform: rotate(0deg); }
+      }
+      @keyframes anim-drip {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -20; }
+      }
+      
+      .float-rising {
+        animation: anim-float-rise 10s ease-in-out infinite;
+      }
+      .pointer-rot {
+        transform-origin: 560px 180px;
+        animation: anim-dial-turn 10s ease-in-out infinite;
+      }
+      .drip-line {
+        stroke-dasharray: 5 4;
+        animation: anim-drip 0.6s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="cl-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="cl-title">Clepsidra de Flujo Constante con Cremallera</text>
+  <text x="400" y="70" text-anchor="middle" class="cl-text">Ctesibio de Alejandría (c. 250 a.C.) - Medición horaria precisa con válvula de flotador</text>
+
+  <!-- Depósito de nivel constante con rebosadero (izquierda) -->
+  <rect x="120" y="240" width="100" height="150" class="cl-bronze" fill="#f4ebd9"/>
+  <rect x="124" y="280" width="92" height="106" class="cl-water"/>
+  <!-- Tubo de rebosadero -->
+  <line x1="220" y1="280" x2="260" y2="280" stroke="#7a5a10" stroke-width="6"/>
+  <text x="170" y="230" text-anchor="middle" class="cl-text" font-weight="bold">Cámara de flotador</text>
+
+  <!-- Orificio calibrado de piedra dura que gotea con caudal constante -->
+  <line x1="170" y1="390" x2="170" y2="440" stroke="#4a90e2" stroke-width="4" class="drip-line"/>
+
+  <!-- Cilindro de medición principal inferior -->
+  <rect x="300" y="260" width="120" height="260" rx="8" class="cl-bronze" fill="#f4ebd9"/>
+  <!-- Agua ascendiendo en el cilindro -->
+  <rect x="305" y="320" width="110" height="195" class="cl-water"/>
+
+  <!-- CONJUNTO FLOTADOR + CREMALLERA DENTADA (Animado) -->
+  <g class="float-rising">
+    <!-- Flotador de corcho / bronce -->
+    <rect x="315" y="460" width="90" height="30" rx="6" class="cl-bronze"/>
+    <text x="360" y="480" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Flotador</text>
+    
+    <!-- Cremallera vertical dentada -->
+    <rect x="355" y="180" width="10" height="280" fill="#333"/>
+    <!-- Dientes de la cremallera engranando hacia la derecha -->
+    <line x1="365" y1="200" x2="375" y2="200" stroke="#c59b27" stroke-width="3"/>
+    <line x1="365" y1="220" x2="375" y2="220" stroke="#c59b27" stroke-width="3"/>
+    <line x1="365" y1="240" x2="375" y2="240" stroke="#c59b27" stroke-width="3"/>
+    <line x1="365" y1="260" x2="375" y2="260" stroke="#c59b27" stroke-width="3"/>
+  </g>
+
+  <!-- Piñón circular dentado superior -->
+  <circle cx="560" cy="180" r="30" class="cl-bronze"/>
+  <!-- Esfera horaria circular con marcas de horas (I a XII) -->
+  <circle cx="560" cy="180" r="90" fill="none" stroke="#5c3a1e" stroke-width="4"/>
+  <circle cx="560" cy="180" r="95" fill="none" stroke="#7a5a10" stroke-width="2"/>
+  
+  <text x="560" y="105" text-anchor="middle" class="cl-text" font-weight="bold">XII</text>
+  <text x="635" y="185" text-anchor="middle" class="cl-text" font-weight="bold">III</text>
+  <text x="560" y="260" text-anchor="middle" class="cl-text" font-weight="bold">VI</text>
+  <text x="485" y="185" text-anchor="middle" class="cl-text" font-weight="bold">IX</text>
+
+  <!-- Aguja horaria rotatoria (Animada) -->
+  <g class="pointer-rot">
+    <line x1="560" y1="180" x2="560" y2="115" stroke="#ef4444" stroke-width="5"/>
+    <polygon points="560,105 555,120 565,120" fill="#ef4444"/>
+    <circle cx="560" cy="180" r="8" fill="#333"/>
+  </g>
+
+  <!-- Panel descriptivo -->
+  <rect x="500" y="420" width="250" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="510" y="445" class="cl-text" font-weight="bold">Principio Hidrostático:</text>
+  <text x="510" y="465" class="cl-text">• h constante -> Caudal Q = constante</text>
+  <text x="510" y="485" class="cl-text">• Ascenso lineal del flotador: dy/dt = c</text>
+  <text x="510" y="502" class="cl-text">• Conversión directa cremallera-piñón</text>
 </svg>

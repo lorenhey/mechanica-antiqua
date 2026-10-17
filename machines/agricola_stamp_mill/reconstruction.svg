@@ -1,7 +1,115 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<circle cx="200" cy="400" r="30" stroke="black" stroke-width="2" fill="none" />
-<line x1="200" y1="400" x2="240" y2="400" stroke="black" stroke-width="2" />
-<line x1="200" y1="400" x2="160" y2="400" stroke="black" stroke-width="2" />
-<line x1="300" y1="200" x2="300" y2="500" stroke="black" stroke-width="2" />
-<line x1="400" y1="200" x2="400" y2="500" stroke="black" stroke-width="2" />
+  <defs>
+    <style>
+      .sm-bg { fill: #fcf9f2; }
+      .sm-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .sm-iron { fill: #444; stroke: #222; stroke-width: 2; }
+      .sm-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .sm-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-shaft-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-cam-lift-1 {
+        0% { transform: translateY(0); }
+        35% { transform: translateY(-55px); }
+        40% { transform: translateY(0); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes anim-cam-lift-2 {
+        0% { transform: translateY(0); }
+        33% { transform: translateY(0); }
+        68% { transform: translateY(-55px); }
+        73% { transform: translateY(0); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes anim-cam-lift-3 {
+        0% { transform: translateY(0); }
+        66% { transform: translateY(0); }
+        95% { transform: translateY(-55px); }
+        100% { transform: translateY(0); }
+      }
+      
+      .waterwheel-turn {
+        transform-origin: 150px 320px;
+        animation: anim-shaft-turn 3s linear infinite;
+      }
+      .stamper-1 {
+        animation: anim-cam-lift-1 3s ease-in-out infinite;
+      }
+      .stamper-2 {
+        animation: anim-cam-lift-2 3s ease-in-out infinite;
+      }
+      .stamper-3 {
+        animation: anim-cam-lift-3 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="sm-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="sm-title">Bocarte o Molino de Pisones (Machina Tundens)</text>
+  <text x="400" y="70" text-anchor="middle" class="sm-text">Georgius Agricola (1556) - Trituración de mineral con árbol de levas y caída por gravedad</text>
+
+  <!-- Bastidor vertical de madera -->
+  <rect x="360" y="120" width="360" height="20" class="sm-wood"/>
+  <rect x="360" y="140" width="20" height="360" class="sm-wood"/>
+  <rect x="700" y="140" width="20" height="360" class="sm-wood"/>
+  
+  <!-- Mortero de trituración inferior -->
+  <rect x="380" y="460" width="320" height="60" fill="#7a654b" stroke="#422812" stroke-width="3"/>
+  <text x="540" y="500" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Mortero con Mineral</text>
+
+  <!-- Rueda hidráulica motriz (izquierda) -->
+  <g class="waterwheel-turn">
+    <circle cx="150" cy="320" r="95" fill="none" stroke="#8b5a2b" stroke-width="12"/>
+    <circle cx="150" cy="320" r="22" class="sm-wood"/>
+    <line x1="150" y1="225" x2="150" y2="415" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="55" y1="320" x2="245" y2="320" stroke="#5c3a1e" stroke-width="6"/>
+    <!-- Paletas -->
+    <rect x="140" y="215" width="20" height="20" class="sm-wood"/>
+    <rect x="140" y="405" width="20" height="20" class="sm-wood"/>
+    <rect x="45" y="310" width="20" height="20" class="sm-wood"/>
+    <rect x="235" y="310" width="20" height="20" class="sm-wood"/>
+  </g>
+
+  <!-- Árbol de levas horizontal -->
+  <rect x="150" y="310" width="560" height="20" class="sm-wood"/>
+
+  <!-- PISÓN 1 (Animado) -->
+  <g class="stamper-1">
+    <!-- Viga vertical del pisón -->
+    <rect x="430" y="160" width="25" height="300" class="sm-wood"/>
+    <!-- Saliente para la leva -->
+    <rect x="415" y="310" width="20" height="15" fill="#333"/>
+    <!-- Cabeza de hierro pesada inferior -->
+    <rect x="420" y="430" width="45" height="35" class="sm-iron"/>
+  </g>
+
+  <!-- PISÓN 2 (Animado - desfasado) -->
+  <g class="stamper-2">
+    <rect x="520" y="160" width="25" height="300" class="sm-wood"/>
+    <rect x="505" y="310" width="20" height="15" fill="#333"/>
+    <rect x="510" y="430" width="45" height="35" class="sm-iron"/>
+  </g>
+
+  <!-- PISÓN 3 (Animado - desfasado) -->
+  <g class="stamper-3">
+    <rect x="610" y="160" width="25" height="300" class="sm-wood"/>
+    <rect x="595" y="310" width="20" height="15" fill="#333"/>
+    <rect x="600" y="430" width="45" height="35" class="sm-iron"/>
+  </g>
+
+  <!-- Levas salientes fijadas al árbol rotatorio -->
+  <polygon points="425,320 445,305 440,325" fill="#c59b27"/>
+  <polygon points="515,320 535,305 530,325" fill="#c59b27"/>
+  <polygon points="605,320 625,305 620,325" fill="#c59b27"/>
+
+  <!-- Panel didáctico -->
+  <rect x="40" y="460" width="240" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="485" class="sm-text" font-weight="bold">Secuencia de Trituración 1-2-3:</text>
+  <text x="50" y="505" class="sm-text">• Levas desfasadas a 120° en el árbol</text>
+  <text x="50" y="525" class="sm-text">• Elevación activa por leva</text>
+  <text x="50" y="542" class="sm-text">• Caída por impacto gravitatorio</text>
 </svg>

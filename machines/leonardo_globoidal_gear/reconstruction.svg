@@ -1,34 +1,78 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-<circle cx="400" cy="400" r="150" stroke="black" stroke-width="2" fill="none" />
-<line x1="540.0" y1="400.0" x2="565.0" y2="400.0" stroke="black" stroke-width="2" />
-<line x1="535.2296156804696" y1="436.2346663143529" x2="559.3777613376963" y2="442.70514244191594" stroke="black" stroke-width="2" />
-<line x1="521.2435565298214" y1="470.0" x2="542.8941916244323" y2="482.5" stroke="black" stroke-width="2" />
-<line x1="498.99494936611666" y1="498.99494936611666" x2="516.6726188957804" y2="516.6726188957804" stroke="black" stroke-width="2" />
-<line x1="470.0" y1="521.2435565298214" x2="482.5" y2="542.8941916244323" stroke="black" stroke-width="2" />
-<line x1="436.2346663143529" y1="535.2296156804696" x2="442.70514244191594" y2="559.3777613376963" stroke="black" stroke-width="2" />
-<line x1="400.0" y1="540.0" x2="400.0" y2="565.0" stroke="black" stroke-width="2" />
-<line x1="363.76533368564714" y1="535.2296156804696" x2="357.2948575580841" y2="559.3777613376963" stroke="black" stroke-width="2" />
-<line x1="330.0" y1="521.2435565298214" x2="317.50000000000006" y2="542.8941916244323" stroke="black" stroke-width="2" />
-<line x1="301.00505063388334" y1="498.99494936611666" x2="283.3273811042197" y2="516.6726188957804" stroke="black" stroke-width="2" />
-<line x1="278.7564434701786" y1="470.00000000000006" x2="257.1058083755677" y2="482.50000000000006" stroke="black" stroke-width="2" />
-<line x1="264.7703843195304" y1="436.2346663143529" x2="240.62223866230374" y2="442.705142441916" stroke="black" stroke-width="2" />
-<line x1="260.0" y1="400.0" x2="235.0" y2="400.0" stroke="black" stroke-width="2" />
-<line x1="264.7703843195304" y1="363.76533368564714" x2="240.62223866230372" y2="357.2948575580841" stroke="black" stroke-width="2" />
-<line x1="278.75644347017857" y1="330.00000000000006" x2="257.10580837556756" y2="317.50000000000006" stroke="black" stroke-width="2" />
-<line x1="301.0050506338833" y1="301.0050506338834" x2="283.3273811042196" y2="283.32738110421974" stroke="black" stroke-width="2" />
-<line x1="329.99999999999994" y1="278.7564434701786" x2="317.49999999999994" y2="257.1058083755677" stroke="black" stroke-width="2" />
-<line x1="363.76533368564697" y1="264.7703843195305" x2="357.29485755808395" y2="240.62223866230377" stroke="black" stroke-width="2" />
-<line x1="400.0" y1="260.0" x2="399.99999999999994" y2="235.0" stroke="black" stroke-width="2" />
-<line x1="436.23466631435286" y1="264.7703843195304" x2="442.7051424419158" y2="240.62223866230372" stroke="black" stroke-width="2" />
-<line x1="469.9999999999999" y1="278.7564434701785" x2="482.4999999999999" y2="257.10580837556756" stroke="black" stroke-width="2" />
-<line x1="498.99494936611666" y1="301.00505063388334" x2="516.6726188957803" y2="283.3273811042196" stroke="black" stroke-width="2" />
-<line x1="521.2435565298214" y1="329.99999999999994" x2="542.8941916244323" y2="317.49999999999994" stroke="black" stroke-width="2" />
-<line x1="535.2296156804696" y1="363.76533368564697" x2="559.3777613376963" y2="357.29485755808395" stroke="black" stroke-width="2" />
-<line x1="300" y1="215" x2="500" y2="215" stroke="black" stroke-width="2" />
-<line x1="300" y1="255" x2="500" y2="255" stroke="black" stroke-width="2" />
-<line x1="345" y1="215" x2="355" y2="255" stroke="black" stroke-width="2" />
-<line x1="370" y1="215" x2="380" y2="255" stroke="black" stroke-width="2" />
-<line x1="395" y1="215" x2="405" y2="255" stroke="black" stroke-width="2" />
-<line x1="420" y1="215" x2="430" y2="255" stroke="black" stroke-width="2" />
-<line x1="445" y1="215" x2="455" y2="255" stroke="black" stroke-width="2" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .lg-bg { fill: #fcf9f2; }
+      .lg-bronze { fill: #c59b27; stroke: #78350f; stroke-width: 2.5; }
+      .lg-steel { fill: #64748b; stroke: #1e293b; stroke-width: 2.5; }
+      .lg-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .lg-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-worm-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-gear-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(30deg); }
+      }
+      
+      .worm-rot {
+        transform-origin: 400px 180px;
+        animation: anim-worm-spin 3s linear infinite;
+      }
+      .gear-rot {
+        transform-origin: 400px 380px;
+        animation: anim-gear-turn 3s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="lg-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="lg-title">Tornillo Sin Fin Globoidal (Códice Madrid I, 1493)</text>
+  <text x="400" y="70" text-anchor="middle" class="lg-text">Leonardo da Vinci - Geometría envolvente de reloj de arena para mayor superficie de contacto</text>
+
+  <!-- Eje horizontal superior del tornillo sin fin -->
+  <rect x="180" y="172" width="440" height="16" fill="#333"/>
+
+  <!-- TORNILLO GLOBOIDAL CÓNCAVO (Animado en rotación axial) -->
+  <g class="worm-rot">
+    <!-- Perfil característico de reloj de arena curvado para envolver la rueda -->
+    <path d="M 300 140 C 360 160 440 160 500 140 L 500 220 C 440 200 360 200 300 220 Z" class="lg-steel"/>
+    <!-- Filetes helicoidales globoidales -->
+    <path d="M 330 145 Q 350 180 340 215" fill="none" stroke="#c59b27" stroke-width="6"/>
+    <path d="M 370 152 Q 390 180 380 208" fill="none" stroke="#c59b27" stroke-width="6"/>
+    <path d="M 410 155 Q 425 180 415 205" fill="none" stroke="#c59b27" stroke-width="6"/>
+    <path d="M 450 152 Q 465 180 455 208" fill="none" stroke="#c59b27" stroke-width="6"/>
+    <path d="M 480 145 Q 495 180 485 215" fill="none" stroke="#c59b27" stroke-width="6"/>
+  </g>
+  <text x="400" y="125" text-anchor="middle" class="lg-text" font-weight="bold">Tornillo Sin Fin Globoidal (Tornillo de cintura)</text>
+
+  <!-- RUEDA DENTADA HELICOIDAL CONJUGADA (Animada) -->
+  <g class="gear-rot">
+    <circle cx="400" cy="380" r="130" fill="none" stroke="#c59b27" stroke-width="24"/>
+    <circle cx="400" cy="380" r="130" fill="none" stroke="#78350f" stroke-width="3"/>
+    <circle cx="400" cy="380" r="30" class="lg-steel"/>
+    
+    <!-- Dientes helicoidales curvados engranando con el arco envolvente -->
+    <!-- Dientes superiores que engranan en el arco -->
+    <polygon points="380,245 400,235 420,245 400,265" fill="#78350f"/>
+    <polygon points="340,255 360,248 375,262 355,275" fill="#78350f"/>
+    <polygon points="425,262 440,248 460,255 445,275" fill="#78350f"/>
+    
+    <!-- Rayos de la rueda -->
+    <line x1="400" y1="250" x2="400" y2="510" stroke="#78350f" stroke-width="6"/>
+    <line x1="270" y1="380" x2="530" y2="380" stroke="#78350f" stroke-width="6"/>
+  </g>
+
+  <!-- Arco de contacto múltiple envolvente destacado -->
+  <path d="M 330 250 A 130 130 0 0 1 470 250" fill="none" stroke="#ef4444" stroke-width="4" stroke-dasharray="6 4"/>
+  <text x="400" y="295" text-anchor="middle" font-size="12" font-weight="bold" fill="#ef4444">Arco de contacto múltiple (3 a 5 dientes simultáneos)</text>
+
+  <!-- Panel geométrico -->
+  <rect x="40" y="470" width="280" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="495" class="lg-text" font-weight="bold">Ventaja Cinemática de Leonardo:</text>
+  <text x="50" y="515" class="lg-text">• Cilindro recto: contacto en 1 solo punto.</text>
+  <text x="50" y="535" class="lg-text">• Globoidal: abraza la rueda en arco envolvente.</text>
+  <text x="50" y="552" class="lg-text">• Soporta cargas axiales masivas sin rotura.</text>
 </svg>

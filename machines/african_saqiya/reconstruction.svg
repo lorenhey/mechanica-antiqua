@@ -1,46 +1,154 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-    <!-- Background -->
-    <rect width="800" height="600" fill="#f4f1ea"/>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .saqiya-bg { fill: #fcf9f2; }
+      .saqiya-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2; }
+      .saqiya-iron { fill: #4a4a4a; stroke: #222; stroke-width: 1.5; }
+      .saqiya-pot { fill: #c26a38; stroke: #8f4019; stroke-width: 1.5; }
+      .saqiya-water { fill: #4a90e2; fill-opacity: 0.65; }
+      .saqiya-stream { fill: none; stroke: #4a90e2; stroke-width: 3; stroke-dasharray: 6 4; }
+      .saqiya-text { font-family: 'Cinzel', serif; font-size: 14px; fill: #3d2b1f; }
+      .saqiya-label { font-family: 'EB Garamond', serif; font-size: 13px; fill: #555; }
+      
+      @keyframes anim-turn-horizontal {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-turn-vertical {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+      }
+      @keyframes anim-flow {
+        from { stroke-dashoffset: 0; }
+        to { stroke-dashoffset: -20; }
+      }
+      @keyframes anim-pots-loop {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(40px); }
+      }
+      
+      .rot-crown {
+        transform-origin: 260px 320px;
+        animation: anim-turn-horizontal 8s linear infinite;
+      }
+      .rot-pinion {
+        transform-origin: 390px 320px;
+        animation: anim-turn-vertical 2.67s linear infinite;
+      }
+      .rot-wheel {
+        transform-origin: 580px 320px;
+        animation: anim-turn-vertical 2.67s linear infinite;
+      }
+      .water-fall {
+        animation: anim-flow 0.8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="800" height="600" class="saqiya-bg"/>
+  <rect x="0" y="480" width="800" height="120" fill="#e8dfce"/>
+  <path d="M 0 520 Q 200 500 400 520 T 800 520 L 800 600 L 0 600 Z" class="saqiya-water"/>
+
+  <!-- Título y rótulos -->
+  <text x="400" y="45" text-anchor="middle" class="saqiya-text" font-size="20" font-weight="bold">Saqiya (Rueda Hidráulica por Tracción Animal)</text>
+  <text x="400" y="70" text-anchor="middle" class="saqiya-label">Transmisión de engranajes en ángulo recto (3:1) y rosario de cangilones continuo</text>
+
+  <!-- Canal de descarga superior -->
+  <rect x="520" y="270" width="260" height="16" class="saqiya-wood"/>
+  <path d="M 700 286 L 780 286 L 780 340 L 760 340" fill="none" stroke="#4a90e2" stroke-width="6"/>
+
+  <!-- ESTRUCTURA PRINCIPAL -->
+  <!-- Viga de soporte superior y pivotes -->
+  <rect x="180" y="140" width="160" height="20" class="saqiya-wood"/>
+  <rect x="250" y="160" width="20" height="190" class="saqiya-wood"/>
+  <circle cx="260" cy="150" r="12" class="saqiya-iron"/>
+
+  <!-- Brazo de tiro para el buey / tiro animal -->
+  <rect x="80" y="170" width="200" height="14" class="saqiya-wood"/>
+  <text x="110" y="160" class="saqiya-label">Brazo de tiro animal (~2 RPM)</text>
+
+  <!-- Rueda de Corona (Horizontal) -->
+  <g class="rot-crown">
+    <ellipse cx="260" cy="320" rx="100" ry="32" fill="none" stroke="#8b5a2b" stroke-width="14"/>
+    <ellipse cx="260" cy="320" rx="100" ry="32" fill="none" stroke="#5c3a1e" stroke-width="3"/>
+    <!-- Dientes de la corona hacia arriba -->
+    <line x1="160" y1="320" x2="160" y2="300" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="360" y1="320" x2="360" y2="300" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="260" y1="288" x2="260" y2="270" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="260" y1="352" x2="260" y2="334" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="190" y1="300" x2="190" y2="282" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="330" y1="300" x2="330" y2="282" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="190" y1="340" x2="190" y2="322" stroke="#4a4a4a" stroke-width="5"/>
+    <line x1="330" y1="340" x2="330" y2="322" stroke="#4a4a4a" stroke-width="5"/>
+  </g>
+  <text x="260" y="375" text-anchor="middle" class="saqiya-label">Rueda de corona motriz (36 dientes)</text>
+
+  <!-- Piñón de Linterna (Vertical) -->
+  <g class="rot-pinion">
+    <circle cx="390" cy="320" r="38" fill="#e0d5c1" stroke="#5c3a1e" stroke-width="4"/>
+    <line x1="390" y1="282" x2="390" y2="358" stroke="#5c3a1e" stroke-width="4"/>
+    <line x1="352" y1="320" x2="428" y2="320" stroke="#5c3a1e" stroke-width="4"/>
+    <line x1="363" y1="293" x2="417" y2="347" stroke="#5c3a1e" stroke-width="4"/>
+    <line x1="363" y1="347" x2="417" y2="293" stroke="#5c3a1e" stroke-width="4"/>
+    <!-- Husillos de linterna -->
+    <circle cx="390" cy="286" r="4" class="saqiya-iron"/>
+    <circle cx="390" cy="354" r="4" class="saqiya-iron"/>
+    <circle cx="356" cy="320" r="4" class="saqiya-iron"/>
+    <circle cx="424" cy="320" r="4" class="saqiya-iron"/>
+    <circle cx="366" cy="296" r="4" class="saqiya-iron"/>
+    <circle cx="414" cy="344" r="4" class="saqiya-iron"/>
+    <circle cx="366" cy="344" r="4" class="saqiya-iron"/>
+    <circle cx="414" cy="296" r="4" class="saqiya-iron"/>
+  </g>
+
+  <!-- Eje horizontal común -->
+  <rect x="390" y="314" width="190" height="12" class="saqiya-iron"/>
+
+  <!-- Rueda motriz de cangilones -->
+  <g class="rot-wheel">
+    <circle cx="580" cy="320" r="110" fill="none" stroke="#8b5a2b" stroke-width="12"/>
+    <circle cx="580" cy="320" r="110" fill="none" stroke="#5c3a1e" stroke-width="2"/>
+    <circle cx="580" cy="320" r="22" class="saqiya-wood"/>
+    <!-- Rayos -->
+    <line x1="580" y1="210" x2="580" y2="430" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="470" y1="320" x2="690" y2="320" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="502" y1="242" x2="658" y2="398" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="502" y1="398" x2="658" y2="242" stroke="#5c3a1e" stroke-width="5"/>
+  </g>
+
+  <!-- Cadena continua de cangilones (animada con subida y bajada) -->
+  <!-- Cadenas fijas verticales -->
+  <line x1="470" y1="320" x2="470" y2="540" stroke="#333" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="690" y1="320" x2="690" y2="540" stroke="#333" stroke-width="3" stroke-dasharray="8 6"/>
+
+  <!-- Cangilones ascendentes (llenos) y descendentes (vacíos) -->
+  <!-- Rama izquierda (sube con agua) -->
+  <g>
+    <path d="M 450 330 Q 470 330 470 350 L 455 375 Q 440 375 440 350 Z" class="saqiya-pot"/>
+    <rect x="446" y="340" width="18" height="12" class="saqiya-water"/>
     
-    <!-- Title -->
-    <text x="400" y="40" font-family="sans-serif" font-size="24" text-anchor="middle" fill="#333">Saqiya (Rueda hidráulica por tracción animal)</text>
-    <text x="400" y="70" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#555">Transmisión de engranajes en ángulo recto</text>
-    
-    <!-- Vertical Shaft (driven by animal) -->
-    <rect x="240" y="150" width="20" height="250" fill="#8b5a2b"/>
-    <!-- Draw Bar for Animal -->
-    <rect x="100" y="180" width="150" height="15" fill="#a0522d"/>
-    
-    <!-- Crown Gear (Horizontal Plane) -->
-    <ellipse cx="250" cy="380" rx="120" ry="40" fill="none" stroke="#5c4033" stroke-width="10"/>
-    <text x="250" y="380" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">Rueda de corona (36 dientes)</text>
-    
-    <!-- Lantern Gear (Vertical Plane) -->
-    <rect x="375" y="330" width="30" height="100" fill="#a0522d" stroke="#5c4033" stroke-width="3"/>
-    <text x="390" y="450" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#333">Piñón de linterna (12 dientes)</text>
-    
-    <!-- Horizontal Shaft -->
-    <rect x="400" y="375" width="250" height="10" fill="#8b5a2b"/>
-    
-    <!-- Water Wheel / Chain of Pots -->
-    <circle cx="650" cy="380" r="100" fill="none" stroke="#5c4033" stroke-width="8"/>
-    <!-- Chain and Pots -->
-    <path d="M 550 380 L 550 550" stroke="#444" stroke-width="4" fill="none" />
-    <path d="M 750 380 L 750 550" stroke="#444" stroke-width="4" fill="none" />
-    
-    <!-- Pots -->
-    <rect x="535" y="450" width="30" height="40" fill="#cd853f" rx="5"/>
-    <rect x="735" y="450" width="30" height="40" fill="#cd853f" rx="5"/>
-    <rect x="535" y="520" width="30" height="40" fill="#cd853f" rx="5"/>
-    <rect x="735" y="520" width="30" height="40" fill="#cd853f" rx="5"/>
-    
-    <!-- Water Level -->
-    <rect x="500" y="500" width="300" height="100" fill="#4682b4" opacity="0.5"/>
-    
-    <!-- Kinematic Data -->
-    <rect x="50" y="450" width="250" height="120" fill="#fff" stroke="#333" stroke-width="2"/>
-    <text x="60" y="475" font-family="sans-serif" font-size="14" fill="#333">Velocidad de entrada: 0,21 rad/s</text>
-    <text x="60" y="505" font-family="sans-serif" font-size="14" fill="#333">Velocidad de salida: 0,63 rad/s</text>
-    <text x="60" y="535" font-family="sans-serif" font-size="14" fill="#333">Relación de transmisión: 3,00</text>
-    
+    <path d="M 450 400 Q 470 400 470 420 L 455 445 Q 440 445 440 420 Z" class="saqiya-pot"/>
+    <rect x="446" y="410" width="18" height="12" class="saqiya-water"/>
+
+    <path d="M 450 470 Q 470 470 470 490 L 455 515 Q 440 515 440 490 Z" class="saqiya-pot"/>
+    <rect x="446" y="480" width="18" height="12" class="saqiya-water"/>
+  </g>
+
+  <!-- Rama derecha (baja vacía invertida) -->
+  <g>
+    <path d="M 690 350 Q 710 350 710 330 L 695 305 Q 680 305 680 330 Z" class="saqiya-pot"/>
+    <path d="M 690 420 Q 710 420 710 400 L 695 375 Q 680 375 680 400 Z" class="saqiya-pot"/>
+    <path d="M 690 490 Q 710 490 710 470 L 695 445 Q 680 445 680 470 Z" class="saqiya-pot"/>
+  </g>
+
+  <!-- Vertido de agua hacia el canal -->
+  <path d="M 500 230 Q 520 260 530 275" class="saqiya-stream water-fall"/>
+  <circle cx="530" cy="275" r="5" class="saqiya-water"/>
+
+  <!-- Indicadores de parámetros cinemáticos -->
+  <rect x="40" y="500" width="240" height="75" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="522" class="saqiya-label" font-weight="bold">Parámetros Cinemáticos:</text>
+  <text x="50" y="542" class="saqiya-label">• Entrada animal: ω₁ = 0,21 rad/s (2 RPM)</text>
+  <text x="50" y="562" class="saqiya-label">• Salida cangilones: ω₂ = 0,63 rad/s (6 RPM)</text>
 </svg>

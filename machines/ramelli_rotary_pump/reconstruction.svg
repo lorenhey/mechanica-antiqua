@@ -1,5 +1,101 @@
-<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="150" cy="150" r="80" stroke="black" stroke-width="4" fill="none" />
-    <rect x="70" y="145" width="160" height="10" fill="gray" />
-    <text x="100" y="280" font-family="sans-serif" font-size="14">Bomba rotativa de Ramelli</text>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .rp-bg { fill: #fcf9f2; }
+      .rp-casing { fill: #e5ded0; stroke: #5c3a1e; stroke-width: 8; }
+      .rp-rotor { fill: #8b5a2b; stroke: #422812; stroke-width: 3; }
+      .rp-vane { fill: #444; stroke: #222; stroke-width: 2; }
+      .rp-water { fill: #4a90e2; fill-opacity: 0.65; }
+      .rp-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .rp-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-rotor-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-vane-slide-1 {
+        0%, 100% { transform: translate(0, -18px); }
+        50% { transform: translate(0, 18px); }
+      }
+      @keyframes anim-vane-slide-2 {
+        0%, 100% { transform: translate(-18px, 0); }
+        50% { transform: translate(18px, 0); }
+      }
+      @keyframes anim-water-flow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -20; }
+      }
+      
+      .rotor-assembly {
+        transform-origin: 400px 330px;
+        animation: anim-rotor-turn 5s linear infinite;
+      }
+      .vane-1 {
+        animation: anim-vane-slide-1 5s ease-in-out infinite;
+      }
+      .vane-2 {
+        animation: anim-vane-slide-2 5s ease-in-out infinite;
+      }
+      .flow-pulse {
+        stroke-dasharray: 6 4;
+        animation: anim-water-flow 0.8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="rp-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="rp-title">Bomba Rotativa de Paletas Deslizantes</text>
+  <text x="400" y="70" text-anchor="middle" class="rp-text">Agostino Ramelli (1588) - Precursora directa de las bombas volumétricas modernas</text>
+
+  <!-- Conducto de aspiración (izquierda) -->
+  <rect x="100" y="300" width="160" height="60" class="rp-casing" stroke-width="4"/>
+  <rect x="100" y="306" width="160" height="48" class="rp-water"/>
+  <path d="M 120 330 L 250 330" fill="none" stroke="#2563eb" stroke-width="4" class="flow-pulse"/>
+  <text x="170" y="290" text-anchor="middle" class="rp-text" font-weight="bold">Aspiración (Baja presión)</text>
+
+  <!-- Conducto de impulsión (derecha) -->
+  <rect x="540" y="300" width="160" height="60" class="rp-casing" stroke-width="4"/>
+  <rect x="540" y="306" width="160" height="48" class="rp-water"/>
+  <path d="M 550 330 L 680 330" fill="none" stroke="#2563eb" stroke-width="4" class="flow-pulse"/>
+  <text x="620" y="290" text-anchor="middle" class="rp-text" font-weight="bold">Impulsión (Alta presión)</text>
+
+  <!-- Carcasa cilíndrica fija (Estator concéntrico centrado en 400, 310) -->
+  <circle cx="400" cy="310" r="150" class="rp-casing"/>
+  <!-- Interior con agua -->
+  <circle cx="400" cy="310" r="142" class="rp-water"/>
+
+  <!-- CONJUNTO ROTOR EXCÉNTRICO (Eje desplazado hacia abajo en 400, 340) -->
+  <g class="rotor-assembly">
+    <!-- Rotor cilíndrico excéntrico de radio 95 -->
+    <circle cx="400" cy="330" r="95" class="rp-rotor"/>
+    
+    <!-- Eje central -->
+    <circle cx="400" cy="330" r="18" fill="#333" stroke="#c59b27" stroke-width="4"/>
+    
+    <!-- Ranuras radiales del rotor -->
+    <line x1="400" y1="210" x2="400" y2="450" stroke="#333" stroke-width="8"/>
+    <line x1="280" y1="330" x2="520" y2="330" stroke="#333" stroke-width="8"/>
+    
+    <!-- 4 Paletas deslizantes (Vanes) -->
+    <!-- Paleta vertical superior/inferior -->
+    <rect x="393" y="195" width="14" height="60" class="rp-vane vane-1"/>
+    <rect x="393" y="405" width="14" height="60" class="rp-vane vane-1"/>
+    
+    <!-- Paleta horizontal izquierda/derecha -->
+    <rect x="265" y="323" width="60" height="14" class="rp-vane vane-2"/>
+    <rect x="475" y="323" width="60" height="14" class="rp-vane vane-2"/>
+  </g>
+
+  <!-- Flechas de sentido de giro horario -->
+  <path d="M 400 135 A 175 175 0 0 1 575 310" fill="none" stroke="#8b5a2b" stroke-width="3" stroke-dasharray="8 6"/>
+  <polygon points="575,310 565,295 585,295" fill="#8b5a2b"/>
+  <text x="595" y="240" class="rp-text">Rotación horaria</text>
+
+  <!-- Panel descriptivo -->
+  <rect x="40" y="480" width="340" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="505" class="rp-text" font-weight="bold">Principio de Desplazamiento Positivo:</text>
+  <text x="50" y="525" class="rp-text">• El rotor excéntrico genera cámaras de volumen variable.</text>
+  <text x="50" y="545" class="rp-text">• Al expandirse la cámara: aspira agua.</text>
+  <text x="50" y="565" class="rp-text">• Al contraerse contra el estator: comprime e impulsa.</text>
 </svg>

@@ -1,18 +1,101 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<circle cx="400" cy="150" r="60" stroke="black" stroke-width="2" fill="none" />
-<circle cx="400" cy="450" r="60" stroke="black" stroke-width="2" fill="none" />
-<line x1="340" y1="150" x2="340" y2="450" stroke="black" stroke-width="2" />
-<line x1="460" y1="150" x2="460" y2="450" stroke="black" stroke-width="2" />
-<circle cx="340" cy="150" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="460" cy="175" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="340" cy="200" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="460" cy="225" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="340" cy="250" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="460" cy="275" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="340" cy="300" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="460" cy="325" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="340" cy="350" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="460" cy="375" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="340" cy="400" r="10" stroke="black" stroke-width="2" fill="none" />
-<circle cx="460" cy="425" r="10" stroke="black" stroke-width="2" fill="none" />
+  <defs>
+    <style>
+      .cp-bg { fill: #fcf9f2; }
+      .cp-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2; }
+      .cp-iron { fill: #444; stroke: #222; stroke-width: 2; }
+      .cp-pipe { fill: #d9c8aa; stroke: #7d6542; stroke-width: 3; }
+      .cp-water { fill: #4a90e2; fill-opacity: 0.65; }
+      .cp-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .cp-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-wheel-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-chain-rise {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-50px); }
+      }
+      @keyframes anim-water-spray {
+        0% { opacity: 0.3; transform: scale(0.9); }
+        50% { opacity: 1; transform: scale(1.05); }
+        100% { opacity: 0.3; transform: scale(0.9); }
+      }
+      
+      .wheel-rot {
+        transform-origin: 380px 170px;
+        animation: anim-wheel-turn 4s linear infinite;
+      }
+      .balls-rising {
+        animation: anim-chain-rise 1s linear infinite;
+      }
+      .spray {
+        animation: anim-water-spray 0.8s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="cp-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="cp-title">Bomba de Cadena y Rosario (Antlia Catenaria)</text>
+  <text x="400" y="70" text-anchor="middle" class="cp-text">Georgius Agricola, De re metallica (1556) - Desagüe continuo de pozos mineros</text>
+
+  <!-- Pozo y galería minera -->
+  <rect x="250" y="190" width="260" height="410" fill="#e0d6c3" stroke="#8b7355" stroke-width="3"/>
+  <rect x="250" y="520" width="260" height="80" class="cp-water"/>
+  <text x="380" y="570" text-anchor="middle" class="cp-title" font-size="15" fill="#fff">Agua subterránea de mina</text>
+
+  <!-- Tubo vertical de madera seccionado -->
+  <rect x="330" y="210" width="40" height="340" class="cp-pipe"/>
+  <!-- Interior del tubo con agua subiendo -->
+  <rect x="334" y="210" width="32" height="340" class="cp-water"/>
+  
+  <!-- Canal de descarga superior -->
+  <polygon points="310,210 200,230 200,250 330,230" class="cp-wood"/>
+  <path d="M 200 240 Q 170 270 160 350" fill="none" stroke="#4a90e2" stroke-width="8" class="spray"/>
+  <text x="170" y="225" text-anchor="middle" class="cp-text">Canaleta de desagüe</text>
+
+  <!-- Cadena continua y bolas de cuero (animadas) -->
+  <!-- Rueda motriz superior con muescas para la cadena -->
+  <g class="wheel-rot">
+    <circle cx="380" cy="170" r="65" fill="#bfa782" stroke="#5c3a1e" stroke-width="6"/>
+    <circle cx="380" cy="170" r="16" class="cp-iron"/>
+    <!-- Muescas radiales para enganchar las esferas -->
+    <line x1="380" y1="105" x2="380" y2="235" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="315" y1="170" x2="445" y2="170" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="334" y1="124" x2="426" y2="216" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="334" y1="216" x2="426" y2="124" stroke="#5c3a1e" stroke-width="5"/>
+  </g>
+
+  <!-- Cadena que baja por la derecha (vacía) -->
+  <line x1="445" y1="170" x2="445" y2="540" stroke="#333" stroke-width="3" stroke-dasharray="8 6"/>
+  <!-- Bolas de cuero que bajan -->
+  <circle cx="445" cy="240" r="11" class="cp-wood"/>
+  <circle cx="445" cy="300" r="11" class="cp-wood"/>
+  <circle cx="445" cy="360" r="11" class="cp-wood"/>
+  <circle cx="445" cy="420" r="11" class="cp-wood"/>
+  <circle cx="445" cy="480" r="11" class="cp-wood"/>
+
+  <!-- Bolas de cuero que suben por el interior del tubo (ajustadas al diámetro interior) -->
+  <g class="balls-rising">
+    <circle cx="350" cy="200" r="15" class="cp-wood"/>
+    <circle cx="350" cy="250" r="15" class="cp-wood"/>
+    <circle cx="350" cy="300" r="15" class="cp-wood"/>
+    <circle cx="350" cy="350" r="15" class="cp-wood"/>
+    <circle cx="350" cy="400" r="15" class="cp-wood"/>
+    <circle cx="350" cy="450" r="15" class="cp-wood"/>
+    <circle cx="350" cy="500" r="15" class="cp-wood"/>
+    <circle cx="350" cy="550" r="15" class="cp-wood"/>
+  </g>
+
+  <!-- Polea o tambor sumergido inferior -->
+  <circle cx="397" cy="545" r="48" fill="none" stroke="#5c3a1e" stroke-width="6"/>
+
+  <!-- Panel informativo -->
+  <rect x="540" y="240" width="220" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="550" y="265" class="cp-text" font-weight="bold">Principio Físico:</text>
+  <text x="550" y="285" class="cp-text">• Bolas de cuero herméticas</text>
+  <text x="550" y="305" class="cp-text">• Arrastre por desplazamiento positivo</text>
+  <text x="550" y="325" class="cp-text">• Impulso continuo sin interrupción</text>
 </svg>

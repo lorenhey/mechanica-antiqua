@@ -1,0 +1,92 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .aj-bg { fill: #fcf9f2; }
+      .aj-copper { fill: #b87333; stroke: #7a461b; stroke-width: 2.5; }
+      .aj-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2; }
+      .aj-iron { fill: #4a4a4a; stroke: #222; stroke-width: 2; }
+      .aj-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .aj-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .aj-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-wheel-cw {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-slot-shuttle {
+        0%, 100% { transform: translateX(-40px); }
+        50% { transform: translateX(40px); }
+      }
+      @keyframes anim-stream-pulse {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -20; }
+      }
+      
+      .wheel-rotate {
+        transform-origin: 400px 380px;
+        animation: anim-wheel-cw 4s linear infinite;
+      }
+      .slot-shuttle {
+        animation: anim-slot-shuttle 4s ease-in-out infinite;
+      }
+      .flow-water {
+        stroke-dasharray: 8 6;
+        animation: anim-stream-pulse 0.8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="aj-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="aj-title">Bomba Bicilíndrica con Mecanismo de Ranura (Al-Jazari, 1206)</text>
+  <text x="400" y="70" text-anchor="middle" class="aj-text">Primer uso documentado de cigüeñal y corredera ranurada para pistones opuestos</text>
+
+  <!-- Corriente de agua inferior que mueve la rueda -->
+  <rect x="0" y="520" width="800" height="80" class="aj-water"/>
+  <path d="M 0 540 Q 200 520 400 540 T 800 540" fill="none" stroke="#2563eb" stroke-width="4" class="flow-water"/>
+  <text x="120" y="560" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Río / Corriente motriz</text>
+
+  <!-- Rueda de paletas central -->
+  <g class="wheel-rotate">
+    <circle cx="400" cy="380" r="95" fill="none" stroke="#8b5a2b" stroke-width="12"/>
+    <circle cx="400" cy="380" r="20" class="aj-iron"/>
+    <!-- Paletas -->
+    <line x1="400" y1="285" x2="400" y2="475" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="305" y1="380" x2="495" y2="380" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="333" y1="313" x2="467" y2="447" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="333" y1="447" x2="467" y2="313" stroke="#5c3a1e" stroke-width="6"/>
+    <!-- Clavija excéntrica motriz (peg) -->
+    <circle cx="440" cy="340" r="9" fill="#c59b27" stroke="#222" stroke-width="2"/>
+  </g>
+
+  <!-- Cilindro Izquierdo de cobre -->
+  <rect x="100" y="210" width="180" height="60" class="aj-copper"/>
+  <rect x="104" y="214" width="172" height="52" class="aj-water"/>
+
+  <!-- Cilindro Derecho de cobre -->
+  <rect x="520" y="210" width="180" height="60" class="aj-copper"/>
+  <rect x="524" y="214" width="172" height="52" class="aj-water"/>
+
+  <!-- Mecanismo de corredera con ranura central (Slot-Rod) que une ambos pistones -->
+  <g class="slot-shuttle">
+    <!-- Vástago largo horizontal que conecta los dos pistones -->
+    <rect x="220" y="235" width="360" height="12" class="aj-iron"/>
+    
+    <!-- Pistón izquierdo -->
+    <rect x="190" y="216" width="30" height="48" class="aj-wood"/>
+    
+    <!-- Pistón derecho -->
+    <rect x="580" y="216" width="30" height="48" class="aj-wood"/>
+    
+    <!-- Marco de ranura vertical central (donde desliza la clavija de la rueda) -->
+    <rect x="385" y="160" width="30" height="160" fill="none" stroke="#222" stroke-width="5"/>
+    <rect x="395" y="165" width="10" height="150" fill="#fff" opacity="0.4"/>
+  </g>
+
+  <!-- Tubería de descarga vertical y columna ascendente -->
+  <path d="M 120 210 L 120 130 L 400 130" fill="none" stroke="#b87333" stroke-width="8"/>
+  <path d="M 680 210 L 680 130 L 400 130" fill="none" stroke="#b87333" stroke-width="8"/>
+  <rect x="394" y="90" width="12" height="50" class="aj-copper"/>
+  <path d="M 400 90 L 400 60" fill="none" stroke="#4a90e2" stroke-width="8" class="flow-water"/>
+  <text x="400" y="55" text-anchor="middle" class="aj-text" font-weight="bold">Elevación a depósito superior</text>
+</svg>

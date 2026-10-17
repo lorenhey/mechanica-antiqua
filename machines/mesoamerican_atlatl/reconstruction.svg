@@ -1,6 +1,90 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-<g><line x1="150" y1="300" x2="200" y2="200" stroke="brown" stroke-width="6" /> <line x1="200" y1="200" x2="300" y2="150" stroke="brown" stroke-width="6" /> <circle cx="150" cy="300" r="8" stroke="black" stroke-width="2" fill="brown" /> <circle cx="200" cy="200" r="6" stroke="black" stroke-width="2" fill="brown" /> <circle cx="300" cy="150" r="6" stroke="black" stroke-width="2" fill="brown" /></g>
-<g><line x1="300" y1="150" x2="429.9038105676658" y2="75.00000000000001" stroke="saddlebrown" stroke-width="4" /> <line x1="429.9038105676658" y1="75.00000000000001" x2="419.9038105676658" y2="60.000000000000014" stroke="saddlebrown" stroke-width="4" /></g>
-<g><line x1="419.9038105676658" y1="60.000000000000014" x2="500" y2="100" stroke="gray" stroke-width="3" /> <line x1="500" y1="100" x2="485" y2="95" stroke="darkgray" stroke-width="3" /> <line x1="500" y1="100" x2="485" y2="110" stroke="darkgray" stroke-width="3" /></g>
-<circle cx="150" cy="300" r="359.12552564569916" stroke="blue" stroke-width="1" fill="none" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .at-bg { fill: #fcf9f2; }
+      .at-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 3; }
+      .at-dart { stroke: #444; stroke-width: 4; fill: none; }
+      .at-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .at-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-throw-arc {
+        0%, 15% { transform: rotate(-40deg); }
+        50% { transform: rotate(35deg); }
+        65%, 100% { transform: rotate(-40deg); }
+      }
+      @keyframes anim-dart-flight {
+        0%, 40% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+        50% { transform: translate(60px, -20px) rotate(-5deg); opacity: 1; }
+        80% { transform: translate(450px, -150px) rotate(15deg); opacity: 1; }
+        85% { opacity: 0; }
+        100% { transform: translate(0, 0); opacity: 0; }
+      }
+      @keyframes anim-dart-flex {
+        0%, 15% { d: path("M 0 0 L 180 0"); }
+        35% { d: path("M 0 0 Q 90 -22 180 0"); }
+        48% { d: path("M 0 0 Q 90 18 180 0"); }
+        60%, 100% { d: path("M 0 0 L 180 0"); }
+      }
+      
+      .atlatl-arm {
+        transform-origin: 220px 380px;
+        animation: anim-throw-arc 3.5s ease-in-out infinite;
+      }
+      .flying-dart {
+        animation: anim-dart-flight 3.5s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="at-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="at-title">Átlatl (Propulsor Balístico Mesoamericano)</text>
+  <text x="400" y="70" text-anchor="middle" class="at-text">Palanca de tercer género con acumulación y restitución de energía elástica del dardo</text>
+
+  <!-- Cazador silueteado -->
+  <circle cx="190" cy="300" r="20" fill="#a07246"/>
+  <line x1="190" y1="320" x2="190" y2="440" stroke="#a07246" stroke-width="12"/>
+  <line x1="190" y1="440" x2="160" y2="520" stroke="#a07246" stroke-width="8"/>
+  <line x1="190" y1="440" x2="220" y2="520" stroke="#a07246" stroke-width="8"/>
+
+  <!-- BRAZO Y ÁTLATL OSCILANTE (Palanca que rota en el hombro) -->
+  <g class="atlatl-arm">
+    <!-- Brazo humano extendido -->
+    <line x1="190" y1="340" x2="260" y2="350" stroke="#a07246" stroke-width="10"/>
+    
+    <!-- Propulsor de madera dura (Átlatl con ranura y gancho en el extremo) -->
+    <line x1="260" y1="350" x2="380" y2="310" stroke="#5c3a1e" stroke-width="8"/>
+    <!-- Gancho de hueso/jade trasero -->
+    <polygon points="380,310 392,302 380,305" fill="#e0e0e0"/>
+    <!-- Contrapeso lítico o anillas de cuero -->
+    <ellipse cx="320" cy="330" rx="10" ry="6" fill="#166534"/>
+
+    <!-- DARDO MONTADO EN EL ÁTLATL ANTES DEL DISPARO -->
+    <!-- Dardo flexible de carrizo / caña (se desacopla y vuela) -->
+    <g transform="translate(385, 305)">
+      <g class="flying-dart">
+        <line x1="0" y1="0" x2="-220" y2="0" stroke="#333" stroke-width="4"/>
+        <!-- Punta de obsidiana -->
+        <polygon points="-220,-4 -240,0 -220,4" fill="#1e293b"/>
+        <!-- Plumas estabilizadoras -->
+        <polygon points="0,-8 -25,0 0,8" fill="#ef4444"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Trayectoria parabólica de vuelo de alta velocidad -->
+  <path d="M 380 280 Q 550 150 740 260" fill="none" stroke="#2563eb" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="560" y="170" class="at-text" font-weight="bold" fill="#2563eb">Trayectoria de alta velocidad (~150 km/h)</text>
+
+  <!-- Diana u objetivo -->
+  <circle cx="740" cy="260" r="25" fill="#f87171" stroke="#dc2626" stroke-width="3"/>
+  <circle cx="740" cy="260" r="14" fill="#fff"/>
+  <circle cx="740" cy="260" r="6" fill="#dc2626"/>
+
+  <!-- Panel biofísico -->
+  <rect x="40" y="100" width="280" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="125" class="at-text" font-weight="bold">Biomecánica y Balística:</text>
+  <text x="50" y="145" class="at-text">• Extensión del brazo humano en 60 cm.</text>
+  <text x="50" y="165" class="at-text">• Multiplica por 4 la energía cinética manual.</text>
+  <text x="50" y="182" class="at-text">• Efecto látigo: flexión elástica y restitución.</text>
 </svg>

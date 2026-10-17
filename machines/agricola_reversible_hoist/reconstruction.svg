@@ -1,6 +1,105 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<circle cx="400" cy="300" r="150" stroke="black" stroke-width="2" fill="none" />
-<circle cx="400" cy="300" r="50" stroke="black" stroke-width="2" fill="none" />
-<line x1="350" y1="300" x2="350" y2="500" stroke="black" stroke-width="2" />
-<line x1="450" y1="300" x2="450" y2="500" stroke="black" stroke-width="2" />
+  <defs>
+    <style>
+      .rh-bg { fill: #fcf9f2; }
+      .rh-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .rh-iron { fill: #444; stroke: #222; stroke-width: 2; }
+      .rh-rope { stroke: #b08d57; stroke-width: 3; fill: none; }
+      .rh-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .rh-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .rh-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-wheel-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+      }
+      @keyframes anim-bucket-lift {
+        0%, 100% { transform: translateY(120px); }
+        50% { transform: translateY(-40px); }
+      }
+      @keyframes anim-water-chute {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -24; }
+      }
+      
+      .wheel-rev {
+        transform-origin: 320px 220px;
+        animation: anim-wheel-turn 6s linear infinite;
+      }
+      .bucket-rise {
+        animation: anim-bucket-lift 6s ease-in-out infinite;
+      }
+      .chute-flow {
+        stroke-dasharray: 8 6;
+        animation: anim-water-chute 0.8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="rh-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="rh-title">Malacate Hidráulico Reversible (Agricola, 1556)</text>
+  <text x="400" y="70" text-anchor="middle" class="rh-text">Doble corona de álabes contrapuestos para inversión de giro sin detener el caudal</text>
+
+  <!-- Canal superior de agua con compuerta -->
+  <rect x="80" y="90" width="260" height="20" class="rh-wood"/>
+  <path d="M 280 110 L 290 170" fill="none" stroke="#4a90e2" stroke-width="8" class="chute-flow"/>
+  <text x="160" y="85" class="rh-text">Canal de alimentación</text>
+
+  <!-- Rueda hidráulica de doble corona (reversible) -->
+  <g class="wheel-rev">
+    <!-- Llanta exterior -->
+    <circle cx="320" cy="220" r="110" fill="none" stroke="#8b5a2b" stroke-width="14"/>
+    <circle cx="320" cy="220" r="85" fill="none" stroke="#5c3a1e" stroke-width="3"/>
+    <circle cx="320" cy="220" r="24" class="rh-wood"/>
+    <!-- Álabes orientados hacia la izquierda (corona 1) -->
+    <line x1="320" y1="110" x2="305" y2="95" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="430" y1="220" x2="445" y2="205" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="320" y1="330" x2="335" y2="345" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="210" y1="220" x2="195" y2="235" stroke="#5c3a1e" stroke-width="5"/>
+    <!-- Rayos -->
+    <line x1="320" y1="110" x2="320" y2="330" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="210" y1="220" x2="430" y2="220" stroke="#5c3a1e" stroke-width="6"/>
+  </g>
+
+  <!-- Eje principal que acciona el tambor de cable -->
+  <rect x="320" y="213" width="220" height="14" class="rh-iron"/>
+  
+  <!-- Tambor de enrollamiento de cable -->
+  <rect x="520" y="180" width="50" height="80" class="rh-wood"/>
+  <circle cx="520" cy="220" r="45" fill="none" stroke="#444" stroke-width="4"/>
+  <circle cx="570" cy="220" r="45" fill="none" stroke="#444" stroke-width="4"/>
+  
+  <!-- Pozo vertical de la mina -->
+  <rect x="580" y="280" width="180" height="320" fill="#d9cdb8" stroke="#7a654b" stroke-width="3"/>
+  <text x="670" y="310" text-anchor="middle" class="rh-text" font-weight="bold">Tiro del pozo minero</text>
+
+  <!-- Polea de desvío superior del pozo -->
+  <circle cx="670" cy="180" r="28" class="rh-iron"/>
+  
+  <!-- Cable que va del tambor a la polea y baja al pozo -->
+  <line x1="565" y1="180" x2="670" y2="180" class="rh-rope"/>
+  <line x1="670" y1="180" x2="670" y2="380" class="rh-rope"/>
+
+  <!-- Cuba de extracción de mineral (animada subiendo y bajando) -->
+  <g class="bucket-rise">
+    <line x1="670" y1="180" x2="670" y2="380" class="rh-rope"/>
+    <!-- Cuba de madera con aros de hierro -->
+    <path d="M 645 380 L 695 380 L 685 450 L 655 450 Z" class="rh-wood"/>
+    <line x1="648" y1="400" x2="692" y2="400" stroke="#222" stroke-width="3"/>
+    <line x1="652" y1="430" x2="688" y2="430" stroke="#222" stroke-width="3"/>
+    <!-- Asa de hierro -->
+    <path d="M 645 380 Q 670 355 695 380" fill="none" stroke="#222" stroke-width="3"/>
+    <!-- Mineral de plata dentro -->
+    <circle cx="665" cy="382" r="5" fill="#a0a0a0"/>
+    <circle cx="675" cy="383" r="6" fill="#7a7a7a"/>
+  </g>
+
+  <!-- Panel descriptivo -->
+  <rect x="40" y="440" width="280" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="465" class="rh-text" font-weight="bold">Mecanismo Reversible:</text>
+  <text x="50" y="485" class="rh-text">• Dos compuertas dirigen el agua a la</text>
+  <text x="50" y="505" class="rh-text">  mitad izquierda o derecha de la rueda.</text>
+  <text x="50" y="525" class="rh-text">• Permite elevar cargas o descender</text>
+  <text x="50" y="542" class="rh-text">  cubas vacías invirtiendo la rotación.</text>
 </svg>

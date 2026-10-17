@@ -1,4 +1,86 @@
-<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="100" fill="brown" />
-        <text x="130" y="200" fill="white">Cilindro de vapor de Papin</text>
-    </svg>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .pp-bg { fill: #fcf9f2; }
+      .pp-metal { fill: #708090; stroke: #333; stroke-width: 3; }
+      .pp-steam { fill: #bae6fd; fill-opacity: 0.6; }
+      .pp-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .pp-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-papin-piston {
+        0%, 15% { transform: translateY(80px); }
+        45%, 55% { transform: translateY(-40px); }
+        85%, 100% { transform: translateY(80px); }
+      }
+      @keyframes anim-fire-burn {
+        0%, 20% { opacity: 1; transform: scaleY(1); }
+        45%, 80% { opacity: 0; transform: scaleY(0.1); }
+        90%, 100% { opacity: 1; transform: scaleY(1); }
+      }
+      @keyframes anim-weight-move {
+        0%, 15% { transform: translateY(-80px); }
+        45%, 55% { transform: translateY(40px); }
+        85%, 100% { transform: translateY(-80px); }
+      }
+      
+      .papin-piston {
+        animation: anim-papin-piston 5s ease-in-out infinite;
+      }
+      .burner-fire {
+        transform-origin: 360px 500px;
+        animation: anim-fire-burn 5s ease-in-out infinite;
+      }
+      .counterweight {
+        animation: anim-weight-move 5s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="pp-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="pp-title">Cilindro y Pistón de Vapor de Papin (1690)</text>
+  <text x="400" y="70" text-anchor="middle" class="pp-text">Denis Papin, Acta Eruditorum - Primer diseño conceptual de máquina térmica de pistón</text>
+
+  <!-- Cilindro vertical de bronce seccionado -->
+  <rect x="300" y="200" width="120" height="280" fill="none" stroke="#5c3a1e" stroke-width="10"/>
+  <rect x="305" y="200" width="110" height="280" fill="#fff" opacity="0.6"/>
+  <!-- Agua en el fondo del cilindro -->
+  <rect x="305" y="440" width="110" height="40" fill="#4a90e2" opacity="0.8"/>
+  <text x="360" y="465" text-anchor="middle" font-size="12" fill="#fff">Agua líquida</text>
+
+  <!-- Fuego inferior intermitente (generación de vapor vs enfriamiento) -->
+  <g class="burner-fire">
+    <path d="M 315 520 Q 330 480 345 520 Q 360 475 375 520 Q 390 480 405 520 Z" fill="#ef4444"/>
+    <path d="M 330 520 Q 345 490 360 520 Q 375 485 390 520 Z" fill="#f59e0b"/>
+  </g>
+  <rect x="300" y="520" width="120" height="25" fill="#555"/>
+  <text x="360" y="560" text-anchor="middle" class="pp-text">Fuente de calor móvil</text>
+
+  <!-- Pistón y Vástago con cremallera / cable (Animado) -->
+  <g class="papin-piston">
+    <rect x="305" y="320" width="110" height="30" class="pp-metal"/>
+    <!-- Vástago vertical superior -->
+    <rect x="354" y="100" width="12" height="220" class="pp-metal"/>
+    <!-- Vapor bajo el pistón -->
+    <rect x="305" y="350" width="110" height="90" class="pp-steam"/>
+  </g>
+
+  <!-- Polea superior y carga útil levantada -->
+  <circle cx="520" cy="110" r="30" class="pp-metal"/>
+  <line x1="360" y1="110" x2="520" y2="110" stroke="#333" stroke-width="3"/>
+
+  <!-- Peso que sube durante el vacío -->
+  <g class="counterweight">
+    <line x1="550" y1="110" x2="550" y2="280" stroke="#333" stroke-width="3"/>
+    <rect x="525" y="280" width="50" height="50" rx="6" fill="#333" stroke="#c59b27" stroke-width="2"/>
+    <text x="550" y="310" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Carga</text>
+  </g>
+
+  <!-- Panel conceptual -->
+  <rect x="40" y="200" width="220" height="110" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="225" class="pp-text" font-weight="bold">Principio de Papin:</text>
+  <text x="50" y="245" class="pp-text">1. El calor genera vapor que</text>
+  <text x="50" y="265" class="pp-text">   empuja el pistón hacia arriba.</text>
+  <text x="50" y="285" class="pp-text">2. Al retirar el fuego, condensa.</text>
+  <text x="50" y="302" class="pp-text">3. El vacío eleva la carga útil.</text>
+</svg>

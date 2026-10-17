@@ -1,40 +1,101 @@
-<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-    <!-- Background -->
-    <rect width="800" height="600" fill="#f0f8ff" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .shaduf-bg { fill: #fcf9f2; }
+      .shaduf-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .shaduf-stone { fill: #7a7a7a; stroke: #444; stroke-width: 2; }
+      .shaduf-rope { stroke: #b08d57; stroke-width: 2.5; fill: none; }
+      .shaduf-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .shaduf-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .shaduf-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #444; }
+      
+      @keyframes anim-shaduf-rock {
+        0%, 100% {
+          transform: rotate(-16deg);
+        }
+        50% {
+          transform: rotate(18deg);
+        }
+      }
+      @keyframes anim-bucket-hang {
+        0%, 100% {
+          transform: rotate(16deg) translateY(0);
+        }
+        50% {
+          transform: rotate(-18deg) translateY(10px);
+        }
+      }
+      @keyframes anim-water-level {
+        0%, 100% { height: 16px; y: 440px; }
+        50% { height: 6px; y: 450px; }
+      }
+      
+      .beam-oscillate {
+        transform-origin: 360px 290px;
+        animation: anim-shaduf-rock 6s ease-in-out infinite;
+      }
+      .bucket-counter {
+        transform-origin: 640px 190px;
+        animation: anim-bucket-hang 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="shaduf-bg"/>
+  
+  <!-- Título -->
+  <text x="400" y="45" text-anchor="middle" class="shaduf-title">Shaduf (Cigoñal)</text>
+  <text x="400" y="70" text-anchor="middle" class="shaduf-text">Palanca oscilante de primer género con contrapeso de inercia gravitatoria</text>
+
+  <!-- Terreno y canal de riego -->
+  <path d="M 0 460 L 220 460 Q 250 490 280 490 L 480 490 L 520 440 L 800 440 L 800 600 L 0 600 Z" fill="#e3d6bc"/>
+  
+  <!-- Canal de agua inferior (Nilo / acequia) -->
+  <rect x="580" y="460" width="220" height="140" class="shaduf-water"/>
+  <text x="690" y="530" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Canal del Nilo</text>
+
+  <!-- Pila receptora superior donde descarga -->
+  <rect x="120" y="410" width="120" height="50" fill="#a89375" stroke="#756143" stroke-width="2"/>
+  <rect x="130" y="415" width="100" height="20" class="shaduf-water"/>
+  <text x="180" y="445" text-anchor="middle" font-size="12" class="shaduf-text">Canal de distribución</text>
+
+  <!-- Base vertical del fulcro (columna doble de barro/madera) -->
+  <rect x="345" y="280" width="30" height="210" class="shaduf-wood"/>
+  <circle cx="360" cy="290" r="10" fill="#333" stroke="#bbb" stroke-width="3"/>
+  <text x="360" y="515" text-anchor="middle" class="shaduf-text" font-weight="bold">Punto de apoyo (Fulcro)</text>
+
+  <!-- GRUPO VIGA OSCILANTE -->
+  <g class="beam-oscillate">
+    <!-- Viga de palanca principal -->
+    <polygon points="120,296 650,284 650,296 120,306" class="shaduf-wood"/>
     
-    <!-- Ground -->
-    <rect x="0" y="500" width="800" height="100" fill="#8b4513" />
-    <!-- Water -->
-    <rect x="600" y="520" width="200" height="80" fill="#1e90ff" />
+    <!-- Contrapeso de arcilla / piedra en el brazo corto (izq) -->
+    <rect x="110" y="270" width="60" height="60" rx="8" class="shaduf-stone"/>
+    <text x="140" y="305" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">CP: 59 kg</text>
     
-    <!-- Pillar (Punto de apoyo) -->
-    <rect x="290" y="250" width="20" height="250" fill="#a0522d" />
-    <circle cx="300" cy="250" r="5" fill="black" />
-    
-    <!-- Lever (First-class) -->
-    <!-- Assuming angle of 20 degrees up towards the load side -->
-    <g transform="translate(300, 250) rotate(20)">
-        <!-- Counterweight arm goes left -->
-        <line x1="-150" y1="0" x2="0" y2="0" stroke="#8b4513" stroke-width="15" />
-        <!-- Load arm goes right -->
-        <line x1="0" y1="0" x2="450" y2="0" stroke="#8b4513" stroke-width="10" />
-        
-        <!-- Counterweight -->
-        <circle cx="-150" cy="0" r="30.72458299147443" fill="#696969" />
-        <text x="-180" y="-30" font-family="Arial" font-size="14" fill="black">Contrapeso: 59,0 kg</text>
-        
-        <!-- Load Drop line (always vertical in reality, but here attached to end of lever) -->
-        <g transform="translate(450, 0) rotate(-20)">
-            <line x1="0" y1="0" x2="0" y2="200" stroke="black" stroke-width="2" />
-            <!-- Bucket -->
-            <path d="M-15,200 L15,200 L10,230 L-10,230 Z" fill="#cd853f" />
-            <text x="20" y="215" font-family="Arial" font-size="14" fill="black">Carga: 17,0 kg</text>
-        </g>
+    <!-- Brazo largo hacia la derecha -->
+    <!-- Cuerda y cubo articulado -->
+    <g class="bucket-counter">
+      <line x1="640" y1="290" x2="640" y2="440" class="shaduf-rope"/>
+      <!-- Cubo de cuero / mimbre -->
+      <path d="M 625 435 L 655 435 L 650 465 L 630 465 Z" class="shaduf-stone"/>
+      <!-- Agua en el cubo -->
+      <ellipse cx="640" cy="442" rx="11" ry="4" class="shaduf-water"/>
+      <text x="675" y="455" font-size="12" class="shaduf-text">Carga: 17 kg</text>
     </g>
-    
-    <!-- Annotations -->
-    <text x="320" y="220" font-family="Arial" font-size="16" fill="black">Punto de apoyo</text>
-    <text x="50" y="50" font-family="Arial" font-size="20" fill="black">Reconstrucción del Shaduf</text>
-    <text x="50" y="80" font-family="Arial" font-size="14" fill="black">Dimensiones: L_carga=3,0 m, L_cp=1,0 m (INFERIDO)</text>
-    <text x="50" y="100" font-family="Arial" font-size="14" fill="black">Contrapeso calculado mediante estática analítica</text>
+  </g>
+
+  <!-- Operario silueteado -->
+  <circle cx="490" cy="380" r="16" fill="#8b5a2b"/>
+  <line x1="490" y1="396" x2="495" y2="450" stroke="#8b5a2b" stroke-width="8"/>
+  <line x1="495" y1="450" x2="480" y2="490" stroke="#8b5a2b" stroke-width="6"/>
+  <line x1="495" y1="450" x2="515" y2="490" stroke="#8b5a2b" stroke-width="6"/>
+  <line x1="490" y1="410" x2="560" y2="380" stroke="#8b5a2b" stroke-width="5"/>
+
+  <!-- Panel de equilibrio estático -->
+  <rect x="40" y="100" width="280" height="85" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="122" class="shaduf-text" font-weight="bold">Equilibrio de Momentos Estáticos:</text>
+  <text x="50" y="142" class="shaduf-text">• L₁ (brazo contrapeso) = 1,0 m | M₁ = 59 kg</text>
+  <text x="50" y="162" class="shaduf-text">• L₂ (brazo carga) = 3,0 m | M₂ = 17 kg + agua</text>
+  <text x="50" y="178" class="shaduf-text">• ΣM = M₁·g·L₁ - M₂·g·L₂ ≈ 0 (esfuerzo humano mínimo)</text>
 </svg>

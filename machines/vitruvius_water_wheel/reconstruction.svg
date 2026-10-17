@@ -1,3 +1,106 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-<g><rect x="0" y="450" width="800" height="150" fill="blue" stroke="black" stroke-width="1" /> <circle cx="400" cy="350" r="150" stroke="saddlebrown" stroke-width="10" fill="none" /> <circle cx="400" cy="350" r="20" stroke="black" stroke-width="2" fill="black" /> <line x1="420.0" y1="350.0" x2="550.0" y2="350.0" stroke="saddlebrown" stroke-width="5" /> <line x1="414.14213562373095" y1="364.14213562373095" x2="506.06601717798213" y2="456.06601717798213" stroke="saddlebrown" stroke-width="5" /> <line x1="400.0" y1="370.0" x2="400.0" y2="500.0" stroke="saddlebrown" stroke-width="5" /> <line x1="385.85786437626905" y1="364.14213562373095" x2="293.93398282201787" y2="456.06601717798213" stroke="saddlebrown" stroke-width="5" /> <line x1="380.0" y1="350.0" x2="250.0" y2="350.0" stroke="saddlebrown" stroke-width="5" /> <line x1="385.85786437626905" y1="335.85786437626905" x2="293.93398282201787" y2="243.93398282201787" stroke="saddlebrown" stroke-width="5" /> <line x1="400.0" y1="330.0" x2="400.0" y2="200.0" stroke="saddlebrown" stroke-width="5" /> <line x1="414.14213562373095" y1="335.85786437626905" x2="506.0660171779821" y2="243.93398282201787" stroke="saddlebrown" stroke-width="5" /></g>
+  <defs>
+    <style>
+      .vw-bg { fill: #fcf9f2; }
+      .vw-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .vw-stone { fill: #9e9e9e; stroke: #555; stroke-width: 2; }
+      .vw-water { fill: #4a90e2; fill-opacity: 0.65; }
+      .vw-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .vw-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-wheel-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-millstone-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(-360deg); }
+      }
+      @keyframes anim-river-flow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -32; }
+      }
+      
+      .waterwheel-rot {
+        transform-origin: 270px 330px;
+        animation: anim-wheel-turn 5s linear infinite;
+      }
+      .pinion-rot {
+        transform-origin: 520px 240px;
+        animation: anim-millstone-turn 2s linear infinite;
+      }
+      .river-stream {
+        stroke-dasharray: 10 6;
+        animation: anim-river-flow 0.8s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="vw-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="vw-title">Rueda Hidráulica Vitruviana y Molino Harinero</text>
+  <text x="400" y="70" text-anchor="middle" class="vw-text">Vitruvio, De Architectura (Libro X, c. 20 a.C.) - Transmisión en ángulo recto a muela de piedra</text>
+
+  <!-- Canal y corriente de agua inferior -->
+  <rect x="0" y="440" width="800" height="160" class="vw-water"/>
+  <path d="M 0 470 L 800 470" stroke="#2563eb" stroke-width="4" class="river-stream"/>
+  <path d="M 0 510 L 800 510" stroke="#2563eb" stroke-width="4" class="river-stream"/>
+  <text x="100" y="560" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Corriente inferior (Undershot)</text>
+
+  <!-- RUEDA HIDRÁULICA DE PALETAS SUMERGIDAS -->
+  <g class="waterwheel-rot">
+    <circle cx="270" cy="330" r="140" fill="none" stroke="#8b5a2b" stroke-width="14"/>
+    <circle cx="270" cy="330" r="140" fill="none" stroke="#5c3a1e" stroke-width="2"/>
+    <circle cx="270" cy="330" r="28" class="vw-wood"/>
+    <!-- 8 Paletas exteriores que tocan el agua -->
+    <rect x="255" y="160" width="30" height="30" class="vw-wood"/>
+    <rect x="255" y="440" width="30" height="30" class="vw-wood"/>
+    <rect x="100" y="315" width="30" height="30" class="vw-wood"/>
+    <rect x="380" y="315" width="30" height="30" class="vw-wood"/>
+    <rect x="150" y="210" width="30" height="30" class="vw-wood" transform="rotate(45, 165, 225)"/>
+    <rect x="360" y="420" width="30" height="30" class="vw-wood" transform="rotate(45, 375, 435)"/>
+    <rect x="150" y="420" width="30" height="30" class="vw-wood" transform="rotate(-45, 165, 435)"/>
+    <rect x="360" y="210" width="30" height="30" class="vw-wood" transform="rotate(-45, 375, 225)"/>
+    <!-- Rayos -->
+    <line x1="270" y1="190" x2="270" y2="470" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="130" y1="330" x2="410" y2="330" stroke="#5c3a1e" stroke-width="6"/>
+  </g>
+
+  <!-- Eje horizontal que va de la rueda hidráulica al engranaje de corona -->
+  <rect x="270" y="323" width="210" height="14" fill="#333"/>
+
+  <!-- Engranaje de corona vertical -->
+  <rect x="470" y="260" width="16" height="140" class="vw-wood"/>
+  <!-- Dientes salientes hacia la derecha -->
+  <line x1="486" y1="280" x2="498" y2="280" stroke="#333" stroke-width="5"/>
+  <line x1="486" y1="310" x2="498" y2="310" stroke="#333" stroke-width="5"/>
+  <line x1="486" y1="340" x2="498" y2="340" stroke="#333" stroke-width="5"/>
+  <line x1="486" y1="370" x2="498" y2="370" stroke="#333" stroke-width="5"/>
+
+  <!-- Piñón horizontal y eje vertical que mueve la muela -->
+  <g class="pinion-rot">
+    <ellipse cx="520" cy="240" rx="35" ry="12" fill="#8b5a2b" stroke="#333" stroke-width="2"/>
+    <circle cx="520" cy="240" r="8" fill="#222"/>
+  </g>
+
+  <!-- Eje vertical de molienda -->
+  <rect x="515" y="140" width="10" height="180" fill="#333"/>
+
+  <!-- Muela de molino superior (giratoria) y solera inferior (fija) -->
+  <rect x="450" y="160" width="140" height="25" class="vw-stone"/>
+  <text x="520" y="177" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Muela giratoria</text>
+  
+  <rect x="440" y="188" width="160" height="25" class="vw-stone" fill="#757575"/>
+  <text x="520" y="205" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Solera fija</text>
+
+  <!-- Tolva de grano superior -->
+  <polygon points="490,100 550,100 535,150 505,150" class="vw-wood"/>
+  <text x="520" y="90" text-anchor="middle" class="vw-text">Tolva de trigo</text>
+
+  <!-- Panel cinemático -->
+  <rect x="40" y="110" width="220" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="135" class="vw-text" font-weight="bold">Relación de Molienda:</text>
+  <text x="50" y="155" class="vw-text">• Entrada rueda: ~8 a 10 RPM</text>
+  <text x="50" y="175" class="vw-text">• Multiplicador en ángulo recto 1:2,5</text>
+  <text x="50" y="192" class="vw-text">• Velocidad muela: ~20 a 25 RPM</text>
 </svg>

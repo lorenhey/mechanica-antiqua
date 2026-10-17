@@ -1,0 +1,96 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .ae-bg { fill: #fcf9f2; }
+      .ae-copper { fill: #c59b27; stroke: #7a5a10; stroke-width: 3; }
+      .ae-iron { fill: #444; stroke: #222; stroke-width: 2; }
+      .ae-fire { fill: #f97316; }
+      .ae-steam { fill: #fff; stroke: #bae6fd; stroke-width: 2; opacity: 0.85; }
+      .ae-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .ae-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-sphere-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-steam-puff {
+        0% { transform: scale(0.8) translate(0, 0); opacity: 0.4; }
+        50% { transform: scale(1.15) translate(10px, 0); opacity: 0.9; }
+        100% { transform: scale(0.8) translate(0, 0); opacity: 0.4; }
+      }
+      @keyframes anim-flame {
+        0%, 100% { transform: scaleY(1); }
+        50% { transform: scaleY(1.2) translateY(-4px); }
+      }
+      
+      .sphere-rot {
+        transform-origin: 400px 230px;
+        animation: anim-sphere-spin 1.2s linear infinite;
+      }
+      .steam-plume {
+        animation: anim-steam-puff 0.6s ease-in-out infinite;
+      }
+      .flames {
+        transform-origin: 400px 530px;
+        animation: anim-flame 0.4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="ae-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="ae-title">Eolípila de Herón de Alejandría (Aiolopyle)</text>
+  <text x="400" y="70" text-anchor="middle" class="ae-text">Pneumatica (c. 50 d.C.) - Primera turbina de reacción térmica a vapor documentada</text>
+
+  <!-- Caldero inferior de bronce sobre soporte -->
+  <rect x="250" y="380" width="300" height="110" rx="20" class="ae-copper"/>
+  <text x="400" y="440" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold" font-size="16">Caldera de Vapor</text>
+
+  <!-- Fuego debajo del caldero -->
+  <g class="flames">
+    <path d="M 280 530 Q 300 480 320 530 Q 340 470 360 530 Q 380 460 400 530 Q 420 460 440 530 Q 460 470 480 530 Q 500 480 520 530 Z" fill="#ef4444"/>
+    <path d="M 300 530 Q 320 495 340 530 Q 360 485 380 530 Q 400 475 420 530 Q 440 485 460 530 Q 480 495 500 530 Z" fill="#f59e0b"/>
+  </g>
+  <!-- Soporte trípode del caldero -->
+  <line x1="260" y1="490" x2="230" y2="550" stroke="#333" stroke-width="8"/>
+  <line x1="540" y1="490" x2="570" y2="550" stroke="#333" stroke-width="8"/>
+  <line x1="400" y1="490" x2="400" y2="550" stroke="#333" stroke-width="8"/>
+
+  <!-- Dos tubos soporte verticales que conducen el vapor a los muñones -->
+  <path d="M 330 380 L 330 230 L 370 230" fill="none" stroke="#7a5a10" stroke-width="12"/>
+  <path d="M 470 380 L 470 230 L 430 230" fill="none" stroke="#7a5a10" stroke-width="12"/>
+
+  <!-- ESFERA HUECA GIRATORIA CON TOBERAS ACODADAS (Animada) -->
+  <g class="sphere-rot">
+    <!-- Esfera hueca de bronce -->
+    <circle cx="400" cy="230" r="65" class="ae-copper"/>
+    <circle cx="400" cy="230" r="16" fill="#333"/>
+    
+    <!-- Tobera 1 (tangencial arriba a la derecha) -->
+    <path d="M 400 165 L 435 165 L 435 135" fill="none" stroke="#7a5a10" stroke-width="8"/>
+    
+    <!-- Tobera 2 (tangencial abajo a la izquierda) -->
+    <path d="M 400 295 L 365 295 L 365 325" fill="none" stroke="#7a5a10" stroke-width="8"/>
+
+    <!-- Pluma de vapor 1 (sale hacia la derecha de la tobera 1) -->
+    <g class="steam-plume">
+      <ellipse cx="455" cy="135" rx="18" ry="8" class="ae-steam"/>
+      <ellipse cx="485" cy="135" rx="24" ry="12" class="ae-steam"/>
+      <ellipse cx="525" cy="135" rx="30" ry="16" class="ae-steam"/>
+    </g>
+
+    <!-- Pluma de vapor 2 (sale hacia la izquierda de la tobera 2) -->
+    <g class="steam-plume">
+      <ellipse cx="345" cy="325" rx="18" ry="8" class="ae-steam"/>
+      <ellipse cx="315" cy="325" rx="24" ry="12" class="ae-steam"/>
+      <ellipse cx="275" cy="325" rx="30" ry="16" class="ae-steam"/>
+    </g>
+  </g>
+
+  <!-- Panel termodinámico -->
+  <rect x="40" y="110" width="240" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="135" class="ae-text" font-weight="bold">Tercera Ley de Newton:</text>
+  <text x="50" y="155" class="ae-text">• Vapor a presión escapa a velocidad v</text>
+  <text x="50" y="175" class="ae-text">• Fuerza de empuje F = ṁ · v_rel</text>
+  <text x="50" y="192" class="ae-text">• Par de torsión: τ = 2 · F · R_esfera</text>
+</svg>

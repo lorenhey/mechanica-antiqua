@@ -1,0 +1,85 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .vs-bg { fill: #fcf9f2; }
+      .vs-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .vs-blade { fill: #9e9e9e; stroke: #333; stroke-width: 2; }
+      .vs-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .vs-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-wheel-turn {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes anim-saw-cut {
+        0% { transform: translateY(0); }
+        35% { transform: translateY(45px); }
+        45% { transform: translateY(45px); }
+        60% { transform: translateY(0); }
+        100% { transform: translateY(0); }
+      }
+      @keyframes anim-spring-flex {
+        0% { d: path("M 400 90 Q 520 80 600 180"); }
+        35% { d: path("M 400 90 Q 520 120 600 225"); }
+        60% { d: path("M 400 90 Q 520 80 600 180"); }
+        100% { d: path("M 400 90 Q 520 80 600 180"); }
+      }
+      
+      .wheel-cam-rot {
+        transform-origin: 320px 420px;
+        animation: anim-wheel-turn 3s linear infinite;
+      }
+      .saw-motion {
+        animation: anim-saw-cut 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="vs-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="vs-title">Aserradero Hidráulico con Retorno Elástico</text>
+  <text x="400" y="70" text-anchor="middle" class="vs-text">Villard de Honnecourt (c. 1230) - Carrera descendente por leva y retorno por vara elástica</text>
+
+  <!-- Estructura del taller medieval -->
+  <rect x="200" y="80" width="20" height="480" class="vs-wood"/>
+  <rect x="680" y="80" width="20" height="480" class="vs-wood"/>
+  <rect x="200" y="80" width="500" height="20" class="vs-wood"/>
+
+  <!-- Rueda y árbol provisto de levas salientes (Animado) -->
+  <g class="wheel-cam-rot">
+    <circle cx="320" cy="420" r="90" fill="none" stroke="#8b5a2b" stroke-width="12"/>
+    <circle cx="320" cy="420" r="24" class="vs-wood"/>
+    <!-- Dos levas salientes opuestas -->
+    <path d="M 320 396 L 350 370 L 320 350 Z" fill="#c59b27" stroke="#222" stroke-width="2"/>
+    <path d="M 320 444 L 290 470 L 320 490 Z" fill="#c59b27" stroke="#222" stroke-width="2"/>
+  </g>
+  <text x="320" y="425" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">Leva</text>
+
+  <!-- Pértiga o vara elástica de madera en el techo (Resorte de retorno medieval) -->
+  <path d="M 220 90 Q 450 60 520 180" fill="none" stroke="#8b5a2b" stroke-width="10"/>
+  <text x="380" y="115" class="vs-text" font-weight="bold">Pértiga elástica de retorno (vara de sauce/fresno)</text>
+
+  <!-- MARCO Y HOJA DE SIERRA (Animado: carrera activa de corte y retroceso elástico) -->
+  <g class="saw-motion">
+    <!-- Cuerda que une la pértiga con el marco -->
+    <line x1="520" y1="180" x2="520" y2="240" stroke="#444" stroke-width="4"/>
+    
+    <!-- Marco de madera de la sierra -->
+    <rect x="490" y="240" width="60" height="180" fill="none" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="520" y1="240" x2="520" y2="420" stroke="#333" stroke-width="5"/>
+    
+    <!-- Espiga saliente inferior donde engancha la leva del árbol -->
+    <rect x="450" y="370" width="40" height="15" fill="#c59b27" stroke="#222" stroke-width="2"/>
+  </g>
+
+  <!-- Tronco montado sobre el carro de avance -->
+  <rect x="440" y="320" width="220" height="40" fill="#a07246" stroke="#5c3a1e" stroke-width="3"/>
+  <text x="580" y="345" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Tronco en corte</text>
+
+  <!-- Panel conceptual -->
+  <rect x="40" y="180" width="220" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="205" class="vs-text" font-weight="bold">Cinemática de Levas:</text>
+  <text x="50" y="225" class="vs-text">1. La leva empuja la sierra hacia</text>
+  <text x="50" y="245" class="vs-text">   abajo (carrera de corte activa).</text>
+  <text x="50" y="265" class="vs-text">2. La pértiga la devuelve arriba.</text>
+</svg>

@@ -1,9 +1,78 @@
-<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
-<rect x="350" y="300" width="100" height="200" stroke="black" stroke-width="2" fill="none" />
-<rect x="355" y="400" width="90" height="20" stroke="black" stroke-width="2" fill="none" />
-<line x1="400" y1="400" x2="400" y2="200" stroke="black" stroke-width="2" />
-<circle cx="400" cy="150" r="50" stroke="black" stroke-width="2" fill="none" />
-<line x1="400" y1="200" x2="400" y2="100" stroke="black" stroke-width="2" />
-<line x1="450" y1="450" x2="550" y2="450" stroke="black" stroke-width="2" />
-<line x1="450" y1="470" x2="550" y2="470" stroke="black" stroke-width="2" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .mp-bg { fill: #fcf9f2; }
+      .mp-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 3; }
+      .mp-metal { fill: #708090; stroke: #333; stroke-width: 2.5; }
+      .mp-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .mp-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .mp-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-lever-swing {
+        0%, 100% { transform: rotate(-16deg); }
+        50% { transform: rotate(16deg); }
+      }
+      @keyframes anim-piston-stroke {
+        0%, 100% { transform: translateY(-30px); }
+        50% { transform: translateY(30px); }
+      }
+      @keyframes anim-spout-jet {
+        0%, 40% { opacity: 0.2; transform: scale(0.8); }
+        50%, 80% { opacity: 1; transform: scale(1.1); }
+        100% { opacity: 0.2; transform: scale(0.8); }
+      }
+      
+      .lever-swing {
+        transform-origin: 340px 200px;
+        animation: anim-lever-swing 3s ease-in-out infinite;
+      }
+      .piston-motion {
+        animation: anim-piston-stroke 3s ease-in-out infinite;
+      }
+      .water-jet {
+        transform-origin: 560px 350px;
+        animation: anim-spout-jet 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="mp-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="mp-title">Bomba Aspirante-Impelente con Balancín</text>
+  <text x="400" y="70" text-anchor="middle" class="mp-text">Francesco di Giorgio Martini (c. 1480) - Trattato di architettura, ingegneria e arte militare</text>
+
+  <!-- Soporte vertical de madera renacentista -->
+  <polygon points="320,200 360,200 375,480 305,480" class="mp-wood"/>
+  <circle cx="340" cy="200" r="12" fill="#333" stroke="#fff" stroke-width="2"/>
+
+  <!-- Balancín con contrapeso de hierro (Animado) -->
+  <g class="lever-swing">
+    <polygon points="120,195 500,195 500,205 120,205" class="mp-wood"/>
+    <!-- Contrapeso esférico en el extremo izquierdo -->
+    <circle cx="140" cy="200" r="28" fill="#333" stroke="#c59b27" stroke-width="3"/>
+    <circle cx="480" cy="200" r="8" fill="#c59b27"/>
+  </g>
+
+  <!-- Cilindro de bomba de bronce -->
+  <rect x="450" y="280" width="60" height="200" fill="none" stroke="#c59b27" stroke-width="8"/>
+  <rect x="454" y="280" width="52" height="200" class="mp-water"/>
+
+  <!-- Vástago y Pistón alternativo -->
+  <g class="piston-motion">
+    <line x1="480" y1="200" x2="480" y2="350" stroke="#333" stroke-width="8"/>
+    <rect x="454" y="350" width="52" height="24" class="mp-metal"/>
+    <rect x="454" y="355" width="52" height="14" fill="#a0522d"/>
+  </g>
+
+  <!-- Depósito inferior de aspiración -->
+  <rect x="420" y="480" width="120" height="80" class="mp-water"/>
+  <rect x="380" y="520" width="200" height="40" fill="#a89a84"/>
+
+  <!-- Tobera de impulsión hacia la pila -->
+  <path d="M 510 350 L 560 350 L 560 380" fill="none" stroke="#c59b27" stroke-width="8"/>
+  <path d="M 560 380 Q 600 420 640 480" fill="none" stroke="#2563eb" stroke-width="8" class="water-jet"/>
+
+  <!-- Pila receptora -->
+  <rect x="600" y="470" width="120" height="70" rx="8" fill="#c7bba7" stroke="#756752" stroke-width="3"/>
+  <rect x="606" y="490" width="108" height="45" class="mp-water"/>
 </svg>

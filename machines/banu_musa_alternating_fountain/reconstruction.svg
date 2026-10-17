@@ -1,0 +1,91 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bf-bg { fill: #fcf9f2; }
+      .bf-stone { fill: #d5c7b0; stroke: #6b5235; stroke-width: 3; }
+      .bf-pipe { fill: #8b5a2b; stroke: #422812; stroke-width: 3; }
+      .bf-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .bf-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .bf-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-seesaw-rock {
+        0%, 45% { transform: rotate(-15deg); }
+        50%, 95% { transform: rotate(15deg); }
+        100% { transform: rotate(-15deg); }
+      }
+      @keyframes anim-straight-jet {
+        0%, 45% { opacity: 1; transform: scaleY(1); }
+        50%, 95% { opacity: 0; transform: scaleY(0.2); }
+        100% { opacity: 1; transform: scaleY(1); }
+      }
+      @keyframes anim-shield-spray {
+        0%, 45% { opacity: 0; transform: scale(0.2); }
+        50%, 95% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(0.2); }
+      }
+      
+      .seesaw {
+        transform-origin: 400px 430px;
+        animation: anim-seesaw-rock 6s ease-in-out infinite;
+      }
+      .straight-jet {
+        transform-origin: 400px 220px;
+        animation: anim-straight-jet 6s ease-in-out infinite;
+      }
+      .shield-spray {
+        transform-origin: 400px 220px;
+        animation: anim-shield-spray 6s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="bf-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="bf-title">Fuente de Chorro Alternante (Kitāb al-Ḥiyal)</text>
+  <text x="400" y="70" text-anchor="middle" class="bf-text">Hermanos Banū Mūsā (Bagdad, c. 850) - Conmutación automática de chorro recto a campana</text>
+
+  <!-- Pila exterior de la fuente -->
+  <ellipse cx="400" cy="500" rx="300" ry="60" class="bf-stone"/>
+  <ellipse cx="400" cy="495" rx="285" ry="50" class="bf-water"/>
+
+  <!-- Pedestal central -->
+  <rect x="360" y="240" width="80" height="230" class="bf-stone"/>
+  
+  <!-- Tobera superior de la fuente -->
+  <polygon points="380,240 420,240 410,210 390,210" fill="#c59b27" stroke="#7a5a10" stroke-width="2"/>
+
+  <!-- CHORRO 1: Recto vertical hacia arriba (Fase 1) -->
+  <g class="straight-jet">
+    <path d="M 400 210 L 400 90 Q 400 70 395 60 Q 405 70 400 90" fill="none" stroke="#2563eb" stroke-width="8"/>
+    <circle cx="400" cy="65" r="12" class="bf-water"/>
+    <text x="400" y="100" class="bf-text" font-weight="bold" fill="#2563eb">Fase A: Chorro recto vertical</text>
+  </g>
+
+  <!-- CHORRO 2: Campana / Domo laminar curvo (Fase 2) -->
+  <g class="shield-spray">
+    <path d="M 400 210 Q 320 180 280 280 T 260 480" fill="none" stroke="#4a90e2" stroke-width="5"/>
+    <path d="M 400 210 Q 480 180 520 280 T 540 480" fill="none" stroke="#4a90e2" stroke-width="5"/>
+    <path d="M 400 210 Q 360 190 340 330 T 330 480" fill="none" stroke="#4a90e2" stroke-width="4"/>
+    <path d="M 400 210 Q 440 190 460 330 T 470 480" fill="none" stroke="#4a90e2" stroke-width="4"/>
+    <text x="400" y="160" text-anchor="middle" class="bf-text" font-weight="bold" fill="#0284c7">Fase B: Domo / Campana esférica</text>
+  </g>
+
+  <!-- MECANISMO OCULTO DE BÁSCULA CONMUTADORA -->
+  <rect x="290" y="380" width="220" height="100" fill="#fff" stroke="#999" stroke-width="2" rx="6" opacity="0.95"/>
+  <text x="400" y="400" text-anchor="middle" font-size="11" font-weight="bold" class="bf-text">Válvula basculante interna autorregulada</text>
+  
+  <g class="seesaw">
+    <!-- Balancín basculante con dos cubetas -->
+    <rect x="320" y="426" width="160" height="8" fill="#5c3a1e"/>
+    <circle cx="400" cy="430" r="6" fill="#222"/>
+    
+    <!-- Cubeta izquierda -->
+    <path d="M 320 426 L 340 426 L 335 450 L 325 450 Z" fill="#c59b27"/>
+    <!-- Cubeta derecha -->
+    <path d="M 460 426 L 480 426 L 475 450 L 465 450 Z" fill="#c59b27"/>
+  </g>
+
+  <!-- Alimentación de agua central -->
+  <line x1="400" y1="360" x2="400" y2="420" stroke="#4a90e2" stroke-width="5"/>
+  <circle cx="400" cy="430" r="3" fill="#fff"/>
+</svg>

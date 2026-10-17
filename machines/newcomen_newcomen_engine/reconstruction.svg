@@ -1,4 +1,113 @@
-<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-        <rect x="150" y="50" width="100" height="300" fill="silver" />
-        <text x="120" y="200" fill="black">Máquina atmosférica de Newcomen</text>
-    </svg>
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .nc-bg { fill: #fcf9f2; }
+      .nc-beam { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 3; }
+      .nc-metal { fill: #708090; stroke: #333; stroke-width: 2.5; }
+      .nc-boiler { fill: #b87333; stroke: #6b3e15; stroke-width: 3; }
+      .nc-chain { stroke: #222; stroke-width: 3; stroke-dasharray: 6 4; fill: none; }
+      .nc-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .nc-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .nc-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-beam-rock {
+        0%, 100% { transform: rotate(-12deg); }
+        50% { transform: rotate(12deg); }
+      }
+      @keyframes anim-piston-steam {
+        0%, 100% { transform: translateY(-30px); }
+        50% { transform: translateY(30px); }
+      }
+      @keyframes anim-pump-rod {
+        0%, 100% { transform: translateY(30px); }
+        50% { transform: translateY(-30px); }
+      }
+      @keyframes anim-spray-cold {
+        0%, 30% { opacity: 0; }
+        45%, 55% { opacity: 1; }
+        70%, 100% { opacity: 0; }
+      }
+      
+      .beam-oscillate {
+        transform-origin: 400px 140px;
+        animation: anim-beam-rock 4s ease-in-out infinite;
+      }
+      .steam-piston {
+        animation: anim-piston-steam 4s ease-in-out infinite;
+      }
+      .pump-rod {
+        animation: anim-pump-rod 4s ease-in-out infinite;
+      }
+      .cold-spray {
+        animation: anim-spray-cold 4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="nc-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="nc-title">Máquina de Vapor Atmosférica de Newcomen (1712)</text>
+  <text x="400" y="70" text-anchor="middle" class="nc-text">Carrera motriz por presión atmosférica tras condensación con inyección de agua fría</text>
+
+  <!-- Pilar de mampostería central de la casa de máquinas -->
+  <rect x="360" y="140" width="80" height="340" fill="#c7bba7" stroke="#756752" stroke-width="3"/>
+  <circle cx="400" cy="140" r="14" fill="#333" stroke="#fff" stroke-width="2"/>
+  <text x="400" y="320" text-anchor="middle" class="nc-text" font-weight="bold" fill="#555" transform="rotate(-90, 400, 320)">Muro portante de piedra</text>
+
+  <!-- GRAN BALANCÍN SUPERIOR CON CABEZAS DE ARCO (Animado) -->
+  <g class="beam-oscillate">
+    <!-- Viga maestra de madera -->
+    <polygon points="170,132 630,132 630,148 170,148" class="nc-beam"/>
+    
+    <!-- Cabeza de arco izquierda (lado motor de vapor) -->
+    <path d="M 180 80 Q 150 140 180 200" fill="none" stroke="#5c3a1e" stroke-width="14"/>
+    
+    <!-- Cabeza de arco derecha (lado bomba de mina) -->
+    <path d="M 620 80 Q 650 140 620 200" fill="none" stroke="#5c3a1e" stroke-width="14"/>
+  </g>
+
+  <!-- LADO IZQUIERDO: CILINDRO DE VAPOR Y CALDERA -->
+  <!-- Caldera de cobre inferior -->
+  <path d="M 150 540 Q 150 450 200 450 Q 250 450 250 540 Z" class="nc-boiler"/>
+  <text x="200" y="515" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Caldera</text>
+
+  <!-- Cilindro de vapor seccionado -->
+  <rect x="160" y="270" width="80" height="150" fill="none" stroke="#333" stroke-width="8"/>
+  <rect x="164" y="270" width="72" height="150" fill="#e0e0e0" opacity="0.6"/>
+
+  <!-- Inyección de agua fría (spray de condensación) -->
+  <path d="M 180 380 Q 200 365 220 380" fill="none" stroke="#0284c7" stroke-width="6" class="cold-spray"/>
+
+  <!-- Cadena y Pistón de vapor (animado) -->
+  <g class="steam-piston">
+    <line x1="165" y1="140" x2="165" y2="330" class="nc-chain"/>
+    <!-- Pistón dentro del cilindro -->
+    <rect x="164" y="330" width="72" height="22" class="nc-metal"/>
+  </g>
+  <text x="120" y="340" class="nc-text">Pistón</text>
+
+  <!-- LADO DERECHO: BOMBA DE POZO Y COLUMNA DE AGUA -->
+  <!-- Brocal del pozo minero -->
+  <rect x="610" y="320" width="90" height="280" fill="#a89a84"/>
+  <rect x="635" y="320" width="40" height="280" class="nc-water"/>
+
+  <!-- Cadena y Vástago pesado de la bomba de mina -->
+  <g class="pump-rod">
+    <line x1="635" y1="140" x2="635" y2="380" class="nc-chain"/>
+    <rect x="630" y="380" width="10" height="200" class="nc-metal"/>
+    <!-- Pistón sumergido de la bomba -->
+    <rect x="620" y="480" width="30" height="20" class="nc-metal"/>
+  </g>
+
+  <!-- Descarga de agua de la mina -->
+  <polygon points="635,320 540,340 540,360 635,340" class="nc-beam"/>
+  <path d="M 540 350 L 510 400" stroke="#4a90e2" stroke-width="6" fill="none"/>
+  <text x="510" y="335" class="nc-text">Desagüe mina</text>
+
+  <!-- Panel didáctico del ciclo -->
+  <rect x="40" y="100" width="220" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="125" class="nc-text" font-weight="bold">Ciclo Atmosférico:</text>
+  <text x="50" y="145" class="nc-text">1. Vapor entra a presión ambiente.</text>
+  <text x="50" y="165" class="nc-text">2. Chorro de agua fría condensa vapor.</text>
+  <text x="50" y="182" class="nc-text">3. Vacío: presión atmosférica baja pistón.</text>
+</svg>

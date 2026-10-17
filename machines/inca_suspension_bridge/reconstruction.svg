@@ -1,128 +1,70 @@
-<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
-<rect x="40.0" y="150" width="60" height="100" fill="grey" stroke="black" stroke-width="1" />
-<rect x="700.0" y="150" width="60" height="100" fill="grey" stroke="black" stroke-width="1" />
-<line x1="100.0" y1="214.28571428571445" x2="112.24489795918367" y2="209.0749645487987" stroke="saddlebrown" stroke-width="4" />
-<line x1="112.24489795918367" y1="209.0749645487987" x2="124.48979591836735" y2="204.09281057752372" stroke="saddlebrown" stroke-width="4" />
-<line x1="124.48979591836735" y1="204.09281057752372" x2="136.73469387755102" y2="199.33777239391816" stroke="saddlebrown" stroke-width="4" />
-<line x1="136.73469387755102" y1="199.33777239391816" x2="148.9795918367347" y2="194.8084374860827" stroke="saddlebrown" stroke-width="4" />
-<line x1="148.9795918367347" y1="194.8084374860827" x2="161.2244897959184" y2="190.50346038859678" stroke="saddlebrown" stroke-width="4" />
-<line x1="161.2244897959184" y1="190.50346038859678" x2="173.46938775510208" y2="186.42156228283926" stroke="saddlebrown" stroke-width="4" />
-<line x1="173.46938775510208" y1="186.42156228283926" x2="185.71428571428572" y2="182.56153061710765" stroke="saddlebrown" stroke-width="4" />
-<line x1="185.71428571428572" y1="182.56153061710765" x2="197.9591836734694" y2="178.9222187464232" stroke="saddlebrown" stroke-width="4" />
-<line x1="197.9591836734694" y1="178.9222187464232" x2="210.20408163265307" y2="175.5025455919129" stroke="saddlebrown" stroke-width="4" />
-<line x1="210.20408163265307" y1="175.5025455919129" x2="222.44897959183672" y2="172.30149531966876" stroke="saddlebrown" stroke-width="4" />
-<line x1="222.44897959183672" y1="172.30149531966876" x2="234.69387755102042" y2="169.3181170389884" stroke="saddlebrown" stroke-width="4" />
-<line x1="234.69387755102042" y1="169.3181170389884" x2="246.9387755102041" y2="166.5515245199077" stroke="saddlebrown" stroke-width="4" />
-<line x1="246.9387755102041" y1="166.5515245199077" x2="259.1836734693877" y2="164.00089592994013" stroke="saddlebrown" stroke-width="4" />
-<line x1="259.1836734693877" y1="164.00089592994013" x2="271.42857142857144" y2="161.6654735899478" stroke="saddlebrown" stroke-width="4" />
-<line x1="271.42857142857144" y1="161.6654735899478" x2="283.6734693877551" y2="159.5445637490678" stroke="saddlebrown" stroke-width="4" />
-<line x1="283.6734693877551" y1="159.5445637490678" x2="295.9183673469388" y2="157.6375363786289" stroke="saddlebrown" stroke-width="4" />
-<line x1="295.9183673469388" y1="157.6375363786289" x2="308.1632653061224" y2="155.94382498499908" stroke="saddlebrown" stroke-width="4" />
-<line x1="308.1632653061224" y1="155.94382498499908" x2="320.4081632653061" y2="154.46292644130452" stroke="saddlebrown" stroke-width="4" />
-<line x1="320.4081632653061" y1="154.46292644130452" x2="332.65306122448976" y2="153.1944008379728" stroke="saddlebrown" stroke-width="4" />
-<line x1="332.65306122448976" y1="153.1944008379728" x2="344.89795918367344" y2="152.13787135205538" stroke="saddlebrown" stroke-width="4" />
-<line x1="344.89795918367344" y1="152.13787135205538" x2="357.14285714285717" y2="151.2930241352904" stroke="saddlebrown" stroke-width="4" />
-<line x1="357.14285714285717" y1="151.2930241352904" x2="369.38775510204084" y2="150.65960822087138" stroke="saddlebrown" stroke-width="4" />
-<line x1="369.38775510204084" y1="150.65960822087138" x2="381.63265306122446" y2="150.23743544889692" stroke="saddlebrown" stroke-width="4" />
-<line x1="381.63265306122446" y1="150.23743544889692" x2="393.87755102040813" y2="150.0263804104763" stroke="saddlebrown" stroke-width="4" />
-<line x1="393.87755102040813" y1="150.0263804104763" x2="406.1224489795918" y2="150.0263804104763" stroke="saddlebrown" stroke-width="4" />
-<line x1="406.1224489795918" y1="150.0263804104763" x2="418.3673469387755" y2="150.23743544889692" stroke="saddlebrown" stroke-width="4" />
-<line x1="418.3673469387755" y1="150.23743544889692" x2="430.61224489795916" y2="150.65960822087138" stroke="saddlebrown" stroke-width="4" />
-<line x1="430.61224489795916" y1="150.65960822087138" x2="442.85714285714283" y2="151.2930241352904" stroke="saddlebrown" stroke-width="4" />
-<line x1="442.85714285714283" y1="151.2930241352904" x2="455.1020408163265" y2="152.13787135205538" stroke="saddlebrown" stroke-width="4" />
-<line x1="455.1020408163265" y1="152.13787135205538" x2="467.3469387755102" y2="153.1944008379728" stroke="saddlebrown" stroke-width="4" />
-<line x1="467.3469387755102" y1="153.1944008379728" x2="479.5918367346938" y2="154.46292644130452" stroke="saddlebrown" stroke-width="4" />
-<line x1="479.5918367346938" y1="154.46292644130452" x2="491.83673469387753" y2="155.94382498499908" stroke="saddlebrown" stroke-width="4" />
-<line x1="491.83673469387753" y1="155.94382498499908" x2="504.0816326530612" y2="157.6375363786289" stroke="saddlebrown" stroke-width="4" />
-<line x1="504.0816326530612" y1="157.6375363786289" x2="516.3265306122448" y2="159.5445637490678" stroke="saddlebrown" stroke-width="4" />
-<line x1="516.3265306122448" y1="159.5445637490678" x2="528.5714285714286" y2="161.6654735899478" stroke="saddlebrown" stroke-width="4" />
-<line x1="528.5714285714286" y1="161.6654735899478" x2="540.8163265306122" y2="164.00089592994013" stroke="saddlebrown" stroke-width="4" />
-<line x1="540.8163265306122" y1="164.00089592994013" x2="553.0612244897959" y2="166.5515245199077" stroke="saddlebrown" stroke-width="4" />
-<line x1="553.0612244897959" y1="166.5515245199077" x2="565.3061224489795" y2="169.3181170389884" stroke="saddlebrown" stroke-width="4" />
-<line x1="565.3061224489795" y1="169.3181170389884" x2="577.5510204081633" y2="172.30149531966876" stroke="saddlebrown" stroke-width="4" />
-<line x1="577.5510204081633" y1="172.30149531966876" x2="589.7959183673469" y2="175.5025455919129" stroke="saddlebrown" stroke-width="4" />
-<line x1="589.7959183673469" y1="175.5025455919129" x2="602.0408163265306" y2="178.9222187464232" stroke="saddlebrown" stroke-width="4" />
-<line x1="602.0408163265306" y1="178.9222187464232" x2="614.2857142857142" y2="182.56153061710765" stroke="saddlebrown" stroke-width="4" />
-<line x1="614.2857142857142" y1="182.56153061710765" x2="626.5306122448978" y2="186.42156228283926" stroke="saddlebrown" stroke-width="4" />
-<line x1="626.5306122448978" y1="186.42156228283926" x2="638.7755102040816" y2="190.50346038859678" stroke="saddlebrown" stroke-width="4" />
-<line x1="638.7755102040816" y1="190.50346038859678" x2="651.0204081632653" y2="194.8084374860827" stroke="saddlebrown" stroke-width="4" />
-<line x1="651.0204081632653" y1="194.8084374860827" x2="663.2653061224489" y2="199.337772393918" stroke="saddlebrown" stroke-width="4" />
-<line x1="663.2653061224489" y1="199.337772393918" x2="675.5102040816325" y2="204.09281057752372" stroke="saddlebrown" stroke-width="4" />
-<line x1="675.5102040816325" y1="204.09281057752372" x2="687.7551020408163" y2="209.0749645487987" stroke="saddlebrown" stroke-width="4" />
-<line x1="687.7551020408163" y1="209.0749645487987" x2="700.0" y2="214.28571428571445" stroke="saddlebrown" stroke-width="4" />
-<line x1="100.0" y1="225.0" x2="112.24489795918367" y2="218.8925550873939" stroke="saddlebrown" stroke-width="6" />
-<line x1="112.24489795918367" y1="218.8925550873939" x2="124.48979591836735" y2="213.0576418383893" stroke="saddlebrown" stroke-width="6" />
-<line x1="124.48979591836735" y1="213.0576418383893" x2="136.73469387755102" y2="207.49292515801378" stroke="saddlebrown" stroke-width="6" />
-<line x1="136.73469387755102" y1="207.49292515801378" x2="148.9795918367347" y2="202.19617808223373" stroke="saddlebrown" stroke-width="6" />
-<line x1="148.9795918367347" y1="202.19617808223373" x2="161.2244897959184" y2="197.1652808867383" stroke="saddlebrown" stroke-width="6" />
-<line x1="161.2244897959184" y1="197.1652808867383" x2="173.46938775510208" y2="192.3982202386382" stroke="saddlebrown" stroke-width="6" />
-<line x1="173.46938775510208" y1="192.3982202386382" x2="185.71428571428572" y2="187.89308839074383" stroke="saddlebrown" stroke-width="6" />
-<line x1="185.71428571428572" y1="187.89308839074383" x2="197.9591836734694" y2="183.64808241809652" stroke="saddlebrown" stroke-width="6" />
-<line x1="197.9591836734694" y1="183.64808241809652" x2="210.20408163265307" y2="179.66150349644943" stroke="saddlebrown" stroke-width="6" />
-<line x1="210.20408163265307" y1="179.66150349644943" x2="222.44897959183672" y2="175.93175622240932" stroke="saddlebrown" stroke-width="6" />
-<line x1="222.44897959183672" y1="175.93175622240932" x2="234.69387755102042" y2="172.45734797496573" stroke="saddlebrown" stroke-width="6" />
-<line x1="234.69387755102042" y1="172.45734797496573" x2="246.9387755102041" y2="169.23688831815437" stroke="saddlebrown" stroke-width="6" />
-<line x1="246.9387755102041" y1="169.23688831815437" x2="259.1836734693877" y2="166.26908844461283" stroke="saddlebrown" stroke-width="6" />
-<line x1="259.1836734693877" y1="166.26908844461283" x2="271.42857142857144" y2="163.55276065980846" stroke="saddlebrown" stroke-width="6" />
-<line x1="271.42857142857144" y1="163.55276065980846" x2="283.6734693877551" y2="161.08681790673057" stroke="saddlebrown" stroke-width="6" />
-<line x1="283.6734693877551" y1="161.08681790673057" x2="295.9183673469388" y2="158.87027333085712" stroke="saddlebrown" stroke-width="6" />
-<line x1="295.9183673469388" y1="158.87027333085712" x2="308.1632653061224" y2="156.90223988522212" stroke="saddlebrown" stroke-width="6" />
-<line x1="308.1632653061224" y1="156.90223988522212" x2="320.4081632653061" y2="155.18192997542457" stroke="saddlebrown" stroke-width="6" />
-<line x1="320.4081632653061" y1="155.18192997542457" x2="332.65306122448976" y2="153.70865514443844" stroke="saddlebrown" stroke-width="6" />
-<line x1="332.65306122448976" y1="153.70865514443844" x2="344.89795918367344" y2="152.481825797097" stroke="saddlebrown" stroke-width="6" />
-<line x1="344.89795918367344" y1="152.481825797097" x2="357.14285714285717" y2="151.50095096413997" stroke="saddlebrown" stroke-width="6" />
-<line x1="357.14285714285717" y1="151.50095096413997" x2="369.38775510204084" y2="150.76563810573134" stroke="saddlebrown" stroke-width="6" />
-<line x1="369.38775510204084" y1="150.76563810573134" x2="381.63265306122446" y2="150.27559295436674" stroke="saddlebrown" stroke-width="6" />
-<line x1="381.63265306122446" y1="150.27559295436674" x2="393.87755102040813" y2="150.03061939711" stroke="saddlebrown" stroke-width="6" />
-<line x1="393.87755102040813" y1="150.03061939711" x2="406.1224489795918" y2="150.03061939711" stroke="saddlebrown" stroke-width="6" />
-<line x1="406.1224489795918" y1="150.03061939711" x2="418.3673469387755" y2="150.27559295436674" stroke="saddlebrown" stroke-width="6" />
-<line x1="418.3673469387755" y1="150.27559295436674" x2="430.61224489795916" y2="150.76563810573134" stroke="saddlebrown" stroke-width="6" />
-<line x1="430.61224489795916" y1="150.76563810573134" x2="442.85714285714283" y2="151.50095096413997" stroke="saddlebrown" stroke-width="6" />
-<line x1="442.85714285714283" y1="151.50095096413997" x2="455.1020408163265" y2="152.481825797097" stroke="saddlebrown" stroke-width="6" />
-<line x1="455.1020408163265" y1="152.481825797097" x2="467.3469387755102" y2="153.70865514443844" stroke="saddlebrown" stroke-width="6" />
-<line x1="467.3469387755102" y1="153.70865514443844" x2="479.5918367346938" y2="155.18192997542457" stroke="saddlebrown" stroke-width="6" />
-<line x1="479.5918367346938" y1="155.18192997542457" x2="491.83673469387753" y2="156.90223988522212" stroke="saddlebrown" stroke-width="6" />
-<line x1="491.83673469387753" y1="156.90223988522212" x2="504.0816326530612" y2="158.87027333085712" stroke="saddlebrown" stroke-width="6" />
-<line x1="504.0816326530612" y1="158.87027333085712" x2="516.3265306122448" y2="161.0868179067305" stroke="saddlebrown" stroke-width="6" />
-<line x1="516.3265306122448" y1="161.0868179067305" x2="528.5714285714286" y2="163.55276065980846" stroke="saddlebrown" stroke-width="6" />
-<line x1="528.5714285714286" y1="163.55276065980846" x2="540.8163265306122" y2="166.26908844461283" stroke="saddlebrown" stroke-width="6" />
-<line x1="540.8163265306122" y1="166.26908844461283" x2="553.0612244897959" y2="169.23688831815437" stroke="saddlebrown" stroke-width="6" />
-<line x1="553.0612244897959" y1="169.23688831815437" x2="565.3061224489795" y2="172.45734797496573" stroke="saddlebrown" stroke-width="6" />
-<line x1="565.3061224489795" y1="172.45734797496573" x2="577.5510204081633" y2="175.93175622240932" stroke="saddlebrown" stroke-width="6" />
-<line x1="577.5510204081633" y1="175.93175622240932" x2="589.7959183673469" y2="179.66150349644943" stroke="saddlebrown" stroke-width="6" />
-<line x1="589.7959183673469" y1="179.66150349644943" x2="602.0408163265306" y2="183.64808241809652" stroke="saddlebrown" stroke-width="6" />
-<line x1="602.0408163265306" y1="183.64808241809652" x2="614.2857142857142" y2="187.89308839074383" stroke="saddlebrown" stroke-width="6" />
-<line x1="614.2857142857142" y1="187.89308839074383" x2="626.5306122448978" y2="192.3982202386382" stroke="saddlebrown" stroke-width="6" />
-<line x1="626.5306122448978" y1="192.3982202386382" x2="638.7755102040816" y2="197.1652808867383" stroke="saddlebrown" stroke-width="6" />
-<line x1="638.7755102040816" y1="197.1652808867383" x2="651.0204081632653" y2="202.19617808223373" stroke="saddlebrown" stroke-width="6" />
-<line x1="651.0204081632653" y1="202.19617808223373" x2="663.2653061224489" y2="207.49292515801378" stroke="saddlebrown" stroke-width="6" />
-<line x1="663.2653061224489" y1="207.49292515801378" x2="675.5102040816325" y2="213.0576418383893" stroke="saddlebrown" stroke-width="6" />
-<line x1="675.5102040816325" y1="213.0576418383893" x2="687.7551020408163" y2="218.8925550873939" stroke="saddlebrown" stroke-width="6" />
-<line x1="687.7551020408163" y1="218.8925550873939" x2="700.0" y2="225.0" stroke="saddlebrown" stroke-width="6" />
-<line x1="100.0" y1="214.28571428571445" x2="100.0" y2="225.0" stroke="peru" stroke-width="1" />
-<line x1="124.48979591836735" y1="204.09281057752372" x2="124.48979591836735" y2="213.0576418383893" stroke="peru" stroke-width="1" />
-<line x1="148.9795918367347" y1="194.8084374860827" x2="148.9795918367347" y2="202.19617808223373" stroke="peru" stroke-width="1" />
-<line x1="173.46938775510208" y1="186.42156228283926" x2="173.46938775510208" y2="192.3982202386382" stroke="peru" stroke-width="1" />
-<line x1="197.9591836734694" y1="178.9222187464232" x2="197.9591836734694" y2="183.64808241809652" stroke="peru" stroke-width="1" />
-<line x1="222.44897959183672" y1="172.30149531966876" x2="222.44897959183672" y2="175.93175622240932" stroke="peru" stroke-width="1" />
-<line x1="246.9387755102041" y1="166.5515245199077" x2="246.9387755102041" y2="169.23688831815437" stroke="peru" stroke-width="1" />
-<line x1="271.42857142857144" y1="161.6654735899478" x2="271.42857142857144" y2="163.55276065980846" stroke="peru" stroke-width="1" />
-<line x1="295.9183673469388" y1="157.6375363786289" x2="295.9183673469388" y2="158.87027333085712" stroke="peru" stroke-width="1" />
-<line x1="320.4081632653061" y1="154.46292644130452" x2="320.4081632653061" y2="155.18192997542457" stroke="peru" stroke-width="1" />
-<line x1="344.89795918367344" y1="152.13787135205538" x2="344.89795918367344" y2="152.481825797097" stroke="peru" stroke-width="1" />
-<line x1="369.38775510204084" y1="150.65960822087138" x2="369.38775510204084" y2="150.76563810573134" stroke="peru" stroke-width="1" />
-<line x1="393.87755102040813" y1="150.0263804104763" x2="393.87755102040813" y2="150.03061939711" stroke="peru" stroke-width="1" />
-<line x1="418.3673469387755" y1="150.23743544889692" x2="418.3673469387755" y2="150.27559295436674" stroke="peru" stroke-width="1" />
-<line x1="442.85714285714283" y1="151.2930241352904" x2="442.85714285714283" y2="151.50095096413997" stroke="peru" stroke-width="1" />
-<line x1="467.3469387755102" y1="153.1944008379728" x2="467.3469387755102" y2="153.70865514443844" stroke="peru" stroke-width="1" />
-<line x1="491.83673469387753" y1="155.94382498499908" x2="491.83673469387753" y2="156.90223988522212" stroke="peru" stroke-width="1" />
-<line x1="516.3265306122448" y1="159.5445637490678" x2="516.3265306122448" y2="161.0868179067305" stroke="peru" stroke-width="1" />
-<line x1="540.8163265306122" y1="164.00089592994013" x2="540.8163265306122" y2="166.26908844461283" stroke="peru" stroke-width="1" />
-<line x1="565.3061224489795" y1="169.3181170389884" x2="565.3061224489795" y2="172.45734797496573" stroke="peru" stroke-width="1" />
-<line x1="589.7959183673469" y1="175.5025455919129" x2="589.7959183673469" y2="179.66150349644943" stroke="peru" stroke-width="1" />
-<line x1="614.2857142857142" y1="182.56153061710765" x2="614.2857142857142" y2="187.89308839074383" stroke="peru" stroke-width="1" />
-<line x1="638.7755102040816" y1="190.50346038859678" x2="638.7755102040816" y2="197.1652808867383" stroke="peru" stroke-width="1" />
-<line x1="663.2653061224489" y1="199.337772393918" x2="663.2653061224489" y2="207.49292515801378" stroke="peru" stroke-width="1" />
-<line x1="687.7551020408163" y1="209.0749645487987" x2="687.7551020408163" y2="218.8925550873939" stroke="peru" stroke-width="1" />
-<rect x="0" y="310.71428571428567" width="800" height="89.28571428571433" fill="lightblue" stroke="none" stroke-width="1" />
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .ib-bg { fill: #fcf9f2; }
+      .ib-cliff { fill: #8c7853; stroke: #4a3b22; stroke-width: 3; }
+      .ib-rope { stroke: #d97706; stroke-width: 6; fill: none; }
+      .ib-water { fill: #4a90e2; fill-opacity: 0.7; }
+      .ib-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .ib-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="ib-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="ib-title">Puente Colgante de Q'eswachaka (Qhapaq Ñan)</text>
+  <text x="400" y="70" text-anchor="middle" class="ib-text">Ingeniería vial incaica - Catenaria de fibra vegetal trenzada (ichu/q'oya) sobre el río Apurímac</text>
+
+  <!-- Cañón rocoso del río Apurímac (acantilados a ambos lados) -->
+  <!-- Risco izquierdo -->
+  <path d="M 0 180 L 160 180 L 180 230 L 140 380 L 190 520 L 0 520 Z" class="ib-cliff"/>
+  <!-- Estribo ciclópeo inca de piedra almohadillada -->
+  <rect x="110" y="180" width="60" height="70" fill="#a89a84" stroke="#5c4e3e" stroke-width="2"/>
+  <line x1="110" y1="205" x2="170" y2="205" stroke="#333" stroke-width="1.5"/>
+  <line x1="110" y1="230" x2="170" y2="230" stroke="#333" stroke-width="1.5"/>
+  <text x="140" y="165" text-anchor="middle" class="ib-text" font-weight="bold">Estribo en roca viva</text>
+
+  <!-- Risco derecho -->
+  <path d="M 800 180 L 640 180 L 620 230 L 660 380 L 610 520 L 800 520 Z" class="ib-cliff"/>
+  <rect x="630" y="180" width="60" height="70" fill="#a89a84" stroke="#5c4e3e" stroke-width="2"/>
+  <line x1="630" y1="205" x2="690" y2="205" stroke="#333" stroke-width="1.5"/>
+  <line x1="630" y1="230" x2="690" y2="230" stroke="#333" stroke-width="1.5"/>
+  <text x="660" y="165" text-anchor="middle" class="ib-text" font-weight="bold">Estribo en roca viva</text>
+
+  <!-- Río Apurímac en el fondo del cañón -->
+  <rect x="0" y="520" width="800" height="80" class="ib-water"/>
+  <text x="400" y="565" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold" font-size="16">Río Apurímac (Garganta profunda)</text>
+
+  <!-- CURVA CATENARIA EXACTA DE LOS CABLES MAESTROS (y = a * cosh(x/a)) -->
+  <!-- Cables portantes principales inferiores (suelo del puente) -->
+  <path d="M 160 210 Q 400 350 640 210" class="ib-rope" stroke-width="8"/>
+  <path d="M 160 216 Q 400 356 640 216" class="ib-rope" stroke-width="6" stroke="#b45309"/>
+
+  <!-- Cables pasamanos superiores (barandillas) -->
+  <path d="M 160 185 Q 400 290 640 185" class="ib-rope" stroke-width="5" stroke="#f59e0b"/>
+
+  <!-- Péndolas y tejidos laterales de amarre (red de sujeción vertical) -->
+  <!-- Celosía de ramas trenzadas cada 30 px -->
+  <line x1="200" y1="195" x2="200" y2="225" stroke="#b45309" stroke-width="2"/>
+  <line x1="240" y1="210" x2="240" y2="248" stroke="#b45309" stroke-width="2"/>
+  <line x1="280" y1="225" x2="280" y2="272" stroke="#b45309" stroke-width="2"/>
+  <line x1="320" y1="240" x2="320" y2="295" stroke="#b45309" stroke-width="2"/>
+  <line x1="360" y1="250" x2="360" y2="315" stroke="#b45309" stroke-width="2"/>
+  <line x1="400" y1="255" x2="400" y2="322" stroke="#b45309" stroke-width="2.5"/>
+  <line x1="440" y1="250" x2="440" y2="315" stroke="#b45309" stroke-width="2"/>
+  <line x1="480" y1="240" x2="480" y2="295" stroke="#b45309" stroke-width="2"/>
+  <line x1="520" y1="225" x2="520" y2="272" stroke="#b45309" stroke-width="2"/>
+  <line x1="560" y1="210" x2="560" y2="248" stroke="#b45309" stroke-width="2"/>
+  <line x1="600" y1="195" x2="600" y2="225" stroke="#b45309" stroke-width="2"/>
+
+  <!-- Flecha máxima en el centro (Sag f ≈ 3,5 m) -->
+  <line x1="400" y1="210" x2="400" y2="322" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="415" y="285" fill="#ef4444" font-weight="bold" font-size="12">Flecha f</text>
+
+  <!-- Panel analítico de catenarias -->
+  <rect x="250" y="90" width="300" height="85" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="260" y="112" class="ib-text" font-weight="bold">Estática de Cables Catenarios:</text>
+  <text x="260" y="130" class="ib-text">• Luz libre L = 28,5 m | Flecha f = 3,5 m</text>
+  <text x="260" y="148" class="ib-text">• Tensión máx. T_max = H / cos(θ_apoyo)</text>
+  <text x="260" y="165" class="ib-text">• Resistencia del ichu trenzado: σ_adm ≈ 15 MPa</text>
 </svg>

@@ -1,1 +1,85 @@
-<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">\n  <rect width="100%" height="100%" fill="#f4f4f4"/>\n  <!-- Stock (DOCUMENTED) -->\n  <rect x="100" y="200" width="600" height="40" fill="#8B4513" rx="5"/>\n  <!-- Bow (DOCUMENTED) -->\n  <path d="M 700 100 Q 750 220 700 340" fill="none" stroke="#5C4033" stroke-width="15"/>\n  <line x1="250" y1="220" x2="132.4429495415054" y2="381.8033988749895" stroke="#cccccc" stroke-width="10"/>\n  <rect x="164.7328848624516" y="160" width="150" height="40" fill="#cccccc" opacity="0.8"/>\n  <path d="M 700 100 L 314.7328848624516 220 L 700 340" fill="none" stroke="black" stroke-width="2"/>\n  <line x1="250" y1="220" x2="311.8033988749895" y2="410.21130325903073" stroke="#666666" stroke-width="10"/>\n  <rect x="218.54101966249686" y="160" width="150" height="40" fill="#666666" opacity="0.8"/>\n  <path d="M 700 100 L 318.54101966249686 220 L 700 340" fill="none" stroke="red" stroke-width="2"/>\n</svg>\n
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .rc-bg { fill: #fcf9f2; }
+      .rc-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
+      .rc-cord { stroke: #222; stroke-width: 3; fill: none; }
+      .rc-bolt { fill: #a8a29e; stroke: #444; stroke-width: 2; }
+      .rc-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
+      .rc-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      
+      @keyframes anim-lever-cock {
+        0%, 100% { transform: rotate(0deg); }
+        45% { transform: rotate(-35deg); }
+        55% { transform: rotate(-35deg); }
+        70% { transform: rotate(0deg); }
+      }
+      @keyframes anim-bolt-fire {
+        0%, 65% { transform: translateX(0); opacity: 0; }
+        70% { transform: translateX(0); opacity: 1; }
+        85% { transform: translateX(280px); opacity: 1; }
+        90% { transform: translateX(340px); opacity: 0; }
+        100% { transform: translateX(0); opacity: 0; }
+      }
+      
+      .cocking-lever {
+        transform-origin: 300px 350px;
+        animation: anim-lever-cock 3s ease-in-out infinite;
+      }
+      .fired-bolt {
+        animation: anim-bolt-fire 3s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+
+  <rect width="800" height="600" class="rc-bg"/>
+  
+  <text x="400" y="45" text-anchor="middle" class="rc-title">Ballesta de Repetición (Zhuge Nu)</text>
+  <text x="400" y="70" text-anchor="middle" class="rc-text">Cargador de gravedad superior y palanca de rearme cíclico semiautomático</text>
+
+  <!-- Cureña de la ballesta (cuerpo horizontal) -->
+  <rect x="180" y="340" width="460" height="30" class="rc-wood"/>
+  <!-- Empuñadura inferior -->
+  <rect x="220" y="370" width="35" height="110" class="rc-wood"/>
+
+  <!-- Arco elástico frontal de bambú laminado / madera -->
+  <path d="M 640 180 Q 610 355 640 530" fill="none" stroke="#5c3a1e" stroke-width="14"/>
+  <!-- Cuerda tensada -->
+  <line x1="640" y1="180" x2="380" y2="355" class="rc-cord"/>
+  <line x1="640" y1="530" x2="380" y2="355" class="rc-cord"/>
+
+  <!-- Cargador superior de proyectiles (Almacena hasta 10 saetas apiladas) -->
+  <rect x="360" y="210" width="160" height="130" fill="#e8dfce" stroke="#7a5a10" stroke-width="3" rx="4"/>
+  <text x="440" y="235" text-anchor="middle" class="rc-text" font-weight="bold">Cargador de saetas</text>
+  
+  <!-- Saetas apiladas por gravedad -->
+  <rect x="375" y="250" width="130" height="8" class="rc-bolt"/>
+  <rect x="375" y="270" width="130" height="8" class="rc-bolt"/>
+  <rect x="375" y="290" width="130" height="8" class="rc-bolt"/>
+  <rect x="375" y="310" width="130" height="8" class="rc-bolt"/>
+
+  <!-- PALANCA DE REARME SUPERIOR OSCILANTE (Animada) -->
+  <g class="cocking-lever">
+    <polygon points="295,340 305,340 330,170 315,170" class="rc-wood"/>
+    <!-- Empuñadura superior de la palanca -->
+    <circle cx="322" cy="165" r="10" fill="#333"/>
+    <!-- Articulación -->
+    <circle cx="300" cy="350" r="8" fill="#c59b27"/>
+  </g>
+
+  <!-- SAETA EN DISPARO (Animada hacia la derecha a alta velocidad) -->
+  <g class="fired-bolt">
+    <line x1="520" y1="355" x2="660" y2="355" stroke="#222" stroke-width="4"/>
+    <polygon points="660,351 680,355 660,359" fill="#ef4444"/>
+    <!-- Aletas traseras -->
+    <line x1="520" y1="349" x2="530" y2="355" stroke="#333" stroke-width="2"/>
+    <line x1="520" y1="361" x2="530" y2="355" stroke="#333" stroke-width="2"/>
+  </g>
+
+  <!-- Panel operativo -->
+  <rect x="40" y="110" width="220" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
+  <text x="50" y="135" class="rc-text" font-weight="bold">Ciclo Semiautomático:</text>
+  <text x="50" y="155" class="rc-text">1. Empujar palanca: tensa cuerda.</text>
+  <text x="50" y="175" class="rc-text">2. Saeta cae al carril por gravedad.</text>
+  <text x="50" y="192" class="rc-text">3. Trinquete suelta cuerda: disparo.</text>
+</svg>

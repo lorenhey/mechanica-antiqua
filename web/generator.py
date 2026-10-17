@@ -47,6 +47,15 @@ def build_site():
                     else:
                         meta['svg_content'] = None
                         
+                    # Detección de imagen realista (foto / 3D)
+                    realistic_img = None
+                    for ext in ["realistic.jpg", "realistic.png", "realistic.jpeg"]:
+                        if os.path.exists(os.path.join(folder_path, ext)):
+                            realistic_img = ext
+                            break
+                    meta['realistic_image'] = realistic_img
+                    meta['has_realistic_image'] = (realistic_img is not None)
+                    
                     machines.append(meta)
                     
                     # Taxonomías en español
@@ -88,10 +97,16 @@ def build_site():
         
     # Renderizar páginas individuales de cada máquina
     machine_template = env.get_template("machine.html")
+    import shutil
     for m in machines:
-        m_html = machine_template.render(machine=m)
         m_dir = os.path.join(site_dir, m['id'])
         os.makedirs(m_dir, exist_ok=True)
+        if m.get('realistic_image'):
+            src_img = os.path.join(machines_dir, m['id'], m['realistic_image'])
+            dst_img = os.path.join(m_dir, m['realistic_image'])
+            shutil.copy2(src_img, dst_img)
+            
+        m_html = machine_template.render(machine=m)
         with open(os.path.join(m_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(m_html)
             
@@ -106,13 +121,20 @@ def build_site():
     header p { margin-top: 0; font-size: 1.15rem; color: #5a4b3c; }
     .corpus-stats { background: #f0ebe1; padding: 1.2rem; border: 1px solid #d3c9b3; border-radius: 4px; margin-bottom: 2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-    .machine-card { border: 1px solid #d3c9b3; padding: 1.5rem; background: #fff; box-shadow: 2px 2px 8px rgba(0,0,0,0.05); border-radius: 4px; }
+    .machine-card { border: 1px solid #d3c9b3; padding: 1.5rem; background: #fff; box-shadow: 2px 2px 8px rgba(0,0,0,0.05); border-radius: 4px; position: relative; }
     .machine-card h3 { font-size: 1.25rem; margin-top: 0; }
     .machine-card h3 a { color: #6b4c1a; text-decoration: none; }
     .machine-card h3 a:hover { text-decoration: underline; }
     .meta-label { font-weight: bold; color: #555; }
     .svg-container { text-align: center; margin: 2rem 0; padding: 1.5rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
     .svg-container svg { max-width: 100%; height: auto; }
+    
+    .realistic-container { text-align: center; margin: 2rem 0; padding: 1.5rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+    .realistic-image { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,0.15); border: 1px solid #e0d7c7; }
+    .realistic-caption { margin-top: 0.9rem; font-size: 1rem; color: #5a4b3c; }
+    
+    .badge-realistic { display: inline-block; margin-top: 0.5rem; padding: 0.2rem 0.6rem; background: #e8ede3; color: #3b5e2b; border: 1px solid #c4d6b8; border-radius: 3px; font-size: 0.85rem; font-weight: bold; }
+    
     .back-link { margin-bottom: 1.5rem; display: inline-block; text-decoration: none; color: #6b4c1a; font-weight: bold; border-bottom: 1px solid #6b4c1a; padding-bottom: 2px; }
     .back-link:hover { color: #8a6224; border-color: #8a6224; }
     ul { line-height: 1.8; }

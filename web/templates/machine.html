@@ -41,8 +41,16 @@
             {% endif %}
         </div>
 
+        {% if machine.realistic_image %}
+        <h2>Registro Visual y Reconstrucción Fotorrealista</h2>
+        <div class="realistic-container">
+            <img src="{{ machine.realistic_image }}" alt="Reconstrucción fotorrealista de {{ machine.name }}" class="realistic-image">
+            <p class="realistic-caption"><em>Reconstrucción tridimensional hiperrealista / Registro visual arqueológico de {{ machine.name }}.</em></p>
+        </div>
+        {% endif %}
+
         {% if machine.svg_content %}
-        <h2>Reconstrucción Matemática</h2>
+        <h2>Reconstrucción Cinemática / Matemática</h2>
         <div class="svg-container">
             {{ machine.svg_content | safe }}
         </div>

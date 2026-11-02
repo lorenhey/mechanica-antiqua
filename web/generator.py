@@ -94,6 +94,13 @@ def build_site():
     )
     with open(os.path.join(site_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(index_html)
+
+    # Renderizar about.html (Bilingüe)
+    if os.path.exists(os.path.join(templates_dir, "about.html")):
+        about_template = env.get_template("about.html")
+        about_html = about_template.render(total=len(machines))
+        with open(os.path.join(site_dir, "about.html"), "w", encoding="utf-8") as f:
+            f.write(about_html)
         
     # Renderizar páginas individuales de cada máquina
     machine_template = env.get_template("machine.html")
@@ -139,6 +146,26 @@ def build_site():
     .back-link:hover { color: #8a6224; border-color: #8a6224; }
     ul { line-height: 1.8; }
     hr { border: 0; border-top: 1px solid #e0d7c7; margin: 1.5rem 0; }
+    
+    .site-nav { margin: 1rem 0 0 0; text-align: center; font-size: 1.05rem; }
+    .site-nav a { color: #6b4c1a; text-decoration: none; margin: 0 0.5rem; font-weight: 600; padding: 0.2rem 0.5rem; }
+    .site-nav a:hover { text-decoration: underline; color: #8a6224; }
+    .site-nav a.active { color: #3d2b1f; border-bottom: 2px solid #8a6224; }
+    
+    .lang-switch-box { display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0 2.5rem 0; }
+    .lang-btn { text-decoration: none; background: #eedfc8; color: #4a3525; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; border: 1px solid #d3c9b3; transition: background 0.2s; }
+    .lang-btn:hover { background: #e2ceb1; }
+    
+    .lang-block { background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .lang-divider { border-top: 2px dashed #d3c9b3; margin: 3rem 0; }
+    .quote-block { border-left: 4px solid #6b4c1a; padding: 0.8rem 1.2rem; background: #faf6ee; font-style: italic; color: #5a4b3c; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+    
+    .table-responsive { overflow-x: auto; margin: 1.5rem 0; }
+    .taxo-table { width: 100%; border-collapse: collapse; background: #fff; }
+    .taxo-table th, .taxo-table td { border: 1px solid #d3c9b3; padding: 0.75rem 1rem; text-align: left; }
+    .taxo-table th { background: #f0ebe1; font-family: 'Cinzel', serif; font-size: 0.95rem; color: #3d2b1f; }
+    
+    footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #d3c9b3; font-size: 0.95rem; color: #7a6b5c; }
     """
     with open(os.path.join(site_dir, "style.css"), "w", encoding="utf-8") as f:
         f.write(css_content)

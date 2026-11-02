@@ -200,5 +200,3 @@ See [docs/methodology.md](docs/methodology.md) and [ABOUT.md](ABOUT.md) for full
 * Historical plate engravings: Public Domain collections.
 
 ---
-*Que la fuerza de los engranajes y la presión del vapor te sean propicias.*  
-*May the force of the gears and the pressure of the steam be ever in your favor.*

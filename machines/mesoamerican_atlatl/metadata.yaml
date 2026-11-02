@@ -9,15 +9,12 @@ source_pages: Códice Nuttall, Códice Mendoza y ejemplares de Tenochtitlán
 machine_type: Palanca propulsora (Átlatl)
 physical_domain: Cinemática, Elasticidad y Momento angular
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto: amplia evidencia arqueológica y reconstrucciones experimentales
-  modernas.'
+confidence: 'Alto: amplia evidencia arqueológica y reconstrucciones experimentales modernas.'
 license: Dominio Público (CC0 1.0)
-would_it_actually_work: Sí, altamente efectivo; multiplica por cuatro la energía cinética
-  del proyectil.
-description: Instrumento balístico que actúa como extensión del brazo humano mediante
-  una palanca de tercer género. Almacena energía elástica en la flexión del dardo
-  e incrementa el radio angular de aceleración, transmitiendo una velocidad de salida
-  y penetración muy superiores a las del tiro manual directo.
+would_it_actually_work: Sí, altamente efectivo; multiplica por cuatro la energía cinética del proyectil.
+description: Instrumento balístico que actúa como extensión del brazo humano mediante una palanca de tercer género. Almacena energía elástica en la flexión del dardo e incrementa el radio angular de aceleración, transmitiendo una velocidad de salida y penetración muy superiores a las del tiro manual directo.
 display_year: 10000 a.C.
 period: Prehistoria / Mesoamérica precolombina
 region: Mesoamérica
+visual_type: Fotografía de arqueología experimental
+visual_caption: Fotografía de ensayo balístico y cinemático de campo utilizando una réplica funcional de átlatl tradicional con dardo emplumado.

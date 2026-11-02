@@ -9,17 +9,14 @@ source_pages: De Architectura, Libro X, Capítulo 7
 machine_type: Bomba hidráulica
 physical_domain: Hidráulica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto (0,85): numerosos restos arqueológicos romanos en bronce (ej. Bolsena,
-  Silchester).'
+confidence: 'Alto (0,85): numerosos restos arqueológicos romanos en bronce (ej. Bolsena, Silchester).'
 license: Dominio Público (CC0 1.0)
-description: Bomba de pistón doble de bronce con acción alternativa mediante balancín
-  central y válvulas de retención de asiento cónico. Diseñada tanto para suministro
-  urbano como para extinción de incendios (sifón de fuego), produciendo un chorro
-  continuo de agua bajo presión hidrostática sostenida.
+description: Bomba de pistón doble de bronce con acción alternativa mediante balancín central y válvulas de retención de asiento cónico. Diseñada tanto para suministro urbano como para extinción de incendios (sifón de fuego), produciendo un chorro continuo de agua bajo presión hidrostática sostenida.
 related_machines:
 - vitruvius_archimedes_screw
 period: Antigüedad helenística
 region: Egipto helenístico
-would_it_actually_work: Sí, ejemplares arqueológicos conservados en museos funcionan
-  perfectamente.
+would_it_actually_work: Sí, ejemplares arqueológicos conservados en museos funcionan perfectamente.
 display_year: 250 a.C.
+visual_type: Fotografía de réplica histórica
+visual_caption: Fotografía de réplica museográfica en bronce de la bomba aspirante-impelente de doble cilindro con balancín central y cámara esférica de aire.

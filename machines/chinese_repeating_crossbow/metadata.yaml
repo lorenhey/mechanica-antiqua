@@ -9,13 +9,9 @@ source_pages: Wubei Zhi y Wu-Ching Tsung-Yao
 machine_type: Armamento balístico
 physical_domain: Cinemática y Elasticidad
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: abundantes ejemplares conservados, descripciones militares y réplicas
-  operativas.'
+confidence: 'Alto: abundantes ejemplares conservados, descripciones militares y réplicas operativas.'
 license: Dominio Público (CC0 1.0)
-description: Arma de proyectiles con ciclo de disparo semiautomático. Una palanca
-  superior acciona simultáneamente el tensado de la cuerda elástica, la alimentación
-  por gravedad de una saeta desde un cargador superior y el disparo con un único movimiento
-  de vaivén del tirador.
+description: Arma de proyectiles con ciclo de disparo semiautomático. Una palanca superior acciona simultáneamente el tensado de la cuerda elástica, la alimentación por gravedad de una saeta desde un cargador superior y el disparo con un único movimiento de vaivén del tirador.
 related_machines:
 - Gastraphetes
 - Ballista
@@ -23,3 +19,5 @@ period: Antigüedad / China Imperial
 region: China
 would_it_actually_work: Sí, fabricada y utilizada militarmente durante siglos.
 display_year: c. 200 d.C.
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional del mecanismo de cerrojo, palanca articulada y tolva vertical de la ballesta de repetición Zhuge Nu.

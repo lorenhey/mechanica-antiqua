@@ -11,13 +11,10 @@ physical_domain: Hidráulica y Geometría
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: Vitruvio provee un algoritmo geométrico exacto para su trazado.
 license: Dominio Público (CC0 1.0)
-description: Una máquina para elevar agua inventada (o popularizada) por Arquímedes.
-  Vitruvio da instrucciones extremadamente precisas para su construcción geométrica
-  basada en una grilla de proporciones de 8 partes para el núcleo y el paso de la
-  hélice, estableciendo también un ángulo de inclinación específico (triángulo pitagórico
-  3-4-5, es decir, ~37 grados).
+description: Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones extremadamente precisas para su construcción geométrica basada en una grilla de proporciones de 8 partes para el núcleo y el paso de la hélice, estableciendo también un ángulo de inclinación específico (triángulo pitagórico 3-4-5, es decir, ~37 grados).
 display_year: 20 a.C.
 period: Antigüedad clásica
 region: Imperio Romano
-would_it_actually_work: Sí, ampliamente utilizado desde la Antigüedad hasta nuestros
-  días.
+would_it_actually_work: Sí, ampliamente utilizado desde la Antigüedad hasta nuestros días.
+visual_type: Diagrama técnico dimensional
+visual_caption: Diagrama de ingeniería analítica y parámetros geométricos acotados (paso, diámetro, ángulo de inclinación y niveles de agua) del tornillo hidráulico helicoidal.

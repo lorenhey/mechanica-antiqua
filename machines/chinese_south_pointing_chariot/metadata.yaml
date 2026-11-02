@@ -9,17 +9,14 @@ source_pages: Volumen 149 (Tratado de Carros y Vestiduras)
 machine_type: Mecanismo de guía vehicular
 physical_domain: Cinemática y Engranajes diferenciales
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto: el texto del Song Shi describe el número exacto de dientes y disposición
-  de cada engranaje.'
+confidence: 'Alto: el texto del Song Shi describe el número exacto de dientes y disposición de cada engranaje.'
 license: Dominio Público (CC0 1.0)
-description: Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente
-  hacia la misma dirección cardinal inicial (el sur). Su funcionamiento se basa en
-  un mecanismo de engranajes diferenciales acoplado a las dos ruedas independientes,
-  compensando con exactitud cinemática cualquier rotación angular del chasis.
+description: Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente hacia la misma dirección cardinal inicial (el sur). Su funcionamiento se basa en un mecanismo de engranajes diferenciales acoplado a las dos ruedas independientes, compensando con exactitud cinemática cualquier rotación angular del chasis.
 related_machines:
 - Differential Gear
 period: Antigüedad / China Imperial
 region: China
-would_it_actually_work: Sí, reconstruido y validado experimentalmente con engranajes
-  diferenciales completos.
+would_it_actually_work: Sí, reconstruido y validado experimentalmente con engranajes diferenciales completos.
 display_year: 255 d.C.
+visual_type: Fotografía de réplica histórica
+visual_caption: Fotografía de maqueta mecánica funcional en madera con tren de engranajes diferencial conservada en el Science Museum de Londres.

@@ -9,16 +9,13 @@ source_pages: Folio 20v
 machine_type: Cojinete y rodamiento
 physical_domain: Mecánica y Tribología
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
-confidence: 'Alto: dibujo técnico analítico autógrafo extraordinariamente nítido con
-  jaula separadora.'
+confidence: 'Alto: dibujo técnico analítico autógrafo extraordinariamente nítido con jaula separadora.'
 license: Dominio Público (CC0 1.0)
-description: Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos
-  a fuertes cargas axiales. Introduce por primera vez una jaula separadora para mantener
-  equidistantes las bolas rodantes, eliminando el rozamiento entre elementos contiguos
-  y anticipando el diseño moderno de rodamientos.
+description: Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos a fuertes cargas axiales. Introduce por primera vez una jaula separadora para mantener equidistantes las bolas rodantes, eliminando el rozamiento entre elementos contiguos y anticipando el diseño moderno de rodamientos.
 related_machines: []
 period: Renacimiento
 region: Italia
-would_it_actually_work: Sí, reduce el coeficiente de fricción de manera drástica respecto
-  al contacto de deslizamiento.
+would_it_actually_work: Sí, reduce el coeficiente de fricción de manera drástica respecto al contacto de deslizamiento.
 display_year: '1493'
+visual_type: Fotografía de réplica histórica
+visual_caption: Fotografía de modelo funcional en madera del cojinete axial con bolas y jaula distanciadora según el diseño de Leonardo da Vinci en el Códice Madrid I (fol. 20v).

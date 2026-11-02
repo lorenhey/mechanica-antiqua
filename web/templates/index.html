@@ -32,8 +32,10 @@
                 <p><span class="meta-label">Tipo:</span> {{ m.machine_type }}</p>
                 <p><span class="meta-label">Dominio:</span> {{ m.physical_domain }}</p>
                 <p><span class="meta-label">Nivel:</span> {{ m.reconstruction_status }}</p>
-                {% if m.has_realistic_image %}
-                <span class="badge-realistic">✦ Fotografía / 3D Hiperrealista</span>
+                {% if m.visual_type %}
+                <span class="badge-realistic">{{ m.visual_type }}</span>
+                {% elif m.has_realistic_image %}
+                <span class="badge-realistic">Registro visual</span>
                 {% endif %}
                 <p><em>{{ m.description[:130] }}...</em></p>
             </div>

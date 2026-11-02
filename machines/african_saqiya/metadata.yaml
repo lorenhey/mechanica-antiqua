@@ -11,10 +11,7 @@ physical_domain: Hidráulica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: amplia evidencia arqueológica y continuidad operativa tradicional.'
 license: Dominio Público (CC0 1.0)
-description: Rueda hidráulica accionada por tracción animal mediante un par de engranajes
-  en ángulo recto (rueda de corona y piñón de linterna) que impulsa un rosario continuo
-  de vasijas o cangilones. Utilizada ampliamente en Egipto, Nubia (Kush) y posteriormente
-  en el mundo islámico para la elevación continua de agua para riego agrícola.
+description: Rueda hidráulica accionada por tracción animal mediante un par de engranajes en ángulo recto (rueda de corona y piñón de linterna) que impulsa un rosario continuo de vasijas o cangilones. Utilizada ampliamente en Egipto, Nubia (Kush) y posteriormente en el mundo islámico para la elevación continua de agua para riego agrícola.
 related_machines:
 - Noria
 - Archimedes Screw
@@ -23,3 +20,5 @@ period: Antigüedad
 region: Egipto / Nubia (Kush)
 would_it_actually_work: Sí, tecnología ampliamente probada y funcional en campo.
 display_year: 200 a.C.
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional de una saqiya nilótica tradicional con tracción animal, engranaje de linterna y rueda de cangilones cerámicos.

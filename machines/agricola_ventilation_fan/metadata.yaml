@@ -9,16 +9,13 @@ source_pages: Libro VI, pp. 200-205
 machine_type: Ventilación minera
 physical_domain: Aerodinámica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
-confidence: 'Alto: principio aerodinámico documentado; rendimiento inferido por análisis
-  fluidodinámico.'
+confidence: 'Alto: principio aerodinámico documentado; rendimiento inferido por análisis fluidodinámico.'
 license: Dominio Público (CC0 1.0)
-description: Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de
-  madera, utilizado para inyectar aire fresco o expulsar gases tóxicos y polvo de
-  los tiros y galerías subterráneas mediante tiro forzado accionado por energía animal
-  o eólica.
+description: Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de madera, utilizado para inyectar aire fresco o expulsar gases tóxicos y polvo de los tiros y galerías subterráneas mediante tiro forzado accionado por energía animal o eólica.
 related_machines: []
 period: Renacimiento
 region: Sajonia
-would_it_actually_work: Sí, precursor directo de las turbomáquinas de ventilación
-  de pozos.
+would_it_actually_work: Sí, precursor directo de las turbomáquinas de ventilación de pozos.
 display_year: '1556'
+visual_type: Reconstrucción digital 3D
+visual_caption: Reconstrucción digital tridimensional del ventilador centrífugo minero con álabes radiales accionado por tiro de caballos.

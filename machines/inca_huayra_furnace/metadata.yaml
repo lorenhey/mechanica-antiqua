@@ -1,11 +1,7 @@
 culture: Inca / Andean
-would_it_actually_work: Sí, fundamental en la producción argentífera andina precolombina
-  y colonial temprana.
+would_it_actually_work: Sí, fundamental en la producción argentífera andina precolombina y colonial temprana.
 reconstruction_status: Nivel B (Reconstrucción conceptual y física aceptada)
-description: Horno cerámico vertical perforado para la fundición de plata y cobre,
-  ubicado en las laderas montañosas de los Andes. Aprovecha los vientos orográficos
-  de altura, los cuales se aceleran por efecto Venturi a través de múltiples orificios
-  cónicos laterales, alcanzando temperaturas de reducción sin requerir fuelles manuales.
+description: Horno cerámico vertical perforado para la fundición de plata y cobre, ubicado en las laderas montañosas de los Andes. Aprovecha los vientos orográficos de altura, los cuales se aceleran por efecto Venturi a través de múltiples orificios cónicos laterales, alcanzando temperaturas de reducción sin requerir fuelles manuales.
 name: Horno de fundición eólico Huayra
 original_name: Huayrachina (Huayra)
 author: Metalúrgicos andinos (Cultura Inca)
@@ -16,9 +12,10 @@ edition: Horizonte Tardío (Imperio Incaico)
 source_pages: Crónicas de Cieza de León y excavaciones de Porco y Potosí
 machine_type: Horno metalúrgico de tiro eólico
 physical_domain: Termodinámica y Dinámica de fluidos (Efecto Venturi)
-confidence: 'Alto: ampliamente documentado en crónicas coloniales tempranas y excavaciones
-  arqueológicas.'
+confidence: 'Alto: ampliamente documentado en crónicas coloniales tempranas y excavaciones arqueológicas.'
 period: Precolombino / Horizonte Tardío
 region: Andes Centrales (Perú / Bolivia)
 language: Quechua / Aimara
 license: Dominio Público (CC0 1.0)
+visual_type: Dibujo técnico histórico
+visual_caption: Grabado e ilustración etnohistórica que documenta las técnicas de unión y amarres de cuerdas en la ingeniería andina.

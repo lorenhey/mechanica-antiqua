@@ -2,18 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mechanica Antiqua - Corpus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanica Antiqua - Corpus de Maquinaria Histórica</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>Mechanica Antiqua</h1>
-        <p><em>An expanding computational corpus of historical machinery</em></p>
+        <p><em>Un corpus computacional en expansión de maquinaria histórica</em></p>
+        <nav class="site-nav">
+            <a href="index.html" class="active">Catálogo / Catalog</a> · 
+            <a href="about.html">Acerca de / About</a> · 
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
     
     <main>
         <div class="corpus-stats">
-            <strong>Estado del Corpus:</strong> 29 máquinas reconstruidas.<br>
+            <strong>Estado del Corpus:</strong> 42 máquinas reconstruidas analíticamente.<br>
             <em>Explorando tratados desde la Antigüedad hasta la Revolución Industrial temprana.</em>
         </div>
         
@@ -21,275 +27,571 @@
         <div class="grid">
         
             <div class="machine-card">
-                <h3><a href="ctesibius_clepsydra/index.html">Clepsydra (Water Clock)</a></h3>
-                <p><span class="meta-label">Autor:</span> Ctesibius (-250)</p>
-                <p><span class="meta-label">Tipo:</span> Clock</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>A water clock with constant flow and a rack-and-pinion gearing system moving an indicator....</em></p>
+                <h3><a href="mesoamerican_atlatl/index.html">Átlatl (Propulsor de dardos)</a></h3>
+                <p><span class="meta-label">Autor:</span> Culturas mesoamericanas (aztecas, mayas) (10000 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Palanca propulsora (Átlatl)</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática, Elasticidad y Momento angular</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de arqueología experimental</span>
+                
+                <p><em>Instrumento balístico que actúa como extensión del brazo humano mediante una palanca de tercer género. Almacena energía elástica e...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="ctesibius_pump/index.html">Ctesibian Pump</a></h3>
-                <p><span class="meta-label">Autor:</span> Ctesibius (-250)</p>
-                <p><span class="meta-label">Tipo:</span> Pump</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>A double-cylinder force pump used for raising water, operating with pistons and valves....</em></p>
+                <h3><a href="african_shaduf/index.html">Shaduf (Cigoñal)</a></h3>
+                <p><span class="meta-label">Autor:</span> Desconocido (Egipto y Nubia antiguos) (2000 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Elevación de agua</p>
+                <p><span class="meta-label">Dominio:</span> Estática y Cinemática (Palanca de primer género)</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Mecanismo de palanca de primer género con contrapeso de arcilla o piedra en un extremo y un cubo en el otro, pivotante sobre un so...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="philo_washbasin/index.html">Constant-Head Washbasin</a></h3>
-                <p><span class="meta-label">Autor:</span> Philo of Byzantium (-220)</p>
-                <p><span class="meta-label">Tipo:</span> Washbasin</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>A pneumatic mechanism using air pressure to maintain a constant water level in a basin....</em></p>
+                <h3><a href="indian_charkha/index.html">Rueca de hilar india (Charkha)</a></h3>
+                <p><span class="meta-label">Autor:</span> Desconocido (Tradición textil india) (Antigüedad (~500 a.C.))</p>
+                <p><span class="meta-label">Tipo:</span> Rueca de hilar</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de monumento patrimonial</span>
+                
+                <p><em>Máquina manual de hilado que multiplica la velocidad angular mediante dos etapas cinemáticas con transmisión por cuerda sin fin: u...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="ctesibius_clepsydra/index.html">Clepsidra de flujo constante</a></h3>
+                <p><span class="meta-label">Autor:</span> Ctesibio (250 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Reloj de agua</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Pieza de museo / Arqueología</span>
+                
+                <p><em>Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una válvula de flotador de nivel constante que estabiliza la p...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="ctesibius_pump/index.html">Bomba aspirante-impelente de Ctesibio</a></h3>
+                <p><span class="meta-label">Autor:</span> Ctesibio (250 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Bomba de pistón doble de bronce con acción alternativa mediante balancín central y válvulas de retención de asiento cónico. Diseña...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="philo_washbasin/index.html">Lavamanos neumático de nivel constante</a></h3>
+                <p><span class="meta-label">Autor:</span> Filón de Bizancio (220 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Dispensador neumático de agua</p>
+                <p><span class="meta-label">Dominio:</span> Neumática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Dispensador neumático autorregulado de agua. Un depósito hermético superior suministra agua al cuenco; cuando el nivel del líquido...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="african_saqiya/index.html">Saqiya (Rueda de cangilones)</a></h3>
+                <p><span class="meta-label">Autor:</span> Desconocido (Tradición nilótica / helenística) (200 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Elevación de agua</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Rueda hidráulica accionada por tracción animal mediante un par de engranajes en ángulo recto (rueda de corona y piñón de linterna)...</em></p>
             </div>
         
             <div class="machine-card">
                 <h3><a href="vitruvius_archimedes_screw/index.html">Tornillo de Arquímedes</a></h3>
-                <p><span class="meta-label">Autor:</span> Vitruvio (-20)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba hidráulica helicoidal</p>
-                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada)</p>
-                <p><em>Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones  extremadamente precis...</em></p>
+                <p><span class="meta-label">Autor:</span> Vitruvio (20 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Bomba helicoidal</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica y Geometría</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Diagrama técnico dimensional</span>
+                
+                <p><em>Una máquina para elevar agua inventada (o popularizada) por Arquímedes. Vitruvio da instrucciones extremadamente precisas para su ...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="vitruvius_water_wheel/index.html">Undershot Water Wheel</a></h3>
-                <p><span class="meta-label">Autor:</span> Vitruvius (-20)</p>
-                <p><span class="meta-label">Tipo:</span> Water Wheel</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A water wheel driven by the impact of flowing water on its lower blades (undershot)....</em></p>
+                <h3><a href="vitruvius_water_wheel/index.html">Rueda hidráulica vitruviana de paletas</a></h3>
+                <p><span class="meta-label">Autor:</span> Vitruvio (20 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Rueda hidráulica</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de estructura real</span>
+                
+                <p><em>Rueda hidráulica impulsada por la energía cinética del flujo inferior de agua contra sus paletas sumergidas. Acoplada a través de ...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="roman_aqueduct/index.html">Sistema de acueducto romano y sifón invertido</a></h3>
+                <p><span class="meta-label">Autor:</span> Vitruvio / Ingenieros romanos (15 a.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Infraestructura hidráulica</p>
+                <p><span class="meta-label">Dominio:</span> Dinámica de fluidos y Estática de estructuras</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Fotografía de estructura real</span>
+                
+                <p><em>Infraestructura hidráulica para transporte de agua por gravedad. Integra canales con pendiente uniforme controlada, arcadas de mam...</em></p>
             </div>
         
             <div class="machine-card">
                 <h3><a href="heron_aeolipile/index.html">Eolípila</a></h3>
-                <p><span class="meta-label">Autor:</span> Herón de Alejandría (50)</p>
-                <p><span class="meta-label">Tipo:</span> Motor térmico / Turbina de reacción</p>
-                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte)</p>
-                <p><em>Conocida como la primera máquina de vapor, la eolípila consiste en una esfera hueca montada  sobre un eje soportado por ...</em></p>
+                <p><span class="meta-label">Autor:</span> Herón de Alejandría (50 d.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Motor térmico de reacción</p>
+                <p><span class="meta-label">Dominio:</span> Termodinámica y Dinámica de fluidos</p>
+                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Conocida como la primera máquina de vapor, la eolípila consiste en una esfera hueca montada sobre un eje soportado por un caldero....</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="banu_musa_alternating_fountain/index.html">Alternating Fountain</a></h3>
-                <p><span class="meta-label">Autor:</span> Banū Mūsā (850)</p>
-                <p><span class="meta-label">Tipo:</span> Fountain</p>
-                <p><span class="meta-label">Nivel:</span> B</p>
-                <p><em>A fountain that alternates its spray pattern between a single straight vertical jet and a wide shield-like spray. It ach...</em></p>
+                <h3><a href="chinese_repeating_crossbow/index.html">Ballesta de repetición (Zhuge Nu)</a></h3>
+                <p><span class="meta-label">Autor:</span> Desconocido (atribuido a Zhuge Liang) (c. 200 d.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Armamento balístico</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática y Elasticidad</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Arma de proyectiles con ciclo de disparo semiautomático. Una palanca superior acciona simultáneamente el tensado de la cuerda elás...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="banu_musa_automatic_flute/index.html">Automatic Flute Player</a></h3>
-                <p><span class="meta-label">Autor:</span> Banū Mūsā (850)</p>
-                <p><span class="meta-label">Tipo:</span> Automata / Musical Instrument</p>
-                <p><span class="meta-label">Nivel:</span> C</p>
-                <p><em>Considered one of the earliest programmable machines. It consists of a large mechanical flute player. Water flow drives ...</em></p>
+                <h3><a href="chinese_south_pointing_chariot/index.html">Carro apuntador hacia el sur (Zhinanche)</a></h3>
+                <p><span class="meta-label">Autor:</span> Ma Jun (Tres Reinos) / Yan Su (Dinastía Song) (255 d.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Mecanismo de guía vehicular</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática y Engranajes diferenciales</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente hacia la misma dirección cardinal inicial (el sur...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="al_jazari_elephant_clock/index.html">Elephant Clock</a></h3>
+                <h3><a href="banu_musa_alternating_fountain/index.html">Fuente de chorro alternante</a></h3>
+                <p><span class="meta-label">Autor:</span> Hermanos Banū Mūsā (850)</p>
+                <p><span class="meta-label">Tipo:</span> Fuente hidráulica automática</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Fuente hidráulica automática que alterna periódicamente la forma del surtidor entre un chorro vertical único y una campana o domo ...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="banu_musa_automatic_flute/index.html">Flautista autómata programable</a></h3>
+                <p><span class="meta-label">Autor:</span> Hermanos Banū Mūsā (850)</p>
+                <p><span class="meta-label">Tipo:</span> Autómata musical</p>
+                <p><span class="meta-label">Dominio:</span> Neumática y Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Considerado uno de los primeros dispositivos con programa mecánico almacenable de la historia. Un cilindro rotativo provisto de cl...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="chinese_su_song_clock/index.html">Torre del reloj astronómico de Su Song</a></h3>
+                <p><span class="meta-label">Autor:</span> Su Song (1092)</p>
+                <p><span class="meta-label">Tipo:</span> Reloj astronómico</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Grabado técnico histórico</span>
+                
+                <p><em>Monumental torre de relojería astronómica impulsada por una rueda hidráulica provista de un mecanismo de escape por peso (clepsidr...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="gothic_cathedral/index.html">Estructura estática de la catedral gótica</a></h3>
+                <p><span class="meta-label">Autor:</span> Villard de Honnecourt / Maestros canteros medievales (c. 1150-1500)</p>
+                <p><span class="meta-label">Tipo:</span> Estructura arquitectónica</p>
+                <p><span class="meta-label">Dominio:</span> Estática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Fotografía de estructura real</span>
+                
+                <p><em>Sistema estructural de mampostería basado en el arco ojival, la bóveda de crucería y los arbotantes exteriores. La resolución está...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="al_jazari_elephant_clock/index.html">Reloj del elefante</a></h3>
                 <p><span class="meta-label">Autor:</span> Ismail al-Jazari (1206)</p>
-                <p><span class="meta-label">Tipo:</span> Water Clock / Automata</p>
-                <p><span class="meta-label">Nivel:</span> B</p>
-                <p><em>An elaborate water clock shaped like an Asian elephant. It uses a sinking bowl with a calibrated orifice floating in a w...</em></p>
+                <p><span class="meta-label">Tipo:</span> Reloj de agua y autómatas</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica, Cinemática y Estática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Monumental autómata y reloj hidráulico con forma de elefante asiático. En su interior, un cuenco perforado flota en un depósito y ...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="al_jazari_suction_pump/index.html">Twin-Cylinder Suction Pump</a></h3>
+                <h3><a href="al_jazari_suction_pump/index.html">Bomba de pistón bicilíndrica</a></h3>
                 <p><span class="meta-label">Autor:</span> Ismail al-Jazari (1206)</p>
-                <p><span class="meta-label">Tipo:</span> Reciprocating Pump</p>
-                <p><span class="meta-label">Nivel:</span> B</p>
-                <p><em>A water-raising machine featuring an early use of a true crank and a slot-rod mechanism. A paddle wheel turned by a stre...</em></p>
+                <p><span class="meta-label">Tipo:</span> Bomba alternativa</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica y Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo de ranura para convertir movimiento rotatorio en altern...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="villard_sawmill/index.html">Aserradero Hidráulico</a></h3>
+                <h3><a href="villard_sawmill/index.html">Aserradero hidráulico con retorno elástico</a></h3>
                 <p><span class="meta-label">Autor:</span> Villard de Honnecourt (1230)</p>
-                <p><span class="meta-label">Tipo:</span> Máquina de procesamiento</p>
-                <p><span class="meta-label">Nivel:</span> Nivel D (Interpretación especulativa)</p>
-                <p><em>Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda  hidráulica está provisto de levas...</em></p>
+                <p><span class="meta-label">Tipo:</span> Aserradero hidráulico</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática de levas y mecanismos</p>
+                <p><span class="meta-label">Nivel:</span> Nivel D (Interpretación especulativa / fuente fragmentaria)</p>
+                
+                <span class="badge-realistic">Dibujo técnico histórico</span>
+                
+                <p><em>Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda hidráulica está provisto de levas que empuja...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="martini_hydraulic_sawmill/index.html">Hydraulic Sawmill</a></h3>
+                <h3><a href="inca_huayra_furnace/index.html">Horno de fundición eólico Huayra</a></h3>
+                <p><span class="meta-label">Autor:</span> Metalúrgicos andinos (Cultura Inca) (c. 1450 d.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Horno metalúrgico de tiro eólico</p>
+                <p><span class="meta-label">Dominio:</span> Termodinámica y Dinámica de fluidos (Efecto Venturi)</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Reconstrucción conceptual y física aceptada)</p>
+                
+                <span class="badge-realistic">Dibujo técnico histórico</span>
+                
+                <p><em>Horno cerámico vertical perforado para la fundición de plata y cobre, ubicado en las laderas montañosas de los Andes. Aprovecha lo...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="inca_quipu_memory/index.html">Matriz mnemotécnica de Quipu</a></h3>
+                <p><span class="meta-label">Autor:</span> Quipucamayoc (Contadores del Tahuantinsuyo) (c. 1450 d.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Dispositivo mnemotécnico decimal</p>
+                <p><span class="meta-label">Dominio:</span> Sistemas discretos y Combinatoria</p>
+                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
+                
+                <span class="badge-realistic">Pieza de museo / Arqueología</span>
+                
+                <p><em>Dispositivo mecánico de almacenamiento mnemotécnico y computacional basado en cuerdas de algodón y lana con nudos posicionales en ...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="inca_suspension_bridge/index.html">Puente colgante de Q'eswachaka</a></h3>
+                <p><span class="meta-label">Autor:</span> Ingenieros viales incas (Qhapaq Ñan) (c. 1450 d.C.)</p>
+                <p><span class="meta-label">Tipo:</span> Puente colgante de fibras naturales</p>
+                <p><span class="meta-label">Dominio:</span> Estática de catenarias y Resistencia de materiales</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de estructura real</span>
+                
+                <p><em>Puente colgante de fibra de pasto andino (ichu o q'oya) trenzado en gruesos cables estructurales anclados a estribos de roca viva ...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="martini_hydraulic_sawmill/index.html">Aserradero hidráulico con biela-manivela</a></h3>
                 <p><span class="meta-label">Autor:</span> Francesco di Giorgio Martini (1480)</p>
-                <p><span class="meta-label">Tipo:</span> Sawmill</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A water-powered sawmill using a crank and connecting rod mechanism to convert rotary motion into linear motion for the s...</em></p>
+                <p><span class="meta-label">Tipo:</span> Aserradero hidráulico</p>
+                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de maquinaria histórica</span>
+                
+                <p><em>Aserradero mecanizado que utiliza una rueda hidráulica acoplada a un mecanismo de biela-cigüeñal para convertir la rotación contin...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="martini_piston_pump/index.html">Piston Pump</a></h3>
+                <h3><a href="martini_piston_pump/index.html">Bomba aspirante-impelente con balancín</a></h3>
                 <p><span class="meta-label">Autor:</span> Francesco di Giorgio Martini (1480)</p>
-                <p><span class="meta-label">Tipo:</span> Pump</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A piston pump mechanism designed to lift water, often powered by a crank or lever system....</em></p>
+                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Facsímil de manuscrito histórico</span>
+                
+                <p><em>Bomba impelente para elevación de agua con pistón de cuero ajustado en cuerpo de bronce o madera torneada. Accionada por un brazo ...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="leonardo_cage_bearing/index.html">Cage Ball Bearing</a></h3>
+                <h3><a href="leonardo_cage_bearing/index.html">Cojinete axial de bolas con jaula de retención</a></h3>
                 <p><span class="meta-label">Autor:</span> Leonardo da Vinci (1493)</p>
-                <p><span class="meta-label">Tipo:</span> Bearing</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A thrust bearing design incorporating caged balls to reduce friction, an early anticipation of modern ball bearings....</em></p>
+                <p><span class="meta-label">Tipo:</span> Cojinete y rodamiento</p>
+                <p><span class="meta-label">Dominio:</span> Mecánica y Tribología</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Diseño pionero de rodamiento axial para ejes giratorios verticales sometidos a fuertes cargas axiales. Introduce por primera vez u...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="leonardo_globoidal_gear/index.html">Globoidal Gear</a></h3>
+                <h3><a href="leonardo_globoidal_gear/index.html">Engranaje helicoidal globoidal (Tornillo envolvente)</a></h3>
                 <p><span class="meta-label">Autor:</span> Leonardo da Vinci (1493)</p>
-                <p><span class="meta-label">Tipo:</span> Gears</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A globoidal worm gear design by Leonardo da Vinci, intended to increase the contact area between the worm and the gear f...</em></p>
+                <p><span class="meta-label">Tipo:</span> Engranajes de tornillo sin fin</p>
+                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>Transmisión por tornillo sin fin globoidal curvado para adaptarse a la curvatura de la rueda dentada conjugada. Esta geometría de ...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="agricola_chain_pump/index.html">Chain Pump</a></h3>
+                <h3><a href="agricola_chain_pump/index.html">Bomba de cadena y rosario</a></h3>
                 <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Pump</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A chain pump used for dewatering mines, powered by a water wheel or animal power....</em></p>
+                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Bomba de rosario de esferas o discos de cuero unidos por una cadena de hierro sin fin que asciende por el interior de un tubo de m...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="agricola_reversible_hoist/index.html">Reversible Water Hoist</a></h3>
+                <h3><a href="agricola_reversible_hoist/index.html">Malacate hidráulico reversible</a></h3>
                 <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Hoist</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>A water-powered reversible hoisting machine used to draw water or ore from deep mine shafts....</em></p>
+                <p><span class="meta-label">Tipo:</span> Malacate de elevación</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática e Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Máquina elevadora para pozos mineros profundos dotada de una rueda hidráulica de doble corona de álabes contrapuestos. Al alternar...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="agricola_stamp_mill/index.html">Stamp Mill</a></h3>
+                <h3><a href="agricola_stamp_mill/index.html">Molino de martillos pisones (Bocarte)</a></h3>
                 <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Mill</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A water-powered stamp mill used for crushing ore....</em></p>
+                <p><span class="meta-label">Tipo:</span> Molino</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Molino hidráulico de trituración para minerales metalíferos. Un árbol de levas accionado por una rueda hidráulica eleva y deja cae...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="agricola_suction_pump/index.html">Bomba de Succión</a></h3>
+                <h3><a href="agricola_suction_pump/index.html">Bomba de succión minera</a></h3>
                 <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Bomba alternativa para minas</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida)</p>
-                <p><em>Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada  ampliamente en la minería d...</em></p>
+                <p><span class="meta-label">Tipo:</span> Bomba alternativa de minería</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática e Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Bomba de succión operada por energía humana o hidráulica a través de un cigüeñal, utilizada ampliamente en la minería de Sajonia y...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="agricola_ventilation_fan/index.html">Ventilation Fan</a></h3>
+                <h3><a href="agricola_ventilation_fan/index.html">Ventilador centrífugo minero</a></h3>
                 <p><span class="meta-label">Autor:</span> Georgius Agricola (1556)</p>
-                <p><span class="meta-label">Tipo:</span> Ventilation</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>A rotary fan used to ventilate mine shafts....</em></p>
+                <p><span class="meta-label">Tipo:</span> Ventilación minera</p>
+                <p><span class="meta-label">Dominio:</span> Aerodinámica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Reconstrucción digital 3D</span>
+                
+                <p><em>Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de madera, utilizado para inyectar aire fresco o expulsar gases...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="besson_screw_lathe/index.html">Screw-cutting Lathe</a></h3>
+                <h3><a href="besson_screw_lathe/index.html">Torno de roscar con husillo patrón</a></h3>
                 <p><span class="meta-label">Autor:</span> Jacques Besson (1578)</p>
-                <p><span class="meta-label">Tipo:</span> Lathe</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>An early screw-cutting lathe capable of cutting precise threads using a lead screw and templates....</em></p>
+                <p><span class="meta-label">Tipo:</span> Torno de roscar</p>
+                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Grabado técnico histórico</span>
+                
+                <p><em>Torno pionero para el labrado cinemático y mecánico de roscas con pasos variables y precisos. Utiliza un husillo patrón y un siste...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="ramelli_book_wheel/index.html">Rueda de Libros</a></h3>
+                <h3><a href="ramelli_book_wheel/index.html">Rueda de lectura de Ramelli</a></h3>
                 <p><span class="meta-label">Autor:</span> Agostino Ramelli (1588)</p>
-                <p><span class="meta-label">Tipo:</span> Mecanismo de transmisión</p>
-                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida)</p>
-                <p><em>La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples libros  abiertos simultáneamente. A diferenc...</em></p>
+                <p><span class="meta-label">Tipo:</span> Mecanismo epicicloidal</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Fotografía de réplica histórica</span>
+                
+                <p><em>La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples libros abiertos simultáneamente. A diferencia de una r...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="ramelli_rotary_pump/index.html">Rotary Water Pump</a></h3>
+                <h3><a href="ramelli_rotary_pump/index.html">Bomba rotativa de paletas deslizantes</a></h3>
                 <p><span class="meta-label">Autor:</span> Agostino Ramelli (1588)</p>
-                <p><span class="meta-label">Tipo:</span> Pump</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>A rotary pump featuring a sliding vane mechanism inside a cylindrical casing, driven by a hand crank....</em></p>
+                <p><span class="meta-label">Tipo:</span> Bomba hidráulica</p>
+                <p><span class="meta-label">Dominio:</span> Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Grabado técnico histórico</span>
+                
+                <p><em>Bomba volumétrica rotativa precursora de las bombas industriales modernas de paletas. Un rotor excéntrico provisto de paletas metá...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="zonca_paper_mill/index.html">Paper Mill</a></h3>
+                <h3><a href="zonca_paper_mill/index.html">Molino papelero de mazos batidores</a></h3>
                 <p><span class="meta-label">Autor:</span> Vittorio Zonca (1607)</p>
-                <p><span class="meta-label">Tipo:</span> Mill</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A water-powered paper mill with trip hammers for pounding rags into pulp....</em></p>
+                <p><span class="meta-label">Tipo:</span> Molino</p>
+                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de instalación industrial</span>
+                
+                <p><em>Instalación fabril accionada por rueda hidráulica para la fabricación de papel. Un eje con levas distribuidas eleva y deja caer se...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="zonca_stamping_mill/index.html">Stamping Mill</a></h3>
+                <h3><a href="zonca_stamping_mill/index.html">Molino de batanado textil y trituración</a></h3>
                 <p><span class="meta-label">Autor:</span> Vittorio Zonca (1607)</p>
-                <p><span class="meta-label">Tipo:</span> Mill</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>A water-driven stamping mill used for metal ores or fulling cloth....</em></p>
+                <p><span class="meta-label">Tipo:</span> Molino</p>
+                <p><span class="meta-label">Dominio:</span> Mecánica analítica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Fotografía de maquinaria histórica</span>
+                
+                <p><em>Batán hidráulico accionado por árbol de levas para el acabado y desengrase de tejidos de lana o la trituración de minerales. Los m...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="papin_papin_steam_engine/index.html">Papin Steam Engine</a></h3>
+                <h3><a href="papin_papin_steam_engine/index.html">Cilindro de vapor y pistón de Papin</a></h3>
                 <p><span class="meta-label">Autor:</span> Denis Papin (1690)</p>
-                <p><span class="meta-label">Tipo:</span> Piston steam engine</p>
-                <p><span class="meta-label">Nivel:</span> Level C</p>
-                <p><em>First conceptual piston steam engine....</em></p>
+                <p><span class="meta-label">Tipo:</span> Máquina de vapor de pistón</p>
+                <p><span class="meta-label">Dominio:</span> Termodinámica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
+                
+                <span class="badge-realistic">Retrato histórico y grabado técnico</span>
+                
+                <p><em>Primer diseño conceptual de máquina térmica de cilindro y pistón de vapor. Papin generaba vapor directamente en el fondo del cilin...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="savery_savery_engine/index.html">Savery Engine</a></h3>
+                <h3><a href="savery_savery_engine/index.html">Bomba de vapor de Savery (El amigo del minero)</a></h3>
                 <p><span class="meta-label">Autor:</span> Thomas Savery (1702)</p>
-                <p><span class="meta-label">Tipo:</span> Thermal water pump</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>An early commercial steam engine used for pumping water from coal mines....</em></p>
+                <p><span class="meta-label">Tipo:</span> Bomba térmica de agua</p>
+                <p><span class="meta-label">Dominio:</span> Termodinámica e Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Grabado técnico histórico</span>
+                
+                <p><em>Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín). El agua de la mina era aspirada hacia una cámara rece...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="newcomen_newcomen_engine/index.html">Atmospheric Engine</a></h3>
+                <h3><a href="newcomen_newcomen_engine/index.html">Máquina de vapor atmosférica de Newcomen</a></h3>
                 <p><span class="meta-label">Autor:</span> Thomas Newcomen (1712)</p>
-                <p><span class="meta-label">Tipo:</span> Atmospheric steam engine</p>
-                <p><span class="meta-label">Nivel:</span> Level B</p>
-                <p><em>First practical steam engine using atmospheric pressure to do work....</em></p>
+                <p><span class="meta-label">Tipo:</span> Máquina de vapor atmosférica</p>
+                <p><span class="meta-label">Dominio:</span> Termodinámica y Cinemática</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Grabado técnico histórico</span>
+                
+                <p><em>Primera máquina motriz térmica práctica de la historia industrial. El vapor ingresa a baja presión en el cilindro para expulsar el...</em></p>
             </div>
         
             <div class="machine-card">
-                <h3><a href="leupold_leupold_steam_pump/index.html">High-Pressure Steam Pump</a></h3>
+                <h3><a href="leupold_leupold_steam_pump/index.html">Máquina de vapor de alta presión de Leupold</a></h3>
                 <p><span class="meta-label">Autor:</span> Jacob Leupold (1724)</p>
-                <p><span class="meta-label">Tipo:</span> High-pressure steam engine</p>
-                <p><span class="meta-label">Nivel:</span> Level A</p>
-                <p><em>First design for a high-pressure steam engine....</em></p>
+                <p><span class="meta-label">Tipo:</span> Máquina de vapor de alta presión</p>
+                <p><span class="meta-label">Dominio:</span> Termodinámica e Hidráulica</p>
+                <p><span class="meta-label">Nivel:</span> Nivel A (Completamente documentada y reproducible)</p>
+                
+                <span class="badge-realistic">Grabado técnico histórico</span>
+                
+                <p><em>Primer diseño documentado de una máquina de vapor de pistón de alta presión (no condensante). Utiliza una válvula rotativa de cuat...</em></p>
+            </div>
+        
+            <div class="machine-card">
+                <h3><a href="japanese_karakuri_doll/index.html">Autómata servidor de té (Chahakobi Ningyō)</a></h3>
+                <p><span class="meta-label">Autor:</span> Hosokawa Hanzō (1796)</p>
+                <p><span class="meta-label">Tipo:</span> Autómata mecánico</p>
+                <p><span class="meta-label">Dominio:</span> Cinemática y Elasticidad</p>
+                <p><span class="meta-label">Nivel:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
+                
+                <span class="badge-realistic">Pieza de museo / Objeto histórico</span>
+                
+                <p><em>Autómata mecánico del período Edo accionado por un muelle espiral de ballena. Avanza paso a paso portando una taza de té; cuando e...</em></p>
             </div>
         
         </div>
         
-        <h2>Autores Representados</h2>
+        <h2>Autores e Ingenieros Representados</h2>
         <ul>
+        
+            <li><strong>Desconocido (Tradición nilótica / helenística)</strong> (1 máquina)</li>
+        
+            <li><strong>Desconocido (Egipto y Nubia antiguos)</strong> (1 máquina)</li>
         
             <li><strong>Georgius Agricola</strong> (5 máquinas)</li>
         
             <li><strong>Ismail al-Jazari</strong> (2 máquinas)</li>
         
-            <li><strong>Banū Mūsā</strong> (2 máquinas)</li>
+            <li><strong>Hermanos Banū Mūsā</strong> (2 máquinas)</li>
         
-            <li><strong>Jacques Besson</strong> (1 máquinas)</li>
+            <li><strong>Jacques Besson</strong> (1 máquina)</li>
         
-            <li><strong>Ctesibius</strong> (2 máquinas)</li>
+            <li><strong>Desconocido (atribuido a Zhuge Liang)</strong> (1 máquina)</li>
         
-            <li><strong>Herón de Alejandría</strong> (1 máquinas)</li>
+            <li><strong>Ma Jun (Tres Reinos) / Yan Su (Dinastía Song)</strong> (1 máquina)</li>
+        
+            <li><strong>Su Song</strong> (1 máquina)</li>
+        
+            <li><strong>Ctesibio</strong> (2 máquinas)</li>
+        
+            <li><strong>Villard de Honnecourt / Maestros canteros medievales</strong> (1 máquina)</li>
+        
+            <li><strong>Herón de Alejandría</strong> (1 máquina)</li>
+        
+            <li><strong>Metalúrgicos andinos (Cultura Inca)</strong> (1 máquina)</li>
+        
+            <li><strong>Quipucamayoc (Contadores del Tahuantinsuyo)</strong> (1 máquina)</li>
+        
+            <li><strong>Ingenieros viales incas (Qhapaq Ñan)</strong> (1 máquina)</li>
+        
+            <li><strong>Desconocido (Tradición textil india)</strong> (1 máquina)</li>
+        
+            <li><strong>Hosokawa Hanzō</strong> (1 máquina)</li>
         
             <li><strong>Leonardo da Vinci</strong> (2 máquinas)</li>
         
-            <li><strong>Jacob Leupold</strong> (1 máquinas)</li>
+            <li><strong>Jacob Leupold</strong> (1 máquina)</li>
         
             <li><strong>Francesco di Giorgio Martini</strong> (2 máquinas)</li>
         
-            <li><strong>Thomas Newcomen</strong> (1 máquinas)</li>
+            <li><strong>Culturas mesoamericanas (aztecas, mayas)</strong> (1 máquina)</li>
         
-            <li><strong>Denis Papin</strong> (1 máquinas)</li>
+            <li><strong>Thomas Newcomen</strong> (1 máquina)</li>
         
-            <li><strong>Philo of Byzantium</strong> (1 máquinas)</li>
+            <li><strong>Denis Papin</strong> (1 máquina)</li>
+        
+            <li><strong>Filón de Bizancio</strong> (1 máquina)</li>
         
             <li><strong>Agostino Ramelli</strong> (2 máquinas)</li>
         
-            <li><strong>Thomas Savery</strong> (1 máquinas)</li>
+            <li><strong>Vitruvio / Ingenieros romanos</strong> (1 máquina)</li>
         
-            <li><strong>Villard de Honnecourt</strong> (1 máquinas)</li>
+            <li><strong>Thomas Savery</strong> (1 máquina)</li>
         
-            <li><strong>Vitruvio</strong> (1 máquinas)</li>
+            <li><strong>Villard de Honnecourt</strong> (1 máquina)</li>
         
-            <li><strong>Vitruvius</strong> (1 máquinas)</li>
+            <li><strong>Vitruvio</strong> (2 máquinas)</li>
         
             <li><strong>Vittorio Zonca</strong> (2 máquinas)</li>
         

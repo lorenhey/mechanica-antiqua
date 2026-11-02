@@ -11,14 +11,12 @@ physical_domain: Cinemática
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto: tecnología textil continua y documentada con precisión cinemática.'
 license: Dominio Público (CC0 1.0)
-description: 'Máquina manual de hilado que multiplica la velocidad angular mediante
-  dos etapas cinemáticas con transmisión por cuerda sin fin: una gran rueda motriz
-  y un pequeño huso metálico horizontal, logrando relaciones de transmisión de hasta
-  1:30 para el hilado uniforme de fibras cortas de algodón.'
+description: 'Máquina manual de hilado que multiplica la velocidad angular mediante dos etapas cinemáticas con transmisión por cuerda sin fin: una gran rueda motriz y un pequeño huso metálico horizontal, logrando relaciones de transmisión de hasta 1:30 para el hilado uniforme de fibras cortas de algodón.'
 related_machines:
 - European Spinning Wheel
 period: Antigüedad
 region: India
-would_it_actually_work: Sí, base de la producción algodonera tradicional de la India
-  durante siglos.
+would_it_actually_work: Sí, base de la producción algodonera tradicional de la India durante siglos.
 display_year: Antigüedad (~500 a.C.)
+visual_type: Fotografía de monumento patrimonial
+visual_caption: Fotografía de la réplica monumental de madera de la rueca tradicional Charkha instalada en el Aeropuerto Internacional Indira Gandhi de Nueva Delhi.

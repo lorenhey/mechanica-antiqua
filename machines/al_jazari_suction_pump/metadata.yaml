@@ -11,7 +11,7 @@ physical_domain: Hidráulica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: descripción detallada del cigüeñal y mecanismo de biela ranurada
   con válvulas de clapeta.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Máquina hidráulica pionera en el uso del cigüeñal y la biela con mecanismo
   de ranura para convertir movimiento rotatorio en alternativo. Una rueda de paletas
   mueve una rueda dentada con espiga que empuja y tira de dos pistones opuestos en

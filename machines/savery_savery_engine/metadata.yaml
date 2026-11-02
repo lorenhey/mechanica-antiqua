@@ -11,7 +11,7 @@ physical_domain: Termodinámica e Hidráulica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: patente real de 1698 y folleto técnico explicativo impreso por
   Savery.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín).
   El agua de la mina era aspirada hacia una cámara receptora por la condensación de
   vapor (vacío) y posteriormente forzada a gran altura mediante la presión directa

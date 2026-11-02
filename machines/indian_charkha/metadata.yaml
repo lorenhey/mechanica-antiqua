@@ -10,7 +10,7 @@ machine_type: Rueca de hilar
 physical_domain: Cinemática
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto: tecnología textil continua y documentada con precisión cinemática.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: 'Máquina manual de hilado que multiplica la velocidad angular mediante
   dos etapas cinemáticas con transmisión por cuerda sin fin: una gran rueda motriz
   y un pequeño huso metálico horizontal, logrando relaciones de transmisión de hasta

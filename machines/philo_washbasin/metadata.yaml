@@ -11,7 +11,7 @@ physical_domain: Neumática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto (0,90): tratado neumático conservado en versión árabe con diagramas
   hidráulicos exactos.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Dispensador neumático autorregulado de agua. Un depósito hermético superior
   suministra agua al cuenco; cuando el nivel del líquido asciende hasta obturar el
   conducto de ventilación, se interrumpe la entrada de aire y cesa el flujo hidrostático,

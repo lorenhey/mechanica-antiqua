@@ -11,7 +11,7 @@ physical_domain: Aerodinámica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: principio aerodinámico documentado; rendimiento inferido por análisis
   fluidodinámico.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de
   madera, utilizado para inyectar aire fresco o expulsar gases tóxicos y polvo de
   los tiros y galerías subterráneas mediante tiro forzado accionado por energía animal

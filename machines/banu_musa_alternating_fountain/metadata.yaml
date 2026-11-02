@@ -11,7 +11,7 @@ physical_domain: Hidráulica y Cinemática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: diagramas y principios de conmutación por peso hidrostático exhaustivamente
   detallados.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Fuente hidráulica automática que alterna periódicamente la forma del
   surtidor entre un chorro vertical único y una campana o domo laminar de agua. Opera
   mediante un mecanismo autorregulado con una báscula basculante accionada por el

@@ -11,7 +11,7 @@ physical_domain: Hidráulica
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto (0,95): descripción canónica vitruviana del engranaje en ángulo
   recto y muela molinera.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Rueda hidráulica impulsada por la energía cinética del flujo inferior
   de agua contra sus paletas sumergidas. Acoplada a través de un par de engranajes
   en ángulo recto a muelas de piedra de grano, constituyó la base del molino hidráulico

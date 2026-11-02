@@ -11,7 +11,7 @@ physical_domain: Hidráulica
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto (0,80): principios hidrostáticos y cinemáticos confirmados por Vitruvio
   y arqueología alejandrina.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una
   válvula de flotador de nivel constante que estabiliza la presión hidrostática y
   garantiza un caudal volumétrico uniforme a través de un orificio de piedras duras.

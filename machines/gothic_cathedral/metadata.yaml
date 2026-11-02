@@ -11,7 +11,7 @@ physical_domain: Estática
 reconstruction_status: Nivel B (Parcialmente inferida a partir de fuentes directas)
 confidence: 'Alto: análisis estático estructural validado en catedrales de Chartres,
   Reims y Amiens.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Sistema estructural de mampostería basado en el arco ojival, la bóveda
   de crucería y los arbotantes exteriores. La resolución estática permite descargar
   los empujes laterales hacia contrafuertes externos, liberando los muros portantes

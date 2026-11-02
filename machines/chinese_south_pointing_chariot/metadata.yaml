@@ -11,7 +11,7 @@ physical_domain: Cinemática y Engranajes diferenciales
 reconstruction_status: Nivel A (Completamente documentada y reproducible)
 confidence: 'Alto: el texto del Song Shi describe el número exacto de dientes y disposición
   de cada engranaje.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Vehículo mecánico no magnético que mantiene una figura apuntando permanentemente
   hacia la misma dirección cardinal inicial (el sur). Su funcionamiento se basa en
   un mecanismo de engranajes diferenciales acoplado a las dos ruedas independientes,

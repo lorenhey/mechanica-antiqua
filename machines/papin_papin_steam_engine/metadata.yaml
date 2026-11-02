@@ -11,7 +11,7 @@ physical_domain: Termodinámica
 reconstruction_status: Nivel C (Paramétrica fuerte / principios físicos comprobados)
 confidence: 'Medio: demostrador de laboratorio de pistón único descripto rigurosamente
   por Papin.'
-license: MIT
+license: Dominio Público (CC0 1.0)
 description: Primer diseño conceptual de máquina térmica de cilindro y pistón de vapor.
   Papin generaba vapor directamente en el fondo del cilindro metálico para elevar
   el pistón y, al retirar el fuego, el enfriamiento producía el vacío y el descenso

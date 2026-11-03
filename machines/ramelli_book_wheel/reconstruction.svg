@@ -1,13 +1,35 @@
-<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-ramelli-bookwheel">
   <defs>
+    <!-- Patrón de cuadrícula milimétrica técnica -->
+    <pattern id="grid-rw" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e2d5" stroke-width="0.75" />
+    </pattern>
+    <pattern id="major-grid-rw" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-rw)" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d5cbba" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Marcadores de flecha normalizadas -->
+    <marker id="arr-start-rw" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 1.5 L 0 5 L 10 8.5 Z" fill="#64748b" />
+    </marker>
+    <marker id="arr-end-rw" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 Z" fill="#64748b" />
+    </marker>
+
     <style>
-      .rw-bg { fill: #fcf9f2; }
-      .rw-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
-      .rw-book { fill: #fff; stroke: #8b0000; stroke-width: 2; }
-      .rw-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .rw-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
+      .rw-bg { fill: #fcfbf7; }
+      .rw-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #2b1f14; }
+      .rw-subtitle { font-family: 'EB Garamond', serif; font-size: 14px; fill: #4a3525; }
+      .rw-wood { fill: #9a6538; stroke: #5c3a1e; stroke-width: 2; }
+      .rw-iron { fill: #475569; stroke: #1e293b; stroke-width: 2; }
+      .rw-book { fill: #fff; stroke: #991b1b; stroke-width: 1.5; }
+      .rw-dim { stroke: #64748b; stroke-width: 1.2; fill: none; }
+      .rw-dim-text { font-family: 'EB Garamond', serif; font-size: 12px; fill: #475569; font-weight: 600; text-anchor: middle; }
+      .rw-centerline { stroke: #dc2626; stroke-width: 1; stroke-dasharray: 14 3 3 3; }
+      .rw-node { font-family: 'EB Garamond', serif; font-size: 14px; font-weight: bold; fill: #b91c1c; }
       
-      @keyframes anim-wheel-cw {
+      @keyframes anim-drum-cw {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
@@ -15,118 +37,162 @@
         from { transform: rotate(0deg); }
         to { transform: rotate(-360deg); }
       }
-      
       .drum-rotate {
         transform-origin: 400px 320px;
-        animation: anim-wheel-cw 12s linear infinite;
+        animation: anim-drum-cw 12s linear infinite;
       }
       .desk-level {
-        transform-origin: 0px 0px;
         animation: anim-desk-counter 12s linear infinite;
       }
     </style>
   </defs>
 
+  <!-- Fondo de plano técnico -->
   <rect width="800" height="600" class="rw-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="rw-title">Rueda de Lectura de Ramelli (Ruota dei Libri)</text>
-  <text x="400" y="70" text-anchor="middle" class="rw-text">Agostino Ramelli (1588) - Tren epicicloidal que mantiene los atriles estrictamente horizontales</text>
+  <rect width="800" height="600" fill="url(#major-grid-rw)"/>
 
-  <!-- Estructura exterior fija de la cabina de lectura -->
-  <path d="M 160 520 L 220 200 L 580 200 L 640 520" fill="none" stroke="#5c3a1e" stroke-width="8"/>
-  <circle cx="400" cy="320" r="25" fill="#333"/>
-  <text x="400" y="325" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">Sol Fijo</text>
+  <!-- Encabezado técnico del plano -->
+  <text x="400" y="38" text-anchor="middle" class="rw-title">Rueda de Lectura con Tren Epicicloidal</text>
+  <text x="400" y="58" text-anchor="middle" class="rw-subtitle">Agostino Ramelli (Le diverse et artificiose machine, 1588) — Invariancia Angular por Contrarrotación Planetaria</text>
+  <line x1="120" y1="68" x2="680" y2="68" stroke="#d3c9b3" stroke-width="1.2"/>
 
-  <!-- TAMBOR PRINCIPAL GIRATORIO (Animado en sentido horario) -->
-  <g class="drum-rotate">
-    <circle cx="400" cy="320" r="170" fill="none" stroke="#8b5a2b" stroke-width="12"/>
-    <circle cx="400" cy="320" r="170" fill="none" stroke="#5c3a1e" stroke-width="2"/>
-    
-    <!-- 8 Rayos del tambor -->
-    <line x1="400" y1="150" x2="400" y2="490" stroke="#5c3a1e" stroke-width="4"/>
-    <line x1="230" y1="320" x2="570" y2="320" stroke="#5c3a1e" stroke-width="4"/>
-    <line x1="280" y1="200" x2="520" y2="440" stroke="#5c3a1e" stroke-width="4"/>
-    <line x1="280" y1="440" x2="520" y2="200" stroke="#5c3a1e" stroke-width="4"/>
+  <!-- Líneas de eje de simetría (Centerlines ISO) -->
+  <line x1="80" y1="320" x2="720" y2="320" class="rw-centerline"/>
+  <line x1="400" y1="80" x2="400" y2="560" class="rw-centerline"/>
 
-    <!-- 8 ATRILES PLANETARIOS EPICICLOIDALES (Compensados para mantenerse horizontales) -->
-    <!-- Atril 1 (Arriba: 400, 150) -->
+  <!-- BASTIDOR DE LA CABINA (Eslabón 1: Bancada fija) -->
+  <path d="M 150 540 L 220 180 L 580 180 L 650 540" fill="none" stroke="#78350f" stroke-width="10" stroke-linecap="round"/>
+  <!-- Achurado de tierra en apoyos -->
+  <line x1="130" y1="540" x2="190" y2="540" stroke="#1e293b" stroke-width="2"/>
+  <line x1="610" y1="540" x2="670" y2="540" stroke="#1e293b" stroke-width="2"/>
+  <line x1="140" y1="540" x2="130" y2="552" stroke="#64748b" stroke-width="1"/>
+  <line x1="160" y1="540" x2="150" y2="552" stroke="#64748b" stroke-width="1"/>
+  <line x1="180" y1="540" x2="170" y2="552" stroke="#64748b" stroke-width="1"/>
+  <line x1="620" y1="540" x2="610" y2="552" stroke="#64748b" stroke-width="1"/>
+  <line x1="640" y1="540" x2="630" y2="552" stroke="#64748b" stroke-width="1"/>
+  <line x1="660" y1="540" x2="650" y2="552" stroke="#64748b" stroke-width="1"/>
+
+  <!-- Engranaje Sol Central Fijo (Z_sol = Z_satelite) -->
+  <circle cx="400" cy="320" r="32" class="rw-iron"/>
+  <!-- Dientes del sol central -->
+  <circle cx="400" cy="320" r="34" fill="none" stroke="#1e293b" stroke-width="4" stroke-dasharray="4 4"/>
+  <circle cx="400" cy="320" r="10" fill="#cbd5e1"/>
+  <text x="400" y="324" text-anchor="middle" font-family="'Cinzel', serif" font-size="10" font-weight="bold" fill="#fff">Sol Fijo</text>
+
+  <!-- TAMBOR GIRATORIO PRINCIPAL (Eslabón 2: Portaplanetario motriz) -->
+  <g id="drum-group" class="drum-rotate">
+    <!-- Llanta circular del tambor de madera maciza -->
+    <circle cx="400" cy="320" r="170" fill="none" stroke="#78350f" stroke-width="14"/>
+    <circle cx="400" cy="320" r="178" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
+    <circle cx="400" cy="320" r="162" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
+
+    <!-- 8 Rayos estructurales de madera -->
+    <line x1="400" y1="150" x2="400" y2="490" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="230" y1="320" x2="570" y2="320" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="280" y1="200" x2="520" y2="440" stroke="#5c3a1e" stroke-width="5"/>
+    <line x1="280" y1="440" x2="520" y2="200" stroke="#5c3a1e" stroke-width="5"/>
+
+    <!-- 8 ATRILES PLANETARIOS CON COMPENSACIÓN EPICICLOIDAL -->
+    <!-- Atril 1 (Arriba: 0°) -->
     <g transform="translate(400, 150)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <!-- Libro abierto -->
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 2 (Arriba-Der: 520, 200) -->
+    <!-- Atril 2 (Arriba-Derecha: 45°) -->
     <g transform="translate(520, 200)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 3 (Derecha: 570, 320) -->
+    <!-- Atril 3 (Derecha: 90°) -->
     <g transform="translate(570, 320)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 4 (Abajo-Der: 520, 440) -->
+    <!-- Atril 4 (Abajo-Derecha: 135°) -->
     <g transform="translate(520, 440)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 5 (Abajo: 400, 490) -->
+    <!-- Atril 5 (Abajo: 180°) -->
     <g transform="translate(400, 490)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 6 (Abajo-Izq: 280, 440) -->
+    <!-- Atril 6 (Abajo-Izquierda: 225°) -->
     <g transform="translate(280, 440)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 7 (Izquierda: 230, 320) -->
+    <!-- Atril 7 (Izquierda: 270°) -->
     <g transform="translate(230, 320)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
 
-    <!-- Atril 8 (Arriba-Izq: 280, 200) -->
+    <!-- Atril 8 (Arriba-Izquierda: 315°) -->
     <g transform="translate(280, 200)">
       <g class="desk-level">
-        <circle cx="0" cy="0" r="14" fill="#c59b27" stroke="#222" stroke-width="1.5"/>
-        <rect x="-35" y="-6" width="70" height="12" class="rw-wood"/>
-        <polygon points="-30,-6 0,-18 30,-6 0,-12" class="rw-book"/>
+        <circle cx="0" cy="0" r="16" fill="#d97706" stroke="#78350f" stroke-width="1.5"/>
+        <circle cx="0" cy="0" r="18" fill="none" stroke="#1e293b" stroke-width="3" stroke-dasharray="3 3"/>
+        <rect x="-38" y="-7" width="76" height="14" class="rw-wood" rx="2"/>
+        <polygon points="-32,-7 0,-20 32,-7 0,-14" class="rw-book"/>
       </g>
     </g>
   </g>
 
-  <!-- Panel cinemático epicicloidal -->
-  <rect x="40" y="100" width="220" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="125" class="rw-text" font-weight="bold">Tren Epicicloidal i = -1:</text>
-  <text x="50" y="145" class="rw-text">• Engranajes satélites compensan</text>
-  <text x="50" y="165" class="rw-text">  exactamente la rotación del tambor.</text>
-  <text x="50" y="182" class="rw-text">• Los libros no caen jamás.</text>
+  <!-- COTAS DIMENSIONALES NORMALIZADAS (ASME / ISO) -->
+  <!-- Cota de Diámetro del Tambor Ø 1700 mm -->
+  <line x1="230" y1="130" x2="570" y2="130" class="rw-dim" marker-start="url(#arr-start-rw)" marker-end="url(#arr-end-rw)"/>
+  <line x1="230" y1="120" x2="230" y2="140" class="rw-dim"/>
+  <line x1="570" y1="120" x2="570" y2="140" class="rw-dim"/>
+  <text x="400" y="122" class="rw-dim-text">Diámetro Orbital Ø = 1700 mm (8 Atriles)</text>
+
+  <!-- Nodos y Pares Cinemáticos -->
+  <text x="365" y="315" class="rw-node">O₂</text>
+  <text x="425" y="145" class="rw-node">P₁ (0°)</text>
+
+  <!-- Cuadro Técnico de Parámetros Cinemáticos -->
+  <g transform="translate(40, 420)">
+    <rect width="250" height="95" fill="#fff" stroke="#cbd5e1" stroke-width="1.5" rx="4" opacity="0.95"/>
+    <rect width="250" height="24" fill="#f1f5f9" stroke="#cbd5e1" rx="4"/>
+    <text x="12" y="17" font-family="'Cinzel', serif" font-size="12" font-weight="bold" fill="#1e293b">Cinemática Epicicloidal</text>
+    <text x="12" y="38" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Relación de engrane: Z_sol / Z_satélite = 1.0</text>
+    <text x="12" y="55" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Inversión cinemática: Rueda parásita intermedia</text>
+    <text x="12" y="72" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Ángulo absoluto del atril: θ_atril ≡ 0.00°</text>
+    <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Capacidad: 8 tratados simultáneos</text>
+  </g>
 </svg>

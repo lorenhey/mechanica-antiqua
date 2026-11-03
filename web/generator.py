@@ -1,13 +1,21 @@
 import os
 import re
 import yaml
+import shutil
 from collections import defaultdict
 from jinja2 import Environment, FileSystemLoader
+import sys
+
+# Asegurar importación de mechanica
+base_dir = os.path.dirname(os.path.dirname(__file__))
+if base_dir not in sys.path:
+    sys.path.insert(0, base_dir)
+
+from mechanica.kinematic_catalog import get_kinematic_data
 
 def build_site():
-    print("Construyendo corpus Mechanica Antiqua...")
+    print("Construyendo corpus Mechanica Antiqua con banco cinemático interactivo...")
     
-    base_dir = os.path.dirname(os.path.dirname(__file__))
     machines_dir = os.path.join(base_dir, "machines")
     site_dir = os.path.join(base_dir, "site")
     os.makedirs(site_dir, exist_ok=True)
@@ -55,6 +63,11 @@ def build_site():
                             break
                     meta['realistic_image'] = realistic_img
                     meta['has_realistic_image'] = (realistic_img is not None)
+                    meta['visual_type'] = meta.get('visual_type')
+                    meta['visual_caption'] = meta.get('visual_caption')
+                    
+                    # Cargar modelo cinemático analítico
+                    meta['kinematic'] = get_kinematic_data(folder)
                     
                     machines.append(meta)
                     
@@ -83,6 +96,11 @@ def build_site():
 
     machines.sort(key=get_sort_year)
     
+    # Copiar script del motor cinemático
+    static_js = os.path.join(base_dir, "web", "static", "kinematics.js")
+    if os.path.exists(static_js):
+        shutil.copy2(static_js, os.path.join(site_dir, "kinematics.js"))
+    
     # Renderizar index.html
     index_template = env.get_template("index.html")
     index_html = index_template.render(
@@ -104,7 +122,6 @@ def build_site():
         
     # Renderizar páginas individuales de cada máquina
     machine_template = env.get_template("machine.html")
-    import shutil
     for m in machines:
         m_dir = os.path.join(site_dir, m['id'])
         os.makedirs(m_dir, exist_ok=True)
@@ -122,7 +139,7 @@ def build_site():
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
     
     body { font-family: 'EB Garamond', serif; background-color: #fcf9f2; color: #2b2b2b; line-height: 1.6; max-width: 1000px; margin: 0 auto; padding: 2rem; font-size: 1.1rem; }
-    h1, h2, h3 { font-family: 'Cinzel', serif; border-bottom: 1px solid #d3c9b3; padding-bottom: 0.5rem; color: #3d2b1f; }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; border-bottom: 1px solid #d3c9b3; padding-bottom: 0.5rem; color: #3d2b1f; }
     header { margin-bottom: 2rem; text-align: center; }
     header h1 { border-bottom: none; font-size: 2.4rem; margin-bottom: 0.2rem; }
     header p { margin-top: 0; font-size: 1.15rem; color: #5a4b3c; }
@@ -133,8 +150,9 @@ def build_site():
     .machine-card h3 a { color: #6b4c1a; text-decoration: none; }
     .machine-card h3 a:hover { text-decoration: underline; }
     .meta-label { font-weight: bold; color: #555; }
-    .svg-container { text-align: center; margin: 2rem 0; padding: 1.5rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .svg-container svg { max-width: 100%; height: auto; }
+    
+    .svg-container { text-align: center; margin: 1.5rem 0; padding: 1rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .svg-container svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
     
     .realistic-container { text-align: center; margin: 2rem 0; padding: 1.5rem; background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
     .realistic-image { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,0.15); border: 1px solid #e0d7c7; }
@@ -152,25 +170,152 @@ def build_site():
     .site-nav a:hover { text-decoration: underline; color: #8a6224; }
     .site-nav a.active { color: #3d2b1f; border-bottom: 2px solid #8a6224; }
     
-    .lang-switch-box { display: flex; justify-content: center; gap: 1rem; margin: 1.5rem 0 2.5rem 0; }
-    .lang-btn { text-decoration: none; background: #eedfc8; color: #4a3525; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold; border: 1px solid #d3c9b3; transition: background 0.2s; }
-    .lang-btn:hover { background: #e2ceb1; }
+    /* Banco Cinemático Interactivo */
+    .kinematic-workbench-container { margin: 2rem 0; }
     
-    .lang-block { background: #fff; border: 1px solid #d3c9b3; border-radius: 4px; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .lang-divider { border-top: 2px dashed #d3c9b3; margin: 3rem 0; }
-    .quote-block { border-left: 4px solid #6b4c1a; padding: 0.8rem 1.2rem; background: #faf6ee; font-style: italic; color: #5a4b3c; margin: 1.5rem 0; border-radius: 0 4px 4px 0; }
+    .kinematic-controls-card {
+        background: #faf6ee;
+        border: 1px solid #d3c9b3;
+        border-radius: 6px;
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
     
-    .table-responsive { overflow-x: auto; margin: 1.5rem 0; }
-    .taxo-table { width: 100%; border-collapse: collapse; background: #fff; }
-    .taxo-table th, .taxo-table td { border: 1px solid #d3c9b3; padding: 0.75rem 1rem; text-align: left; }
-    .taxo-table th { background: #f0ebe1; font-family: 'Cinzel', serif; font-size: 0.95rem; color: #3d2b1f; }
+    .kc-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 1px solid #e5dcce;
+    }
+    
+    .kc-btn {
+        background: #fff;
+        border: 1px solid #c4b59d;
+        color: #3d2b1f;
+        padding: 0.4rem 0.85rem;
+        border-radius: 4px;
+        font-family: 'EB Garamond', serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+    .kc-btn:hover { background: #f0e6d6; border-color: #8a6224; }
+    .kc-btn-primary { background: #8a6224; color: #fff; border-color: #6b4c1a; }
+    .kc-btn-primary:hover { background: #734f19; }
+    .kc-btn-secondary { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
+    .kc-btn-toggle { margin-left: auto; background: #eef2ea; color: #355227; border-color: #cad9c0; }
+    
+    .kc-speed-group {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        margin-left: 0.5rem;
+    }
+    .kc-btn-speed {
+        background: #fff;
+        border: 1px solid #cbd5e1;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.85rem;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    .kc-btn-speed.active { background: #334155; color: #fff; border-color: #1e293b; font-weight: bold; }
+    
+    .kc-scrub-row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    .kc-label { font-weight: 600; color: #4a3525; font-size: 0.95rem; }
+    .kc-slider {
+        flex: 1;
+        accent-color: #8a6224;
+        cursor: pointer;
+        height: 6px;
+    }
+    .kc-numeric-readout {
+        font-family: monospace;
+        font-size: 1.05rem;
+        font-weight: bold;
+        color: #1e293b;
+        background: #fff;
+        padding: 0.25rem 0.6rem;
+        border: 1px solid #d3c9b3;
+        border-radius: 4px;
+        min-width: 140px;
+        text-align: center;
+    }
+    
+    .kc-telemetry-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+    }
+    .kc-telemetry-item {
+        background: #fff;
+        border: 1px solid #e0d7c7;
+        border-radius: 4px;
+        padding: 0.5rem 0.75rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .kc-metric-label { font-size: 0.8rem; color: #64748b; font-weight: 600; }
+    .kc-metric-val { font-size: 1.15rem; font-weight: bold; color: #1e293b; font-family: monospace; }
+    
+    .kinematic-plot-card {
+        background: #fff;
+        border: 1px solid #d3c9b3;
+        border-radius: 6px;
+        padding: 1.25rem;
+        margin-top: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .kc-plot-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .kc-plot-header h4 { margin: 0; font-family: 'Cinzel', serif; font-size: 1.05rem; color: #3d2b1f; border-bottom: none; padding-bottom: 0; }
+    .kc-plot-legend { display: flex; gap: 1rem; font-size: 0.85rem; color: #475569; }
+    .legend-item { display: flex; align-items: center; gap: 0.35rem; }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .dot-disp { background: #2563eb; }
+    .dot-vel { background: #059669; }
+    .dot-acc { background: #dc2626; }
+    
+    .kc-plot-svg-box { width: 100%; height: 160px; overflow: hidden; }
+    .kc-plot-svg-box svg { width: 100%; height: 100%; }
+
+    /* Ficha de Análisis de Mecanismos */
+    .theory-card {
+        background: #fff;
+        border: 1px solid #d3c9b3;
+        border-radius: 6px;
+        padding: 1.75rem;
+        margin-top: 2rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .theory-card h3 { margin-top: 0; font-size: 1.3rem; border-bottom: 1px solid #e0d7c7; padding-bottom: 0.4rem; color: #3d2b1f; }
+    .theory-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 1rem; }
+    .theory-table th, .theory-table td { padding: 0.6rem 0.8rem; border: 1px solid #e0d7c7; text-align: left; }
+    .theory-table th { background: #f8f5ee; font-family: 'Cinzel', serif; font-size: 0.9rem; color: #4a3525; }
+    .formula-badge { font-family: monospace; background: #f1f5f9; padding: 0.2rem 0.5rem; border-radius: 3px; font-weight: bold; color: #0f172a; }
     
     footer { text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #d3c9b3; font-size: 0.95rem; color: #7a6b5c; }
     """
     with open(os.path.join(site_dir, "style.css"), "w", encoding="utf-8") as f:
         f.write(css_content)
         
-    print(f"Sitio construido con exito. Total de maquinas: {len(machines)}")
+    print(f"Sitio construido con exito. Total de maquinas procesadas: {len(machines)}")
 
 if __name__ == "__main__":
     build_site()

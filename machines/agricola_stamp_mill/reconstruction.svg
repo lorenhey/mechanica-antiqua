@@ -1,115 +1,149 @@
-<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-stampmill">
   <defs>
+    <!-- Patrón de cuadrícula milimétrica técnica -->
+    <pattern id="grid-sm" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e2d5" stroke-width="0.75" />
+    </pattern>
+    <pattern id="major-grid-sm" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-sm)" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d5cbba" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Marcadores de cota con flechas normalizadas -->
+    <marker id="arr-start-sm" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 1.5 L 0 5 L 10 8.5 Z" fill="#64748b" />
+    </marker>
+    <marker id="arr-end-sm" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 Z" fill="#64748b" />
+    </marker>
+
     <style>
-      .sm-bg { fill: #fcf9f2; }
-      .sm-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
-      .sm-iron { fill: #444; stroke: #222; stroke-width: 2; }
-      .sm-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .sm-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
-      @keyframes anim-shaft-turn {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      @keyframes anim-cam-lift-1 {
-        0% { transform: translateY(0); }
-        35% { transform: translateY(-55px); }
-        40% { transform: translateY(0); }
-        100% { transform: translateY(0); }
-      }
-      @keyframes anim-cam-lift-2 {
-        0% { transform: translateY(0); }
-        33% { transform: translateY(0); }
-        68% { transform: translateY(-55px); }
-        73% { transform: translateY(0); }
-        100% { transform: translateY(0); }
-      }
-      @keyframes anim-cam-lift-3 {
-        0% { transform: translateY(0); }
-        66% { transform: translateY(0); }
-        95% { transform: translateY(-55px); }
-        100% { transform: translateY(0); }
-      }
-      
-      .waterwheel-turn {
-        transform-origin: 150px 320px;
-        animation: anim-shaft-turn 3s linear infinite;
-      }
-      .stamper-1 {
-        animation: anim-cam-lift-1 3s ease-in-out infinite;
-      }
-      .stamper-2 {
-        animation: anim-cam-lift-2 3s ease-in-out infinite;
-      }
-      .stamper-3 {
-        animation: anim-cam-lift-3 3s ease-in-out infinite;
-      }
+      .sm-bg { fill: #fcfbf7; }
+      .sm-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #2b1f14; }
+      .sm-subtitle { font-family: 'EB Garamond', serif; font-size: 14px; fill: #4a3525; }
+      .sm-wood { fill: #9a6538; stroke: #5c3a1e; stroke-width: 2; }
+      .sm-iron { fill: #475569; stroke: #1e293b; stroke-width: 2; }
+      .sm-dim { stroke: #64748b; stroke-width: 1.2; fill: none; }
+      .sm-dim-text { font-family: 'EB Garamond', serif; font-size: 12px; fill: #475569; font-weight: 600; text-anchor: middle; }
+      .sm-centerline { stroke: #dc2626; stroke-width: 1; stroke-dasharray: 14 3 3 3; }
+      .sm-node { font-family: 'EB Garamond', serif; font-size: 14px; font-weight: bold; fill: #b91c1c; }
     </style>
   </defs>
 
+  <!-- Fondo de plano técnico -->
   <rect width="800" height="600" class="sm-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="sm-title">Bocarte o Molino de Pisones (Machina Tundens)</text>
-  <text x="400" y="70" text-anchor="middle" class="sm-text">Georgius Agricola (1556) - Trituración de mineral con árbol de levas y caída por gravedad</text>
+  <rect width="800" height="600" fill="url(#major-grid-sm)"/>
 
-  <!-- Bastidor vertical de madera -->
-  <rect x="360" y="120" width="360" height="20" class="sm-wood"/>
-  <rect x="360" y="140" width="20" height="360" class="sm-wood"/>
-  <rect x="700" y="140" width="20" height="360" class="sm-wood"/>
-  
+  <!-- Encabezado técnico del plano -->
+  <text x="400" y="38" text-anchor="middle" class="sm-title">Molino de Martillos Pisones (Bocarte Minero)</text>
+  <text x="400" y="58" text-anchor="middle" class="sm-subtitle">Georgius Agricola (De re metallica, 1556) — Árbol de Levas con Caída Libre Gravitatoria</text>
+  <line x1="120" y1="68" x2="680" y2="68" stroke="#d3c9b3" stroke-width="1.2"/>
+
+  <!-- Líneas de eje de simetría (Centerlines ISO) -->
+  <line x1="20" y1="360" x2="780" y2="360" class="sm-centerline"/>
+  <line x1="140" y1="200" x2="140" y2="520" class="sm-centerline"/>
+  <line x1="420" y1="80" x2="420" y2="520" class="sm-centerline"/>
+  <line x1="530" y1="80" x2="530" y2="520" class="sm-centerline"/>
+  <line x1="640" y1="80" x2="640" y2="520" class="sm-centerline"/>
+
+  <!-- BASTIDOR DE MADERA Y MORTERO DE PIEDRA (Eslabón 1: Bancada fija) -->
   <!-- Mortero de trituración inferior -->
-  <rect x="380" y="460" width="320" height="60" fill="#7a654b" stroke="#422812" stroke-width="3"/>
-  <text x="540" y="500" text-anchor="middle" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Mortero con Mineral</text>
+  <rect x="360" y="470" width="340" height="80" fill="#cbd5e1" stroke="#475569" stroke-width="2.5"/>
+  <text x="530" y="515" font-family="'Cinzel', serif" font-size="12" fill="#334155" text-anchor="middle" font-weight="bold">Mortero de Fundición / Yunque de Trituración</text>
+  <!-- Achurado de fijación del mortero -->
+  <line x1="340" y1="550" x2="720" y2="550" stroke="#1e293b" stroke-width="2"/>
+  <line x1="360" y1="550" x2="350" y2="562" stroke="#64748b" stroke-width="1"/>
+  <line x1="410" y1="550" x2="400" y2="562" stroke="#64748b" stroke-width="1"/>
+  <line x1="460" y1="550" x2="450" y2="562" stroke="#64748b" stroke-width="1"/>
+  <line x1="510" y1="550" x2="500" y2="562" stroke="#64748b" stroke-width="1"/>
+  <line x1="560" y1="550" x2="550" y2="562" stroke="#64748b" stroke-width="1"/>
+  <line x1="610" y1="550" x2="600" y2="562" stroke="#64748b" stroke-width="1"/>
+  <line x1="660" y1="550" x2="650" y2="562" stroke="#64748b" stroke-width="1"/>
 
-  <!-- Rueda hidráulica motriz (izquierda) -->
-  <g class="waterwheel-turn">
-    <circle cx="150" cy="320" r="95" fill="none" stroke="#8b5a2b" stroke-width="12"/>
-    <circle cx="150" cy="320" r="22" class="sm-wood"/>
-    <line x1="150" y1="225" x2="150" y2="415" stroke="#5c3a1e" stroke-width="6"/>
-    <line x1="55" y1="320" x2="245" y2="320" stroke="#5c3a1e" stroke-width="6"/>
+  <!-- Columnas maestras del bastidor vertical -->
+  <rect x="350" y="110" width="24" height="420" class="sm-wood"/>
+  <rect x="465" y="110" width="20" height="420" class="sm-wood"/>
+  <rect x="575" y="110" width="20" height="420" class="sm-wood"/>
+  <rect x="685" y="110" width="24" height="420" class="sm-wood"/>
+  <!-- Travesaños guía (guías prismáticas) -->
+  <rect x="350" y="130" width="359" height="20" class="sm-wood"/>
+  <rect x="350" y="270" width="359" height="20" class="sm-wood"/>
+
+  <!-- RUEDA HIDRÁULICA MOTRIZ Y ÁRBOL DE LEVAS (Eslabón 2: Motriz rotativo) -->
+  <g id="waterwheel-group" class="waterwheel-turn">
+    <!-- Rueda de agua a la izquierda -->
+    <circle cx="140" cy="360" r="95" fill="none" stroke="#78350f" stroke-width="12"/>
+    <circle cx="140" cy="360" r="102" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
+    <circle cx="140" cy="360" r="88" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
     <!-- Paletas -->
-    <rect x="140" y="215" width="20" height="20" class="sm-wood"/>
-    <rect x="140" y="405" width="20" height="20" class="sm-wood"/>
-    <rect x="45" y="310" width="20" height="20" class="sm-wood"/>
-    <rect x="235" y="310" width="20" height="20" class="sm-wood"/>
+    <line x1="140" y1="265" x2="140" y2="455" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="45" y1="360" x2="235" y2="360" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="73" y1="293" x2="207" y2="427" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="73" y1="427" x2="207" y2="293" stroke="#5c3a1e" stroke-width="6"/>
+    <circle cx="140" cy="360" r="22" class="sm-iron"/>
+    <circle cx="140" cy="360" r="8" fill="#cbd5e1"/>
   </g>
 
-  <!-- Árbol de levas horizontal -->
-  <rect x="150" y="310" width="560" height="20" class="sm-wood"/>
+  <!-- Árbol de levas horizontal con cojinetes -->
+  <rect x="235" y="348" width="510" height="24" class="sm-iron" rx="2"/>
 
-  <!-- PISÓN 1 (Animado) -->
-  <g class="stamper-1">
-    <!-- Viga vertical del pisón -->
-    <rect x="430" y="160" width="25" height="300" class="sm-wood"/>
-    <!-- Saliente para la leva -->
-    <rect x="415" y="310" width="20" height="15" fill="#333"/>
-    <!-- Cabeza de hierro pesada inferior -->
-    <rect x="420" y="430" width="45" height="35" class="sm-iron"/>
+  <!-- Leva 1 (Ángulo 0°) -->
+  <path d="M 420 360 Q 440 330 455 350 L 420 360 Z" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+  <!-- Leva 2 (Ángulo 120°) -->
+  <path d="M 530 360 Q 515 390 540 380 L 530 360 Z" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+  <!-- Leva 3 (Ángulo 240°) -->
+  <path d="M 640 360 Q 660 380 625 390 L 640 360 Z" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+
+  <!-- BATERÍA DE 3 PISONES (Eslabones 3A, 3B, 3C: Seguidores de caída libre) -->
+  <!-- Pisón 1 -->
+  <g id="stamper-1" class="stamper-1">
+    <!-- Vástago vertical de madera de roble -->
+    <rect x="408" y="100" width="24" height="340" class="sm-wood" rx="2"/>
+    <!-- Zapata de impacto de hierro macizo -->
+    <rect x="398" y="440" width="44" height="30" class="sm-iron" rx="3"/>
+    <!-- Alza o leva seguidora de hierro -->
+    <polygon points="432,325 458,335 432,345" fill="#1e293b" stroke="#78350f" stroke-width="1.5"/>
   </g>
 
-  <!-- PISÓN 2 (Animado - desfasado) -->
-  <g class="stamper-2">
-    <rect x="520" y="160" width="25" height="300" class="sm-wood"/>
-    <rect x="505" y="310" width="20" height="15" fill="#333"/>
-    <rect x="510" y="430" width="45" height="35" class="sm-iron"/>
+  <!-- Pisón 2 -->
+  <g id="stamper-2" class="stamper-2">
+    <rect x="518" y="100" width="24" height="340" class="sm-wood" rx="2"/>
+    <rect x="508" y="440" width="44" height="30" class="sm-iron" rx="3"/>
+    <polygon points="542,345 568,355 542,365" fill="#1e293b" stroke="#78350f" stroke-width="1.5"/>
   </g>
 
-  <!-- PISÓN 3 (Animado - desfasado) -->
-  <g class="stamper-3">
-    <rect x="610" y="160" width="25" height="300" class="sm-wood"/>
-    <rect x="595" y="310" width="20" height="15" fill="#333"/>
-    <rect x="600" y="430" width="45" height="35" class="sm-iron"/>
+  <!-- Pisón 3 -->
+  <g id="stamper-3" class="stamper-3">
+    <rect x="628" y="100" width="24" height="340" class="sm-wood" rx="2"/>
+    <rect x="618" y="440" width="44" height="30" class="sm-iron" rx="3"/>
+    <polygon points="652,360 678,370 652,380" fill="#1e293b" stroke="#78350f" stroke-width="1.5"/>
   </g>
 
-  <!-- Levas salientes fijadas al árbol rotatorio -->
-  <polygon points="425,320 445,305 440,325" fill="#c59b27"/>
-  <polygon points="515,320 535,305 530,325" fill="#c59b27"/>
-  <polygon points="605,320 625,305 620,325" fill="#c59b27"/>
+  <!-- COTAS DIMENSIONALES NORMALIZADAS (ASME / ISO) -->
+  <!-- Cota de Carrera de Alzado h = 250 mm -->
+  <line x1="390" y1="415" x2="390" y2="440" class="sm-dim" marker-start="url(#arr-start-sm)" marker-end="url(#arr-end-sm)"/>
+  <line x1="380" y1="415" x2="395" y2="415" class="sm-dim"/>
+  <line x1="380" y1="440" x2="395" y2="440" class="sm-dim"/>
+  <text x="350" y="432" class="sm-dim-text">h = 250 mm</text>
 
-  <!-- Panel didáctico -->
-  <rect x="40" y="460" width="240" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="485" class="sm-text" font-weight="bold">Secuencia de Trituración 1-2-3:</text>
-  <text x="50" y="505" class="sm-text">• Levas desfasadas a 120° en el árbol</text>
-  <text x="50" y="525" class="sm-text">• Elevación activa por leva</text>
-  <text x="50" y="542" class="sm-text">• Caída por impacto gravitatorio</text>
+  <!-- Cota entre centros de pisones e = 110 mm -->
+  <line x1="420" y1="85" x2="530" y2="85" class="sm-dim" marker-start="url(#arr-start-sm)" marker-end="url(#arr-end-sm)"/>
+  <text x="475" y="78" class="sm-dim-text">Paso e = 110 mm</text>
+
+  <!-- Nodos y Pares Cinemáticos -->
+  <text x="120" y="355" class="sm-node">O₂</text>
+  <text x="440" y="315" class="sm-node">Leva 1</text>
+  <text x="550" y="335" class="sm-node">Leva 2</text>
+  <text x="660" y="350" class="sm-node">Leva 3</text>
+
+  <!-- Cuadro Técnico de Parámetros Cinemáticos -->
+  <g transform="translate(40, 80)">
+    <rect width="270" height="95" fill="#fff" stroke="#cbd5e1" stroke-width="1.5" rx="4" opacity="0.95"/>
+    <rect width="270" height="24" fill="#f1f5f9" stroke="#cbd5e1" rx="4"/>
+    <text x="12" y="17" font-family="'Cinzel', serif" font-size="12" font-weight="bold" fill="#1e293b">Cinemática del Bocarte Minero</text>
+    <text x="12" y="38" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Elevación: h_max = 250 mm por leva excéntrica</text>
+    <text x="12" y="55" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Masa del pisón: m = 120 kg (Zapata de hierro)</text>
+    <text x="12" y="72" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Velocidad de impacto: v = √(2gh) = 2.21 m/s</text>
+    <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Energía de impacto: E = m·g·h = 294.3 Joules</text>
+  </g>
 </svg>

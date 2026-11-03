@@ -56,110 +56,276 @@
         
 
         
-        <h2>Reconstrucción Cinemática / Matemática</h2>
-        <div class="svg-container">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <h2>Reconstrucción Cinemática Analítica</h2>
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="crank_slider">
+            <div id="machine-svg-wrapper" class="svg-container">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-martini-sawmill">
   <defs>
+    <!-- Patrón de cuadrícula milimétrica de ingeniería -->
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e2d5" stroke-width="0.75" />
+    </pattern>
+    <pattern id="major-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid)" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d5cbba" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Marcadores de flecha para cotas de ingeniería -->
+    <marker id="arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 1.5 L 0 5 L 10 8.5 Z" fill="#64748b" />
+    </marker>
+    <marker id="arrow-end" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 Z" fill="#64748b" />
+    </marker>
+
+    <!-- Estilos técnicos de ingeniería -->
     <style>
-      .ms-bg { fill: #fcf9f2; }
-      .ms-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
-      .ms-blade { fill: #9e9e9e; stroke: #333; stroke-width: 2; }
-      .ms-water { fill: #4a90e2; fill-opacity: 0.65; }
-      .ms-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .ms-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
-      @keyframes anim-crank-turn {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      @keyframes anim-saw-vertical {
-        0%, 100% { transform: translateY(-40px); }
-        50% { transform: translateY(40px); }
-      }
-      @keyframes anim-log-advance {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-40px); }
-      }
-      
-      .crank-rot {
-        transform-origin: 220px 420px;
-        animation: anim-crank-turn 2s linear infinite;
-      }
-      .saw-reciprocate {
-        animation: anim-saw-vertical 2s ease-in-out infinite;
-      }
-      .log-forward {
-        animation: anim-log-advance 8s linear infinite;
-      }
+      .eng-bg { fill: #fcfbf7; }
+      .eng-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #2b1f14; }
+      .eng-subtitle { font-family: 'EB Garamond', serif; font-size: 14px; fill: #4a3525; }
+      .eng-wood { fill: #9a6538; stroke: #5c3a1e; stroke-width: 2; }
+      .eng-iron { fill: #475569; stroke: #1e293b; stroke-width: 2; }
+      .eng-steel { fill: #94a3b8; stroke: #334155; stroke-width: 1.5; }
+      .eng-brass { fill: #d97706; stroke: #78350f; stroke-width: 1.5; }
+      .eng-dim { stroke: #64748b; stroke-width: 1.2; fill: none; }
+      .eng-dim-text { font-family: 'EB Garamond', serif; font-size: 12px; fill: #475569; font-weight: 600; text-anchor: middle; }
+      .eng-centerline { stroke: #dc2626; stroke-width: 1; stroke-dasharray: 14 3 3 3; }
+      .eng-node { font-family: 'EB Garamond', serif; font-size: 14px; font-weight: bold; fill: #b91c1c; }
+      .eng-ground { stroke: #1e293b; stroke-width: 2; }
+      .eng-hatch { stroke: #64748b; stroke-width: 1; }
     </style>
   </defs>
 
-  <rect width="800" height="600" class="ms-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="ms-title">Aserradero Hidráulico con Biela-Manivela</text>
-  <text x="400" y="70" text-anchor="middle" class="ms-text">Francesco di Giorgio Martini (c. 1480) - Conversión cinemática y avance continuo</text>
+  <!-- Fondo técnico con cuadrícula milimetrada -->
+  <rect width="800" height="600" class="eng-bg"/>
+  <rect width="800" height="600" fill="url(#major-grid)"/>
 
-  <!-- Rueda hidráulica y cigüeñal inferior -->
-  <g class="crank-rot">
-    <circle cx="220" cy="420" r="90" fill="none" stroke="#8b5a2b" stroke-width="12"/>
-    <circle cx="220" cy="420" r="18" fill="#333"/>
-    <line x1="220" y1="330" x2="220" y2="510" stroke="#5c3a1e" stroke-width="6"/>
-    <line x1="130" y1="420" x2="310" y2="420" stroke="#5c3a1e" stroke-width="6"/>
-    <!-- Manivela y muñón del cigüeñal -->
-    <line x1="220" y1="420" x2="260" y2="390" stroke="#c59b27" stroke-width="8"/>
-    <circle cx="260" cy="390" r="8" fill="#222"/>
-  </g>
+  <!-- Encabezado técnico del plano -->
+  <text x="400" y="38" text-anchor="middle" class="eng-title">Aserradero Hidráulico con Biela-Manivela</text>
+  <text x="400" y="58" text-anchor="middle" class="eng-subtitle">Francesco di Giorgio Martini (Trattato di architettura, c. 1480) — Reconstrucción Cinemática Analítica</text>
+  <line x1="120" y1="68" x2="680" y2="68" stroke="#d3c9b3" stroke-width="1.2"/>
 
-  <!-- Canal de agua motriz inferior -->
-  <rect x="0" y="520" width="400" height="80" class="ms-water"/>
+  <!-- Líneas de eje y centros (Centerlines ISO) -->
+  <line x1="40" y1="420" x2="360" y2="420" class="eng-centerline"/>
+  <line x1="220" y1="280" x2="220" y2="550" class="eng-centerline"/>
+  <line x1="480" y1="80" x2="480" y2="550" class="eng-centerline"/>
 
-  <!-- Bastidor guía vertical de la sierra -->
-  <rect x="420" y="120" width="16" height="420" class="ms-wood"/>
-  <rect x="520" y="120" width="16" height="420" class="ms-wood"/>
-  <rect x="420" y="120" width="116" height="16" class="ms-wood"/>
+  <!-- BANCADA Y ESTRUCTURA FIJA (Eslabón 1: Tierra) -->
+  <!-- Muro de mampostería y canal inferior -->
+  <rect x="20" y="510" width="300" height="80" fill="#e2d9cc" stroke="#8c7e6c" stroke-width="2"/>
+  <text x="170" y="555" fill="#6b5b47" font-family="'Cinzel', serif" font-size="12" text-anchor="middle">Canal Hidráulico Fluvial</text>
+  <path d="M 20 525 Q 160 515 300 525" fill="none" stroke="#3b82f6" stroke-width="3" stroke-dasharray="8 4"/>
 
-  <!-- MARCO DE SIERRA ALTERNATIVO (Animado arriba y abajo) -->
-  <g class="saw-reciprocate">
-    <!-- Marco de madera que sostiene la hoja -->
-    <rect x="432" y="200" width="92" height="180" fill="none" stroke="#5c3a1e" stroke-width="6"/>
-    <!-- Hoja de sierra dentada de acero -->
-    <line x1="478" y1="200" x2="478" y2="380" stroke="#444" stroke-width="6"/>
-    <!-- Dientes de sierra -->
-    <path d="M 478 220 L 484 225 L 478 230 M 478 240 L 484 245 L 478 250 M 478 260 L 484 265 L 478 270 M 478 280 L 484 285 L 478 290 M 478 300 L 484 305 L 478 310" stroke="#333" stroke-width="2"/>
+  <!-- Soporte del cojinete O2 con símbolo de bancada fija -->
+  <rect x="205" y="420" width="30" height="90" class="eng-iron"/>
+  <!-- Achurado de tierra en apoyo O2 -->
+  <line x1="190" y1="510" x2="250" y2="510" class="eng-ground"/>
+  <line x1="195" y1="510" x2="185" y2="522" class="eng-hatch"/>
+  <line x1="210" y1="510" x2="200" y2="522" class="eng-hatch"/>
+  <line x1="225" y1="510" x2="215" y2="522" class="eng-hatch"/>
+  <line x1="240" y1="510" x2="230" y2="522" class="eng-hatch"/>
+
+  <!-- Columna y guías verticales de la corredera de la sierra -->
+  <rect x="420" y="110" width="18" height="420" class="eng-wood"/>
+  <rect x="522" y="110" width="18" height="420" class="eng-wood"/>
+  <rect x="420" y="100" width="120" height="18" class="eng-wood"/>
+  <rect x="420" y="510" width="120" height="20" class="eng-wood"/>
+  <!-- Achurado de fijación del bastidor -->
+  <line x1="410" y1="530" x2="550" y2="530" class="eng-ground"/>
+  <line x1="420" y1="530" x2="410" y2="542" class="eng-hatch"/>
+  <line x1="445" y1="530" x2="435" y2="542" class="eng-hatch"/>
+  <line x1="470" y1="530" x2="460" y2="542" class="eng-hatch"/>
+  <line x1="495" y1="530" x2="485" y2="542" class="eng-hatch"/>
+  <line x1="520" y1="530" x2="510" y2="542" class="eng-hatch"/>
+  <line x1="545" y1="530" x2="535" y2="542" class="eng-hatch"/>
+
+  <!-- RUEDA HIDRÁULICA Y MANIVELA (Eslabón 2: Motriz) -->
+  <g id="crank-group" class="crank-rot">
+    <!-- Corona de la rueda motriz de paletas -->
+    <circle cx="220" cy="420" r="105" fill="none" stroke="#78350f" stroke-width="14"/>
+    <circle cx="220" cy="420" r="112" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
+    <circle cx="220" cy="420" r="98" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
     
-    <!-- Pivote inferior donde engancha la biela -->
-    <circle cx="478" cy="380" r="6" fill="#c59b27"/>
+    <!-- 8 Paletas de madera maciza -->
+    <line x1="220" y1="315" x2="220" y2="525" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="115" y1="420" x2="325" y2="420" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="146" y1="346" x2="294" y2="494" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="146" y1="494" x2="294" y2="346" stroke="#5c3a1e" stroke-width="6"/>
+
+    <!-- Brazo de la manivela de hierro forjado -->
+    <path d="M 220 420 L 265 385" stroke="#1e293b" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="220" cy="420" r="22" class="eng-iron"/>
+    <circle cx="220" cy="420" r="8" fill="#cbd5e1"/>
+
+    <!-- Muñón del cigüeñal (Nodo A) -->
+    <circle id="crank-pin" cx="265" cy="385" r="10" class="eng-brass"/>
+    <circle cx="265" cy="385" r="3.5" fill="#1e293b"/>
   </g>
 
-  <!-- Biela oblicua que une el cigüeñal con el marco de la sierra -->
-  <line x1="260" y1="390" x2="478" y2="340" stroke="#7a5a10" stroke-width="7"/>
+  <!-- MARCO DE LA SIERRA / CURSOR (Eslabón 4: Seguidor) -->
+  <g id="slider-group" class="saw-reciprocate">
+    <!-- Bastidor deslizante de madera guiado en las ranuras verticales -->
+    <rect x="438" y="195" width="84" height="210" fill="none" stroke="#78350f" stroke-width="7" rx="3"/>
+    
+    <!-- Hoja de sierra templada con dentado triscado -->
+    <line x1="480" y1="195" x2="480" y2="405" class="eng-steel" stroke-width="7"/>
+    <!-- Dentado de corte en la hoja -->
+    <path d="M 480 220 L 488 227 L 480 234 M 480 244 L 488 251 L 480 258 M 480 268 L 488 275 L 480 282 M 480 292 L 488 299 L 480 306 M 480 316 L 488 323 L 480 330 M 480 340 L 488 347 L 480 354 M 480 364 L 488 371 L 480 378" stroke="#0f172a" stroke-width="2.5" fill="none"/>
+    
+    <!-- Travesaño inferior con orejetas de fijación para la biela (Nodo B) -->
+    <rect x="466" y="395" width="28" height="20" class="eng-iron" rx="2"/>
+    <circle id="wrist-pin" cx="480" cy="405" r="8" class="eng-brass"/>
+    <circle cx="480" cy="405" r="3" fill="#1e293b"/>
+  </g>
 
-  <!-- Carro porta-tronco con avance (animado hacia la izquierda contra la sierra) -->
+  <!-- BIELA ARTICULADA (Eslabón 3: Acoplador) -->
+  <!-- Une el muñón de manivela A con el pasador B del marco de la sierra -->
+  <g id="connecting-rod-group">
+    <line id="connecting-rod" x1="265" y1="385" x2="480" y2="365" stroke="#92400e" stroke-width="8" stroke-linecap="round"/>
+    <!-- Cabeza y pie de biela con bujes de bronce -->
+    <circle cx="265" cy="385" r="13" fill="none" stroke="#78350f" stroke-width="2"/>
+    <circle cx="480" cy="365" r="11" fill="none" stroke="#78350f" stroke-width="2"/>
+  </g>
+
+  <!-- MESA DE CORTE Y TRONCO CON AVANCE -->
+  <!-- Carro porta-tronco con avance horizontal continuo -->
   <g class="log-forward">
-    <!-- Ruedas y carro de madera -->
-    <rect x="490" y="325" width="250" height="20" class="ms-wood"/>
-    <circle cx="530" cy="355" r="12" fill="#333"/>
-    <circle cx="690" cy="355" r="12" fill="#333"/>
-    
-    <!-- Tronco cilíndrico de pino cortándose -->
-    <ellipse cx="480" cy="310" rx="18" ry="24" fill="#a07246" stroke="#5c3a1e" stroke-width="2"/>
-    <rect x="480" y="286" width="220" height="48" fill="#c2925b" stroke="#5c3a1e" stroke-width="2"/>
+    <rect x="500" y="340" width="260" height="22" class="eng-wood"/>
+    <!-- Ruedas del carro sobre rieles -->
+    <circle cx="540" cy="372" r="11" class="eng-iron"/>
+    <circle cx="700" cy="372" r="11" class="eng-iron"/>
+    <!-- Tronco cilíndrico en proceso de aserrado longitudinal -->
+    <ellipse cx="490" cy="320" rx="16" ry="24" fill="#a07246" stroke="#5c3a1e" stroke-width="2"/>
+    <rect x="490" y="296" width="240" height="48" fill="#d4a373" stroke="#5c3a1e" stroke-width="2"/>
+    <!-- Corte longitudinal de la sierra en el tronco -->
+    <line x1="480" y1="320" x2="560" y2="320" stroke="#1e293b" stroke-width="2.5" stroke-dasharray="4 2"/>
   </g>
+  <!-- Rieles guía de rodadura -->
+  <line x1="470" y1="383" x2="780" y2="383" stroke="#334155" stroke-width="5"/>
 
-  <!-- Rieles de avance -->
-  <line x1="460" y1="367" x2="780" y2="367" stroke="#333" stroke-width="5"/>
+  <!-- COTAS DIMENSIONALES NORMALIZADAS (ASME / ISO) -->
+  <!-- Cota de Radio de Manivela r = 150 mm -->
+  <line x1="220" y1="385" x2="265" y2="385" class="eng-dim" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+  <text x="242" y="375" class="eng-dim-text">r = 150</text>
 
-  <!-- Panel cinemático -->
-  <rect x="40" y="110" width="240" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="135" class="ms-text" font-weight="bold">Mecanismo Biela-Manivela:</text>
-  <text x="50" y="155" class="ms-text">• Convierte rotación continua en vaivén</text>
-  <text x="50" y="175" class="ms-text">• Carrera vertical: s = 80 mm</text>
-  <text x="50" y="192" class="ms-text">• Trinquete de avance sincronizado</text>
+  <!-- Cota de Carrera Total S = 300 mm -->
+  <line x1="560" y1="250" x2="560" y2="350" class="eng-dim" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+  <line x1="540" y1="250" x2="570" y2="250" class="eng-dim"/>
+  <line x1="540" y1="350" x2="570" y2="350" class="eng-dim"/>
+  <text x="595" y="305" class="eng-dim-text">S = 300 mm</text>
+
+  <!-- Cota de Longitud de Biela L = 750 mm -->
+  <line x1="290" y1="470" x2="450" y2="470" class="eng-dim" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+  <line x1="290" y1="460" x2="290" y2="480" class="eng-dim"/>
+  <line x1="450" y1="460" x2="450" y2="480" class="eng-dim"/>
+  <text x="370" y="488" class="eng-dim-text">Biela L = 750 mm (λ = 0.20)</text>
+
+  <!-- Rótulos de Nodos Cinemáticos (Pares R y P) -->
+  <text x="200" y="415" class="eng-node">O₂</text>
+  <text x="275" y="380" class="eng-node">A</text>
+  <text x="500" y="405" class="eng-node">B</text>
+  <text x="535" y="160" font-family="'EB Garamond', serif" font-size="12" fill="#475569" font-weight="bold">Par P (Guía)</text>
+
+  <!-- Cuadro Técnico de Datos de Ingeniería -->
+  <g transform="translate(40, 80)">
+    <rect width="250" height="98" fill="#fff" stroke="#cbd5e1" stroke-width="1.5" rx="4" opacity="0.95"/>
+    <rect width="250" height="24" fill="#f1f5f9" stroke="#cbd5e1" rx="4"/>
+    <text x="12" y="17" font-family="'Cinzel', serif" font-size="12" font-weight="bold" fill="#1e293b">Parámetros Cinemáticos</text>
+    <text x="12" y="38" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Grados de libertad: F = 1 (Grübler)</text>
+    <text x="12" y="55" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Carrera vertical: S = 2 · r = 300 mm</text>
+    <text x="12" y="72" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Relación de biela: λ = r / L = 0.20</text>
+    <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Régimen nominal: n = 45 rpm (ω = 4.71 rad/s)</text>
+  </g>
 </svg>
-
+            </div>
         </div>
-        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+
+        <div class="theory-card">
+            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
+            <p><strong>Mecanismo identificado:</strong> Mecanismo Biela-Manivela-Corredera Vertical</p>
+            <p><strong>Topología estructural:</strong> Cadena cinemática plana cerrada de 4 eslabones (1R-1P)</p>
+            
+            <table class="theory-table">
+                <tr>
+                    <th>Análisis Estructural</th>
+                    <th>Formulación y Valor</th>
+                </tr>
+                <tr>
+                    <td><strong>Eslabones constitutivos (n)</strong></td>
+                    <td>4 eslabones: 1) Bancada fija y guías de madera, 2) Cigüeñal / rueda motriz, 3) Biela de conexión, 4) Marco porta-hoja de sierra (cursor)</td>
+                </tr>
+                <tr>
+                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                    <td>j₁ = 4 (3 pares de revolución R: eje del cigüeñal O₂, muñón de manivela A, pie de biela B; 1 par prismático P: guías del bastidor). j₂ = 0</td>
+                </tr>
+                <tr>
+                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
+                    <td><span class="formula-badge">F = 3(4 - 1) - 2(4) - 0 = 1</span> (Mecanismo desmodrómico determinado)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecuación de cierre de lazo</strong></td>
+                    <td><code>r · e^(iθ) + L · e^(iφ) = x_slide + i · y_slider</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Leyes cinemáticas analíticas</strong></td>
+                    <td>
+                        Posición: <code>y(θ) = y_O + r · sin(θ) + √(L² - (x_slide - (x_O + r · cos(θ)))²)</code><br>
+                        Velocidad: <code>v(θ) ≈ r · ω · (cos(θ) + (r / 2L) · sin(2θ))</code><br>
+                        Aceleración: <code>a(θ) ≈ -r · ω² · (sin(θ) + (r / L) · cos(2θ))</code>
+                    </td>
+                </tr>
+            </table>
+
+            
+            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
+            <table class="theory-table">
+                <tr>
+                    <th>Parámetro Físico</th>
+                    <th>Magnitud / Valor</th>
+                </tr>
+                
+                <tr>
+                    <td><code>r_crank_mm</code></td>
+                    <td><strong>150</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>L_rod_mm</code></td>
+                    <td><strong>750</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>lambda_ratio</code></td>
+                    <td><strong>0.2</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>stroke_mm</code></td>
+                    <td><strong>300</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>rpm_nominal</code></td>
+                    <td><strong>45</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>cutting_speed_max_ms</code></td>
+                    <td><strong>1.41</strong></td>
+                </tr>
+                
+            </table>
+            
+
+            
+            <div class="quote-block">
+                <strong>Nota del reconstructor:</strong> Francesco di Giorgio Martini implementó la conversión cinemática continua con sincronismo por trinquete para el avance del tronco en la carrera ascendente (en vacío).
+            </div>
+            
+        </div>
         
     </main>
+
+    <script src="../kinematics.js"></script>
 </body>
 </html>

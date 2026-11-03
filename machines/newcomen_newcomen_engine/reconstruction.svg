@@ -1,113 +1,195 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Patrón de grilla milimétrica técnica -->
+    <pattern id="eng-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="eng-grid-major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#eng-grid)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#cbd5e1" stroke-width="1.2"/>
+    </pattern>
+    <!-- Patrón de rayado a 45° para anclajes y tierra ISO 128 -->
+    <pattern id="ground-hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="1.2"/>
+    </pattern>
+    <!-- Flechas de acotación normalizada ISO -->
+    <marker id="dim-arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 2 L 0 5 L 10 8 z" fill="#334155"/>
+    </marker>
+    <marker id="dim-arrow-end" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 z" fill="#334155"/>
+    </marker>
+
     <style>
-      .nc-bg { fill: #fcf9f2; }
-      .nc-beam { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 3; }
-      .nc-metal { fill: #708090; stroke: #333; stroke-width: 2.5; }
-      .nc-boiler { fill: #b87333; stroke: #6b3e15; stroke-width: 3; }
-      .nc-chain { stroke: #222; stroke-width: 3; stroke-dasharray: 6 4; fill: none; }
-      .nc-water { fill: #4a90e2; fill-opacity: 0.7; }
-      .nc-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .nc-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
+      .nc-bg { fill: #fcfbf9; }
+      .nc-beam { fill: #854d0e; stroke: #451a03; stroke-width: 2.5; }
+      .nc-metal { fill: #94a3b8; stroke: #1e293b; stroke-width: 2; }
+      .nc-boiler { fill: #b45309; stroke: #78350f; stroke-width: 2.5; }
+      .nc-chain { stroke: #0f172a; stroke-width: 3; stroke-dasharray: 6 3; fill: none; }
+      .nc-water { fill: #38bdf8; fill-opacity: 0.75; }
+      .nc-centerline { stroke: #dc2626; stroke-width: 1.2; stroke-dasharray: 14 3 3 3; }
+      .nc-dim-line { stroke: #334155; stroke-width: 1.2; }
+      .nc-dim-text { font-family: 'Consolas', monospace; font-size: 11px; fill: #1e293b; font-weight: bold; }
+      .nc-title { font-family: 'Cinzel', serif; font-size: 19px; font-weight: bold; fill: #1e293b; }
+      .nc-subtitle { font-family: 'Consolas', monospace; font-size: 12px; fill: #475569; }
+      .nc-node-text { font-family: 'Consolas', monospace; font-size: 13px; font-weight: bold; fill: #b91c1c; }
+      .nc-note-box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+
       @keyframes anim-beam-rock {
-        0%, 100% { transform: rotate(-12deg); }
-        50% { transform: rotate(12deg); }
+        0%, 100% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
       }
       @keyframes anim-piston-steam {
-        0%, 100% { transform: translateY(-30px); }
-        50% { transform: translateY(30px); }
+        0%, 100% { transform: translateY(-28px); }
+        50% { transform: translateY(28px); }
       }
       @keyframes anim-pump-rod {
-        0%, 100% { transform: translateY(30px); }
-        50% { transform: translateY(-30px); }
+        0%, 100% { transform: translateY(28px); }
+        50% { transform: translateY(-28px); }
       }
       @keyframes anim-spray-cold {
-        0%, 30% { opacity: 0; }
-        45%, 55% { opacity: 1; }
-        70%, 100% { opacity: 0; }
+        0%, 25% { opacity: 0; }
+        40%, 60% { opacity: 1; }
+        75%, 100% { opacity: 0; }
       }
-      
+
       .beam-oscillate {
         transform-origin: 400px 140px;
-        animation: anim-beam-rock 4s ease-in-out infinite;
+        animation: anim-beam-rock 4.5s ease-in-out infinite;
       }
       .steam-piston {
-        animation: anim-piston-steam 4s ease-in-out infinite;
+        animation: anim-piston-steam 4.5s ease-in-out infinite;
       }
       .pump-rod {
-        animation: anim-pump-rod 4s ease-in-out infinite;
+        animation: anim-pump-rod 4.5s ease-in-out infinite;
       }
       .cold-spray {
-        animation: anim-spray-cold 4s ease-in-out infinite;
+        animation: anim-spray-cold 4.5s ease-in-out infinite;
       }
     </style>
   </defs>
 
+  <!-- Fondo cuadriculado de ingeniería -->
   <rect width="800" height="600" class="nc-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="nc-title">Máquina de Vapor Atmosférica de Newcomen (1712)</text>
-  <text x="400" y="70" text-anchor="middle" class="nc-text">Carrera motriz por presión atmosférica tras condensación con inyección de agua fría</text>
+  <rect width="800" height="600" fill="url(#eng-grid-major)"/>
 
-  <!-- Pilar de mampostería central de la casa de máquinas -->
-  <rect x="360" y="140" width="80" height="340" fill="#c7bba7" stroke="#756752" stroke-width="3"/>
-  <circle cx="400" cy="140" r="14" fill="#333" stroke="#fff" stroke-width="2"/>
-  <text x="400" y="320" text-anchor="middle" class="nc-text" font-weight="bold" fill="#555" transform="rotate(-90, 400, 320)">Muro portante de piedra</text>
+  <!-- Encabezado técnico -->
+  <text x="400" y="38" text-anchor="middle" class="nc-title">MÁQUINA ATMOSFÉRICA DE NEWCOMEN (1712)</text>
+  <text x="400" y="58" text-anchor="middle" class="nc-subtitle">Balancín de madera con cabezas de arco y pistón de tiro a cadena | F = 1 (Grübler)</text>
 
-  <!-- GRAN BALANCÍN SUPERIOR CON CABEZAS DE ARCO (Animado) -->
-  <g class="beam-oscillate">
-    <!-- Viga maestra de madera -->
-    <polygon points="170,132 630,132 630,148 170,148" class="nc-beam"/>
+  <!-- LÍNEAS DE EJE Y CENTRO (ISO) -->
+  <line x1="165" y1="90" x2="165" y2="540" class="nc-centerline"/>
+  <line x1="400" y1="80" x2="400" y2="550" class="nc-centerline"/>
+  <line x1="635" y1="90" x2="635" y2="580" class="nc-centerline"/>
+  <line x1="110" y1="140" x2="690" y2="140" class="nc-centerline"/>
+
+  <!-- PILAR CENTRAL / MURO PORTANTE -->
+  <rect x="365" y="140" width="70" height="350" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+  <rect x="365" y="490" width="70" height="30" fill="url(#ground-hatch)" stroke="#334155" stroke-width="2"/>
+  <text x="400" y="340" text-anchor="middle" class="nc-subtitle" font-weight="bold" fill="#64748b" transform="rotate(-90, 400, 340)">MURO DE MAMPOSTERÍA</text>
+
+  <!-- SOPORTE Y ARTICULACIÓN FULCRO O2 -->
+  <circle cx="400" cy="140" r="14" fill="#0f172a" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="400" cy="140" r="4" fill="#ffffff"/>
+  <text x="418" y="132" class="nc-node-text">O₂</text>
+
+  <!-- BALANCÍN SUPERIOR CON CABEZAS DE ARCO (Animado / Paramétrico) -->
+  <g class="beam-oscillate" id="nc-beam-assembly">
+    <!-- Viga maestra de madera bi-apoyada con refuerzos -->
+    <polygon points="165,130 635,130 635,150 165,150" class="nc-beam"/>
+    <polygon points="350,130 400,95 450,130" fill="#a16207" stroke="#451a03" stroke-width="2"/>
     
-    <!-- Cabeza de arco izquierda (lado motor de vapor) -->
-    <path d="M 180 80 Q 150 140 180 200" fill="none" stroke="#5c3a1e" stroke-width="14"/>
+    <!-- Tirantes metálicos de refuerzo del balancín -->
+    <line x1="180" y1="130" x2="400" y2="95" stroke="#1e293b" stroke-width="1.8"/>
+    <line x1="620" y1="130" x2="400" y2="95" stroke="#1e293b" stroke-width="1.8"/>
+
+    <!-- Cabeza de arco izquierda (Radio R = 235 px centrado en O2) -->
+    <path d="M 175 75 A 235 235 0 0 0 175 205" fill="none" stroke="#451a03" stroke-width="16" stroke-linecap="round"/>
+    <path d="M 175 75 A 235 235 0 0 0 175 205" fill="none" stroke="#854d0e" stroke-width="10"/>
+    <circle cx="165" cy="140" r="4" fill="#ffffff" stroke="#451a03" stroke-width="1.5"/>
     
-    <!-- Cabeza de arco derecha (lado bomba de mina) -->
-    <path d="M 620 80 Q 650 140 620 200" fill="none" stroke="#5c3a1e" stroke-width="14"/>
+    <!-- Cabeza de arco derecha -->
+    <path d="M 625 75 A 235 235 0 0 1 625 205" fill="none" stroke="#451a03" stroke-width="16" stroke-linecap="round"/>
+    <path d="M 625 75 A 235 235 0 0 1 625 205" fill="none" stroke="#854d0e" stroke-width="10"/>
+    <circle cx="635" cy="140" r="4" fill="#ffffff" stroke="#451a03" stroke-width="1.5"/>
   </g>
+  <text x="142" y="115" class="nc-node-text">A</text>
+  <text x="648" y="115" class="nc-node-text">B</text>
 
-  <!-- LADO IZQUIERDO: CILINDRO DE VAPOR Y CALDERA -->
-  <!-- Caldera de cobre inferior -->
-  <path d="M 150 540 Q 150 450 200 450 Q 250 450 250 540 Z" class="nc-boiler"/>
-  <text x="200" y="515" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">Caldera</text>
+  <!-- LADO IZQUIERDO: GENERACIÓN DE VAPOR Y CILINDRO ATMOSFÉRICO -->
+  <!-- Caldera de cobre inferior tipo Haystack -->
+  <path d="M 115 540 Q 115 460 165 460 Q 215 460 215 540 Z" class="nc-boiler"/>
+  <rect x="110" y="540" width="110" height="25" fill="url(#ground-hatch)" stroke="#334155" stroke-width="1.5"/>
+  <text x="165" y="515" text-anchor="middle" fill="#ffffff" font-family="'Consolas', monospace" font-size="11" font-weight="bold">CALDERA</text>
 
-  <!-- Cilindro de vapor seccionado -->
-  <rect x="160" y="270" width="80" height="150" fill="none" stroke="#333" stroke-width="8"/>
-  <rect x="164" y="270" width="72" height="150" fill="#e0e0e0" opacity="0.6"/>
+  <!-- Válvula de vapor de entrada -->
+  <rect x="157" y="430" width="16" height="30" fill="#475569" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Inyección de agua fría (spray de condensación) -->
-  <path d="M 180 380 Q 200 365 220 380" fill="none" stroke="#0284c7" stroke-width="6" class="cold-spray"/>
+  <!-- Cilindro de vapor seccionado de hierro fundido -->
+  <rect x="125" y="270" width="80" height="160" fill="none" stroke="#0f172a" stroke-width="6"/>
+  <rect x="129" y="270" width="72" height="160" fill="#f8fafc" opacity="0.85"/>
+  <!-- Reborde superior e inferior del cilindro -->
+  <rect x="121" y="266" width="88" height="8" fill="#334155"/>
+  <rect x="121" y="426" width="88" height="8" fill="#334155"/>
 
-  <!-- Cadena y Pistón de vapor (animado) -->
+  <!-- Inyector de agua fría (spray de condensación instantánea) -->
+  <line x1="60" y1="380" x2="135" y2="380" stroke="#0284c7" stroke-width="3"/>
+  <polygon points="135,376 142,380 135,384" fill="#0284c7"/>
+  <path d="M 145 375 Q 165 365 185 375 Q 165 390 145 375" fill="#38bdf8" fill-opacity="0.8" class="cold-spray"/>
+
+  <!-- Cadena y Pistón motriz -->
   <g class="steam-piston">
-    <line x1="165" y1="140" x2="165" y2="330" class="nc-chain"/>
-    <!-- Pistón dentro del cilindro -->
-    <rect x="164" y="330" width="72" height="22" class="nc-metal"/>
+    <line x1="165" y1="130" x2="165" y2="330" class="nc-chain"/>
+    <!-- Pistón con sello de agua y empaquetadura de cuero/cuerda -->
+    <rect x="129" y="325" width="72" height="20" class="nc-metal"/>
+    <rect x="129" y="318" width="72" height="7" class="nc-water"/>
+    <circle cx="165" cy="335" r="4" fill="#b91c1c"/>
   </g>
-  <text x="120" y="340" class="nc-text">Pistón</text>
+  <text x="105" y="338" text-anchor="end" class="nc-dim-text">Pistón C</text>
 
-  <!-- LADO DERECHO: BOMBA DE POZO Y COLUMNA DE AGUA -->
-  <!-- Brocal del pozo minero -->
-  <rect x="610" y="320" width="90" height="280" fill="#a89a84"/>
-  <rect x="635" y="320" width="40" height="280" class="nc-water"/>
+  <!-- LADO DERECHO: BOMBA DE SUCCIÓN / ELEVACIÓN DE POZO -->
+  <rect x="605" y="340" width="60" height="240" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+  <rect x="615" y="340" width="40" height="240" class="nc-water"/>
 
-  <!-- Cadena y Vástago pesado de la bomba de mina -->
+  <!-- Cadena superior y vástago pesado de la bomba de mina -->
   <g class="pump-rod">
-    <line x1="635" y1="140" x2="635" y2="380" class="nc-chain"/>
-    <rect x="630" y="380" width="10" height="200" class="nc-metal"/>
-    <!-- Pistón sumergido de la bomba -->
-    <rect x="620" y="480" width="30" height="20" class="nc-metal"/>
+    <line x1="635" y1="130" x2="635" y2="350" class="nc-chain"/>
+    <rect x="632" y="350" width="6" height="190" fill="#334155" stroke="#0f172a" stroke-width="1"/>
+    <!-- Émbolo con válvula clapeta de retención -->
+    <rect x="615" y="470" width="40" height="22" class="nc-metal"/>
+    <circle cx="635" cy="481" r="3.5" fill="#b91c1c"/>
   </g>
+  <text x="675" y="485" class="nc-dim-text">Émbolo D</text>
 
-  <!-- Descarga de agua de la mina -->
-  <polygon points="635,320 540,340 540,360 635,340" class="nc-beam"/>
-  <path d="M 540 350 L 510 400" stroke="#4a90e2" stroke-width="6" fill="none"/>
-  <text x="510" y="335" class="nc-text">Desagüe mina</text>
+  <!-- Canal de descarga de agua a superficie -->
+  <polygon points="605,350 530,370 530,385 605,365" fill="#854d0e" stroke="#451a03" stroke-width="1.5"/>
+  <path d="M 530 378 Q 505 400 500 450" fill="none" stroke="#38bdf8" stroke-width="4" stroke-dasharray="4 2"/>
 
-  <!-- Panel didáctico del ciclo -->
-  <rect x="40" y="100" width="220" height="90" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="125" class="nc-text" font-weight="bold">Ciclo Atmosférico:</text>
-  <text x="50" y="145" class="nc-text">1. Vapor entra a presión ambiente.</text>
-  <text x="50" y="165" class="nc-text">2. Chorro de agua fría condensa vapor.</text>
-  <text x="50" y="182" class="nc-text">3. Vacío: presión atmosférica baja pistón.</text>
+  <!-- LÍNEAS DE COTA TÉCNICA (ISO 129-1) -->
+  <!-- Cota longitud total del balancín (4800 mm) -->
+  <line x1="165" y1="65" x2="635" y2="65" class="nc-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="165" y1="60" x2="165" y2="90" stroke="#64748b" stroke-width="1"/>
+  <line x1="635" y1="60" x2="635" y2="90" stroke="#64748b" stroke-width="1"/>
+  <rect x="345" y="55" width="110" height="18" fill="#fcfbf9"/>
+  <text x="400" y="68" text-anchor="middle" class="nc-dim-text">L = 4800 mm</text>
+
+  <!-- Cota diámetro cilindro (533 mm / 21") -->
+  <line x1="125" y1="248" x2="205" y2="248" class="nc-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="125" y1="243" x2="125" y2="270" stroke="#64748b" stroke-width="1"/>
+  <line x1="205" y1="243" x2="205" y2="270" stroke="#64748b" stroke-width="1"/>
+  <text x="165" y="242" text-anchor="middle" class="nc-dim-text">⌀ 533 mm (21")</text>
+
+  <!-- Cota de carrera del pistón (1800 mm) -->
+  <line x1="95" y1="300" x2="95" y2="380" class="nc-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="90" y1="300" x2="125" y2="300" stroke="#64748b" stroke-width="1"/>
+  <line x1="90" y1="380" x2="125" y2="380" stroke="#64748b" stroke-width="1"/>
+  <text x="88" y="344" text-anchor="end" class="nc-dim-text">S = 1800 mm</text>
+
+  <!-- PANEL DE TEORÍA CINEMÁTICA Y TERMODINÁMICA -->
+  <rect x="30" y="465" width="230" height="95" class="nc-note-box"/>
+  <text x="42" y="485" class="nc-subtitle" font-weight="bold" fill="#0f172a">CICLO TERMODINÁMICO:</text>
+  <text x="42" y="503" class="nc-dim-text">1. Admisión: vapor a ~1.05 bar</text>
+  <text x="42" y="520" class="nc-dim-text">2. Condensación: inyección de agua</text>
+  <text x="42" y="537" class="nc-dim-text">3. Carrera motriz: p_atm desciende C</text>
+  <text x="42" y="552" class="nc-dim-text">Fuerza neta F_net ≈ 18.2 kN</text>
 </svg>

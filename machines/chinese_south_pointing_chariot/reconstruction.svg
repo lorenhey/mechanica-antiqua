@@ -1,12 +1,36 @@
 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Patrón de grilla técnica -->
+    <pattern id="grid-chariot" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid-chariot-major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-chariot)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#cbd5e1" stroke-width="1.2"/>
+    </pattern>
+    <pattern id="ground-hatch-sc" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="1.2"/>
+    </pattern>
+    <marker id="dim-arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 2 L 0 5 L 10 8 z" fill="#334155"/>
+    </marker>
+    <marker id="dim-arrow-end" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 z" fill="#334155"/>
+    </marker>
+
     <style>
-      .sc-bg { fill: #fcf9f2; }
-      .sc-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
-      .sc-bronze { fill: #c59b27; stroke: #7a5a10; stroke-width: 2; }
-      .sc-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .sc-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
+      .sc-bg { fill: #fcfbf9; }
+      .sc-wood { fill: #854d0e; stroke: #451a03; stroke-width: 2.2; }
+      .sc-bronze { fill: #d97706; stroke: #78350f; stroke-width: 2; }
+      .sc-metal { fill: #94a3b8; stroke: #1e293b; stroke-width: 2; }
+      .sc-centerline { stroke: #dc2626; stroke-width: 1.2; stroke-dasharray: 14 3 3 3; }
+      .sc-dim-line { stroke: #334155; stroke-width: 1.2; }
+      .sc-dim-text { font-family: 'Consolas', monospace; font-size: 11px; fill: #1e293b; font-weight: bold; }
+      .sc-title { font-family: 'Cinzel', serif; font-size: 19px; font-weight: bold; fill: #1e293b; }
+      .sc-subtitle { font-family: 'Consolas', monospace; font-size: 12px; fill: #475569; }
+      .sc-node-text { font-family: 'Consolas', monospace; font-size: 13px; font-weight: bold; fill: #b91c1c; }
+      .sc-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+
       @keyframes anim-wheel-left {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
@@ -19,82 +43,138 @@
         from { transform: rotate(0deg); }
         to { transform: rotate(90deg); }
       }
-      @keyframes anim-pointer-stay {
-        0%, 100% { transform: rotate(0deg); }
-      }
-      
+
       .wheel-l {
-        transform-origin: 260px 420px;
-        animation: anim-wheel-left 4s linear infinite;
+        transform-origin: 220px 420px;
+        animation: anim-wheel-left 5s linear infinite;
       }
       .wheel-r {
-        transform-origin: 540px 420px;
-        animation: anim-wheel-right 4s linear infinite;
+        transform-origin: 580px 420px;
+        animation: anim-wheel-right 5s linear infinite;
       }
       .diff-center {
         transform-origin: 400px 320px;
-        animation: anim-diff-spider 4s linear infinite;
+        animation: anim-diff-spider 5s linear infinite;
       }
     </style>
   </defs>
 
+  <!-- Fondo cuadriculado técnico -->
   <rect width="800" height="600" class="sc-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="sc-title">Carro Apuntador Hacia el Sur (Zhinanche)</text>
-  <text x="400" y="70" text-anchor="middle" class="sc-text">Ma Jun (c. 255 d.C.) / Yan Su (1027) - Mecanismo diferencial mecánico que compensa el viraje</text>
+  <rect width="800" height="600" fill="url(#grid-chariot-major)"/>
 
-  <!-- Chasis del carro de dos ruedas -->
-  <rect x="220" y="380" width="360" height="40" class="sc-wood"/>
+  <!-- Encabezado técnico -->
+  <text x="400" y="38" text-anchor="middle" class="sc-title">CARRO QUE APUNTA AL SUR (ZHǏ NÁN CHĒ, c. 255 d.C.)</text>
+  <text x="400" y="58" text-anchor="middle" class="sc-subtitle">Computador analógico con tren diferencial epicicloidal | Dirección invariante: θ_p = k·(θ_R - θ_L)</text>
 
-  <!-- Rueda Izquierda (Gira más rápido, como en curva hacia la derecha) -->
-  <g class="wheel-l">
-    <circle cx="260" cy="420" r="75" fill="none" stroke="#8b5a2b" stroke-width="12"/>
-    <circle cx="260" cy="420" r="18" fill="#333"/>
-    <line x1="260" y1="345" x2="260" y2="495" stroke="#5c3a1e" stroke-width="5"/>
-    <line x1="185" y1="420" x2="335" y2="420" stroke="#5c3a1e" stroke-width="5"/>
+  <!-- LÍNEAS DE CENTRO Y EJES DE ROTACIÓN (ISO) -->
+  <line x1="120" y1="420" x2="680" y2="420" class="sc-centerline"/>
+  <line x1="220" y1="180" x2="220" y2="520" class="sc-centerline"/>
+  <line x1="580" y1="180" x2="580" y2="520" class="sc-centerline"/>
+  <line x1="400" y1="80" x2="400" y2="520" class="sc-centerline"/>
+
+  <!-- CHASIS Y BANCADA DEL CARRO -->
+  <rect x="180" y="390" width="440" height="30" class="sc-wood"/>
+  <!-- Torre central de engranajes y soporte del puntero -->
+  <rect x="370" y="160" width="60" height="230" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+
+  <!-- SUELO Y CONTACTO DE RUEDAS CON RAYADO TÉCNICO -->
+  <line x1="100" y1="500" x2="700" y2="500" stroke="#0f172a" stroke-width="2"/>
+  <rect x="100" y="500" width="600" height="25" fill="url(#ground-hatch-sc)" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- RUEDA IZQUIERDA (Animada) -->
+  <g class="wheel-l" id="wheel-left">
+    <circle cx="220" cy="420" r="80" fill="none" stroke="#854d0e" stroke-width="8"/>
+    <circle cx="220" cy="420" r="76" fill="none" stroke="#451a03" stroke-width="2"/>
+    <circle cx="220" cy="420" r="22" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+    <!-- 8 Rayos de madera -->
+    <line x1="220" y1="344" x2="220" y2="496" stroke="#451a03" stroke-width="3"/>
+    <line x1="144" y1="420" x2="296" y2="420" stroke="#451a03" stroke-width="3"/>
+    <line x1="166" y1="366" x2="274" y2="474" stroke="#451a03" stroke-width="3"/>
+    <line x1="166" y1="474" x2="274" y2="366" stroke="#451a03" stroke-width="3"/>
+    <!-- Engranaje cónico solidario a rueda izquierda -->
+    <circle cx="220" cy="420" r="38" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 2"/>
   </g>
-  <text x="260" y="525" text-anchor="middle" class="sc-text">Rueda exterior (ω₁)</text>
+  <circle cx="220" cy="420" r="5" fill="#0f172a"/>
+  <text x="195" y="415" class="sc-node-text">O_L</text>
 
-  <!-- Rueda Derecha (Gira más lento) -->
-  <g class="wheel-r">
-    <circle cx="540" cy="420" r="75" fill="none" stroke="#8b5a2b" stroke-width="12"/>
-    <circle cx="540" cy="420" r="18" fill="#333"/>
-    <line x1="540" y1="345" x2="540" y2="495" stroke="#5c3a1e" stroke-width="5"/>
-    <line x1="465" y1="420" x2="615" y2="420" stroke="#5c3a1e" stroke-width="5"/>
+  <!-- RUEDA DERECHA (Animada con velocidad angular independiente) -->
+  <g class="wheel-r" id="wheel-right">
+    <circle cx="580" cy="420" r="80" fill="none" stroke="#854d0e" stroke-width="8"/>
+    <circle cx="580" cy="420" r="76" fill="none" stroke="#451a03" stroke-width="2"/>
+    <circle cx="580" cy="420" r="22" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+    <!-- 8 Rayos de madera -->
+    <line x1="580" y1="344" x2="580" y2="496" stroke="#451a03" stroke-width="3"/>
+    <line x1="504" y1="420" x2="656" y2="420" stroke="#451a03" stroke-width="3"/>
+    <line x1="526" y1="366" x2="634" y2="474" stroke="#451a03" stroke-width="3"/>
+    <line x1="526" y1="474" x2="634" y2="366" stroke="#451a03" stroke-width="3"/>
+    <!-- Engranaje cónico solidario a rueda derecha -->
+    <circle cx="580" cy="420" r="38" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="4 2"/>
   </g>
-  <text x="540" y="525" text-anchor="middle" class="sc-text">Rueda interior (ω₂)</text>
+  <circle cx="580" cy="420" r="5" fill="#0f172a"/>
+  <text x="600" y="415" class="sc-node-text">O_R</text>
 
-  <!-- ENGRANAJES DIFERENCIALES CENTRALES (Animados) -->
-  <rect x="330" y="270" width="140" height="110" fill="#fff" stroke="#7a5a10" stroke-width="2" rx="6"/>
-  <text x="400" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#7a5a10">Tren Diferencial</text>
+  <!-- TRANSMISIÓN INTERMEDIA AL DIFERENCIAL CENTRAL -->
+  <!-- Eje transversal izquierdo y engranaje de entrada -->
+  <line x1="220" y1="350" x2="360" y2="350" stroke="#1e293b" stroke-width="4"/>
+  <circle cx="360" cy="350" r="18" class="sc-bronze"/>
 
-  <g class="diff-center">
-    <circle cx="400" cy="330" r="32" class="sc-bronze"/>
-    <circle cx="400" cy="330" r="8" fill="#222"/>
-    <line x1="400" y1="298" x2="400" y2="362" stroke="#fff" stroke-width="3"/>
-    <line x1="368" y1="330" x2="432" y2="330" stroke="#fff" stroke-width="3"/>
+  <!-- Eje transversal derecho y engranaje de entrada -->
+  <line x1="580" y1="350" x2="440" y2="350" stroke="#1e293b" stroke-width="4"/>
+  <circle cx="440" cy="350" r="18" class="sc-bronze"/>
+
+  <!-- DIFERENCIAL CENTRAL (JAULA EPICICLOIDAL CON SATÉLITES) -->
+  <g class="diff-center" id="diff-assembly">
+    <!-- Porta-satélites / Corona central -->
+    <circle cx="400" cy="320" r="42" fill="none" stroke="#78350f" stroke-width="4"/>
+    <circle cx="400" cy="320" r="42" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 3"/>
+    
+    <!-- Satélites cónicos planetarios -->
+    <circle cx="400" cy="285" r="12" class="sc-bronze"/>
+    <circle cx="400" cy="355" r="12" class="sc-bronze"/>
+    <line x1="400" y1="285" x2="400" y2="355" stroke="#0f172a" stroke-width="3"/>
+    <circle cx="400" cy="320" r="8" fill="#0f172a"/>
   </g>
+  <text x="415" y="315" class="sc-node-text">O_D</text>
 
-  <!-- Columna vertical que sostiene al sabio apuntador -->
-  <rect x="390" y="160" width="20" height="110" class="sc-wood"/>
+  <!-- EJE VERTICAL Y FIGURA DEL PUNTERO INVARIANTE (ESTATUA APUNTANDO AL SUR) -->
+  <line x1="400" y1="320" x2="400" y2="130" stroke="#0f172a" stroke-width="5"/>
+  <circle cx="400" cy="130" r="12" fill="#d97706" stroke="#78350f" stroke-width="2"/>
 
-  <!-- FIGURA DEL SABIO QUE APUNTA SIEMPRE AL SUR (Orientación absoluta invariable) -->
-  <g transform="translate(400, 160)">
-    <!-- Cuerpo del sabio de madera -->
-    <rect x="-16" y="-55" width="32" height="55" rx="4" class="sc-wood"/>
+  <!-- Estatua de jade/bronce que apunta invariablemente al Sur (Punto P) -->
+  <g id="south-pointer">
+    <!-- Pedestal giratorio -->
+    <polygon points="380,130 420,130 410,115 390,115" class="sc-bronze"/>
+    <!-- Cuerpo de la figura -->
+    <rect x="392" y="90" width="16" height="25" fill="#059669" stroke="#064e3b" stroke-width="1.5" rx="3"/>
     <!-- Cabeza -->
-    <circle cx="0" cy="-70" r="15" fill="#fde68a" stroke="#d97706" stroke-width="2"/>
-    <!-- Brazo extendido apuntando fijamente hacia el Sur (izquierda en la proyección) -->
-    <line x1="-10" y1="-50" x2="-65" y2="-50" stroke="#b45309" stroke-width="6"/>
-    <!-- Mano que señala -->
-    <polygon points="-65,-54 -78,-50 -65,-46" fill="#b45309"/>
-    <text x="-90" y="-45" font-size="13" font-weight="bold" fill="#ef4444">SUR</text>
+    <circle cx="400" cy="82" r="7" fill="#fbbf24" stroke="#78350f" stroke-width="1.2"/>
+    <!-- Brazo extendido apuntando hacia el Sur cardinal fijo -->
+    <line x1="400" y1="94" x2="455" y2="94" stroke="#059669" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="455,91 465,94 455,97" fill="#b91c1c"/>
   </g>
+  <text x="475" y="98" class="sc-node-text">P (SUR)</text>
 
-  <!-- Panel cinemático -->
-  <rect x="40" y="100" width="250" height="95" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="125" class="sc-text" font-weight="bold">Cinemática Diferencial:</text>
-  <text x="50" y="145" class="sc-text">• Δω = ω_izq - ω_der (giro del chasis)</text>
-  <text x="50" y="165" class="sc-text">• El engranaje resta exactamente Δθ</text>
-  <text x="50" y="182" class="sc-text">• Orientación del puntero: θ_sur = const</text>
+  <!-- LÍNEAS DE COTA TÉCNICA (ISO) -->
+  <!-- Cota entre ruedas (Trocha W = 1400 mm) -->
+  <line x1="220" y1="540" x2="580" y2="540" class="sc-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="220" y1="500" x2="220" y2="550" stroke="#64748b" stroke-width="1"/>
+  <line x1="580" y1="500" x2="580" y2="550" stroke="#64748b" stroke-width="1"/>
+  <rect x="350" y="530" width="100" height="18" fill="#fcfbf9"/>
+  <text x="400" y="543" text-anchor="middle" class="sc-dim-text">Trocha W = 1400 mm</text>
+
+  <!-- Cota diámetro de rueda motriz (⌀ 1200 mm) -->
+  <line x1="125" y1="340" x2="125" y2="500" class="sc-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="120" y1="340" x2="220" y2="340" stroke="#64748b" stroke-width="1"/>
+  <line x1="120" y1="500" x2="220" y2="500" stroke="#64748b" stroke-width="1"/>
+  <text x="118" y="424" text-anchor="end" class="sc-dim-text">⌀ D_r = 1200 mm</text>
+
+  <!-- CUADRO DE ANÁLISIS CINEMÁTICO -->
+  <rect x="35" y="85" width="235" height="110" class="sc-card"/>
+  <text x="47" y="105" class="sc-subtitle" font-weight="bold" fill="#0f172a">PRINCIPIO CINEMÁTICO:</text>
+  <text x="47" y="123" class="sc-dim-text">Recta: ω_L = ω_R ⇒ ω_dif = 0</text>
+  <text x="47" y="140" class="sc-dim-text">Curva de radio ρ:</text>
+  <text x="47" y="157" class="sc-dim-text">Δω = (W / ρ) · v_chasis</text>
+  <text x="47" y="174" class="sc-dim-text">θ_puntero = -Δθ_vehículo</text>
+  <text x="47" y="189" class="sc-dim-text">Orientación absoluta invariante</text>
 </svg>

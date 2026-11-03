@@ -56,31 +56,56 @@
         
 
         
-        <h2>Reconstrucción Cinemática / Matemática</h2>
-        <div class="svg-container">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <h2>Reconstrucción Cinemática Analítica</h2>
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="lead_screw">
+            <div id="machine-svg-wrapper" class="svg-container">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Patrón de grilla técnica milimétrica -->
+    <pattern id="grid-besson" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid-besson-major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-besson)"/>
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#cbd5e1" stroke-width="1.2"/>
+    </pattern>
+    <pattern id="ground-hatch-bl" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="1.2"/>
+    </pattern>
+    <marker id="dim-arrow-start" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 2 L 0 5 L 10 8 z" fill="#334155"/>
+    </marker>
+    <marker id="dim-arrow-end" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 2 L 10 5 L 0 8 z" fill="#334155"/>
+    </marker>
+
     <style>
-      .bl-bg { fill: #fcf9f2; }
-      .bl-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2.5; }
-      .bl-metal { fill: #708090; stroke: #333; stroke-width: 2; }
-      .bl-thread { stroke: #c59b27; stroke-width: 3; fill: none; }
-      .bl-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .bl-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
+      .bl-bg { fill: #fcfbf9; }
+      .bl-wood { fill: #854d0e; stroke: #451a03; stroke-width: 2.2; }
+      .bl-metal { fill: #94a3b8; stroke: #1e293b; stroke-width: 2; }
+      .bl-bronze { fill: #d97706; stroke: #78350f; stroke-width: 2; }
+      .bl-thread { stroke: #d97706; stroke-width: 2.5; fill: none; }
+      .bl-centerline { stroke: #dc2626; stroke-width: 1.2; stroke-dasharray: 14 3 3 3; }
+      .bl-dim-line { stroke: #334155; stroke-width: 1.2; }
+      .bl-dim-text { font-family: 'Consolas', monospace; font-size: 11px; fill: #1e293b; font-weight: bold; }
+      .bl-title { font-family: 'Cinzel', serif; font-size: 19px; font-weight: bold; fill: #1e293b; }
+      .bl-subtitle { font-family: 'Consolas', monospace; font-size: 12px; fill: #475569; }
+      .bl-node-text { font-family: 'Consolas', monospace; font-size: 13px; font-weight: bold; fill: #b91c1c; }
+      .bl-card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.2; rx: 4; }
+
       @keyframes anim-spindle-rot {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
       @keyframes anim-carriage-advance {
         0% { transform: translateX(0); }
-        80% { transform: translateX(160px); }
+        85% { transform: translateX(150px); }
         100% { transform: translateX(0); }
       }
-      
+
       .spindle-spin {
         transform-origin: 320px 240px;
-        animation: anim-spindle-rot 2s linear infinite;
+        animation: anim-spindle-rot 2.5s linear infinite;
       }
       .carriage-slide {
         animation: anim-carriage-advance 6s ease-in-out infinite;
@@ -88,63 +113,214 @@
     </style>
   </defs>
 
+  <!-- Fondo cuadriculado técnico -->
   <rect width="800" height="600" class="bl-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="bl-title">Torno de Roscar con Husillo Patrón (Tour à fileter)</text>
-  <text x="400" y="70" text-anchor="middle" class="bl-text">Jacques Besson (1578) - Sincronización cinemática rígida entre rotación y avance</text>
+  <rect width="800" height="600" fill="url(#grid-besson-major)"/>
 
-  <!-- Bancada del torno de madera maciza -->
-  <rect x="180" y="380" width="520" height="40" class="bl-wood"/>
-  <!-- Patas del torno -->
-  <rect x="200" y="420" width="35" height="130" class="bl-wood"/>
-  <rect x="640" y="420" width="35" height="130" class="bl-wood"/>
+  <!-- Encabezado técnico -->
+  <text x="400" y="38" text-anchor="middle" class="bl-title">TORNO DE ROSCAR CON HUSILLO PATRÓN (1578)</text>
+  <text x="400" y="58" text-anchor="middle" class="bl-subtitle">Jacques Besson | Sincronización cinemática husillo-carro | Par helicoidal H₁</text>
 
-  <!-- Cabezal fijo (izquierda) -->
-  <rect x="220" y="180" width="50" height="200" class="bl-wood"/>
-  <!-- Contracabezal móvil (derecha) -->
-  <rect x="620" y="240" width="40" height="140" class="bl-wood"/>
+  <!-- LÍNEAS DE CENTRO Y EJES DE MECANIZADO (ISO) -->
+  <line x1="130" y1="240" x2="710" y2="240" class="bl-centerline"/>
+  <line x1="130" y1="320" x2="710" y2="320" class="bl-centerline"/>
+  <line x1="190" y1="180" x2="190" y2="540" class="bl-centerline"/>
+  <line x1="660" y1="180" x2="660" y2="540" class="bl-centerline"/>
 
-  <!-- Husillo patrón superior roscado (Lead Screw) -->
-  <rect x="260" y="210" width="370" height="16" class="bl-metal"/>
-  <!-- Roscas helicoidales en el husillo patrón -->
-  <path d="M 270 210 L 280 226 M 290 210 L 300 226 M 310 210 L 320 226 M 330 210 L 340 226 M 350 210 L 360 226 M 370 210 L 380 226 M 390 210 L 400 226 M 410 210 L 420 226" class="bl-thread"/>
-  <text x="450" y="195" text-anchor="middle" class="bl-text">Husillo patrón con paso maestro</text>
+  <!-- BANCADA Y ESTRUCTURA DE SOPORTE -->
+  <!-- Guías prismáticas longitudinales de la bancada -->
+  <rect x="160" y="370" width="540" height="35" class="bl-wood"/>
+  <rect x="180" y="365" width="500" height="6" fill="#64748b" stroke="#1e293b" stroke-width="1"/>
 
-  <!-- Pieza de trabajo cilíndrica a tornear (abajo) -->
-  <rect x="270" y="310" width="350" height="26" class="bl-metal" fill="#b0c4de"/>
+  <!-- Patas de apoyo con rayado de tierra -->
+  <rect x="185" y="405" width="40" height="135" class="bl-wood"/>
+  <rect x="635" y="405" width="40" height="135" class="bl-wood"/>
+  <rect x="175" y="540" width="60" height="20" fill="url(#ground-hatch-bl)" stroke="#334155" stroke-width="1.5"/>
+  <rect x="625" y="540" width="60" height="20" fill="url(#ground-hatch-bl)" stroke="#334155" stroke-width="1.5"/>
 
-  <!-- CARRO PORTAHERRAMIENTAS CON AVANCE (Animado) -->
-  <g class="carriage-slide">
-    <!-- Soporte deslizante que monta sobre las guías de la bancada -->
-    <rect x="310" y="200" width="45" height="180" fill="#333" stroke="#fff" stroke-width="1.5" rx="4"/>
-    
-    <!-- Tuerca seguidora que acopla con el husillo patrón superior -->
-    <rect x="305" y="205" width="55" height="25" fill="#c59b27" stroke="#222" stroke-width="2"/>
-    
-    <!-- Cuchilla de corte labrando la rosca -->
-    <polygon points="325,320 355,323 325,326" fill="#ef4444"/>
-    
-    <!-- Viruta metálica saliendo -->
-    <circle cx="360" cy="323" r="3" fill="#c59b27"/>
+  <!-- CABEZAL FIJO IZQUIERDO (HEADSTOCK) -->
+  <rect x="165" y="190" width="60" height="180" class="bl-wood"/>
+  <!-- Cojinetes de bronce y puntos de apoyo O1, O2 -->
+  <circle cx="190" cy="240" r="16" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="190" cy="240" r="5" fill="#ffffff"/>
+  <text x="168" y="230" class="bl-node-text">O₁</text>
+
+  <circle cx="190" cy="320" r="14" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="190" cy="320" r="4" fill="#ffffff"/>
+  <text x="168" y="315" class="bl-node-text">O₂</text>
+
+  <!-- CONTRACABEZAL DERECHO (TAILSTOCK) -->
+  <rect x="630" y="190" width="55" height="180" class="bl-wood"/>
+  <circle cx="660" cy="240" r="14" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+  <circle cx="660" cy="320" r="14" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- HUSILLO PATRÓN INFERIOR (LEAD SCREW) -->
+  <rect x="190" y="312" width="470" height="16" class="bl-metal"/>
+  <!-- Roscado helicoidal grabado (Paso p = 8 mm) -->
+  <g class="screw-threads">
+    <path d="M 220 312 L 230 328 M 240 312 L 250 328 M 260 312 L 270 328 M 280 312 L 290 328 
+             M 300 312 L 310 328 M 320 312 L 330 328 M 340 312 L 350 328 M 360 312 L 370 328 
+             M 380 312 L 390 328 M 400 312 L 410 328 M 420 312 L 430 328 M 440 312 L 450 328 
+             M 460 312 L 470 328 M 480 312 L 490 328 M 500 312 L 510 328 M 520 312 L 530 328
+             M 540 312 L 550 328 M 560 312 L 570 328 M 580 312 L 590 328 M 600 312 L 610 328" 
+          stroke="#d97706" stroke-width="2" stroke-linecap="round"/>
   </g>
 
-  <!-- Poleas de accionamiento y contrapesos sincronizados -->
-  <circle cx="210" cy="180" r="30" class="bl-wood"/>
-  <line x1="180" y1="180" x2="180" y2="350" stroke="#444" stroke-width="3"/>
-  <rect x="165" y="350" width="30" height="40" fill="#222" rx="4"/>
-  <text x="180" y="375" text-anchor="middle" fill="#fff" font-size="10">Pesa</text>
+  <!-- HUSILLO DE TRABAJO SUPERIOR CON PIEZA MECANIZADA -->
+  <!-- Mandril giratorio (Animado) -->
+  <g class="spindle-spin">
+    <rect x="225" y="222" width="40" height="36" class="bl-metal"/>
+    <circle cx="245" cy="240" r="14" fill="#475569" stroke="#1e293b" stroke-width="1.5"/>
+    <line x1="245" y1="228" x2="245" y2="252" stroke="#ffffff" stroke-width="2"/>
+  </g>
+  
+  <!-- Barra de madera o bronce a roscar -->
+  <rect x="265" y="226" width="365" height="28" fill="#e2e8f0" stroke="#334155" stroke-width="2"/>
+  <!-- Filetes ya tallados en la pieza -->
+  <path d="M 280 226 L 290 254 M 300 226 L 310 254 M 320 226 L 330 254 M 340 226 L 350 254 M 360 226 L 370 254" 
+        stroke="#475569" stroke-width="2"/>
 
-  <!-- Panel descriptivo -->
-  <rect x="40" y="85" width="220" height="85" fill="#fff" stroke="#d3c9b3" rx="4"/>
-  <text x="50" y="110" class="bl-text" font-weight="bold">Innovación de Besson:</text>
-  <text x="50" y="130" class="bl-text">• Avance forzado por husillo</text>
-  <text x="50" y="148" class="bl-text">• Paso uniforme garantizado</text>
-  <text x="50" y="164" class="bl-text">• Elimina el pulso manual libre</text>
+  <!-- RUEDAS DE SINCRONIZACIÓN Y CADENA/CUERDA CRUZADA -->
+  <circle cx="190" cy="240" r="32" fill="none" stroke="#d97706" stroke-width="4"/>
+  <circle cx="190" cy="320" r="32" fill="none" stroke="#d97706" stroke-width="4"/>
+  <line x1="160" y1="240" x2="160" y2="320" stroke="#451a03" stroke-width="2.5"/>
+  <line x1="220" y1="240" x2="220" y2="320" stroke="#451a03" stroke-width="2.5"/>
+  <text x="145" y="285" class="bl-dim-text" text-anchor="end">i = 1:1</text>
+
+  <!-- CARRO PORTAHERRAMIENTAS MÓVIL (Animado / Paramétrico) -->
+  <g class="carriage-slide" id="lathe-carriage">
+    <!-- Cuerpo del carro sobre las guías prismáticas -->
+    <rect x="360" y="285" width="75" height="90" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5" rx="3"/>
+    
+    <!-- Semituerca de acoplamiento al husillo patrón (Punto A) -->
+    <rect x="372" y="310" width="50" height="20" class="bl-bronze"/>
+    <circle cx="397" cy="320" r="4" fill="#b91c1c"/>
+    <text x="408" y="316" class="bl-node-text">A</text>
+
+    <!-- Torreta porta-cuchilla superior -->
+    <rect x="378" y="235" width="40" height="50" class="bl-metal"/>
+    
+    <!-- Cuchilla de corte afilada (Punto B) incidiendo en la pieza -->
+    <polygon points="368,236 385,232 385,244" fill="#0f172a" stroke="#b91c1c" stroke-width="1.5"/>
+    <circle cx="368" cy="238" r="3" fill="#b91c1c"/>
+    <text x="350" y="232" class="bl-node-text">B</text>
+
+    <!-- Patines de guiado inferior (Par Prismático P) -->
+    <rect x="365" y="365" width="65" height="10" fill="#334155"/>
+  </g>
+
+  <!-- LÍNEAS DE COTA TÉCNICA (ISO) -->
+  <!-- Cota entre centros de husillos (80 mm) -->
+  <line x1="725" y1="240" x2="725" y2="320" class="bl-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="710" y1="240" x2="735" y2="240" stroke="#64748b" stroke-width="1"/>
+  <line x1="710" y1="320" x2="735" y2="320" stroke="#64748b" stroke-width="1"/>
+  <text x="740" y="284" class="bl-dim-text">e = 80 mm</text>
+
+  <!-- Cota de paso del husillo (p = 8 mm) -->
+  <line x1="280" y1="345" x2="290" y2="345" class="bl-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="280" y1="330" x2="280" y2="350" stroke="#64748b" stroke-width="1"/>
+  <line x1="290" y1="330" x2="290" y2="350" stroke="#64748b" stroke-width="1"/>
+  <text x="285" y="360" text-anchor="middle" class="bl-dim-text">p = 8 mm</text>
+
+  <!-- Cota longitud total mecanizable (350 mm) -->
+  <line x1="270" y1="185" x2="620" y2="185" class="bl-dim-line" marker-start="url(#dim-arrow-start)" marker-end="url(#dim-arrow-end)"/>
+  <line x1="270" y1="180" x2="270" y2="225" stroke="#64748b" stroke-width="1"/>
+  <line x1="620" y1="180" x2="620" y2="225" stroke="#64748b" stroke-width="1"/>
+  <rect x="410" y="175" width="80" height="18" fill="#fcfbf9"/>
+  <text x="450" y="188" text-anchor="middle" class="bl-dim-text">L_útil = 350 mm</text>
+
+  <!-- CUADRO DE ANÁLISIS CINEMÁTICO -->
+  <rect x="35" y="445" width="235" height="105" class="bl-card"/>
+  <text x="47" y="465" class="bl-subtitle" font-weight="bold" fill="#0f172a">RELACIÓN CINEMÁTICA:</text>
+  <text x="47" y="483" class="bl-dim-text">Avance: dx/dt = (p / 2π) · ω</text>
+  <text x="47" y="500" class="bl-dim-text">Relación paso: p_pieza = p · (ω₁/ω₂)</text>
+  <text x="47" y="517" class="bl-dim-text">Ventaja mecánica MA ≈ 118</text>
+  <text x="47" y="534" class="bl-dim-text">F = 3(3 - 1) - 2(2) - 1 = 1 DOF</text>
 </svg>
-
+            </div>
         </div>
-        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+
+        <div class="theory-card">
+            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
+            <p><strong>Mecanismo identificado:</strong> Torno de Roscar con Husillo Patrón y Sincronismo Cinemático</p>
+            <p><strong>Topología estructural:</strong> Transmisión cinemática helicoidal rígida por cadena de poleas cruzadas y husillo maestro</p>
+            
+            <table class="theory-table">
+                <tr>
+                    <th>Análisis Estructural</th>
+                    <th>Formulación y Valor</th>
+                </tr>
+                <tr>
+                    <td><strong>Eslabones constitutivos (n)</strong></td>
+                    <td>Bancada, husillo patrón maestro, árbol portapieza, carro portaherramientas transversal/longitudinal</td>
+                </tr>
+                <tr>
+                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                    <td>Pares de revolución, par helicoidal H (husillo) y par prismático (guías del carro)</td>
+                </tr>
+                <tr>
+                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
+                    <td><span class="formula-badge">F = 1 (sincronismo forzado entre rotación de la pieza y avance de la cuchilla)</span> (Mecanismo desmodrómico determinado)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecuación de cierre de lazo</strong></td>
+                    <td><code>z_carro(θ) = p_maestro · (θ / 2π) · i_poleas</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Leyes cinemáticas analíticas</strong></td>
+                    <td>
+                        Posición: <code>z(θ) = p_efectivo · (θ / 2π)</code><br>
+                        Velocidad: <code>v_avance = (p_efectivo / 2π) · ω</code><br>
+                        Aceleración: <code>a_avance = (p_efectivo / 2π) · α</code>
+                    </td>
+                </tr>
+            </table>
+
+            
+            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
+            <table class="theory-table">
+                <tr>
+                    <th>Parámetro Físico</th>
+                    <th>Magnitud / Valor</th>
+                </tr>
+                
+                <tr>
+                    <td><code>lead_screw_pitch_mm</code></td>
+                    <td><strong>6.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>spindle_ratio_i</code></td>
+                    <td><strong>1.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>cutting_advance_per_rev_mm</code></td>
+                    <td><strong>6.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>workpiece_diameter_mm</code></td>
+                    <td><strong>60</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>sync_mechanism</code></td>
+                    <td><strong>Poleas y cables tensados por contrapesos de plomo</strong></td>
+                </tr>
+                
+            </table>
+            
+
+            
+            <div class="quote-block">
+                <strong>Nota del reconstructor:</strong> Jacques Besson (1578) inventó la máquina herramienta de roscado donde el paso no depende de la habilidad manual del tornero sino de la geometría del husillo patrón.
+            </div>
+            
+        </div>
         
     </main>
+
+    <script src="../kinematics.js"></script>
 </body>
 </html>

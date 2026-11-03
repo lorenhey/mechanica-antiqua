@@ -56,104 +56,272 @@
         
 
         
-        <h2>Reconstrucción Cinemática / Matemática</h2>
-        <div class="svg-container">
-            <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+        <h2>Reconstrucción Cinemática Analítica</h2>
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="scotch_yoke">
+            <div id="machine-svg-wrapper" class="svg-container">
+                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-aljazari-pump">
   <defs>
+    <!-- Patrón de cuadrícula milimétrica técnica -->
+    <pattern id="grid-aj" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8e2d5" stroke-width="0.75" />
+    </pattern>
+    <pattern id="major-grid-aj" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#grid-aj)" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#d5cbba" stroke-width="1.2" />
+    </pattern>
+
+    <!-- Marcadores de cota con flechas normalizadas -->
+    <marker id="arr-start-aj" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 10 1.5 L 0 5 L 10 8.5 Z" fill="#64748b" />
+    </marker>
+    <marker id="arr-end-aj" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 Z" fill="#64748b" />
+    </marker>
+
+    <!-- Gradiente de cobre y bronce para cilindros y cámara -->
+    <linearGradient id="copper-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="50%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
     <style>
-      .aj-bg { fill: #fcf9f2; }
-      .aj-copper { fill: #b87333; stroke: #7a461b; stroke-width: 2.5; }
-      .aj-wood { fill: #8b5a2b; stroke: #5c3a1e; stroke-width: 2; }
-      .aj-iron { fill: #4a4a4a; stroke: #222; stroke-width: 2; }
-      .aj-water { fill: #4a90e2; fill-opacity: 0.7; }
-      .aj-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #3d2b1f; }
-      .aj-text { font-family: 'EB Garamond', serif; font-size: 14px; fill: #333; }
-      
-      @keyframes anim-wheel-cw {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      @keyframes anim-slot-shuttle {
-        0%, 100% { transform: translateX(-40px); }
-        50% { transform: translateX(40px); }
-      }
-      @keyframes anim-stream-pulse {
-        0% { stroke-dashoffset: 0; }
-        100% { stroke-dashoffset: -20; }
-      }
-      
-      .wheel-rotate {
-        transform-origin: 400px 380px;
-        animation: anim-wheel-cw 4s linear infinite;
-      }
-      .slot-shuttle {
-        animation: anim-slot-shuttle 4s ease-in-out infinite;
-      }
-      .flow-water {
-        stroke-dasharray: 8 6;
-        animation: anim-stream-pulse 0.8s linear infinite;
-      }
+      .aj-bg { fill: #fcfbf7; }
+      .aj-title { font-family: 'Cinzel', serif; font-size: 20px; font-weight: bold; fill: #2b1f14; }
+      .aj-subtitle { font-family: 'EB Garamond', serif; font-size: 14px; fill: #4a3525; }
+      .aj-wood { fill: #9a6538; stroke: #5c3a1e; stroke-width: 2; }
+      .aj-iron { fill: #475569; stroke: #1e293b; stroke-width: 2; }
+      .aj-water { fill: #38bdf8; fill-opacity: 0.6; stroke: #0284c7; stroke-width: 1.5; }
+      .aj-dim { stroke: #64748b; stroke-width: 1.2; fill: none; }
+      .aj-dim-text { font-family: 'EB Garamond', serif; font-size: 12px; fill: #475569; font-weight: 600; text-anchor: middle; }
+      .aj-centerline { stroke: #dc2626; stroke-width: 1; stroke-dasharray: 14 3 3 3; }
+      .aj-node { font-family: 'EB Garamond', serif; font-size: 14px; font-weight: bold; fill: #b91c1c; }
+      .aj-flow { stroke: #0284c7; stroke-width: 3; stroke-dasharray: 6 3; }
     </style>
   </defs>
 
+  <!-- Fondo de plano técnico -->
   <rect width="800" height="600" class="aj-bg"/>
-  
-  <text x="400" y="45" text-anchor="middle" class="aj-title">Bomba Bicilíndrica con Mecanismo de Ranura (Al-Jazari, 1206)</text>
-  <text x="400" y="70" text-anchor="middle" class="aj-text">Primer uso documentado de cigüeñal y corredera ranurada para pistones opuestos</text>
+  <rect width="800" height="600" fill="url(#major-grid-aj)"/>
 
-  <!-- Corriente de agua inferior que mueve la rueda -->
-  <rect x="0" y="520" width="800" height="80" class="aj-water"/>
-  <path d="M 0 540 Q 200 520 400 540 T 800 540" fill="none" stroke="#2563eb" stroke-width="4" class="flow-water"/>
-  <text x="120" y="560" fill="#fff" font-family="'Cinzel', serif" font-weight="bold">Río / Corriente motriz</text>
+  <!-- Título del plano de ingeniería -->
+  <text x="400" y="38" text-anchor="middle" class="aj-title">Bomba Bicilíndrica con Yugo Escocés (Corredera Ranurada)</text>
+  <text x="400" y="58" text-anchor="middle" class="aj-subtitle">Ismail al-Jazari (1206) — Movimiento Armónico Simple Puro con Cilindros en Oposición</text>
+  <line x1="100" y1="68" x2="700" y2="68" stroke="#d3c9b3" stroke-width="1.2"/>
 
-  <!-- Rueda de paletas central -->
-  <g class="wheel-rotate">
-    <circle cx="400" cy="380" r="95" fill="none" stroke="#8b5a2b" stroke-width="12"/>
-    <circle cx="400" cy="380" r="20" class="aj-iron"/>
-    <!-- Paletas -->
-    <line x1="400" y1="285" x2="400" y2="475" stroke="#5c3a1e" stroke-width="6"/>
-    <line x1="305" y1="380" x2="495" y2="380" stroke="#5c3a1e" stroke-width="6"/>
-    <line x1="333" y1="313" x2="467" y2="447" stroke="#5c3a1e" stroke-width="6"/>
-    <line x1="333" y1="447" x2="467" y2="313" stroke="#5c3a1e" stroke-width="6"/>
-    <!-- Clavija excéntrica motriz (peg) -->
-    <circle cx="440" cy="340" r="9" fill="#c59b27" stroke="#222" stroke-width="2"/>
+  <!-- Líneas de eje de simetría (Centerlines ISO) -->
+  <line x1="400" y1="80" x2="400" y2="550" class="aj-centerline"/>
+  <line x1="50" y1="240" x2="750" y2="240" class="aj-centerline"/>
+  <line x1="50" y1="400" x2="750" y2="400" class="aj-centerline"/>
+
+  <!-- Corriente de agua motriz inferior -->
+  <rect x="0" y="510" width="800" height="90" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M 0 535 Q 200 520 400 535 T 800 535" fill="none" class="aj-flow"/>
+  <text x="140" y="565" fill="#0369a1" font-family="'Cinzel', serif" font-size="12" font-weight="bold">Canal Fluvial Motriz</text>
+
+  <!-- SOPORTES Y BASTIDOR FIJO (Eslabón 1: Bancada fija con achurado de tierra) -->
+  <rect x="380" y="400" width="40" height="110" class="aj-iron"/>
+  <!-- Líneas de tierra en apoyo central -->
+  <line x1="360" y1="510" x2="440" y2="510" stroke="#1e293b" stroke-width="2"/>
+  <line x1="370" y1="510" x2="360" y2="522" stroke="#64748b" stroke-width="1"/>
+  <line x1="390" y1="510" x2="380" y2="522" stroke="#64748b" stroke-width="1"/>
+  <line x1="410" y1="510" x2="400" y2="522" stroke="#64748b" stroke-width="1"/>
+  <line x1="430" y1="510" x2="420" y2="522" stroke="#64748b" stroke-width="1"/>
+
+  <!-- CILINDROS DE COBRE (Fijos en la bancada) -->
+  <!-- Cilindro 1 (Izquierdo) en corte -->
+  <g id="cylinder-left">
+    <rect x="90" y="200" width="190" height="80" fill="url(#copper-grad)" stroke="#5c3a1e" stroke-width="2" rx="4"/>
+    <rect x="94" y="204" width="182" height="72" fill="#fff" opacity="0.85"/>
+    <rect x="94" y="204" width="130" height="72" class="aj-water"/>
+    <!-- Válvula de aspiración inferior izquierda -->
+    <path d="M 120 280 L 120 330 L 140 330" fill="none" stroke="#78350f" stroke-width="10"/>
+    <circle cx="120" cy="280" r="7" fill="#d97706"/>
+    <!-- Válvula de descarga superior izquierda -->
+    <path d="M 120 200 L 120 130 L 390 130" fill="none" stroke="#78350f" stroke-width="10"/>
+    <circle cx="120" cy="200" r="7" fill="#d97706"/>
   </g>
 
-  <!-- Cilindro Izquierdo de cobre -->
-  <rect x="100" y="210" width="180" height="60" class="aj-copper"/>
-  <rect x="104" y="214" width="172" height="52" class="aj-water"/>
-
-  <!-- Cilindro Derecho de cobre -->
-  <rect x="520" y="210" width="180" height="60" class="aj-copper"/>
-  <rect x="524" y="214" width="172" height="52" class="aj-water"/>
-
-  <!-- Mecanismo de corredera con ranura central (Slot-Rod) que une ambos pistones -->
-  <g class="slot-shuttle">
-    <!-- Vástago largo horizontal que conecta los dos pistones -->
-    <rect x="220" y="235" width="360" height="12" class="aj-iron"/>
-    
-    <!-- Pistón izquierdo -->
-    <rect x="190" y="216" width="30" height="48" class="aj-wood"/>
-    
-    <!-- Pistón derecho -->
-    <rect x="580" y="216" width="30" height="48" class="aj-wood"/>
-    
-    <!-- Marco de ranura vertical central (donde desliza la clavija de la rueda) -->
-    <rect x="385" y="160" width="30" height="160" fill="none" stroke="#222" stroke-width="5"/>
-    <rect x="395" y="165" width="10" height="150" fill="#fff" opacity="0.4"/>
+  <!-- Cilindro 2 (Derecho) en corte -->
+  <g id="cylinder-right">
+    <rect x="520" y="200" width="190" height="80" fill="url(#copper-grad)" stroke="#5c3a1e" stroke-width="2" rx="4"/>
+    <rect x="524" y="204" width="182" height="72" fill="#fff" opacity="0.85"/>
+    <rect x="576" y="204" width="130" height="72" class="aj-water"/>
+    <!-- Válvula de aspiración inferior derecha -->
+    <path d="M 680 280 L 680 330 L 660 330" fill="none" stroke="#78350f" stroke-width="10"/>
+    <circle cx="680" cy="280" r="7" fill="#d97706"/>
+    <!-- Válvula de descarga superior derecha -->
+    <path d="M 680 200 L 680 130 L 410 130" fill="none" stroke="#78350f" stroke-width="10"/>
+    <circle cx="680" cy="200" r="7" fill="#d97706"/>
   </g>
 
-  <!-- Tubería de descarga vertical y columna ascendente -->
-  <path d="M 120 210 L 120 130 L 400 130" fill="none" stroke="#b87333" stroke-width="8"/>
-  <path d="M 680 210 L 680 130 L 400 130" fill="none" stroke="#b87333" stroke-width="8"/>
-  <rect x="394" y="90" width="12" height="50" class="aj-copper"/>
-  <path d="M 400 90 L 400 60" fill="none" stroke="#4a90e2" stroke-width="8" class="flow-water"/>
-  <text x="400" y="55" text-anchor="middle" class="aj-text" font-weight="bold">Elevación a depósito superior</text>
+  <!-- Tubo vertical de descarga a presión hacia el aljibe superior -->
+  <rect x="393" y="80" width="14" height="60" fill="url(#copper-grad)"/>
+  <path d="M 400 80 L 400 50" fill="none" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+  <text x="400" y="70" text-anchor="middle" font-family="'Cinzel', serif" font-size="11" font-weight="bold" fill="#0369a1">Aspirante-Impelente (Hacia Aljibe Elevado)</text>
+
+  <!-- RUEDA HIDRÁULICA CENTRAL CON MANIVELA (Eslabón 2: Motriz) -->
+  <g id="crank-group" class="wheel-rotate">
+    <!-- Corona de la rueda hidráulica -->
+    <circle cx="400" cy="400" r="100" fill="none" stroke="#78350f" stroke-width="12"/>
+    <circle cx="400" cy="400" r="106" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
+    <circle cx="400" cy="400" r="94" fill="none" stroke="#3d2b1f" stroke-width="1.5"/>
+    <!-- Paletas de madera -->
+    <line x1="400" y1="300" x2="400" y2="500" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="300" y1="400" x2="500" y2="400" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="329" y1="329" x2="471" y2="471" stroke="#5c3a1e" stroke-width="6"/>
+    <line x1="329" y1="471" x2="471" y2="329" stroke="#5c3a1e" stroke-width="6"/>
+
+    <!-- Núcleo de fundición y cojinete -->
+    <circle cx="400" cy="400" r="24" class="aj-iron"/>
+    <circle cx="400" cy="400" r="8" fill="#cbd5e1"/>
+
+    <!-- Muñón o clavija excéntrica motriz (Radio R = 55 px en canvas, 160 mm en escala) -->
+    <path d="M 400 400 L 440 360" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
+    <circle id="crank-pin" cx="440" cy="360" r="10" fill="#d97706" stroke="#78350f" stroke-width="2"/>
+    <circle cx="440" cy="360" r="3.5" fill="#1e293b"/>
+  </g>
+
+  <!-- YUGO ESCOCÉS Y PISTONES EN OPOSICIÓN (Eslabón 4: Seguidor con ranura vertical) -->
+  <g id="slider-group" class="slot-shuttle">
+    <!-- Vástago horizontal macizo que conecta ambos pistones -->
+    <rect x="220" y="233" width="360" height="14" class="aj-iron" rx="3"/>
+
+    <!-- Pistón izquierdo de madera con aros de cuero calafateado -->
+    <rect x="180" y="210" width="40" height="60" class="aj-wood" rx="2"/>
+    <rect x="195" y="210" width="10" height="60" fill="#475569"/>
+
+    <!-- Pistón derecho de madera con aros de cuero calafateado -->
+    <rect x="580" y="210" width="40" height="60" class="aj-wood" rx="2"/>
+    <rect x="595" y="210" width="10" height="60" fill="#475569"/>
+
+    <!-- Marco de ranura vertical (Slot frame donde desliza el muñón excéntrico) -->
+    <rect x="382" y="150" width="36" height="180" fill="#fff" stroke="#1e293b" stroke-width="5" rx="4"/>
+    <rect x="391" y="156" width="18" height="168" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" rx="2"/>
+  </g>
+
+  <!-- COTAS NORMALIZADAS (ASME / ISO) -->
+  <!-- Cota de Radio de Manivela R = 160 mm -->
+  <line x1="400" y1="400" x2="440" y2="360" class="aj-dim" marker-start="url(#arr-start-aj)" marker-end="url(#arr-end-aj)"/>
+  <text x="435" y="405" class="aj-dim-text">R = 160 mm</text>
+
+  <!-- Cota de Diámetro Interior D = 150 mm en cilindro izquierdo -->
+  <line x1="90" y1="185" x2="90" y2="175" class="aj-dim"/>
+  <line x1="280" y1="185" x2="280" y2="175" class="aj-dim"/>
+  <line x1="90" y1="180" x2="280" y2="180" class="aj-dim" marker-start="url(#arr-start-aj)" marker-end="url(#arr-end-aj)"/>
+  <text x="185" y="172" class="aj-dim-text">Bore D = 150 mm</text>
+
+  <!-- Cota de Carrera Total S = 2R = 320 mm -->
+  <line x1="382" y1="345" x2="382" y2="360" class="aj-dim"/>
+  <line x1="418" y1="345" x2="418" y2="360" class="aj-dim"/>
+  <line x1="382" y1="350" x2="418" y2="350" class="aj-dim" marker-start="url(#arr-start-aj)" marker-end="url(#arr-end-aj)"/>
+  <text x="400" y="340" class="aj-dim-text">Carrera S = 320 mm</text>
+
+  <!-- Rótulos de Nodos y Pares Cinemáticos -->
+  <text x="375" y="415" class="aj-node">O₂</text>
+  <text x="455" y="365" class="aj-node">A (Pin)</text>
+  <text x="400" y="145" font-family="'EB Garamond', serif" font-size="12" fill="#475569" font-weight="bold" text-anchor="middle">Ranura Guía (Par P)</text>
+
+  <!-- Cuadro Técnico de Parámetros Cinemáticos -->
+  <g transform="translate(480, 440)">
+    <rect width="280" height="95" fill="#fff" stroke="#cbd5e1" stroke-width="1.5" rx="4" opacity="0.95"/>
+    <rect width="280" height="24" fill="#f1f5f9" stroke="#cbd5e1" rx="4"/>
+    <text x="12" y="17" font-family="'Cinzel', serif" font-size="12" font-weight="bold" fill="#1e293b">Parámetros del Yugo Escocés</text>
+    <text x="12" y="38" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Ley de movimiento: x(θ) = R · cos(θ) [Armónico Puro]</text>
+    <text x="12" y="55" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Carrera volumétrica: S = 2 · R = 320 mm</text>
+    <text x="12" y="72" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Cilindrada por ciclo: V_d = 11.3 Litros / rev</text>
+    <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Desfase entre pistones: Δφ = 180° (Caudal continuo)</text>
+  </g>
 </svg>
-
+            </div>
         </div>
-        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+
+        <div class="theory-card">
+            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
+            <p><strong>Mecanismo identificado:</strong> Mecanismo de Corredera Ranurada (Yugo Escocés Doble)</p>
+            <p><strong>Topología estructural:</strong> Mecanismo armónico de corredera ranurada de 4 eslabones con pistones opuestos en oposición de fase (180°)</p>
+            
+            <table class="theory-table">
+                <tr>
+                    <th>Análisis Estructural</th>
+                    <th>Formulación y Valor</th>
+                </tr>
+                <tr>
+                    <td><strong>Eslabones constitutivos (n)</strong></td>
+                    <td>4 eslabones: 1) Bancada fija, 2) Rueda dentada con espiga excéntrica (cigüeñal), 3) Bloque deslizante (dado), 4) Bastidor ranurado horizontal solidario a ambos pistones</td>
+                </tr>
+                <tr>
+                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                    <td>j₁ = 4 (2 pares R, 2 pares P: ranura vertical y cilindros horizontales). j₂ = 0</td>
+                </tr>
+                <tr>
+                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
+                    <td><span class="formula-badge">F = 3(4 - 1) - 2(4) - 0 = 1</span> (Mecanismo desmodrómico determinado)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecuación de cierre de lazo</strong></td>
+                    <td><code>x_piston(θ) = R_crank · cos(θ),  y_pin(θ) = R_crank · sin(θ)</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Leyes cinemáticas analíticas</strong></td>
+                    <td>
+                        Posición: <code>x(θ) = R · cos(θ)</code><br>
+                        Velocidad: <code>v(θ) = -R · ω · sin(θ)</code><br>
+                        Aceleración: <code>a(θ) = -R · ω² · cos(θ)</code>
+                    </td>
+                </tr>
+            </table>
+
+            
+            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
+            <table class="theory-table">
+                <tr>
+                    <th>Parámetro Físico</th>
+                    <th>Magnitud / Valor</th>
+                </tr>
+                
+                <tr>
+                    <td><code>R_crank_mm</code></td>
+                    <td><strong>160</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>stroke_mm</code></td>
+                    <td><strong>320</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>bore_mm</code></td>
+                    <td><strong>150</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>rpm_nominal</code></td>
+                    <td><strong>20</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>displacement_per_rev_L</code></td>
+                    <td><strong>11.3</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>motion_law</code></td>
+                    <td><strong>Movimiento Armónico Simple Puro (sin armónicos secundarios)</strong></td>
+                </tr>
+                
+            </table>
+            
+
+            
+            <div class="quote-block">
+                <strong>Nota del reconstructor:</strong> Al-Jazari (1206) eliminó la oblicuidad de la biela empleando la ranura recta, logrando una ley cinemática sinusoidal pura y duplicando el caudal con cilindros opuestos.
+            </div>
+            
+        </div>
         
     </main>
+
+    <script src="../kinematics.js"></script>
 </body>
 </html>

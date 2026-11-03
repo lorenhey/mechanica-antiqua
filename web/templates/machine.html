@@ -56,12 +56,74 @@
         {% endif %}
 
         {% if machine.svg_content %}
-        <h2>Reconstrucción Cinemática / Matemática</h2>
-        <div class="svg-container">
-            {{ machine.svg_content | safe }}
+        <h2>Reconstrucción Cinemática Analítica</h2>
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="{{ machine.kinematic.model_type | default('generic_rotary') }}">
+            <div id="machine-svg-wrapper" class="svg-container">
+                {{ machine.svg_content | safe }}
+            </div>
         </div>
-        <p><em>Esquema 2D generado analíticamente mediante los modelos matemáticos subyacentes.</em></p>
+
+        <div class="theory-card">
+            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
+            <p><strong>Mecanismo identificado:</strong> {{ machine.kinematic.mechanism_name }}</p>
+            <p><strong>Topología estructural:</strong> {{ machine.kinematic.topology }}</p>
+            
+            <table class="theory-table">
+                <tr>
+                    <th>Análisis Estructural</th>
+                    <th>Formulación y Valor</th>
+                </tr>
+                <tr>
+                    <td><strong>Eslabones constitutivos (n)</strong></td>
+                    <td>{{ machine.kinematic.links }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                    <td>{{ machine.kinematic.joints }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
+                    <td><span class="formula-badge">{{ machine.kinematic.dof_calc }}</span> (Mecanismo desmodrómico determinado)</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecuación de cierre de lazo</strong></td>
+                    <td><code>{{ machine.kinematic.loop_equation }}</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Leyes cinemáticas analíticas</strong></td>
+                    <td>
+                        Posición: <code>{{ machine.kinematic.position_eq }}</code><br>
+                        Velocidad: <code>{{ machine.kinematic.velocity_eq }}</code><br>
+                        Aceleración: <code>{{ machine.kinematic.acceleration_eq }}</code>
+                    </td>
+                </tr>
+            </table>
+
+            {% if machine.kinematic.nominal_params %}
+            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
+            <table class="theory-table">
+                <tr>
+                    <th>Parámetro Físico</th>
+                    <th>Magnitud / Valor</th>
+                </tr>
+                {% for param, val in machine.kinematic.nominal_params.items() %}
+                <tr>
+                    <td><code>{{ param }}</code></td>
+                    <td><strong>{{ val }}</strong></td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+
+            {% if machine.kinematic.notes %}
+            <div class="quote-block">
+                <strong>Nota del reconstructor:</strong> {{ machine.kinematic.notes }}
+            </div>
+            {% endif %}
+        </div>
         {% endif %}
     </main>
+
+    <script src="../kinematics.js"></script>
 </body>
 </html>

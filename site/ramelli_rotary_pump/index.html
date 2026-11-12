@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="ramelli_rotary_pump" data-model-type="epicyclic">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -161,13 +162,14 @@
   <text x="50" y="565" class="rp-text">• Al contraerse contra el estator: comprime e impulsa.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Bomba Rotativa Excéntrica de Paletas Deslizantes</p>
+            <p><strong>Topología estructural:</strong> Mecanismo de rotor excéntrico con 4 paletas guiadas radialmente contra estator cilíndrico</p>
             
             <table class="theory-table">
                 <tr>
@@ -176,11 +178,11 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Estator cilíndrico (tierra), rotor excéntrico (e), 4 paletas deslizantes con resorte</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>j₁ = 5 (1 R del rotor, 4 P en ranuras radiales), j₂ = 4 (contacto paleta-estator)</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
@@ -188,14 +190,14 @@
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>r(θ) = √(R_st² - e² sin²θ) + e cos θ</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>extensión_paleta(θ) = r(θ) - R_rotor</code><br>
+                        Velocidad: <code>v_radial(θ) = dr/dθ · ω</code><br>
+                        Aceleración: <code>Q_teorico = 2 · e · b · (2 R_st - e) · ω</code>
                     </td>
                 </tr>
             </table>
@@ -209,13 +211,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>radio_estator_mm</code></td>
+                    <td><strong>160</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>excentricidad_mm</code></td>
+                    <td><strong>35</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>num_paletas</code></td>
+                    <td><strong>4</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>caudal_Lmin</code></td>
+                    <td><strong>145.0</strong></td>
                 </tr>
                 
             </table>
@@ -223,13 +235,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Precursora directa de las bombas de paletas industriales y compresores volumétricos rotativos modernos.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

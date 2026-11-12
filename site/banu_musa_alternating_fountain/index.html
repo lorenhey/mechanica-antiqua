@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="banu_musa_alternating_fountain" data-model-type="hydraulic_control">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -151,13 +152,14 @@
   <circle cx="400" cy="430" r="3" fill="#fff"/>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Fuente Automática de Chorro Alternante (Banu Musa)</p>
+            <p><strong>Topología estructural:</strong> Conmutador fluido-mecánico biestable mediante flotadores y sifones concéntricos</p>
             
             <table class="theory-table">
                 <tr>
@@ -166,26 +168,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Vaso divisor superior, balancín con flotadores, 2 cámaras presurizadas y toberas concéntricas</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Válvulas cónicas en contrafase acopladas por balancín interno</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (oscilación auto-sostenida de periodo hidráulico)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>P_cámara(t) = ρ g H_agua ⇒ v_chorro = √(2 g H)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>Estado(θ) ∈ {Chorro Central, Corona Anular}</code><br>
+                        Velocidad: <code>v_salida_max = 4.4 m/s</code><br>
+                        Aceleración: <code>Cambio de régimen automático al llenarse el flotador superior</code>
                     </td>
                 </tr>
             </table>
@@ -199,13 +201,18 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>altura_deposito_m</code></td>
+                    <td><strong>2.2</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>periodo_conmutacion_s</code></td>
+                    <td><strong>12.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>caudal_total_Lmin</code></td>
+                    <td><strong>24.0</strong></td>
                 </tr>
                 
             </table>
@@ -213,13 +220,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Demuestra compuertas lógicas puramente fluido-mecánicas siete siglos antes de la automática moderna.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

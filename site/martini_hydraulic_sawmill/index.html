@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="crank_slider">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="martini_hydraulic_sawmill" data-model-type="crank_slider">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-martini-sawmill">
   <defs>
     <!-- Patrón de cuadrícula milimétrica de ingeniería -->
@@ -237,13 +238,14 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Régimen nominal: n = 45 rpm (ω = 4.71 rad/s)</text>
   </g>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
             <p><strong>Mecanismo identificado:</strong> Mecanismo Biela-Manivela-Corredera Vertical</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática plana cerrada de 4 eslabones (1R-1P)</p>
+            <p><strong>Topología estructural:</strong> Cadena cinemática plana cerrada de 4 eslabones (3R-1P)</p>
             
             <table class="theory-table">
                 <tr>
@@ -252,11 +254,11 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>4 eslabones: 1) Bancada fija y guías de madera, 2) Cigüeñal / rueda motriz, 3) Biela de conexión, 4) Marco porta-hoja de sierra (cursor)</td>
+                    <td>4 eslabones: 1) Bastidor fijo, 2) Rueda hidráulica / cigüeñal, 3) Biela acopladora, 4) Marco porta-sierra</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 4 (3 pares de revolución R: eje del cigüeñal O₂, muñón de manivela A, pie de biela B; 1 par prismático P: guías del bastidor). j₂ = 0</td>
+                    <td>j₁ = 4 (3 pares R: O₂, muñón A, pasador B; 1 par P en guías). j₂ = 0</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
@@ -264,14 +266,14 @@
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>r · e^(iθ) + L · e^(iφ) = x_slide + i · y_slider</code></td>
+                    <td><code>r · e^(iθ) + L · e^(iφ) = x_B + i · y_B(θ)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>y(θ) = y_O + r · sin(θ) + √(L² - (x_slide - (x_O + r · cos(θ)))²)</code><br>
-                        Velocidad: <code>v(θ) ≈ r · ω · (cos(θ) + (r / 2L) · sin(2θ))</code><br>
-                        Aceleración: <code>a(θ) ≈ -r · ω² · (sin(θ) + (r / L) · cos(2θ))</code>
+                        Posición: <code>s(θ) = r(1 - cos θ) + (r² / 2L) sin²θ</code><br>
+                        Velocidad: <code>v(θ) ≈ r ω (sin θ + (r / 2L) sin 2θ)</code><br>
+                        Aceleración: <code>a(θ) ≈ r ω² (cos θ + (r / L) cos 2θ)</code>
                     </td>
                 </tr>
             </table>
@@ -285,33 +287,33 @@
                 </tr>
                 
                 <tr>
-                    <td><code>r_crank_mm</code></td>
+                    <td><code>r_manivela_mm</code></td>
                     <td><strong>150</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>L_rod_mm</code></td>
+                    <td><code>L_biela_mm</code></td>
                     <td><strong>750</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>lambda_ratio</code></td>
+                    <td><code>relacion_lambda</code></td>
                     <td><strong>0.2</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>stroke_mm</code></td>
+                    <td><code>carrera_mm</code></td>
                     <td><strong>300</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
+                    <td><code>regimen_rpm</code></td>
                     <td><strong>45</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>cutting_speed_max_ms</code></td>
-                    <td><strong>1.41</strong></td>
+                    <td><code>v_corte_max_ms</code></td>
+                    <td><strong>0.72</strong></td>
                 </tr>
                 
             </table>
@@ -319,13 +321,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Francesco di Giorgio Martini implementó la conversión cinemática continua con sincronismo por trinquete para el avance del tronco en la carrera ascendente (en vacío).
+                <strong>Nota del reconstructor:</strong> La rotación hidráulica continua se transforma en corte vertical alternativo, sincronizada mediante trinquete para el avance escalonado del carro.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

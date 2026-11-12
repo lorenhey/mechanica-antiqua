@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="heron_aeolipile" data-model-type="fluid_thermal">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -156,13 +157,14 @@
   <text x="50" y="192" class="ae-text">• Par de torsión: τ = 2 · F · R_esfera</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Eolípila de Herón — Turbina Termodinámica de Reacción Pura</p>
+            <p><strong>Topología estructural:</strong> Rotor esférico montado sobre cojinetes huecos con descarga tangencial de vapor</p>
             
             <table class="theory-table">
                 <tr>
@@ -171,26 +173,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Caldera inferior, 2 conductos portantes huecos (O₁, O₂), esfera con 2 toberas acodadas a 90°</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>1 par R de doble soporte (cojinetes estancos de vapor)</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (Par motor τ = 2 · R · ṁ · v_escape)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>I · ω̇ = 2 R ṁ (v_escape - R ω) - τ_friccion</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>θ(t) = ½ α t² hasta velocidad límite ω_lim</code><br>
+                        Velocidad: <code>ω_estacionaria ≈ 1200 rpm (con rozamiento moderado)</code><br>
+                        Aceleración: <code>τ_reaccion ≈ 0.18 N·m</code>
                     </td>
                 </tr>
             </table>
@@ -204,13 +206,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>diametro_esfera_mm</code></td>
+                    <td><strong>180</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>diametro_tobera_mm</code></td>
+                    <td><strong>4.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>velocidad_chorro_ms</code></td>
+                    <td><strong>140</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>rpm_nominal</code></td>
+                    <td><strong>950</strong></td>
                 </tr>
                 
             </table>
@@ -218,13 +230,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Primera máquina térmica de la historia; opera por conservación de la cantidad de movimiento angular del vapor expulsado.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="agricola_ventilation_fan" data-model-type="fluid_thermal">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -138,13 +139,14 @@
   <text x="50" y="552" class="vf-text">  en presión estática para ventilar pozos.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Ventilador Centrífugo Minero en Carcasa Espiral (Voluta)</p>
+            <p><strong>Topología estructural:</strong> Turbomáquina radial rotativa con difusor en voluta (Agrícola, De Re Metallica)</p>
             
             <table class="theory-table">
                 <tr>
@@ -153,11 +155,11 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Carcasa envolvente fija, rueda de 6 paletas curvas radiales, engranaje multiplicador</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Par R principal del rodete + transmisión multiplicadora manivela-eje</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
@@ -165,14 +167,14 @@
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>ΔP_estatica = ρ · (u₂² - u₁² + w₁² - w₂²) / 2 [Ecuación de Euler de turbomáquinas]</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>r_particula(θ) crece exponencialmente hacia la voluta periférica</code><br>
+                        Velocidad: <code>u₂ = ω · R_rodete ≈ 14.5 m/s</code><br>
+                        Aceleración: <code>a_centrifuga = ω² · r</code>
                     </td>
                 </tr>
             </table>
@@ -186,13 +188,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>diametro_rodete_mm</code></td>
+                    <td><strong>720</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>num_alabes</code></td>
+                    <td><strong>6</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>rpm_rodete</code></td>
+                    <td><strong>380</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>caudal_aire_m3h</code></td>
+                    <td><strong>950</strong></td>
                 </tr>
                 
             </table>
@@ -200,13 +212,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> La carcasa excéntrica en espiral recoge gradualmente el caudal periférico transformando energía cinética en presión estática en el ducto.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

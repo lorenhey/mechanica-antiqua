@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="zonca_paper_mill" data-model-type="cam_follower">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -165,13 +166,14 @@
   <text x="50" y="222" class="pm-text">• Pulpa homogénea para pliegos</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Molino Papelero de Mazos Batidores Basculantes</p>
+            <p><strong>Topología estructural:</strong> Árbol de levas accionando palancas pivotantes de primer género contra tina de pasta</p>
             
             <table class="theory-table">
                 <tr>
@@ -180,26 +182,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Bastidor, rueda hidráulica, eje de levas con dientes radiales, mazos articulados en fulcro posterior</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Pares R en eje motriz y pivote de mazo; par superior j₂ en contacto de leva sobre cola del brazo</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 3(3 - 1) - 2(2) - 1 = 1</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>φ_mazo(θ) = φ_max (θ/θ_levante) hasta escape en el borde de la leva</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>h_cabeza(θ) = L_brazo · sin(φ(θ))</code><br>
+                        Velocidad: <code>v_impacto = √(2 · g · h_max)</code><br>
+                        Aceleración: <code>α_caida = -(m g L_cg) / I_pivote</code>
                     </td>
                 </tr>
             </table>
@@ -213,13 +215,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>longitud_brazo_mm</code></td>
+                    <td><strong>1600</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>altura_levante_mm</code></td>
+                    <td><strong>280</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>masa_mazo_kg</code></td>
+                    <td><strong>38.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>cadencia_golpes_min</code></td>
+                    <td><strong>55</strong></td>
                 </tr>
                 
             </table>
@@ -227,13 +239,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Vittorio Zonca (1607) detalla clavos ferrados de geometría diferenciada para deshilachar trapos de lino.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

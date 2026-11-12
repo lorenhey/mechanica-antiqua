@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="banu_musa_automatic_flute" data-model-type="cam_follower">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -173,13 +174,14 @@
   <text x="50" y="172" class="af-text">• Palancas = Actuadores binarios</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Flautista Autómata Programable de los Banu Musa (s. IX)</p>
+            <p><strong>Topología estructural:</strong> Tambor programador con levas codificadas (memoria ROM mecánica) y válvulas de fuelle</p>
             
             <table class="theory-table">
                 <tr>
@@ -188,26 +190,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Tambor cilíndrico giratorio, pines programados, 8 palancas seguidoras y flauta neumática</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>8 pares R de palanca + par superior j₂ leva-púas + fuelle hidráulico de aire</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (Secuencia musical binaria codificada en posición angular θ)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>Estado_nota_k(θ) = 1 si θ ∈ [θ_ini_k, θ_fin_k], 0 en caso contrario</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>Apertura_válvula_k(θ) = h_pin(θ)</code><br>
+                        Velocidad: <code>f_nota = c_sonido / (2 L_efectiva)</code><br>
+                        Aceleración: <code>Presión de fuelle constante por depósito de aire comprimido hidráulico</code>
                     </td>
                 </tr>
             </table>
@@ -221,13 +223,18 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>num_canales_notas</code></td>
+                    <td><strong>8</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>presion_fuelle_Pa</code></td>
+                    <td><strong>650</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>revoluciones_melodia_s</code></td>
+                    <td><strong>24.0</strong></td>
                 </tr>
                 
             </table>
@@ -235,13 +242,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Considerado el primer instrumento programable de la historia: cambiando los pines del tambor se reprogramaba la partitura.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

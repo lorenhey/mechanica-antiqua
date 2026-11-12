@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="generic_rotary">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="savery_savery_engine" data-model-type="hydraulic_control">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
@@ -138,13 +139,14 @@
   <text x="530" y="322" class="sv-text">   el agua a gran altura.</text>
 </svg>
 
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Rotativo / Transmisión Histórica</p>
-            <p><strong>Topología estructural:</strong> Cadena cinemática de transmisión de potencia</p>
+            <p><strong>Mecanismo identificado:</strong> Bomba Térmica de Savery ('El Amigo del Minero', 1698)</p>
+            <p><strong>Topología estructural:</strong> Bomba de desplazamiento sin pistón por ciclos térmicos alternados de vacío y presión</p>
             
             <table class="theory-table">
                 <tr>
@@ -153,26 +155,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada fija, eje motriz impulsor, elemento receptor de trabajo</td>
+                    <td>Caldera de cobre, 2 cámaras ovales receptoras, 4 válvulas de retención e inyección fría</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares cinemáticos de revolución y contacto mecánico</td>
+                    <td>Flujo alternado mediante llaves manuales de vapor y válvulas de pie/descarga</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (fase alterna: 0..π succión por vacío / π..2π impulsión por vapor)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_out(t) = i · θ_in(t)</code></td>
+                    <td><code>h_succion ≤ P_atm/(ρ g) ; h_impulsion = P_vapor/(ρ g)</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>θ(t) = ω · t</code><br>
-                        Velocidad: <code>ω_out = i · ω_in</code><br>
-                        Aceleración: <code>α_out = i · α_in</code>
+                        Posición: <code>Nivel(θ) en cámaras A y B en contrafase 180°</code><br>
+                        Velocidad: <code>Q_medio ≈ 220 L/min a 24 m de altura total</code><br>
+                        Aceleración: <code>ΔP_ciclo = -0.8 bar (succión) / +3.5 bar (impulsión)</code>
                     </td>
                 </tr>
             </table>
@@ -186,13 +188,23 @@
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>30</strong></td>
+                    <td><code>presion_vapor_bar</code></td>
+                    <td><strong>3.8</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>efficiency</code></td>
-                    <td><strong>0.75</strong></td>
+                    <td><code>altura_succion_m</code></td>
+                    <td><strong>6.5</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>altura_impulsion_m</code></td>
+                    <td><strong>22.0</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><code>ciclos_min</code></td>
+                    <td><strong>6</strong></td>
                 </tr>
                 
             </table>
@@ -200,13 +212,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Mecanismo histórico reconstruido analíticamente según los principios de la mecánica clásica.
+                <strong>Nota del reconstructor:</strong> Ausencia de pistón móvil: el vapor actúa directamente sobre la superficie libre del agua, lo que ocasiona altas pérdidas térmicas.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

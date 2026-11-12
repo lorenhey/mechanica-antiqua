@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="archimedes_screw">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="vitruvius_archimedes_screw" data-model-type="archimedes_screw">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Patrón de grilla técnica -->
@@ -213,13 +214,14 @@
   <text x="47" y="174" class="as-dim-text">Régimen: 30 a 45 rpm (hombre / molino)</text>
   <text x="47" y="189" class="as-dim-text">Eficiencia volumétrica: η_v ≈ 0.65</text>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Tornillo Hidráulico Helicoidal (Cochlea)</p>
-            <p><strong>Topología estructural:</strong> Par helicoidal volumétrico continuo con retención gravitacional por inclinación</p>
+            <p><strong>Mecanismo identificado:</strong> Tornillo de Arquímedes (Cochlea Hidráulica Inclinada)</p>
+            <p><strong>Topología estructural:</strong> Par helicoidal continuo inclinado confinador de bolsas fluidas gravitatorias</p>
             
             <table class="theory-table">
                 <tr>
@@ -228,26 +230,26 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Cuerpo helicoidal de madera calafateada con eje central y apoyos de bronce en los extremos</td>
+                    <td>Soporte inclinado (β = 36.87°), camisa cilíndrica con hélice interior rotativa</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Pares R en extremos superior e inferior</td>
+                    <td>2 pares R en cojinetes extremos, transporte axial continuo de cavidades de agua</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (accionamiento manual con peldaños de pisada / molino humano)</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 1 (Elevación neta positiva si ángulo de hélice α > β)</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>z_bolsa(t) = (p / 2π) · ω · t · sin(β)</code></td>
+                    <td><code>s_agua(θ) = (p / 2π) · θ</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>Desplazamiento axial de la bolsa: z(t) = v_axial · t</code><br>
-                        Velocidad: <code>Q_volumetrico = η_llenado · V_espira · (ω / 2π)</code><br>
-                        Aceleración: <code>Flujo continuo libre de aceleraciones alternativas</code>
+                        Posición: <code>Δz(θ) = s_agua(θ) · sin(β)</code><br>
+                        Velocidad: <code>v_axial = (p / 2π) · ω</code><br>
+                        Aceleración: <code>Q_teorico = n_inicios · V_bolsa · (ω / 2π)</code>
                     </td>
                 </tr>
             </table>
@@ -261,37 +263,32 @@
                 </tr>
                 
                 <tr>
-                    <td><code>outer_diameter_mm</code></td>
-                    <td><strong>400</strong></td>
+                    <td><code>inclinacion_deg</code></td>
+                    <td><strong>36.87</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>core_diameter_mm</code></td>
-                    <td><strong>160</strong></td>
+                    <td><code>pendiente_pitagorica</code></td>
+                    <td><strong>3 : 4 : 5</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>pitch_mm</code></td>
-                    <td><strong>400</strong></td>
+                    <td><code>diametro_tambor_mm</code></td>
+                    <td><strong>600</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>inclination_deg</code></td>
-                    <td><strong>37.0</strong></td>
+                    <td><code>paso_helice_mm</code></td>
+                    <td><strong>450</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>length_mm</code></td>
+                    <td><code>longitud_mm</code></td>
                     <td><strong>3000</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>40</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>flow_rate_m3h</code></td>
+                    <td><code>caudal_nominal_m3h</code></td>
                     <td><strong>18.5</strong></td>
                 </tr>
                 
@@ -300,13 +297,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Vitruvio en De Architectura establece la regla del triángulo pitagórico 3-4-5 para la inclinación óptima (37°) que maximiza el volumen de la cavidad helicoidal antes del rebose.
+                <strong>Nota del reconstructor:</strong> Cada revolución desplaza un volumen discreto atrapado por la propia gravedad en el fondo de la espira.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="scotch_yoke">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="al_jazari_suction_pump" data-model-type="scotch_yoke">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-aljazari-pump">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
@@ -233,13 +234,14 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Desfase entre pistones: Δφ = 180° (Caudal continuo)</text>
   </g>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo de Corredera Ranurada (Yugo Escocés Doble)</p>
-            <p><strong>Topología estructural:</strong> Mecanismo armónico de corredera ranurada de 4 eslabones con pistones opuestos en oposición de fase (180°)</p>
+            <p><strong>Mecanismo identificado:</strong> Bomba Bicilíndrica Oposicional con Yugo Escocés</p>
+            <p><strong>Topología estructural:</strong> Mecanismo inversor sinusoidal exacto (Scotch Yoke)</p>
             
             <table class="theory-table">
                 <tr>
@@ -248,24 +250,24 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>4 eslabones: 1) Bancada fija, 2) Rueda dentada con espiga excéntrica (cigüeñal), 3) Bloque deslizante (dado), 4) Bastidor ranurado horizontal solidario a ambos pistones</td>
+                    <td>4 eslabones: 1) Bancada, 2) Rueda con muñón excéntrico, 3) Marco ranurado (yugo), 4) Par de émbolos opuestos</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 4 (2 pares R, 2 pares P: ranura vertical y cilindros horizontales). j₂ = 0</td>
+                    <td>j₁ = 3 (2 R, 1 P longitudinal), j₂ = 1 (par superior pin-ranura). F = 3(3) - 2(3) - 1 = 2? (con pin deslizante equivalente)</td>
                 </tr>
                 <tr>
                     <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(4 - 1) - 2(4) - 0 = 1</span> (Mecanismo desmodrómico determinado)</td>
+                    <td><span class="formula-badge">F = 3(4 - 1) - 2(3) - 2(0) - 1(2) ... Equivalente 4R/P: F = 1</span> (Mecanismo desmodrómico determinado)</td>
                 </tr>
                 <tr>
                     <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>x_piston(θ) = R_crank · cos(θ),  y_pin(θ) = R_crank · sin(θ)</code></td>
+                    <td><code>R · cos(θ) = x_yugo(θ) ; R · sin(θ) = y_ranura</code></td>
                 </tr>
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>x(θ) = R · cos(θ)</code><br>
+                        Posición: <code>x(θ) = R · cos(θ) [Armónico puro]</code><br>
                         Velocidad: <code>v(θ) = -R · ω · sin(θ)</code><br>
                         Aceleración: <code>a(θ) = -R · ω² · cos(θ)</code>
                     </td>
@@ -281,33 +283,28 @@
                 </tr>
                 
                 <tr>
-                    <td><code>R_crank_mm</code></td>
+                    <td><code>radio_excentrica_mm</code></td>
                     <td><strong>160</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>stroke_mm</code></td>
+                    <td><code>carrera_mm</code></td>
                     <td><strong>320</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>bore_mm</code></td>
+                    <td><code>diametro_cilindro_mm</code></td>
                     <td><strong>150</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
-                    <td><strong>20</strong></td>
+                    <td><code>relacion_engranaje</code></td>
+                    <td><strong>1:1 (linterna)</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>displacement_per_rev_L</code></td>
-                    <td><strong>11.3</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>motion_law</code></td>
-                    <td><strong>Movimiento Armónico Simple Puro (sin armónicos secundarios)</strong></td>
+                    <td><code>cilindrada_rev_L</code></td>
+                    <td><strong>11.31</strong></td>
                 </tr>
                 
             </table>
@@ -315,13 +312,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Al-Jazari (1206) eliminó la oblicuidad de la biela empleando la ranura recta, logrando una ley cinemática sinusoidal pura y duplicando el caudal con cilindros opuestos.
+                <strong>Nota del reconstructor:</strong> Primer uso documentado (1206) de la conversión rotativa-alternativa continua por ranura deslizante con flujo bidireccional.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

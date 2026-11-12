@@ -96,10 +96,12 @@ def build_site():
 
     machines.sort(key=get_sort_year)
     
-    # Copiar script del motor cinemático
-    static_js = os.path.join(base_dir, "web", "static", "kinematics.js")
-    if os.path.exists(static_js):
-        shutil.copy2(static_js, os.path.join(site_dir, "kinematics.js"))
+    # Copiar todos los scripts del motor cinemático y renderizadores CAD
+    static_dir = os.path.join(base_dir, "web", "static")
+    if os.path.isdir(static_dir):
+        for fname in os.listdir(static_dir):
+            if fname.endswith(".js"):
+                shutil.copy2(os.path.join(static_dir, fname), os.path.join(site_dir, fname))
     
     # Renderizar index.html
     index_template = env.get_template("index.html")

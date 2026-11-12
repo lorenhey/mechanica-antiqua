@@ -57,8 +57,9 @@
 
         
         <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-model-type="crank_slider">
+        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="agricola_suction_pump" data-model-type="crank_slider">
             <div id="machine-svg-wrapper" class="svg-container">
+                
                 <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-agricola-suction-pump">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
@@ -210,13 +211,14 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Caudal de achique: Q = 222.6 L/min</text>
   </g>
 </svg>
+                
             </div>
         </div>
 
         <div class="theory-card">
             <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Mecanismo Biela-Manivela-Pistón Alternativo en Pozo</p>
-            <p><strong>Topología estructural:</strong> Mecanismo cuadrilátero biela-corredera en línea (In-line Slider-Crank)</p>
+            <p><strong>Mecanismo identificado:</strong> Bomba Alternativa de Minería (Biela-Manivela en Línea)</p>
+            <p><strong>Topología estructural:</strong> Cuadrilátero biela-corredera centrado (In-line Slider-Crank)</p>
             
             <table class="theory-table">
                 <tr>
@@ -225,7 +227,7 @@
                 </tr>
                 <tr>
                     <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>4 eslabones: 1) Entibación y cuerpo de bomba, 2) Manivela / cigüeñal de hierro, 3) Biela motriz, 4) Émbolo con cuero y vástago guía</td>
+                    <td>4 eslabones: 1) Entibación y cuerpo de cilindro, 2) Manivela, 3) Biela motriz, 4) Vástago y émbolo</td>
                 </tr>
                 <tr>
                     <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
@@ -242,9 +244,9 @@
                 <tr>
                     <td><strong>Leyes cinemáticas analíticas</strong></td>
                     <td>
-                        Posición: <code>s(θ) = r · cos(θ) + √(L² - r² · sin²(θ))</code><br>
-                        Velocidad: <code>v(θ) = -r · ω · (sin(θ) + (r · sin(2θ)) / (2√(L² - r² · sin²(θ))))</code><br>
-                        Aceleración: <code>a(θ) ≈ -r · ω² · (cos(θ) + (r / L) · cos(2θ))</code>
+                        Posición: <code>s(θ) = r cos θ + √(L² - r² sin²θ)</code><br>
+                        Velocidad: <code>v(θ) = -r ω (sin θ + (r sin 2θ) / (2√(L² - r² sin²θ)))</code><br>
+                        Aceleración: <code>a(θ) ≈ -r ω² (cos θ + (r / L) cos 2θ)</code>
                     </td>
                 </tr>
             </table>
@@ -258,37 +260,37 @@
                 </tr>
                 
                 <tr>
-                    <td><code>r_crank_mm</code></td>
+                    <td><code>r_manivela_mm</code></td>
                     <td><strong>175</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>L_rod_mm</code></td>
+                    <td><code>L_biela_mm</code></td>
                     <td><strong>800</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>lambda_ratio</code></td>
+                    <td><code>relacion_lambda</code></td>
                     <td><strong>0.219</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>stroke_mm</code></td>
+                    <td><code>carrera_mm</code></td>
                     <td><strong>350</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>cylinder_bore_mm</code></td>
+                    <td><code>diametro_cilindro_mm</code></td>
                     <td><strong>180</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>rpm_nominal</code></td>
+                    <td><code>regimen_rpm</code></td>
                     <td><strong>25</strong></td>
                 </tr>
                 
                 <tr>
-                    <td><code>flow_rate_lmin</code></td>
+                    <td><code>caudal_teorico_Lmin</code></td>
                     <td><strong>222.6</strong></td>
                 </tr>
                 
@@ -297,13 +299,16 @@
 
             
             <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Agricola documenta bombas de madera perforada accionadas por malacate o rueda hidráulica para el achique minero en los montes metálicos de Sajonia.
+                <strong>Nota del reconstructor:</strong> Limitada físicamente a ~7.5 m de altura de aspiración por la presión atmosférica local y cavitación en la válvula de pie.
             </div>
             
         </div>
         
     </main>
 
+    <script src="../cad_primitives.js"></script>
+    <script src="../renderers_mechanisms.js"></script>
+    <script src="../renderers_physics.js"></script>
     <script src="../kinematics.js"></script>
 </body>
 </html>

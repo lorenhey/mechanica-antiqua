@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 32 de 42 · Bombas, Vapor y Fluidos</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 32 · 1556</div>
+    <main>
+        <div class="machine-header">
+            <h1>Ventilador centrífugo minero</h1>
+            <p class="machine-sub">
+                Georgius Agricola · <em>De re metallica</em> (1556) · Ventilator
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Georgius Agricola</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>De re metallica (1556, Basilea (Froben))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Libro VI, pp. 200-205</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Ventilación minera</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Aerodinámica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Reconstrucción digital 3D</span>
-                <img src="realistic.jpg" alt="Ventilador centrífugo minero — Reconstrucción digital 3D">
-                <figcaption>Reconstrucción digital tridimensional del ventilador centrífugo minero con álabes radiales accionado por tiro de caballos.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="agricola_ventilation_fan"
+                 data-model-type="fluid_thermal">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">diametro_rodete_mm</td>
-                        <td class="param-val">720</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">num_alabes</td>
-                        <td class="param-val">6</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">rpm_rodete</td>
-                        <td class="param-val">380</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">caudal_aire_m3h</td>
-                        <td class="param-val">950</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1556</div>
-                <h1>Ventilador centrífugo minero</h1>
-                
-                <p class="monograph-original">Denominación histórica: Ventilator</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="agricola_ventilation_fan"
-                     data-model-type="fluid_thermal">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .vf-bg { fill: #fcf9f2; }
@@ -199,97 +111,101 @@
   <text x="50" y="552" class="vf-text">  en presión estática para ventilar pozos.</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Ventilador rotativo de paletas encerrado en una carcasa cilíndrica de madera, utilizado para inyectar aire fresco o expulsar gases tóxicos y polvo de los tiros y galerías subterráneas mediante tiro forzado accionado por energía animal o eólica.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: principio aerodinámico documentado; rendimiento inferido por análisis fluidodinámico.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, precursor directo de las turbomáquinas de ventilación de pozos.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Ventilador Centrífugo Minero en Carcasa Espiral (Voluta) — <em>Turbomáquina radial rotativa con difusor en voluta (Agrícola, De Re Metallica)</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Ventilador Centrífugo Minero en Carcasa Espiral (Voluta).</strong> Turbomáquina radial rotativa con difusor en voluta (Agrícola, De Re Metallica). Carcasa envolvente fija, rueda de 6 paletas curvas radiales, engranaje multiplicador.</p>
+                
+                <p class="math-line">
+                    <code>F = 1</code>
+                     · <code>ΔP_estatica = ρ · (u₂² - u₁² + w₁² - w₂²) / 2 [Ecuación de Euler de turbomáquinas]</code>
+                </p>
+                
+                
+                <p>La carcasa excéntrica en espiral recoge gradualmente el caudal periférico transformando energía cinética en presión estática en el ducto.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Ventilador centrífugo minero">
+                    <figcaption>Reconstrucción digital tridimensional del ventilador centrífugo minero con álabes radiales accionado por tiro de caballos.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Carcasa envolvente fija, rueda de 6 paletas curvas radiales, engranaje multiplicador</td>
+                            <th>Procedencia</th>
+                            <td>Sajonia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Par R principal del rodete + transmisión multiplicadora manivela-eje</td>
+                            <th>Fuente</th>
+                            <td>Libro VI, pp. 200-205</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1</span></td>
+                            <th>Diámetro rodete</th>
+                            <td class="spec-val">720 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>ΔP_estatica = ρ · (u₂² - u₁² + w₁² - w₂²) / 2 [Ecuación de Euler de turbomáquinas]</code></td>
+                            <th>Álabes</th>
+                            <td class="spec-val">6</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>r_particula(θ) crece exponencialmente hacia la voluta periférica</code><br>
-                                Velocidad: <code>u₂ = ω · R_rodete ≈ 14.5 m/s</code><br>
-                                Aceleración: <code>a_centrifuga = ω² · r</code>
-                            </td>
+                            <th>Régimen del rodete</th>
+                            <td class="spec-val">380 rpm</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Caudal aire</th>
+                            <td class="spec-val">950 m³/h</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    La carcasa excéntrica en espiral recoge gradualmente el caudal periférico transformando energía cinética en presión estática en el ducto.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../agricola_suction_pump/index.html" class="pager-prev">← Bomba de succión minera</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../agricola_suction_pump/index.html">
-                        <span class="folio-pager-label">Lámina anterior (31)</span>
-                        ← Bomba de succión minera
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../besson_screw_lathe/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (33)</span>
-                        Torno de roscar con husillo patrón →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../besson_screw_lathe/index.html" class="pager-next">Torno de roscar con husillo patrón →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 32 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

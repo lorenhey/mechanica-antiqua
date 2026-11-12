@@ -902,13 +902,158 @@ KINEMATIC_REGISTRY: Dict[str, Dict[str, Any]] = {
     }
 }
 
+_UNIT_SUFFIXES = [
+    ("_Lmin", " L/min"),
+    ("_m3h", " m³/h"),
+    ("_Lh", " L/h"),
+    ("_m3", " m³"),
+    ("_kPa", " kPa"),
+    ("_bar", " bar"),
+    ("_kW", " kW"),
+    ("_kN", " kN"),
+    ("_Nm", " N/m"),
+    ("_Pa", " Pa"),
+    ("_ms", " m/s"),
+    ("_mm", " mm"),
+    ("_m", " m"),
+    ("_kg", " kg"),
+    ("_g", " g"),
+    ("_N", " N"),
+    ("_J", " J"),
+    ("_L", " L"),
+    ("_C", " °C"),
+    ("_deg_km", " °/km"),
+    ("_deg", "°"),
+    ("_min", " min"),
+    ("_s", " s"),
+    ("_rpm", " rpm"),
+]
+
+_LABEL_OVERRIDES = {
+    "r_manivela": "Radio de manivela",
+    "L_biela": "Longitud de biela",
+    "relacion_lambda": "Relación de biela (λ)",
+    "v_corte_max": "Velocidad máxima de corte",
+    "diametro_primitivo_Dm": "Diámetro primitivo",
+    "diametro_bolas_d": "Diámetro de bolas",
+    "num_bolas_Z": "Cantidad de bolas",
+    "dientes_sol_Z1": "Dientes del sol fijo",
+    "dientes_planeta_Z3": "Dientes del planeta",
+    "trocha_W": "Trocha",
+    "tension_horizontal_T0": "Tensión horizontal T₀",
+    "altura_carga_h0": "Altura de carga h₀",
+    "coef_friccion_equivalente": "Rozamiento equivalente",
+    "cilindrada_rev": "Cilindrada por vuelta",
+    "caudal_diario": "Caudal diario",
+    "cadencia_golpes": "Cadencia",
+    "cadencia_disparos": "Cadencia",
+    "ciclos": "Cadencia",
+    "revoluciones_melodia": "Duración de ciclo",
+    "regimen": "Régimen nominal",
+    "rpm_nominal": "Régimen nominal",
+    "rpm_huso": "Régimen del huso",
+    "rpm_rodete": "Régimen del rodete",
+    "regimen_muela": "Régimen de la muela",
+    "temp_reduccion": "Temperatura de reducción",
+    "base_numerica": "Base numérica",
+    "cuerdas_muestra": "Cuerdas de ejemplo",
+    "rango_por_cuerda": "Rango por cuerda",
+    "redundancia": "Verificación",
+    "num_pillones": "Pilones",
+    "num_pilones": "Pilones",
+    "num_mazos": "Mazos",
+    "num_atriles": "Atriles",
+    "num_paletas": "Paletas",
+    "num_alabes": "Álabes",
+    "num_levas": "Levas",
+    "num_toberas": "Toberas",
+    "num_cangilones": "Cangilones",
+    "num_canales_notas": "Canales musicales",
+    "num_esferas_carga": "Esferas de reserva",
+    "paso_husillo": "Paso del husillo",
+    "paso_helice": "Paso de hélice",
+    "paso_esferas": "Paso entre esferas",
+    "longitud_util": "Recorrido útil",
+    "longitud_atlatl": "Longitud del átlatl",
+    "longitud_dardo": "Longitud del dardo",
+    "longitud_balancin": "Longitud del balancín",
+    "longitud_brazo": "Longitud de brazo",
+    "longitud_pertiga": "Longitud de pértiga",
+    "longitud": "Longitud",
+    "capacidad_cargador": "Capacidad de cargador",
+    "relacion_jaula_eje": "Relación jaula / eje",
+    "relacion_engranaje": "Relación de engranaje",
+    "relacion_transmision": "Relación de transmisión",
+    "relacion_multiplicadora": "Multiplicación",
+    "relacion_poleas": "Relación de poleas",
+    "relacion_escape": "Relación de escape",
+    "radio_excentrica": "Radio excéntrico",
+    "radio_tambor": "Radio del tambor",
+    "radio_estator": "Radio del estator",
+    "radio_engrane_dif": "Relación diferencial",
+    "factor_seguridad_tercio": "Factor de seguridad",
+    "presion_caldera": "Presión de caldera",
+    "presion_vapor": "Presión de vapor",
+    "presion_descarga": "Presión de descarga",
+    "presion_vacio": "Presión de vacío",
+    "presion_fuelle": "Presión de fuelle",
+    "presion_max_sifon": "Presión máxima en sifón",
+    "vacio_parcial": "Vacío parcial",
+    "ventaja_mecanica_teorica": "Ventaja mecánica teórica",
+    "eficiencia_estimada": "Eficiencia estimada",
+    "energia_golpe": "Energía por golpe",
+    "energia_impacto": "Energía de impacto",
+    "fuerza_atmosferica": "Fuerza neta del pistón",
+    "fuerza_armado": "Fuerza de armado",
+    "amplificacion_energia": "Amplificación cinética",
+}
+
+def format_nominal_params(params: Dict[str, Any]):
+    """Convierte claves snake_case internas a pares legibles (etiqueta, valor con unidad)."""
+    if not params:
+        return []
+    formatted = []
+    for key, val in params.items():
+        unit = ""
+        base_key = key
+        for suf, u_str in _UNIT_SUFFIXES:
+            if key.endswith(suf):
+                base_key = key[: -len(suf)]
+                unit = u_str
+                break
+        label = _LABEL_OVERRIDES.get(base_key)
+        if not label:
+            words = base_key.replace("_", " ").strip()
+            accents = {
+                "diametro": "diámetro", "inclinacion": "inclinación",
+                "pitagorica": "pitagórica", "max": "máximo",
+                "teorico": "teórico", "teorica": "teórica",
+                "angulos": "ángulos", "angulo": "ángulo",
+                "altura": "altura", "succion": "succión",
+                "impulsion": "impulsión", "elevacion": "elevación",
+                "autonomia": "autonomía", "numerica": "numérica",
+                "vacio": "vacío", "precision": "precisión",
+                "caudal": "caudal", "desfase": "desfase",
+                "conmutacion": "conmutación", "deposito": "depósito",
+                "embolo": "émbolo", "boveda": "bóveda",
+                "rotacion": "rotación", "velocidad salida": "velocidad de salida"
+            }
+            for raw_w, rep_w in accents.items():
+                words = words.replace(raw_w, rep_w)
+            label = words[:1].upper() + words[1:] if words else key
+        if key in ("cadencia_golpes_min", "cadencia_disparos_min", "ciclos_min"):
+            unit = "/min"
+        elif key == "cilindrada_rev_L":
+            unit = " L/rev"
+        elif key == "rpm_nominal" or key.startswith("rpm_") or key.startswith("regimen"):
+            unit = " rpm"
+        val_str = f"{val}{unit}"
+        formatted.append((label, val_str))
+    return formatted
+
 def get_kinematic_data(machine_id: str) -> Dict[str, Any]:
     """Retorna los datos cinemáticos analíticos exactos de cada máquina del catálogo."""
-    if machine_id in KINEMATIC_REGISTRY:
-        return KINEMATIC_REGISTRY[machine_id]
-    
-    # Salvaguarda por si se añade una nueva carpeta en el futuro
-    return {
+    data = dict(KINEMATIC_REGISTRY.get(machine_id, {
         "model_type": "crank_slider",
         "mechanism_name": "Mecanismo Histórico Analítico",
         "topology": "Cadena cinemática plana",
@@ -921,5 +1066,7 @@ def get_kinematic_data(machine_id: str) -> Dict[str, Any]:
         "velocity_eq": "v(θ)",
         "acceleration_eq": "a(θ)",
         "nominal_params": {"rpm_nominal": 30},
-        "notes": "Reconstrucción cinemática parametrizada."
-    }
+        "notes": ""
+    }))
+    data["formatted_params"] = format_nominal_params(data.get("nominal_params", {}))
+    return data

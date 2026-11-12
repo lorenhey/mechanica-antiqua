@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 39 de 42 · Bombas, Vapor y Fluidos</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 39 · 1702</div>
+    <main>
+        <div class="machine-header">
+            <h1>Bomba de vapor de Savery (El amigo del minero)</h1>
+            <p class="machine-sub">
+                Thomas Savery · <em>The Miner's Friend</em> (1702) · The Miner's Friend
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Thomas Savery</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>The Miner's Friend (1702, Londres)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Tratado 'The Miner's Friend; or, An Engine to Raise Water by Fire'</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Bomba térmica de agua</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Termodinámica e Hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Grabado técnico histórico</span>
-                <img src="realistic.jpg" alt="Bomba de vapor de Savery (El amigo del minero) — Grabado técnico histórico">
-                <figcaption>Lámina calcográfica original de Thomas Savery en el tratado The Miner's Friend (Londres, 1702), detallando la caldera y los recipientes de condensación para bombeo por vapor.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="savery_savery_engine"
+                 data-model-type="hydraulic_control">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">presion_vapor_bar</td>
-                        <td class="param-val">3.8</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">altura_succion_m</td>
-                        <td class="param-val">6.5</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">altura_impulsion_m</td>
-                        <td class="param-val">22.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">ciclos_min</td>
-                        <td class="param-val">6</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1702</div>
-                <h1>Bomba de vapor de Savery (El amigo del minero)</h1>
-                
-                <p class="monograph-original">Denominación histórica: The Miner's Friend</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="savery_savery_engine"
-                     data-model-type="hydraulic_control">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .sv-bg { fill: #fcf9f2; }
@@ -199,97 +111,101 @@
   <text x="530" y="322" class="sv-text">   el agua a gran altura.</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Bomba térmica directa sin piezas móviles mecánicas (sin pistón ni balancín). El agua de la mina era aspirada hacia una cámara receptora por la condensación de vapor (vacío) y posteriormente forzada a gran altura mediante la presión directa de vapor vivo proveniente de la caldera.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: patente real de 1698 y folleto técnico explicativo impreso por Savery.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, operó comercialmente, aunque con bajo rendimiento térmico y riesgo de explosión de calderas.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Bomba Térmica de Savery ('El Amigo del Minero', 1698) — <em>Bomba de desplazamiento sin pistón por ciclos térmicos alternados de vacío y presión</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Bomba Térmica de Savery ('El Amigo del Minero', 1698).</strong> Bomba de desplazamiento sin pistón por ciclos térmicos alternados de vacío y presión. Caldera de cobre, 2 cámaras ovales receptoras, 4 válvulas de retención e inyección fría.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (fase alterna: 0..π succión por vacío / π..2π impulsión por vapor)</code>
+                     · <code>h_succion ≤ P_atm/(ρ g) ; h_impulsion = P_vapor/(ρ g)</code>
+                </p>
+                
+                
+                <p>Ausencia de pistón móvil: el vapor actúa directamente sobre la superficie libre del agua, lo que ocasiona altas pérdidas térmicas.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Bomba de vapor de Savery (El amigo del minero)">
+                    <figcaption>Lámina calcográfica original de Thomas Savery en el tratado The Miner's Friend (Londres, 1702), detallando la caldera y los recipientes de condensación para bombeo por vapor.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Caldera de cobre, 2 cámaras ovales receptoras, 4 válvulas de retención e inyección fría</td>
+                            <th>Procedencia</th>
+                            <td>Inglaterra</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Flujo alternado mediante llaves manuales de vapor y válvulas de pie/descarga</td>
+                            <th>Fuente</th>
+                            <td>Tratado 'The Miner's Friend; or, An Engine to Raise Water by Fire'</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (fase alterna: 0..π succión por vacío / π..2π impulsión por vapor)</span></td>
+                            <th>Presión de vapor</th>
+                            <td class="spec-val">3.8 bar</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>h_succion ≤ P_atm/(ρ g) ; h_impulsion = P_vapor/(ρ g)</code></td>
+                            <th>Altura succión</th>
+                            <td class="spec-val">6.5 m</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>Nivel(θ) en cámaras A y B en contrafase 180°</code><br>
-                                Velocidad: <code>Q_medio ≈ 220 L/min a 24 m de altura total</code><br>
-                                Aceleración: <code>ΔP_ciclo = -0.8 bar (succión) / +3.5 bar (impulsión)</code>
-                            </td>
+                            <th>Altura impulsión</th>
+                            <td class="spec-val">22.0 m</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Cadencia</th>
+                            <td class="spec-val">6/min</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Ausencia de pistón móvil: el vapor actúa directamente sobre la superficie libre del agua, lo que ocasiona altas pérdidas térmicas.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../papin_papin_steam_engine/index.html" class="pager-prev">← Cilindro de vapor y pistón de Papin</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../papin_papin_steam_engine/index.html">
-                        <span class="folio-pager-label">Lámina anterior (38)</span>
-                        ← Cilindro de vapor y pistón de Papin
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../newcomen_newcomen_engine/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (40)</span>
-                        Máquina de vapor atmosférica de Newcomen →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../newcomen_newcomen_engine/index.html" class="pager-next">Máquina de vapor atmosférica de Newcomen →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 39 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

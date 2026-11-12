@@ -7,130 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 24 de 42 · Mecanismos y Relojería</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 24 · 1480</div>
+    <main>
+        <div class="machine-header">
+            <h1>Aserradero hidráulico con biela-manivela</h1>
+            <p class="machine-sub">
+                Francesco di Giorgio Martini · <em>Trattato di architettura, ingegneria e arte militare</em> (1480) · Segheria idraulica
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Francesco di Giorgio Martini</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Trattato di architettura, ingegneria e arte militare (1480, Códice Ashburnham 361 (Florencia))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Láminas de maquinaria hidráulica</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Aserradero hidráulico</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Mecánica analítica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Fotografía de maquinaria histórica</span>
-                <img src="realistic.jpg" alt="Aserradero hidráulico con biela-manivela — Fotografía de maquinaria histórica">
-                <figcaption>Fotografía de rueda hidráulica motriz de paletas y mecanismo de accionamiento para aserradero rural tradicional de madera.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="martini_hydraulic_sawmill"
+                 data-model-type="crank_slider">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">r_manivela_mm</td>
-                        <td class="param-val">150</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">L_biela_mm</td>
-                        <td class="param-val">750</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">relacion_lambda</td>
-                        <td class="param-val">0.2</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">carrera_mm</td>
-                        <td class="param-val">300</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">regimen_rpm</td>
-                        <td class="param-val">45</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">v_corte_max_ms</td>
-                        <td class="param-val">0.72</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Mecanismos y Relojería · 1480</div>
-                <h1>Aserradero hidráulico con biela-manivela</h1>
-                
-                <p class="monograph-original">Denominación histórica: Segheria idraulica</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="martini_hydraulic_sawmill"
-                     data-model-type="crank_slider">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-martini-sawmill">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-martini-sawmill">
   <defs>
     <!-- Patrón de cuadrícula milimétrica de ingeniería -->
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -308,97 +210,111 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Régimen nominal: n = 45 rpm (ω = 4.71 rad/s)</text>
   </g>
 </svg>
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Aserradero mecanizado que utiliza una rueda hidráulica acoplada a un mecanismo de biela-cigüeñal para convertir la rotación continua en el vaivén vertical de la hoja de corte, combinado con un sistema de trinquete de avance sincronizado para desplazar el carro del tronco.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: cinemática de biela-manivela y avance por trinquete detallada por Martini.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, diseño ampliamente difundido en las serrerías alpinas preindustriales.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Mecanismo Biela-Manivela-Corredera Vertical — <em>Cadena cinemática plana cerrada de 4 eslabones (3R-1P)</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Mecanismo Biela-Manivela-Corredera Vertical.</strong> Cadena cinemática plana cerrada de 4 eslabones (3R-1P). 4 eslabones: 1) Bastidor fijo, 2) Rueda hidráulica / cigüeñal, 3) Biela acopladora, 4) Marco porta-sierra.</p>
+                
+                <p class="math-line">
+                    <code>F = 3(4 - 1) - 2(4) - 0 = 1</code>
+                     · <code>r · e^(iθ) + L · e^(iφ) = x_B + i · y_B(θ)</code>
+                </p>
+                
+                
+                <p>La rotación hidráulica continua se transforma en corte vertical alternativo, sincronizada mediante trinquete para el avance escalonado del carro.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Aserradero hidráulico con biela-manivela">
+                    <figcaption>Fotografía de rueda hidráulica motriz de paletas y mecanismo de accionamiento para aserradero rural tradicional de madera.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>4 eslabones: 1) Bastidor fijo, 2) Rueda hidráulica / cigüeñal, 3) Biela acopladora, 4) Marco porta-sierra</td>
+                            <th>Procedencia</th>
+                            <td>Italia (Siena)</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>j₁ = 4 (3 pares R: O₂, muñón A, pasador B; 1 par P en guías). j₂ = 0</td>
+                            <th>Fuente</th>
+                            <td>Láminas de maquinaria hidráulica</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 3(4 - 1) - 2(4) - 0 = 1</span></td>
+                            <th>Radio de manivela</th>
+                            <td class="spec-val">150 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>r · e^(iθ) + L · e^(iφ) = x_B + i · y_B(θ)</code></td>
+                            <th>Longitud de biela</th>
+                            <td class="spec-val">750 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>s(θ) = r(1 - cos θ) + (r² / 2L) sin²θ</code><br>
-                                Velocidad: <code>v(θ) ≈ r ω (sin θ + (r / 2L) sin 2θ)</code><br>
-                                Aceleración: <code>a(θ) ≈ r ω² (cos θ + (r / L) cos 2θ)</code>
-                            </td>
+                            <th>Relación de biela (λ)</th>
+                            <td class="spec-val">0.2</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Carrera</th>
+                            <td class="spec-val">300 mm</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Régimen nominal</th>
+                            <td class="spec-val">45 rpm</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Velocidad máxima de corte</th>
+                            <td class="spec-val">0.72 m/s</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    La rotación hidráulica continua se transforma en corte vertical alternativo, sincronizada mediante trinquete para el avance escalonado del carro.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../inca_suspension_bridge/index.html" class="pager-prev">← Puente colgante de Q'eswachaka</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../inca_suspension_bridge/index.html">
-                        <span class="folio-pager-label">Lámina anterior (23)</span>
-                        ← Puente colgante de Q'eswachaka
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../martini_piston_pump/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (25)</span>
-                        Bomba aspirante-impelente con balancín →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../martini_piston_pump/index.html" class="pager-next">Bomba aspirante-impelente con balancín →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 24 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

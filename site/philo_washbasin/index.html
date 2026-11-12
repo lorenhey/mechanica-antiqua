@@ -7,115 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 06 de 42 · Hidráulica y Elevación</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 06 · 220 a.C.</div>
+    <main>
+        <div class="machine-header">
+            <h1>Lavamanos neumático de nivel constante</h1>
+            <p class="machine-sub">
+                Filón de Bizancio · <em>Pneumatica</em> (220 a.C.) · Lavamanos automático de Filón
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Filón de Bizancio</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Pneumatica (220 a.C., Alejandría (Manuscrito árabe de Oxford))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Capítulo 15</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Dispensador neumático de agua</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Neumática</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Fotografía de réplica histórica</span>
-                <img src="realistic.jpg" alt="Lavamanos neumático de nivel constante — Fotografía de réplica histórica">
-                <figcaption>Fotografía del modelo físico a escala interactivo del lavamanos neumático con sifón de Filón de Bizancio en el Museo Kotsanas de Tecnología Griega Antigua.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="philo_washbasin"
+                 data-model-type="hydraulic_control">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">volumen_deposito_L</td>
-                        <td class="param-val">12.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">nivel_regulado_mm</td>
-                        <td class="param-val">85.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">vacio_parcial_kPa</td>
-                        <td class="param-val">-4.2</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Hidráulica y Elevación · 220 a.C.</div>
-                <h1>Lavamanos neumático de nivel constante</h1>
-                
-                <p class="monograph-original">Denominación histórica: Lavamanos automático de Filón</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="philo_washbasin"
-                     data-model-type="hydraulic_control">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .pw-bg { fill: #fcf9f2; }
@@ -198,97 +115,96 @@
   <text x="50" y="342" class="pw-text">4. Entra aire y recomienza flujo.</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Dispensador neumático autorregulado de agua. Un depósito hermético superior suministra agua al cuenco; cuando el nivel del líquido asciende hasta obturar el conducto de ventilación, se interrumpe la entrada de aire y cesa el flujo hidrostático, reanudándose al retirarse el agua.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto (0,90): tratado neumático conservado en versión árabe con diagramas hidráulicos exactos.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, principio de campana barométrica y equilibrio hidrostático probado.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Lavamanos Neumático Autorregulado de Filón de Bizancio — <em>Controlador barométrico de nivel constante tipo frasco de Mariotte (s. III a.C.)</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Lavamanos Neumático Autorregulado de Filón de Bizancio.</strong> Controlador barométrico de nivel constante tipo frasco de Mariotte (s. III a.C.). Depósito hermético superior, tubo barométrico sumergido, cubeta inferior.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (Equilibrio P_gas + ρ g H_col = P_atm)</code>
+                     · <code>Si h_cubeta < h_tubo ⇒ burbujeo de aire ⇒ Q_descarga > 0 hasta sellar h_tubo</code>
+                </p>
+                
+                
+                <p>Primer regulador proporcional sin piezas móviles basado exclusivamente en la presión atmosférica y tensión superficial.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Lavamanos neumático de nivel constante">
+                    <figcaption>Fotografía del modelo físico a escala interactivo del lavamanos neumático con sifón de Filón de Bizancio en el Museo Kotsanas de Tecnología Griega Antigua.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Depósito hermético superior, tubo barométrico sumergido, cubeta inferior</td>
+                            <th>Procedencia</th>
+                            <td>Egipto helenístico (Alejandría)</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Interfaz aire-líquido gobernada por equilibrio hidrostático ΔP</td>
+                            <th>Fuente</th>
+                            <td>Capítulo 15</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (Equilibrio P_gas + ρ g H_col = P_atm)</span></td>
+                            <th>Volumen depósito</th>
+                            <td class="spec-val">12.0 L</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>Si h_cubeta < h_tubo ⇒ burbujeo de aire ⇒ Q_descarga > 0 hasta sellar h_tubo</code></td>
+                            <th>Nivel regulado</th>
+                            <td class="spec-val">85.0 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>h_nivel(θ) = h_eq [Auto-estabilizado tras perturbación]</code><br>
-                                Velocidad: <code>Q_reposicion = C_d A √(2 g Δh)</code><br>
-                                Aceleración: <code>Amortiguamiento neumático sin piezas móviles</code>
-                            </td>
+                            <th>Vacío parcial</th>
+                            <td class="spec-val">-4.2 kPa</td>
                         </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Primer regulador proporcional sin piezas móviles basado exclusivamente en la presión atmosférica y tensión superficial.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../ctesibius_pump/index.html" class="pager-prev">← Bomba aspirante-impelente de Ctesibio</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../ctesibius_pump/index.html">
-                        <span class="folio-pager-label">Lámina anterior (05)</span>
-                        ← Bomba aspirante-impelente de Ctesibio
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../african_saqiya/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (07)</span>
-                        Saqiya (Rueda de cangilones) →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../african_saqiya/index.html" class="pager-next">Saqiya (Rueda de cangilones) →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 06 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

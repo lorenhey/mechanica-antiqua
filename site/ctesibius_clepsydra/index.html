@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 04 de 42 · Hidráulica y Elevación</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 04 · 250 a.C.</div>
+    <main>
+        <div class="machine-header">
+            <h1>Clepsidra de flujo constante</h1>
+            <p class="machine-sub">
+                Ctesibio · <em>Pneumatica (documentado por Vitruvio)</em> (250 a.C.) · Clepsydra
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Ctesibio</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Pneumatica (documentado por Vitruvio) (250 a.C., Alejandría ptolemaica)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>De Architectura, Libro IX, Capítulo 8</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Reloj de agua</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Pieza de museo / Arqueología</span>
-                <img src="realistic.jpg" alt="Clepsidra de flujo constante — Pieza de museo / Arqueología">
-                <figcaption>Fotografía arqueológica de clepsidra de fayenza de época ptolemaica con relieve de cinocéfalo y orificio calibrado (The Metropolitan Museum of Art).</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="ctesibius_clepsydra"
+                 data-model-type="hydraulic_control">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">altura_carga_h0_mm</td>
-                        <td class="param-val">120</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">caudal_regulado_Lh</td>
-                        <td class="param-val">1.85</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">error_diario_min</td>
-                        <td class="param-val">4.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">carrera_flotador_mm</td>
-                        <td class="param-val">600</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Hidráulica y Elevación · 250 a.C.</div>
-                <h1>Clepsidra de flujo constante</h1>
-                
-                <p class="monograph-original">Denominación histórica: Clepsydra</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="ctesibius_clepsydra"
-                     data-model-type="hydraulic_control">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .cl-bg { fill: #fcf9f2; }
@@ -219,97 +131,101 @@
   <text x="510" y="502" class="cl-text">• Conversión directa cremallera-piñón</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Reloj hidráulico de alta precisión para el mundo antiguo. Incorpora una válvula de flotador de nivel constante que estabiliza la presión hidrostática y garantiza un caudal volumétrico uniforme a través de un orificio de piedras duras. El nivel ascendente eleva un flotador acoplado a una cremallera y piñón que desplaza el indicador horario.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto (0,80): principios hidrostáticos y cinemáticos confirmados por Vitruvio y arqueología alejandrina.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, primera regulación automática por realimentación de flotador conocida.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Clepsidra de Flujo Constante y Regulador Cónico — <em>Sistema hidráulico de lazo cerrado (nivel h constante) + cremallera-piñón flotante</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Clepsidra de Flujo Constante y Regulador Cónico.</strong> Sistema hidráulico de lazo cerrado (nivel h constante) + cremallera-piñón flotante. Válvula cónica flotante (regulador P), cilindro acumulador graduado, flotador-cremallera, piñón indicador.</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (dh₂/dt = Q_const / A_cilindro = cte)</code>
+                     · <code>Q = C_d · A_orificio · √(2 · g · h_const)</code>
+                </p>
+                
+                
+                <p>Primera implementación conocida de realimentación negativa mecánica (control proporcional de nivel).</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Clepsidra de flujo constante">
+                    <figcaption>Fotografía arqueológica de clepsidra de fayenza de época ptolemaica con relieve de cinocéfalo y orificio calibrado (The Metropolitan Museum of Art).</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Válvula cónica flotante (regulador P), cilindro acumulador graduado, flotador-cremallera, piñón indicador</td>
+                            <th>Procedencia</th>
+                            <td>Egipto helenístico (Alejandría)</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Regulación proporcional de caudal + par cremallera-piñón</td>
+                            <th>Fuente</th>
+                            <td>De Architectura, Libro IX, Capítulo 8</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (dh₂/dt = Q_const / A_cilindro = cte)</span></td>
+                            <th>Altura de carga h₀</th>
+                            <td class="spec-val">120 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>Q = C_d · A_orificio · √(2 · g · h_const)</code></td>
+                            <th>Caudal regulado</th>
+                            <td class="spec-val">1.85 L/h</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>h_flotador(t) = v_ascenso · t ; θ_aguja = h / R_pinon</code><br>
-                                Velocidad: <code>dh/dt = cte [Independiente de presión de suministro]</code><br>
-                                Aceleración: <code>d²h/dt² = 0</code>
-                            </td>
+                            <th>Error diario</th>
+                            <td class="spec-val">4.0 min</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Carrera flotador</th>
+                            <td class="spec-val">600 mm</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Primera implementación conocida de realimentación negativa mecánica (control proporcional de nivel).
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../indian_charkha/index.html" class="pager-prev">← Rueca de hilar india (Charkha)</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../indian_charkha/index.html">
-                        <span class="folio-pager-label">Lámina anterior (03)</span>
-                        ← Rueca de hilar india (Charkha)
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../ctesibius_pump/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (05)</span>
-                        Bomba aspirante-impelente de Ctesibio →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../ctesibius_pump/index.html" class="pager-next">Bomba aspirante-impelente de Ctesibio →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 04 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

@@ -7,125 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 34 de 42 · Mecanismos y Relojería</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 34 · 1588</div>
+    <main>
+        <div class="machine-header">
+            <h1>Rueda de lectura de Ramelli</h1>
+            <p class="machine-sub">
+                Agostino Ramelli · <em>Le diverse et artificiose machine</em> (1588) · Ruota dei libri
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Agostino Ramelli</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>Le diverse et artificiose machine (1588, París)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Figura 188</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Mecanismo epicicloidal</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Cinemática</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Fotografía de réplica histórica</span>
-                <img src="realistic.jpg" alt="Rueda de lectura de Ramelli — Fotografía de réplica histórica">
-                <figcaption>Fotografía de réplica funcional en madera de la rueda de lectura de Agostino Ramelli con tren de engranajes epicicloidales para mantener los atriles horizontales.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="ramelli_book_wheel"
+                 data-model-type="epicyclic">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">radio_tambor_mm</td>
-                        <td class="param-val">680</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">num_atriles</td>
-                        <td class="param-val">8</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">dientes_sol_Z1</td>
-                        <td class="param-val">24</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">dientes_planeta_Z3</td>
-                        <td class="param-val">24</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">inclinacion_atril_deg</td>
-                        <td class="param-val">0.0</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Mecanismos y Relojería · 1588</div>
-                <h1>Rueda de lectura de Ramelli</h1>
-                
-                <p class="monograph-original">Denominación histórica: Ruota dei libri</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="ramelli_book_wheel"
-                     data-model-type="epicyclic">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-ramelli-bookwheel">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" id="svg-ramelli-bookwheel">
   <defs>
     <!-- Patrón de cuadrícula milimétrica técnica -->
     <pattern id="grid-rw" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -323,97 +230,106 @@
     <text x="12" y="89" font-family="'EB Garamond', serif" font-size="12" fill="#334155">• Capacidad: 8 tratados simultáneos</text>
   </g>
 </svg>
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>La famosa rueda de lectura de Ramelli permite al erudito mantener múltiples libros abiertos simultáneamente. A diferencia de una rueda de la fortuna simple, utiliza un tren de engranajes epicicloidal oculto para garantizar que los atriles se mantengan estrictamente horizontales independientemente de la rotación del tambor principal.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alta en el tren epicicloidal, inferida en cotas exactas.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, existen reconstrucciones funcionales en bibliotecas históricas europeas.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Rueda de Lectura con Tren Epicicloidal Planetario — <em>Tren de engranajes planetarios con relación unitaria inversora (i = -1)</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Rueda de Lectura con Tren Epicicloidal Planetario.</strong> Tren de engranajes planetarios con relación unitaria inversora (i = -1). Bancada con sol central fijo (Z₁), portador (tambor giratorio), engranajes intermedios (Z₂) y 8 atriles (Z₃ = Z₁).</p>
+                
+                <p class="math-line">
+                    <code>F = 1 (relación epicicloidal Θ_atril = Θ_tambor - Θ_tambor = 0°)</code>
+                     · <code>ω_atril = ω_portador · (1 - Z_sol / Z_planeta) = 0</code>
+                </p>
+                
+                
+                <p>Agostino Ramelli (1588) compensa exactamente la rotación del tambor mediante un tren epicicloidal para evitar que caigan los volúmenes.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Rueda de lectura de Ramelli">
+                    <figcaption>Fotografía de réplica funcional en madera de la rueda de lectura de Agostino Ramelli con tren de engranajes epicicloidales para mantener los atriles horizontales.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Bancada con sol central fijo (Z₁), portador (tambor giratorio), engranajes intermedios (Z₂) y 8 atriles (Z₃ = Z₁)</td>
+                            <th>Procedencia</th>
+                            <td>Italia / Francia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>j₁ = 17 (pares R), j₂ = 16 (engranes dentados). i = ω_atril / ω_tambor = 0</td>
+                            <th>Fuente</th>
+                            <td>Figura 188</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1 (relación epicicloidal Θ_atril = Θ_tambor - Θ_tambor = 0°)</span></td>
+                            <th>Radio del tambor</th>
+                            <td class="spec-val">680 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>ω_atril = ω_portador · (1 - Z_sol / Z_planeta) = 0</code></td>
+                            <th>Atriles</th>
+                            <td class="spec-val">8</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>θ_atril(t) = 0° [Invariante absoluta respecto a tierra]</code><br>
-                                Velocidad: <code>v_tangencial = R_tambor · ω_tambor</code><br>
-                                Aceleración: <code>a_centripeta = R_tambor · ω_tambor²</code>
-                            </td>
+                            <th>Dientes del sol fijo</th>
+                            <td class="spec-val">24</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Dientes del planeta</th>
+                            <td class="spec-val">24</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Inclinación atril</th>
+                            <td class="spec-val">0.0°</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Agostino Ramelli (1588) compensa exactamente la rotación del tambor mediante un tren epicicloidal para evitar que caigan los volúmenes.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../besson_screw_lathe/index.html" class="pager-prev">← Torno de roscar con husillo patrón</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../besson_screw_lathe/index.html">
-                        <span class="folio-pager-label">Lámina anterior (33)</span>
-                        ← Torno de roscar con husillo patrón
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../ramelli_rotary_pump/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (35)</span>
-                        Bomba rotativa de paletas deslizantes →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../ramelli_rotary_pump/index.html" class="pager-next">Bomba rotativa de paletas deslizantes →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 34 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

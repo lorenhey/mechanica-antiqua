@@ -7,120 +7,32 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header class="masthead">
-        <div class="masthead-brand">
-            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
-            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
-            <p class="masthead-sub">Lámina 28 de 42 · Hidráulica y Elevación</p>
-        </div>
-        <nav class="site-nav">
+    <header class="topbar">
+        <a href="../index.html" class="brand">Mechanica Antiqua</a>
+        <nav class="nav">
             <a href="../index.html">Catálogo</a>
-            <a href="../about.html">Nota Metodológica</a>
+            <a href="../about.html">Acerca de</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main class="folio-layout">
-        <aside class="dossier-rail">
-            <div class="folio-tag">Expediente N.° 28 · 1556</div>
+    <main>
+        <div class="machine-header">
+            <h1>Bomba de cadena y rosario</h1>
+            <p class="machine-sub">
+                Georgius Agricola · <em>De re metallica</em> (1556) · Antlia catenaria
+            </p>
+        </div>
 
-            <dl class="dossier-dl">
-                <div class="dossier-item">
-                    <dt>Autor / Tradición</dt>
-                    <dd>Georgius Agricola</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Tratado / Fuente</dt>
-                    <dd>De re metallica (1556, Basilea (Froben))</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Folios / Láminas</dt>
-                    <dd>Libro VI, pp. 170-174</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Clasificación</dt>
-                    <dd>Bomba hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Dominio Físico</dt>
-                    <dd>Hidráulica</dd>
-                </div>
-                <div class="dossier-item">
-                    <dt>Estado Epistémico</dt>
-                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
-                </div>
-                
-                <div class="dossier-item">
-                    <dt>Dedicación / Derechos</dt>
-                    <dd>Dominio Público (CC0 1.0)</dd>
-                </div>
-                
-            </dl>
-
-            
-            <figure class="rail-figure">
-                <span class="rail-figure-label">Reconstrucción digital 3D</span>
-                <img src="realistic.jpg" alt="Bomba de cadena y rosario — Reconstrucción digital 3D">
-                <figcaption>Reconstrucción digital tridimensional de la bomba de cadena y rosario de Georgius Agricola operando en una galería de mina subterránea.</figcaption>
-            </figure>
-            
-
-            
-            <h3>Parámetros Nominales (SI)</h3>
-            <table class="booktabs-table">
-                <thead>
-                    <tr>
-                        <th>Magnitud</th>
-                        <th style="text-align:right">Valor</th>
-                    </tr>
-                </thead>
-                <tbody>
+        
+        <section class="sim-stage" aria-label="Simulación cinemática interactiva">
+            <div id="kinematic-workbench"
+                 class="kinematic-workbench"
+                 data-machine-id="agricola_chain_pump"
+                 data-model-type="archimedes_screw">
+                <div id="machine-svg-wrapper" class="sim-canvas-wrap">
                     
-                    <tr>
-                        <td class="param-key">diametro_tubo_mm</td>
-                        <td class="param-val">130</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">paso_esferas_mm</td>
-                        <td class="param-val">450</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">profundidad_pozo_m</td>
-                        <td class="param-val">18.0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td class="param-key">caudal_Lmin</td>
-                        <td class="param-val">180.0</td>
-                    </tr>
-                    
-                </tbody>
-            </table>
-            
-        </aside>
-
-        <article class="monograph-body">
-            <div class="monograph-header">
-                <div class="monograph-kicker">Hidráulica y Elevación · 1556</div>
-                <h1>Bomba de cadena y rosario</h1>
-                
-                <p class="monograph-original">Denominación histórica: Antlia catenaria</p>
-                
-            </div>
-
-            
-            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
-                <div id="kinematic-workbench"
-                     class="kinematic-workbench-container"
-                     data-machine-id="agricola_chain_pump"
-                     data-model-type="archimedes_screw">
-                    <div id="machine-svg-wrapper" class="svg-container">
-                        
-                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .cp-bg { fill: #fcf9f2; }
@@ -222,97 +134,101 @@
   <text x="550" y="325" class="cp-text">• Impulso continuo sin interrupción</text>
 </svg>
 
-                        
-                    </div>
+                    
                 </div>
-            </section>
-            
+            </div>
+        </section>
+        
 
-            <section class="monograph-prose">
-                <h2>Descripción Técnica y Contexto</h2>
+        <div class="detail-grid">
+            <article class="detail-prose">
+                <h2>Funcionamiento</h2>
                 <p>Bomba de rosario de esferas o discos de cuero unidos por una cadena de hierro sin fin que asciende por el interior de un tubo de madera, arrastrando columnas de agua desde el fondo de las galerías mineras. Impulsada por una rueda hidráulica o un malacate de tracción animal.</p>
 
-                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <h2>Documentación y viabilidad</h2>
                 <p>Alto: grabados renacentistas a escala y descripciones exhaustivas de Agricola.</p>
-
                 
-                <h2>Análisis de Viabilidad Operativa</h2>
                 <p>Sí, estándar de desagüe en minería europea del siglo XVI.</p>
                 
-            </section>
 
-            
-            <section>
-                <h2>Síntesis Cinemática y Grados de Libertad</h2>
-                <p><strong>Mecanismo:</strong> Bomba de Cadena y Rosario (Paternoster) en Pozo — <em>Transmisión flexible continua de cadena cerrada en tubería de elevación</em></p>
+                
+                <h2>Análisis cinemático</h2>
+                <p><strong>Bomba de Cadena y Rosario (Paternoster) en Pozo.</strong> Transmisión flexible continua de cadena cerrada en tubería de elevación. Catalina motriz superior, cadena sinfín con esferas de cuero y tubo vertical.</p>
+                
+                <p class="math-line">
+                    <code>F = 1</code>
+                     · <code>y_esfera(θ) = R_rueda · θ</code>
+                </p>
+                
+                
+                <p>Apta para aguas mineras cargadas de lodos y gravilla sin válvulas delicadas que se atasquen.</p>
+                
+                
+            </article>
 
-                <table class="booktabs-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 28%">Criterio</th>
-                            <th>Formulación Analítica</th>
-                        </tr>
-                    </thead>
+            <aside class="detail-side">
+                
+                <figure class="side-figure">
+                    <img src="realistic.jpg" alt="Bomba de cadena y rosario">
+                    <figcaption>Reconstrucción digital tridimensional de la bomba de cadena y rosario de Georgius Agricola operando en una galería de mina subterránea.</figcaption>
+                </figure>
+                
+
+                <table class="spec-table">
                     <tbody>
+                        
                         <tr>
-                            <td><strong>Eslabones (n)</strong></td>
-                            <td>Catalina motriz superior, cadena sinfín con esferas de cuero y tubo vertical</td>
+                            <th>Procedencia</th>
+                            <td>Sajonia / Bohemia</td>
                         </tr>
+                        
+                        
                         <tr>
-                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                            <td>Engranaje de cadena-rueda y par deslizante estanco dentro de tubo de madera</td>
+                            <th>Fuente</th>
+                            <td>Libro VI, pp. 170-174</td>
                         </tr>
+                        
+                        
+                        
                         <tr>
-                            <td><strong>Movilidad de Grübler (F)</strong></td>
-                            <td><span class="formula-inline">F = 1</span></td>
+                            <th>Diámetro tubo</th>
+                            <td class="spec-val">130 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Cierre vectorial / Ley física</strong></td>
-                            <td><code>y_esfera(θ) = R_rueda · θ</code></td>
+                            <th>Paso entre esferas</th>
+                            <td class="spec-val">450 mm</td>
                         </tr>
+                        
                         <tr>
-                            <td><strong>Ecuaciones de estado</strong></td>
-                            <td>
-                                Posición: <code>v_ascenso = R_rueda · ω</code><br>
-                                Velocidad: <code>Q = (π/4)(D_tubo² - d_cadena²) · v_ascenso · η_v</code><br>
-                                Aceleración: <code>P_bomba = ρ g H · Q / η</code>
-                            </td>
+                            <th>Profundidad pozo</th>
+                            <td class="spec-val">18.0 m</td>
                         </tr>
+                        
+                        <tr>
+                            <th>Caudal</th>
+                            <td class="spec-val">180.0 L/min</td>
+                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+            </aside>
+        </div>
 
-                
-                <div class="quote-block">
-                    Apta para aguas mineras cargadas de lodos y gravilla sin válvulas delicadas que se atasquen.
-                </div>
-                
-            </section>
+        <nav class="pager" aria-label="Navegación entre máquinas">
+            
+            <a href="../leonardo_globoidal_gear/index.html" class="pager-prev">← Engranaje helicoidal globoidal (Tornillo envolvente)</a>
             
 
-            <nav class="folio-pager" aria-label="Navegación entre láminas">
-                <div>
-                    
-                    <a href="../leonardo_globoidal_gear/index.html">
-                        <span class="folio-pager-label">Lámina anterior (27)</span>
-                        ← Engranaje helicoidal globoidal (Tornillo envolvente)
-                    </a>
-                    
-                </div>
-                <div style="text-align:right">
-                    
-                    <a href="../agricola_reversible_hoist/index.html">
-                        <span class="folio-pager-label">Lámina siguiente (29)</span>
-                        Malacate hidráulico reversible →
-                    </a>
-                    
-                </div>
-            </nav>
-        </article>
+            
+            <a href="../agricola_reversible_hoist/index.html" class="pager-next">Malacate hidráulico reversible →</a>
+            
+        </nav>
     </main>
 
-    <footer class="site-footer">
-        <span>Mechanica Antiqua · Lámina 28 / 42</span>
-        <span>Dominio Público — CC0 1.0 Universal</span>
+    <footer class="footer">
+        <span>Mechanica Antiqua · CC0 1.0</span>
     </footer>
 
     <script src="../cad_primitives.js"></script>

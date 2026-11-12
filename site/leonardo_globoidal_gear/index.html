@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engranaje helicoidal globoidal (Tornillo envolvente) - Mechanica Antiqua</title>
+    <title>Engranaje helicoidal globoidal (Tornillo envolvente) — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Engranaje helicoidal globoidal (Tornillo envolvente)</h1>
-        
-        <p><em>Denominación histórica: Rochetto a chiocciola globoidale</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 27 de 42 · Mecanismos y Relojería</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Leonardo da Vinci</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Códice Madrid I (1493, Biblioteca Nacional de España (Códice Madrid I))</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Folio 17v</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Engranajes de tornillo sin fin</p>
-            <p><span class="meta-label">Dominio Físico:</span> Mecánica analítica</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel A (Completamente documentada y reproducible)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Transmisión por tornillo sin fin globoidal curvado para adaptarse a la curvatura de la rueda dentada conjugada. Esta geometría de envolvimiento incrementa significativamente el área de contacto superficial y la capacidad de carga respecto a los engranajes cilíndricos convencionales.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Alto: geometría del tornillo de reloj de arena trazada con conocimiento cabal de la envolvente.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, diseño geométrico impecable adoptado siglos después en reductores pesados de automoción.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Fotografía de réplica histórica</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Engranaje helicoidal globoidal (Tornillo envolvente) - Fotografía de réplica histórica" class="realistic-image">
-            <p class="realistic-caption"><em>Fotografía de modelo funcional de madera del engranaje helicoidal globoidal con tornillo de perfil envolvente diseñado por Leonardo da Vinci en el Códice Madrid I.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 27 · 1493</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="leonardo_globoidal_gear" data-model-type="epicyclic">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Leonardo da Vinci</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Códice Madrid I (1493, Biblioteca Nacional de España (Códice Madrid I))</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Folio 17v</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Engranajes de tornillo sin fin</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Mecánica analítica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Fotografía de réplica histórica</span>
+                <img src="realistic.jpg" alt="Engranaje helicoidal globoidal (Tornillo envolvente) — Fotografía de réplica histórica">
+                <figcaption>Fotografía de modelo funcional de madera del engranaje helicoidal globoidal con tornillo de perfil envolvente diseñado por Leonardo da Vinci en el Códice Madrid I.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">relacion_transmision</td>
+                        <td class="param-val">30 : 1</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">dientes_simultaneos_contacto</td>
+                        <td class="param-val">4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">angulo_helice_deg</td>
+                        <td class="param-val">6.5</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">eficiencia_estimada</td>
+                        <td class="param-val">0.68</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Mecanismos y Relojería · 1493</div>
+                <h1>Engranaje helicoidal globoidal (Tornillo envolvente)</h1>
+                
+                <p class="monograph-original">Denominación histórica: Rochetto a chiocciola globoidale</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="leonardo_globoidal_gear"
+                     data-model-type="epicyclic">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .lg-bg { fill: #fcf9f2; }
@@ -139,85 +199,98 @@
   <text x="50" y="552" class="lg-text">• Soporta cargas axiales masivas sin rotura.</text>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Engranaje Sin Fin Globoidal Envolvente (Códice Madrid I)</p>
-            <p><strong>Topología estructural:</strong> Par espacial cruzado a 90° con geometría hiperboloide envolvente</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bancada, tornillo sinfín de garganta cóncava, rueda dentada tangencial de 30 dientes</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>2 pares R ortogonales, 1 contacto helicoidal multi-diente simultáneo</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (Relación de reducción i = Z_rueda / Z_entradas = 30:1)</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>θ_rueda = θ_tornillo / Z_rueda</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>θ_out = θ_in / 30</code><br>
-                        Velocidad: <code>ω_out = ω_in / 30</code><br>
-                        Aceleración: <code>T_out = η · 30 · T_in</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>relacion_transmision</code></td>
-                    <td><strong>30 : 1</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>dientes_simultaneos_contacto</code></td>
-                    <td><strong>4</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>angulo_helice_deg</code></td>
-                    <td><strong>6.5</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>eficiencia_estimada</code></td>
-                    <td><strong>0.68</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Transmisión por tornillo sin fin globoidal curvado para adaptarse a la curvatura de la rueda dentada conjugada. Esta geometría de envolvimiento incrementa significativamente el área de contacto superficial y la capacidad de carga respecto a los engranajes cilíndricos convencionales.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Alto: geometría del tornillo de reloj de arena trazada con conocimiento cabal de la envolvente.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, diseño geométrico impecable adoptado siglos después en reductores pesados de automoción.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Al abrazar la curvatura de la rueda, Leonardo distribuye la presión de contacto entre múltiples filetes simultáneamente.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Engranaje Sin Fin Globoidal Envolvente (Códice Madrid I) — <em>Par espacial cruzado a 90° con geometría hiperboloide envolvente</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>Bancada, tornillo sinfín de garganta cóncava, rueda dentada tangencial de 30 dientes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>2 pares R ortogonales, 1 contacto helicoidal multi-diente simultáneo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 1 (Relación de reducción i = Z_rueda / Z_entradas = 30:1)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>θ_rueda = θ_tornillo / Z_rueda</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>θ_out = θ_in / 30</code><br>
+                                Velocidad: <code>ω_out = ω_in / 30</code><br>
+                                Aceleración: <code>T_out = η · 30 · T_in</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Al abrazar la curvatura de la rueda, Leonardo distribuye la presión de contacto entre múltiples filetes simultáneamente.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../leonardo_cage_bearing/index.html">
+                        <span class="folio-pager-label">Lámina anterior (26)</span>
+                        ← Cojinete axial de bolas con jaula de retención
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../agricola_chain_pump/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (28)</span>
+                        Bomba de cadena y rosario →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 27 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

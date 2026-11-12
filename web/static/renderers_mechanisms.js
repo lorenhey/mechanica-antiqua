@@ -65,7 +65,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.moveTo(xB, frameTop + 5);
         ctx.lineTo(xB, kin.yB - 5);
         ctx.stroke();
-        ctx.strokeStyle = '#dc2626';
+        ctx.strokeStyle = '#962b23';
         ctx.lineWidth = 1.6;
         ctx.beginPath();
         for (let yy = frameTop + 18; yy < kin.yB - 16; yy += 14) {
@@ -288,12 +288,12 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
 
         // Marco vertical del Yugo Escocés (contiene SIEMPRE al muñón A entre y=300 y y=430)
         ctx.save();
-        ctx.fillStyle = '#f8fafc';
+        ctx.fillStyle = '#faf8f3';
         ctx.strokeStyle = CAD.COLORS.ink;
         ctx.lineWidth = 3;
         ctx.fillRect(xYoke - 15, 298, 30, 134);
         ctx.strokeRect(xYoke - 15, 298, 30, 134);
-        ctx.fillStyle = '#e2e8f0';
+        ctx.fillStyle = '#e9e3d5';
         ctx.fillRect(xYoke - 8, 305, 16, 120);
         ctx.restore();
 
@@ -554,7 +554,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
 
         // Estator cilíndrico con puertos de aspiración e impulsión
         CAD.drawGroundSupport(ctx, cx, 490, 260, 14);
-        ctx.fillStyle = schematic ? '#fff' : '#e2e8f0';
+        ctx.fillStyle = schematic ? '#fff' : '#e9e3d5';
         ctx.strokeStyle = CAD.COLORS.ink;
         ctx.lineWidth = 4;
         ctx.beginPath(); ctx.arc(cx, cy, Rst + 16, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
@@ -679,7 +679,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         CAD.drawCenterline(ctx, 110, yO, 690, yO);
 
         // Muro central de mampostería
-        CAD.drawHatchRect(ctx, 372, 155, 56, 350, '#e2e8f0', 10);
+        CAD.drawHatchRect(ctx, 372, 155, 56, 350, '#e9e3d5', 10);
         CAD.drawGroundSupport(ctx, xO, 505, 110, 14);
 
         // Lado izquierdo: Caldera Haystack y cilindro atmosférico
@@ -698,7 +698,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
 
         // Chorro frío de agua condensadora
         if (condensing) {
-            CAD.drawFluidParticles(ctx, 110, 405, 185, 395, theta * 4, true, '#0284c7');
+            CAD.drawFluidParticles(ctx, 110, 405, 185, 395, theta * 4, true, '#1d4968');
         }
 
         // Pistón de vapor + sello hidráulico superior
@@ -784,7 +784,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.strokeStyle = CAD.COLORS.waterDeep;
         ctx.lineWidth = 7;
         ctx.beginPath(); ctx.moveTo(400, 240); ctx.lineTo(400, 185); ctx.stroke();
-        CAD.drawFluidParticles(ctx, 400, 240, 400, 175, theta * 3, true, '#38bdf8');
+        CAD.drawFluidParticles(ctx, 400, 240, 400, 175, theta * 3, true, '#5280a0');
 
         // 4 Válvulas check
         CAD.drawCheckValve(ctx, xO - arm - 12, 440, 24, leftUp ? 0.9 : 0, 0);
@@ -826,7 +826,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.fillStyle = CAD.COLORS.water;
         ctx.fillRect(460, 445, 280, 90);
         CAD.drawGroundSupport(ctx, 320, 445, 160, 16);
-        CAD.drawHatchRect(ctx, 320, 320, 90, 125, '#e2e8f0', 9); // Canal intermedio
+        CAD.drawHatchRect(ctx, 320, 320, 90, 125, '#e9e3d5', 9); // Canal intermedio
 
         // Horquilla vertical soporte fijo O2
         CAD.drawTimberBeam(ctx, xO, 445, xO, yO, 16, schematic);
@@ -888,7 +888,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         CAD.drawGroundSupport(ctx, xC, 495, 180, 14);
 
         // Brasero inferior y cilindro de latón
-        ctx.fillStyle = '#ea580c';
+        ctx.fillStyle = '#a53a1a';
         ctx.fillRect(xC - 45, 455, 90, 38);
         CAD.drawCylinder(ctx, xC - 40, 210, 80, 240, 10, 'brass', schematic);
         ctx.fillStyle = cycle < 0.6 ? 'rgba(226, 232, 240, 0.85)' : 'rgba(56, 189, 248, 0.3)';
@@ -983,7 +983,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.beginPath(); ctx.moveTo(115, 220); ctx.lineTo(115, 315); ctx.moveTo(165, 220); ctx.lineTo(165, 315); ctx.stroke();
 
         // Pieza superior mecanizada (rosca tallándose detrás de la cuchilla)
-        ctx.fillStyle = '#e2e8f0';
+        ctx.fillStyle = '#e9e3d5';
         ctx.strokeStyle = CAD.COLORS.ink;
         ctx.fillRect(210, 202, 390, 36);
         ctx.strokeRect(210, 202, 390, 36);
@@ -1002,7 +1002,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         }
 
         // Carro móvil portaherramientas + semituerca + cuchilla
-        CAD.drawHatchRect(ctx, carX - 30, 275, 60, 110, '#f8fafc', 12);
+        CAD.drawHatchRect(ctx, carX - 30, 275, 60, 110, '#faf8f3', 12);
         CAD.drawHatchRect(ctx, carX - 18, 300, 36, 30, CAD.COLORS.brassMid, 6);
         // Cuchilla en contacto en x = carX
         ctx.fillStyle = CAD.COLORS.ink;
@@ -1065,7 +1065,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
             ctx.lineWidth = 1.8;
             ctx.beginPath(); ctx.arc(0, 0, rBall, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
             // Índice radial de giro propio sin deslizamiento
-            ctx.strokeStyle = '#dc2626';
+            ctx.strokeStyle = '#962b23';
             ctx.lineWidth = 2;
             ctx.beginPath(); ctx.moveTo(-rBall + 4, 0); ctx.lineTo(rBall - 4, 0); ctx.stroke();
             ctx.restore();
@@ -1109,7 +1109,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         // Vista derecha: Trayectoria en planta + Estatua apuntando invariablemente al SUR (abajo)
         const mapX = 610, mapY = 310;
         ctx.save();
-        ctx.strokeStyle = '#94a3b8';
+        ctx.strokeStyle = '#8d8578';
         ctx.setLineDash([5, 4]);
         ctx.beginPath(); ctx.arc(mapX, mapY, 105, 0, Math.PI * 2); ctx.stroke();
         ctx.setLineDash([]);
@@ -1125,7 +1125,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.restore();
 
         // Puntero SIEMPRE apunta al Sur (hacia abajo, 90° en pantalla = Sur fijo)!
-        CAD.drawVector(ctx, mapX, mapY, 0, 95, '#dc2626', 'SUR FIJO');
+        CAD.drawVector(ctx, mapX, mapY, 0, 95, '#962b23', 'SUR FIJO');
         CAD.drawPin(ctx, mapX, mapY, 8);
         ctx.restore();
 
@@ -1195,10 +1195,10 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
 
         // Triángulo pitagórico 3:4:5 acotado
         ctx.save();
-        ctx.strokeStyle = '#2563eb';
+        ctx.strokeStyle = '#1d4968';
         ctx.setLineDash([5, 3]);
         ctx.beginPath(); ctx.moveTo(350, 485); ctx.lineTo(550, 485); ctx.lineTo(550, 335); ctx.stroke();
-        ctx.fillStyle = '#2563eb';
+        ctx.fillStyle = '#1d4968';
         ctx.font = 'bold 11px monospace';
         ctx.fillText('Base = 4', 440, 502);
         ctx.fillText('H = 3', 560, 415);

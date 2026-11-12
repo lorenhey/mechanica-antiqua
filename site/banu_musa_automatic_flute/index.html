@@ -3,64 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flautista autómata programable - Mechanica Antiqua</title>
+    <title>Flautista autómata programable — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Flautista autómata programable</h1>
-        
-        <p><em>Denominación histórica: Al-Āla allatī tuzammir bi-nafsihā (El instrumento que toca solo)</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 15 de 42 · Mecanismos y Relojería</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Hermanos Banū Mūsā</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Kitāb al-Ḥiyal (El libro de los mecanismos ingeniosos) (850, Bagdad (Casa de la Sabiduría))</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Modelo 100</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Autómata musical</p>
-            <p><span class="meta-label">Dominio Físico:</span> Neumática y Cinemática</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel C (Paramétrica fuerte / principios físicos comprobados)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Considerado uno de los primeros dispositivos con programa mecánico almacenable de la historia. Un cilindro rotativo provisto de clavijas o levas accionado por una rueda hidráulica modula las palancas de las llaves de una flauta, mientras dos cámaras de flotador presurizan aire de manera continua hacia la embocadura.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Medio: concepto revolucionario de tambor de levas programable; dimensiones acústicas exactas hipotéticas.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Probablemente, los principios de cilindro de clavijas y compresión de aire son plenamente viables.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Reconstrucción digital 3D</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Flautista autómata programable - Reconstrucción digital 3D" class="realistic-image">
-            <p class="realistic-caption"><em>Reconstrucción digital tridimensional del autómata flautista programable accionado por rueda hidráulica y cilindro de levas con clavijas.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 15 · 850</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="banu_musa_automatic_flute" data-model-type="cam_follower">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Hermanos Banū Mūsā</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Kitāb al-Ḥiyal (El libro de los mecanismos ingeniosos) (850, Bagdad (Casa de la Sabiduría))</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Modelo 100</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Autómata musical</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Neumática y Cinemática</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel C (Paramétrica fuerte / principios físicos comprobados)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Reconstrucción digital 3D</span>
+                <img src="realistic.jpg" alt="Flautista autómata programable — Reconstrucción digital 3D">
+                <figcaption>Reconstrucción digital tridimensional del autómata flautista programable accionado por rueda hidráulica y cilindro de levas con clavijas.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">num_canales_notas</td>
+                        <td class="param-val">8</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">presion_fuelle_Pa</td>
+                        <td class="param-val">650</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">revoluciones_melodia_s</td>
+                        <td class="param-val">24.0</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Mecanismos y Relojería · 850</div>
+                <h1>Flautista autómata programable</h1>
+                
+                <p class="monograph-original">Denominación histórica: Al-Āla allatī tuzammir bi-nafsihā (El instrumento que toca solo)</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="banu_musa_automatic_flute"
+                     data-model-type="cam_follower">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .af-bg { fill: #fcf9f2; }
@@ -174,80 +229,98 @@
   <text x="50" y="172" class="af-text">• Palancas = Actuadores binarios</text>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Flautista Autómata Programable de los Banu Musa (s. IX)</p>
-            <p><strong>Topología estructural:</strong> Tambor programador con levas codificadas (memoria ROM mecánica) y válvulas de fuelle</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Tambor cilíndrico giratorio, pines programados, 8 palancas seguidoras y flauta neumática</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>8 pares R de palanca + par superior j₂ leva-púas + fuelle hidráulico de aire</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (Secuencia musical binaria codificada en posición angular θ)</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>Estado_nota_k(θ) = 1 si θ ∈ [θ_ini_k, θ_fin_k], 0 en caso contrario</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>Apertura_válvula_k(θ) = h_pin(θ)</code><br>
-                        Velocidad: <code>f_nota = c_sonido / (2 L_efectiva)</code><br>
-                        Aceleración: <code>Presión de fuelle constante por depósito de aire comprimido hidráulico</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>num_canales_notas</code></td>
-                    <td><strong>8</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>presion_fuelle_Pa</code></td>
-                    <td><strong>650</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>revoluciones_melodia_s</code></td>
-                    <td><strong>24.0</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Considerado uno de los primeros dispositivos con programa mecánico almacenable de la historia. Un cilindro rotativo provisto de clavijas o levas accionado por una rueda hidráulica modula las palancas de las llaves de una flauta, mientras dos cámaras de flotador presurizan aire de manera continua hacia la embocadura.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Medio: concepto revolucionario de tambor de levas programable; dimensiones acústicas exactas hipotéticas.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Probablemente, los principios de cilindro de clavijas y compresión de aire son plenamente viables.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Considerado el primer instrumento programable de la historia: cambiando los pines del tambor se reprogramaba la partitura.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Flautista Autómata Programable de los Banu Musa (s. IX) — <em>Tambor programador con levas codificadas (memoria ROM mecánica) y válvulas de fuelle</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>Tambor cilíndrico giratorio, pines programados, 8 palancas seguidoras y flauta neumática</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>8 pares R de palanca + par superior j₂ leva-púas + fuelle hidráulico de aire</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 1 (Secuencia musical binaria codificada en posición angular θ)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>Estado_nota_k(θ) = 1 si θ ∈ [θ_ini_k, θ_fin_k], 0 en caso contrario</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>Apertura_válvula_k(θ) = h_pin(θ)</code><br>
+                                Velocidad: <code>f_nota = c_sonido / (2 L_efectiva)</code><br>
+                                Aceleración: <code>Presión de fuelle constante por depósito de aire comprimido hidráulico</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Considerado el primer instrumento programable de la historia: cambiando los pines del tambor se reprogramaba la partitura.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../banu_musa_alternating_fountain/index.html">
+                        <span class="folio-pager-label">Lámina anterior (14)</span>
+                        ← Fuente de chorro alternante
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../chinese_su_song_clock/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (16)</span>
+                        Torre del reloj astronómico de Su Song →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 15 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

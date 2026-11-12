@@ -90,7 +90,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         CAD.drawLink(ctx, 520, 210, 520, 455, 12, 'iron', schematic);
 
         // Muela superior (solera fija abajo + piedra volandera giratoria arriba)
-        CAD.drawHatchRect(ctx, 440, 225, 160, 28, '#94a3b8', 10);
+        CAD.drawHatchRect(ctx, 440, 225, 160, 28, '#8d8578', 10);
         ctx.save();
         ctx.translate(520, 200);
         ctx.fillStyle = '#cbd5e1';
@@ -100,7 +100,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.strokeRect(-75, -18, 150, 36);
         // Indicador angular de rotación rápida de la muela
         const mPos = 60 * Math.cos(millTheta);
-        ctx.fillStyle = '#dc2626';
+        ctx.fillStyle = '#962b23';
         ctx.fillRect(mPos - 4, -18, 8, 36);
         ctx.restore();
 
@@ -237,7 +237,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.strokeStyle = CAD.COLORS.ink;
         ctx.lineWidth = 3;
         ctx.beginPath(); ctx.arc(580, 230, 85, 0, Math.PI * 2); ctx.stroke();
-        CAD.drawVector(ctx, 580, 230, 68 * Math.cos(pinionAng - Math.PI / 2), 68 * Math.sin(pinionAng - Math.PI / 2), '#dc2626', 'Hora');
+        CAD.drawVector(ctx, 580, 230, 68 * Math.cos(pinionAng - Math.PI / 2), 68 * Math.sin(pinionAng - Math.PI / 2), '#962b23', 'Hora');
         CAD.drawFixedPivot(ctx, 580, 230, 6, 'O_dial');
 
         CAD.drawNoteBox(ctx, 35, 385, 240, 'CONTROL DE NIVEL', [
@@ -373,7 +373,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         // Burbujas subiendo por el tubo barométrico cuando baja el nivel de la cubeta!
         if (needAir) {
             CAD.drawFluidParticles(ctx, 350, 418, 350, 135, theta * 4, true, '#ffffff');
-            CAD.drawFluidParticles(ctx, 450, 310, 450, 450, theta * 4, true, '#38bdf8');
+            CAD.drawFluidParticles(ctx, 450, 310, 450, 450, theta * 4, true, '#5280a0');
         }
 
         CAD.drawCenterline(ctx, 220, 418, 580, 418);
@@ -452,7 +452,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         CAD.drawFluidParticles(ctx, 490, 450, 610, 268, theta * 3, true, '#ffffff');
 
         // Línea piezométrica hidráulica (HGL)
-        ctx.strokeStyle = '#dc2626';
+        ctx.strokeStyle = '#962b23';
         ctx.lineWidth = 2;
         ctx.setLineDash([8, 4]);
         ctx.beginPath(); ctx.moveTo(190, 250); ctx.lineTo(610, 268); ctx.stroke();
@@ -530,7 +530,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         CAD.drawTimberBeam(ctx, 455, plateY, 545, plateY, 10, schematic);
         CAD.drawLink(ctx, 500, plateY, 500, 260, 8, 'brass', schematic);
         if (loaded) {
-            CAD.drawHatchRect(ctx, 482, plateY - 26, 36, 26, '#e2e8f0', 6);
+            CAD.drawHatchRect(ctx, 482, plateY - 26, 36, 26, '#e9e3d5', 6);
         }
 
         CAD.drawFixedPivot(ctx, 290, 340, 8, 'Muelle');
@@ -567,7 +567,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
 
         // Flauta vertical + chorros de aire modulados
         CAD.drawCylinder(ctx, 560, 140, 34, 300, 7, 'brass', schematic);
-        CAD.drawFluidParticles(ctx, 577, 440, 577, 130, theta * 4, true, '#38bdf8');
+        CAD.drawFluidParticles(ctx, 577, 440, 577, 130, theta * 4, true, '#5280a0');
 
         CAD.drawNoteBox(ctx, 35, 85, 225, 'MEMORIA MECÁNICA', [
             '8 canales de notas programables',
@@ -732,7 +732,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         CAD.drawCenterline(ctx, cx, 110, cx, 495);
 
         // Caldera inferior y fuego
-        ctx.fillStyle = '#ea580c';
+        ctx.fillStyle = '#a53a1a';
         ctx.fillRect(310, 465, 180, 32);
         CAD.drawCylinder(ctx, 285, 375, 230, 88, 10, 'copper', schematic);
         ctx.fillStyle = CAD.COLORS.water;
@@ -763,8 +763,8 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.moveTo(0, r); ctx.lineTo(0, r + 18); ctx.lineTo(-24, r + 18);
         ctx.stroke();
 
-        CAD.drawVector(ctx, 24, -r - 18, 45, 0, '#94a3b8', 'Chorro');
-        CAD.drawVector(ctx, -24, r + 18, -45, 0, '#94a3b8', 'Chorro');
+        CAD.drawVector(ctx, 24, -r - 18, 45, 0, '#8d8578', 'Chorro');
+        CAD.drawVector(ctx, -24, r + 18, -45, 0, '#8d8578', 'Chorro');
         ctx.restore();
 
         CAD.drawFixedPivot(ctx, 300, cy, 7, 'O₁');
@@ -817,10 +817,10 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
             const p = ((theta / (Math.PI * 2)) + i / 6) % 1;
             const rr = 22 + p * (R - 25);
             const ang = rotorAng + i * 1.05;
-            ctx.fillStyle = '#0284c7';
+            ctx.fillStyle = '#1d4968';
             ctx.beginPath(); ctx.arc(cx + rr * Math.cos(ang), cy + rr * Math.sin(ang), 3.5, 0, Math.PI * 2); ctx.fill();
         }
-        CAD.drawFluidParticles(ctx, cx + 82, 290, cx + 82, 95, theta * 4, true, '#0284c7');
+        CAD.drawFluidParticles(ctx, cx + 82, 290, cx + 82, 95, theta * 4, true, '#1d4968');
 
         CAD.drawFixedPivot(ctx, cx, cy, 10, 'O_rodete');
         CAD.drawNoteBox(ctx, 35, 85, 220, 'TURBOMÁQUINA RADIAL', [
@@ -849,13 +849,13 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.fillRect(295, 360, 210, 125);
 
         // Líneas de viento andino entrando por las toberas laterales por Venturi
-        CAD.drawFluidParticles(ctx, 110, 260, 385, 390, theta * 3, true, '#0284c7');
-        CAD.drawFluidParticles(ctx, 110, 350, 385, 420, theta * 3, true, '#0284c7');
+        CAD.drawFluidParticles(ctx, 110, 260, 385, 390, theta * 3, true, '#1d4968');
+        CAD.drawFluidParticles(ctx, 110, 350, 385, 420, theta * 3, true, '#1d4968');
         // Convección ascendente de gases calientes
-        CAD.drawFluidParticles(ctx, 360, 355, 360, 105, theta * 3, true, '#ea580c');
-        CAD.drawFluidParticles(ctx, 440, 355, 440, 105, theta * 3, true, '#ea580c');
+        CAD.drawFluidParticles(ctx, 360, 355, 360, 105, theta * 3, true, '#a53a1a');
+        CAD.drawFluidParticles(ctx, 440, 355, 440, 105, theta * 3, true, '#a53a1a');
 
-        CAD.drawVector(ctx, 90, 260, 75, 0, '#0284c7', 'Viento 8 m/s');
+        CAD.drawVector(ctx, 90, 260, 75, 0, '#1d4968', 'Viento 8 m/s');
         CAD.drawNoteBox(ctx, 520, 85, 240, 'TERMODINÁMICA EÓLICA', [
             '12 toberas perimetrales Venturi',
             'Temperatura pico: ~960 °C',
@@ -877,7 +877,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
 
         // Pilar del estribo + Pináculo superior
         CAD.drawHatchRect(ctx, 155, 210, 80, 285, '#cbd5e1', 12);
-        ctx.fillStyle = '#94a3b8';
+        ctx.fillStyle = '#8d8578';
         ctx.beginPath(); ctx.moveTo(160, 210); ctx.lineTo(195, 120 - wPin * 25); ctx.lineTo(230, 210); ctx.closePath(); ctx.fill(); ctx.stroke();
 
         // Bóveda ojival derecha
@@ -891,7 +891,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         // Polígono de fuerzas y LÍNEA DE EMPUJES en rojo dentro del pilar!
         const horizShift = (1 - wPin) * 32; // Con menor pináculo el empuje se acerca al borde!
         ctx.save();
-        ctx.strokeStyle = '#dc2626';
+        ctx.strokeStyle = '#962b23';
         ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.moveTo(520, 115);
@@ -921,8 +921,8 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         const xLoad = xA + loadPos * (xB - xA);
 
         // Estribos de roca andina
-        CAD.drawHatchRect(ctx, 40, 195, 85, 315, '#94a3b8', 12);
-        CAD.drawHatchRect(ctx, 675, 195, 85, 315, '#94a3b8', 12);
+        CAD.drawHatchRect(ctx, 40, 195, 85, 315, '#8d8578', 12);
+        CAD.drawHatchRect(ctx, 675, 195, 85, 315, '#8d8578', 12);
         CAD.drawGroundSupport(ctx, 400, 510, 720, 14);
 
         // Función catenaria + deflexión elástica localizada bajo carga P(x)
@@ -956,7 +956,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         ctx.stroke();
 
         for (let x = xA + 30; x < xB; x += 35) {
-            ctx.strokeStyle = '#94a3b8';
+            ctx.strokeStyle = '#8d8578';
             ctx.lineWidth = 1.4;
             ctx.beginPath(); ctx.moveTo(x, yCable(x)); ctx.lineTo(x, yCable(x) + 32); ctx.stroke();
         }
@@ -964,7 +964,7 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         // Vector carga móvil P(x)
         const yL = yCable(xLoad) + 32;
         CAD.drawHatchRect(ctx, xLoad - 14, yL - 22, 28, 22, CAD.COLORS.brassMid, 5);
-        CAD.drawVector(ctx, xLoad, yL, 0, 55, '#dc2626', 'Carga P(x)');
+        CAD.drawVector(ctx, xLoad, yL, 0, 55, '#962b23', 'Carga P(x)');
 
         CAD.drawFixedPivot(ctx, xA, yAnch, 7, 'Anclaje 1');
         CAD.drawFixedPivot(ctx, xB, yAnch, 7, 'Anclaje 2');
@@ -1019,10 +1019,10 @@ window.MACHINE_RENDERERS = window.MACHINE_RENDERERS || {};
         });
 
         // Cuerda subsidiaria superior sumatoria (Suma exacta de registros)
-        ctx.strokeStyle = '#dc2626';
+        ctx.strokeStyle = '#962b23';
         ctx.lineWidth = 4;
         ctx.beginPath(); ctx.moveTo(670, 155); ctx.lineTo(670, 385); ctx.stroke();
-        ctx.fillStyle = '#dc2626';
+        ctx.fillStyle = '#962b23';
         ctx.font = 'bold 13px monospace';
         ctx.textAlign = 'center';
         ctx.fillText('Σ = ' + sumTotal, 670, 410);

@@ -3,64 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bomba aspirante-impelente con balancín - Mechanica Antiqua</title>
+    <title>Bomba aspirante-impelente con balancín — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Bomba aspirante-impelente con balancín</h1>
-        
-        <p><em>Denominación histórica: Pompa a stantuffo</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 25 de 42 · Bombas, Vapor y Fluidos</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Francesco di Giorgio Martini</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Trattato di architettura, ingegneria e arte militare (1480, Códice Ashburnham 361)</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Láminas de hidráulica civil y militar</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Bomba hidráulica</p>
-            <p><span class="meta-label">Dominio Físico:</span> Hidráulica</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel A (Completamente documentada y reproducible)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Bomba impelente para elevación de agua con pistón de cuero ajustado en cuerpo de bronce o madera torneada. Accionada por un brazo de palanca o manivela con contrapeso, empleada para abastecer fortalezas y fuentes renacentistas.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Alto: detalles de pistón guarnecido de cuero y válvulas cónicas de madera o bronce.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, bomba clásica de alta eficiencia hidrostática para suministro urbano.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Facsímil de manuscrito histórico</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Bomba aspirante-impelente con balancín - Facsímil de manuscrito histórico" class="realistic-image">
-            <p class="realistic-caption"><em>Fotografía facsimilar de alta resolución de la encuadernación y folios del códice de Francesco di Giorgio Martini conservado en el British Museum (MS 1947).</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 25 · 1480</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="martini_piston_pump" data-model-type="crank_slider">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Francesco di Giorgio Martini</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Trattato di architettura, ingegneria e arte militare (1480, Códice Ashburnham 361)</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Láminas de hidráulica civil y militar</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Bomba hidráulica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Hidráulica</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel A (Completamente documentada y reproducible)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Facsímil de manuscrito histórico</span>
+                <img src="realistic.jpg" alt="Bomba aspirante-impelente con balancín — Facsímil de manuscrito histórico">
+                <figcaption>Fotografía facsimilar de alta resolución de la encuadernación y folios del códice de Francesco di Giorgio Martini conservado en el British Museum (MS 1947).</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">brazo_balancin_mm</td>
+                        <td class="param-val">600</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">carrera_mm</td>
+                        <td class="param-val">260</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">diametro_embolo_mm</td>
+                        <td class="param-val">140</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">desfase_cilindros_deg</td>
+                        <td class="param-val">180</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">caudal_Lmin</td>
+                        <td class="param-val">192.0</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Bombas, Vapor y Fluidos · 1480</div>
+                <h1>Bomba aspirante-impelente con balancín</h1>
+                
+                <p class="monograph-original">Denominación histórica: Pompa a stantuffo</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="martini_piston_pump"
+                     data-model-type="crank_slider">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .mp-bg { fill: #fcf9f2; }
@@ -139,90 +204,98 @@
   <rect x="606" y="490" width="108" height="45" class="mp-water"/>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Bomba Dúplex Accionada por Balancín Oscilante</p>
-            <p><strong>Topología estructural:</strong> Cadena de 6 eslabones (manivela-balancín acoplada a doble corredera)</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>6 eslabones: Bancada, manivela motriz, biela primaria, balancín central, y 2 émbolos opuestos</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 7 (5 pares R, 2 pares P en cilindros). j₂ = 0</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 3(6 - 1) - 2(7) - 0 = 1</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>r e^(iθ) + b e^(iγ) = c e^(iψ)</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>s₁,₂(θ) = ± L_arm · sin(ψ(θ))</code><br>
-                        Velocidad: <code>v₁,₂(θ) = ± L_arm · ψ̇ cos(ψ)</code><br>
-                        Aceleración: <code>a₁,₂(θ) = ± L_arm (ψ̈ cos ψ - ψ̇² sin ψ)</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>brazo_balancin_mm</code></td>
-                    <td><strong>600</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>carrera_mm</code></td>
-                    <td><strong>260</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>diametro_embolo_mm</code></td>
-                    <td><strong>140</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>desfase_cilindros_deg</code></td>
-                    <td><strong>180</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>caudal_Lmin</code></td>
-                    <td><strong>192.0</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Bomba impelente para elevación de agua con pistón de cuero ajustado en cuerpo de bronce o madera torneada. Accionada por un brazo de palanca o manivela con contrapeso, empleada para abastecer fortalezas y fuentes renacentistas.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Alto: detalles de pistón guarnecido de cuero y válvulas cónicas de madera o bronce.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, bomba clásica de alta eficiencia hidrostática para suministro urbano.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Martini desacopla el empuje lateral del vástago usando un balancín simétrico que reduce el desgaste de la empaquetadura de cuero.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Bomba Dúplex Accionada por Balancín Oscilante — <em>Cadena de 6 eslabones (manivela-balancín acoplada a doble corredera)</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>6 eslabones: Bancada, manivela motriz, biela primaria, balancín central, y 2 émbolos opuestos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>j₁ = 7 (5 pares R, 2 pares P en cilindros). j₂ = 0</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 3(6 - 1) - 2(7) - 0 = 1</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>r e^(iθ) + b e^(iγ) = c e^(iψ)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>s₁,₂(θ) = ± L_arm · sin(ψ(θ))</code><br>
+                                Velocidad: <code>v₁,₂(θ) = ± L_arm · ψ̇ cos(ψ)</code><br>
+                                Aceleración: <code>a₁,₂(θ) = ± L_arm (ψ̈ cos ψ - ψ̇² sin ψ)</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Martini desacopla el empuje lateral del vástago usando un balancín simétrico que reduce el desgaste de la empaquetadura de cuero.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../martini_hydraulic_sawmill/index.html">
+                        <span class="folio-pager-label">Lámina anterior (24)</span>
+                        ← Aserradero hidráulico con biela-manivela
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../leonardo_cage_bearing/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (26)</span>
+                        Cojinete axial de bolas con jaula de retención →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 25 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

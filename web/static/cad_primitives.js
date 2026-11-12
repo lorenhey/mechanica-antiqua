@@ -7,35 +7,35 @@ window.CAD = (function() {
     'use strict';
 
     const COLORS = {
-        bg: '#fcfbf7',
-        bgSchematic: '#f4f7fb',
-        gridMinor: 'rgba(203, 213, 225, 0.35)',
-        gridMajor: 'rgba(148, 163, 184, 0.42)',
-        gridBlueprint: 'rgba(59, 130, 246, 0.16)',
-        ink: '#1e293b',
-        inkSoft: '#475569',
-        centerline: '#dc2626',
-        vectorVel: '#059669',
-        vectorForce: '#d97706',
-        vectorThrust: '#2563eb',
-        woodDark: '#6b4226',
-        woodMid: '#9a6538',
-        woodLight: '#c48f5a',
-        ironDark: '#334155',
-        ironMid: '#64748b',
-        ironLight: '#cbd5e1',
-        brassDark: '#92400e',
-        brassMid: '#d97706',
-        brassLight: '#fbbf24',
-        copperDark: '#7c2d12',
-        copperMid: '#c2410c',
-        copperLight: '#fb923c',
-        water: 'rgba(14, 165, 233, 0.55)',
-        waterDeep: 'rgba(2, 132, 199, 0.78)',
-        steam: 'rgba(226, 232, 240, 0.72)',
-        fire: '#ea580c',
-        stone: '#cbd5e1',
-        stoneDark: '#64748b'
+        bg: '#faf8f3',
+        bgSchematic: '#eef2f6',
+        gridMinor: 'rgba(195, 187, 171, 0.30)',
+        gridMajor: 'rgba(155, 146, 130, 0.40)',
+        gridBlueprint: 'rgba(29, 73, 104, 0.14)',
+        ink: '#1a1917',
+        inkSoft: '#57524a',
+        centerline: '#962b23',
+        vectorVel: '#2c6e49',
+        vectorForce: '#8c6222',
+        vectorThrust: '#1d4968',
+        woodDark: '#5b3920',
+        woodMid: '#8a5b32',
+        woodLight: '#b98956',
+        ironDark: '#2f3235',
+        ironMid: '#686b6e',
+        ironLight: '#c4c7c9',
+        brassDark: '#754e16',
+        brassMid: '#a7762a',
+        brassLight: '#dab364',
+        copperDark: '#6b2c1a',
+        copperMid: '#a54a29',
+        copperLight: '#d47c54',
+        water: 'rgba(29, 73, 104, 0.34)',
+        waterDeep: 'rgba(29, 73, 104, 0.72)',
+        steam: 'rgba(218, 222, 224, 0.72)',
+        fire: '#a53a1a',
+        stone: '#c9c2b4',
+        stoneDark: '#6e675d'
     };
 
     function clearAndGrid(ctx, w, h, title, subtitle, schematic) {
@@ -45,40 +45,51 @@ window.CAD = (function() {
 
         // Grilla menor (20 px)
         ctx.strokeStyle = schematic ? COLORS.gridBlueprint : COLORS.gridMinor;
-        ctx.lineWidth = 0.7;
+        ctx.lineWidth = 0.65;
         ctx.beginPath();
         for (let x = 20; x < w; x += 20) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
         for (let y = 20; y < h; y += 20) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
         ctx.stroke();
 
         // Grilla mayor (100 px)
-        ctx.strokeStyle = schematic ? 'rgba(37, 99, 235, 0.25)' : COLORS.gridMajor;
-        ctx.lineWidth = 1.0;
+        ctx.strokeStyle = schematic ? 'rgba(29, 73, 104, 0.24)' : COLORS.gridMajor;
+        ctx.lineWidth = 0.9;
         ctx.beginPath();
         for (let x = 100; x < w; x += 100) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
         for (let y = 100; y < h; y += 100) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
         ctx.stroke();
 
-        // Marco normalizado ISO de lámina
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 1.5;
-        ctx.strokeRect(10, 10, w - 20, h - 20);
+        // Marco fino de plancha técnica
+        ctx.strokeStyle = '#b4ab9a';
+        ctx.lineWidth = 1.0;
+        ctx.strokeRect(12, 12, w - 24, h - 24);
 
-        // Encabezado técnico
-        ctx.fillStyle = COLORS.ink;
-        ctx.font = 'bold 17px "Cinzel", Georgia, serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(title, w / 2, 36);
+        // Marcas de registro en esquinas interiores
+        ctx.strokeStyle = COLORS.inkSoft;
+        ctx.lineWidth = 1.0;
+        const m = 18;
+        [[m, m, 1, 1], [w - m, m, -1, 1], [m, h - m, 1, -1], [w - m, h - m, -1, -1]].forEach(([rx, ry, sx, sy]) => {
+            ctx.beginPath();
+            ctx.moveTo(rx, ry); ctx.lineTo(rx + sx * 8, ry);
+            ctx.moveTo(rx, ry); ctx.lineTo(rx, ry + sy * 8);
+            ctx.stroke();
+        });
 
+        // Leyenda técnica discreta en cabecera superior (sin duplicar H1 con Cinzel)
         ctx.fillStyle = COLORS.inkSoft;
-        ctx.font = '12px "Consolas", "Courier New", monospace';
-        ctx.fillText(subtitle, w / 2, 54);
+        ctx.font = '600 10.5px "IBM Plex Mono", Consolas, monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(subtitle.toUpperCase(), 30, 32);
 
-        ctx.strokeStyle = '#cbd5e1';
-        ctx.lineWidth = 1;
+        ctx.textAlign = 'right';
+        ctx.fillStyle = schematic ? COLORS.prussian || '#1d4968' : COLORS.centerline;
+        ctx.fillText(schematic ? 'MODO: ESQUEMA Y VECTORES' : 'LÁMINA CINEMÁTICA · SI', w - 30, 32);
+
+        ctx.strokeStyle = '#ccc3b1';
+        ctx.lineWidth = 0.9;
         ctx.beginPath();
-        ctx.moveTo(60, 62);
-        ctx.lineTo(w - 60, 62);
+        ctx.moveTo(28, 42);
+        ctx.lineTo(w - 28, 42);
         ctx.stroke();
         ctx.restore();
     }
@@ -86,7 +97,7 @@ window.CAD = (function() {
     function drawCenterline(ctx, x1, y1, x2, y2) {
         ctx.save();
         ctx.strokeStyle = COLORS.centerline;
-        ctx.lineWidth = 1.0;
+        ctx.lineWidth = 0.95;
         ctx.setLineDash([14, 4, 3, 4]);
         ctx.beginPath();
         ctx.moveTo(x1, y1);
@@ -104,8 +115,8 @@ window.CAD = (function() {
         ctx.beginPath();
         ctx.rect(x, y, w, h);
         ctx.clip();
-        ctx.strokeStyle = 'rgba(51, 65, 85, 0.35)';
-        ctx.lineWidth = 1.1;
+        ctx.strokeStyle = 'rgba(26, 25, 23, 0.28)';
+        ctx.lineWidth = 1.0;
         const s = step || 8;
         ctx.beginPath();
         for (let d = -h; d < w + h; d += s) {
@@ -115,18 +126,18 @@ window.CAD = (function() {
         ctx.stroke();
         ctx.restore();
         ctx.save();
-        ctx.strokeStyle = '#334155';
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = COLORS.ink;
+        ctx.lineWidth = 1.3;
         ctx.strokeRect(x, y, w, h);
         ctx.restore();
     }
 
     function drawGroundSupport(ctx, x, y, w, h, label) {
-        drawHatchRect(ctx, x - w / 2, y, w, h || 14, '#e2e8f0', 7);
+        drawHatchRect(ctx, x - w / 2, y, w, h || 14, '#e5dfd2', 7);
         if (label) {
             ctx.save();
             ctx.fillStyle = COLORS.inkSoft;
-            ctx.font = 'bold 11px monospace';
+            ctx.font = '600 10.5px "IBM Plex Mono", monospace';
             ctx.textAlign = 'center';
             ctx.fillText(label, x, y + (h || 14) + 14);
             ctx.restore();
@@ -138,9 +149,9 @@ window.CAD = (function() {
         // Triángulo de apoyo fijo
         const baseW = r * 2.2;
         const baseY = y + r * 1.9;
-        ctx.fillStyle = '#e2e8f0';
+        ctx.fillStyle = '#e5dfd2';
         ctx.strokeStyle = COLORS.ink;
-        ctx.lineWidth = 1.8;
+        ctx.lineWidth = 1.6;
         ctx.beginPath();
         ctx.moveTo(x, y);
         ctx.lineTo(x - baseW / 2, baseY);
@@ -150,7 +161,7 @@ window.CAD = (function() {
         ctx.stroke();
 
         // Línea de tierra con achurado
-        drawHatchRect(ctx, x - baseW * 0.7, baseY, baseW * 1.4, 9, '#f1f5f9', 6);
+        drawHatchRect(ctx, x - baseW * 0.7, baseY, baseW * 1.4, 9, '#ebe6da', 6);
         drawPin(ctx, x, y, r, label);
         ctx.restore();
     }
@@ -159,12 +170,12 @@ window.CAD = (function() {
         ctx.save();
         const rad = r || 6;
         const grad = ctx.createRadialGradient(x - rad * 0.3, y - rad * 0.3, 1, x, y, rad);
-        grad.addColorStop(0, '#fef3c7');
+        grad.addColorStop(0, '#f7e9c6');
         grad.addColorStop(0.6, COLORS.brassMid);
         grad.addColorStop(1, COLORS.brassDark);
         ctx.fillStyle = grad;
         ctx.strokeStyle = COLORS.ink;
-        ctx.lineWidth = 1.6;
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.arc(x, y, rad, 0, Math.PI * 2);
         ctx.fill();
@@ -177,8 +188,8 @@ window.CAD = (function() {
         ctx.fill();
 
         if (label) {
-            ctx.fillStyle = '#b91c1c';
-            ctx.font = 'bold 12px "Consolas", monospace';
+            ctx.fillStyle = '#962b23';
+            ctx.font = 'bold 11.5px "IBM Plex Mono", monospace';
             ctx.textAlign = 'left';
             ctx.fillText(label, x + rad + 5, y - rad + 2);
         }
@@ -267,7 +278,7 @@ window.CAD = (function() {
 
         if (schematic) {
             // Circunferencia primitiva normalizada en modo esquema
-            ctx.strokeStyle = '#2563eb';
+            ctx.strokeStyle = '#1d4968';
             ctx.lineWidth = 1.5;
             ctx.setLineDash([6, 4]);
             ctx.beginPath();
@@ -313,7 +324,7 @@ window.CAD = (function() {
             grad.addColorStop(0.7, COLORS.woodMid);
             grad.addColorStop(1, COLORS.woodDark);
         } else {
-            grad.addColorStop(0, '#e2e8f0');
+            grad.addColorStop(0, '#e9e3d5');
             grad.addColorStop(0.6, COLORS.ironMid);
             grad.addColorStop(1, COLORS.ironDark);
         }
@@ -424,7 +435,7 @@ window.CAD = (function() {
             return;
         }
 
-        const wallFill = material === 'copper' ? '#fb923c' : (material === 'brass' ? '#fbbf24' : '#94a3b8');
+        const wallFill = material === 'copper' ? '#fb923c' : (material === 'brass' ? '#fbbf24' : '#8d8578');
         // Paredes en corte con achurado a 45° ISO
         drawHatchRect(ctx, x - t, y, t, h, wallFill, 6);
         drawHatchRect(ctx, x + w, y, t, h, wallFill, 6);
@@ -569,7 +580,7 @@ window.CAD = (function() {
         ctx.save();
         // Líneas de extensión
         if (Math.abs(off) > 2) {
-            ctx.strokeStyle = '#94a3b8';
+            ctx.strokeStyle = '#8d8578';
             ctx.lineWidth = 0.9;
             ctx.beginPath();
             ctx.moveTo(x1, y1); ctx.lineTo(px1 + nx * Math.sign(off) * 5, py1 + ny * Math.sign(off) * 5);
@@ -636,26 +647,29 @@ window.CAD = (function() {
 
     function drawNoteBox(ctx, x, y, w, title, lines) {
         ctx.save();
-        const h = 28 + lines.length * 17;
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
-        ctx.strokeStyle = '#cbd5e1';
-        ctx.lineWidth = 1.2;
+        const h = 26 + lines.length * 16;
+        ctx.fillStyle = 'rgba(243, 239, 230, 0.90)';
+        ctx.strokeStyle = '#9e9585';
+        ctx.lineWidth = 1.0;
+        ctx.fillRect(x, y, w, h);
+        ctx.strokeRect(x, y, w, h);
+
+        ctx.strokeStyle = '#1a1917';
+        ctx.lineWidth = 1.0;
         ctx.beginPath();
-        ctx.roundRect ? ctx.roundRect(x, y, w, h, 4) : ctx.rect(x, y, w, h);
-        ctx.fill();
+        ctx.moveTo(x + 8, y + 21);
+        ctx.lineTo(x + w - 8, y + 21);
         ctx.stroke();
 
-        ctx.fillStyle = '#f1f5f9';
-        ctx.fillRect(x + 1, y + 1, w - 2, 22);
         ctx.fillStyle = COLORS.ink;
-        ctx.font = 'bold 11px "Cinzel", serif';
+        ctx.font = '600 10px "IBM Plex Sans", sans-serif';
         ctx.textAlign = 'left';
-        ctx.fillText(title, x + 10, y + 15);
+        ctx.fillText(title, x + 9, y + 15);
 
-        ctx.fillStyle = '#334155';
-        ctx.font = '11px "Consolas", monospace';
+        ctx.fillStyle = COLORS.inkSoft;
+        ctx.font = '10.5px "IBM Plex Mono", Consolas, monospace';
         lines.forEach((line, idx) => {
-            ctx.fillText(line, x + 10, y + 38 + idx * 17);
+            ctx.fillText(line, x + 9, y + 36 + idx * 16);
         });
         ctx.restore();
     }

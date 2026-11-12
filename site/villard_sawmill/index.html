@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aserradero hidráulico con retorno elástico - Mechanica Antiqua</title>
+    <title>Aserradero hidráulico con retorno elástico — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Aserradero hidráulico con retorno elástico</h1>
-        
-        <p><em>Denominación histórica: Scierie à eau</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 20 de 42 · Mecanismos y Relojería</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Villard de Honnecourt</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Carnet de Villard de Honnecourt (1230, Francia)</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Folio 22v</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Aserradero hidráulico</p>
-            <p><span class="meta-label">Dominio Físico:</span> Cinemática de levas y mecanismos</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel D (Interpretación especulativa / fuente fragmentaria)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda hidráulica está provisto de levas que empujan la sierra hacia abajo, mientras que una vara elástica (pértiga) en la parte superior provee la fuerza de retorno. Además, un mecanismo acoplado avanza el tronco automáticamente.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Boceto muy primitivo. Requiere suposición fuerte de resortes de vara elástica.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Probablemente, con ensamblaje artesanal cuidadoso del resorte elástico superior.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Dibujo técnico histórico</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Aserradero hidráulico con retorno elástico - Dibujo técnico histórico" class="realistic-image">
-            <p class="realistic-caption"><em>Facsímil del dibujo a pluma del cuaderno medieval de Villard de Honnecourt (siglo XIII, BnF ms. fr. 19093), que ilustra el aserradero hidráulico con retorno elástico de pértiga.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 20 · 1230</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="villard_sawmill" data-model-type="cam_follower">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Villard de Honnecourt</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Carnet de Villard de Honnecourt (1230, Francia)</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Folio 22v</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Aserradero hidráulico</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Cinemática de levas y mecanismos</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel D (Interpretación especulativa / fuente fragmentaria)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Dibujo técnico histórico</span>
+                <img src="realistic.jpg" alt="Aserradero hidráulico con retorno elástico — Dibujo técnico histórico">
+                <figcaption>Facsímil del dibujo a pluma del cuaderno medieval de Villard de Honnecourt (siglo XIII, BnF ms. fr. 19093), que ilustra el aserradero hidráulico con retorno elástico de pértiga.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">num_levas</td>
+                        <td class="param-val">4</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">longitud_pertiga_mm</td>
+                        <td class="param-val">2800</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">deflexion_max_mm</td>
+                        <td class="param-val">220</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">rigidez_elastica_Nm</td>
+                        <td class="param-val">1450</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Mecanismos y Relojería · 1230</div>
+                <h1>Aserradero hidráulico con retorno elástico</h1>
+                
+                <p class="monograph-original">Denominación histórica: Scierie à eau</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="villard_sawmill"
+                     data-model-type="cam_follower">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .vs-bg { fill: #fcf9f2; }
@@ -146,85 +206,98 @@
   <text x="50" y="265" class="vs-text">2. La pértiga la devuelve arriba.</text>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Aserradero Hidráulico con Retorno Elástico por Pértiga</p>
-            <p><strong>Topología estructural:</strong> Sistema leva-seguidor con resorte elástico de viga en voladizo (Villard de Honnecourt, c. 1230)</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Bastidor, eje hidráulico con 4 levas, hoja de sierra vertical, pértiga de fresno empotrada</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>j₁ = 2 (1 R, 1 P), j₂ = 1 (contacto leva), más restricción elástica EI</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (carrera descendente por leva, ascendente por restitución elástica)</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>F_resorte = (3 E I / L³) · δ(θ)</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>δ(θ) = δ_max · (θ mod 90°) / 72°</code><br>
-                        Velocidad: <code>v_retorno = √((3 E I / m L³) · (δ_max² - δ²))</code><br>
-                        Aceleración: <code>a_retorno = -(3 E I / m L³) · δ</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>num_levas</code></td>
-                    <td><strong>4</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>longitud_pertiga_mm</code></td>
-                    <td><strong>2800</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>deflexion_max_mm</code></td>
-                    <td><strong>220</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>rigidez_elastica_Nm</code></td>
-                    <td><strong>1450</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Uno de los primeros esquemas europeos de un aserradero mecanizado. El eje de la rueda hidráulica está provisto de levas que empujan la sierra hacia abajo, mientras que una vara elástica (pértiga) en la parte superior provee la fuerza de retorno. Además, un mecanismo acoplado avanza el tronco automáticamente.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Boceto muy primitivo. Requiere suposición fuerte de resortes de vara elástica.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Probablemente, con ensamblaje artesanal cuidadoso del resorte elástico superior.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Primera representación europea de una sierra mecánica automatizada previa al uso del cigüeñal.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Aserradero Hidráulico con Retorno Elástico por Pértiga — <em>Sistema leva-seguidor con resorte elástico de viga en voladizo (Villard de Honnecourt, c. 1230)</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>Bastidor, eje hidráulico con 4 levas, hoja de sierra vertical, pértiga de fresno empotrada</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>j₁ = 2 (1 R, 1 P), j₂ = 1 (contacto leva), más restricción elástica EI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 1 (carrera descendente por leva, ascendente por restitución elástica)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>F_resorte = (3 E I / L³) · δ(θ)</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>δ(θ) = δ_max · (θ mod 90°) / 72°</code><br>
+                                Velocidad: <code>v_retorno = √((3 E I / m L³) · (δ_max² - δ²))</code><br>
+                                Aceleración: <code>a_retorno = -(3 E I / m L³) · δ</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Primera representación europea de una sierra mecánica automatizada previa al uso del cigüeñal.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../al_jazari_suction_pump/index.html">
+                        <span class="folio-pager-label">Lámina anterior (19)</span>
+                        ← Bomba de pistón bicilíndrica
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../inca_huayra_furnace/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (21)</span>
+                        Horno de fundición eólico Huayra →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 20 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

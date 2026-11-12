@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reloj del elefante - Mechanica Antiqua</title>
+    <title>Reloj del elefante — Mechanica Antiqua</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav class="site-nav" style="text-align: left; margin-bottom: 1.5rem;">
-        <a href="../index.html" class="back-link">← Volver al Catálogo</a> · 
-        <a href="../about.html" class="back-link">Acerca de / About</a>
-    </nav>
-    
-    <header>
-        <h1>Reloj del elefante</h1>
-        
-        <p><em>Denominación histórica: Fī maʿrifat al-ḥiyal al-handasiyya (Reloj del elefante)</em></p>
-        
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="../index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Lámina 18 de 42 · Hidráulica y Elevación</p>
+        </div>
+        <nav class="site-nav">
+            <a href="../index.html">Catálogo</a>
+            <a href="../about.html">Nota Metodológica</a>
+            <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
+        </nav>
     </header>
-    
-    <main>
-        <div class="machine-card">
-            <p><span class="meta-label">Autor / Tradición:</span> Ismail al-Jazari</p>
-            <p><span class="meta-label">Tratado o Fuente:</span> Kitāb fī maʿrifat al-ḥiyal al-handasiyya (1206, Diyarbakır (Manuscritos de Topkapi))</p>
-            
-            <p><span class="meta-label">Páginas / Láminas:</span> Categoría I, Capítulo 4</p>
-            
-            <p><span class="meta-label">Tipo de Máquina:</span> Reloj de agua y autómatas</p>
-            <p><span class="meta-label">Dominio Físico:</span> Hidráulica, Cinemática y Estática</p>
-            <p><span class="meta-label">Nivel de Reconstrucción:</span> Nivel B (Parcialmente inferida a partir de fuentes directas)</p>
-            
-            <p><span class="meta-label">Licencia / Derechos:</span> Dominio Público (CC0 1.0)</p>
-            
-            
-            <hr>
-            
-            <h3>Descripción Técnica</h3>
-            <p>Monumental autómata y reloj hidráulico con forma de elefante asiático. En su interior, un cuenco perforado flota en un depósito y se sumerge a tasa constante; al hundirse, activa un sistema de poleas, balancines y levas que liberan esferas metálicas, hacen sonar un platillo y mueven autómatas mecánicos cada media hora.</p>
-            
-            <h3>Evaluación Histórico-Técnica y Certeza</h3>
-            <p>Alto: manuscrito ricamente ilustrado con despieces mecánicos; reconstruido con éxito moderno.</p>
-            
-            
-            <h3>Viabilidad Operativa</h3>
-            <p>Sí, existen réplicas modernas funcionales en museos internacionales.</p>
-            
-        </div>
 
-        
-        <h2>Registro Visual: Fotografía de réplica histórica</h2>
-        <div class="realistic-container">
-            <img src="realistic.jpg" alt="Reloj del elefante - Fotografía de réplica histórica" class="realistic-image">
-            <p class="realistic-caption"><em>Fotografía de réplica física a escala real del reloj del elefante de al-Jazari en exhibición museográfica, con mecanismo hidromecánico de flotador y autómatas.</em></p>
-        </div>
-        
+    <main class="folio-layout">
+        <aside class="dossier-rail">
+            <div class="folio-tag">Expediente N.° 18 · 1206</div>
 
-        
-        <h2>Reconstrucción Cinemática Analítica</h2>
-        <div id="kinematic-workbench" class="kinematic-workbench-container" data-machine-id="al_jazari_elephant_clock" data-model-type="hydraulic_control">
-            <div id="machine-svg-wrapper" class="svg-container">
+            <dl class="dossier-dl">
+                <div class="dossier-item">
+                    <dt>Autor / Tradición</dt>
+                    <dd>Ismail al-Jazari</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Tratado / Fuente</dt>
+                    <dd>Kitāb fī maʿrifat al-ḥiyal al-handasiyya (1206, Diyarbakır (Manuscritos de Topkapi))</dd>
+                </div>
                 
-                <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <div class="dossier-item">
+                    <dt>Folios / Láminas</dt>
+                    <dd>Categoría I, Capítulo 4</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Clasificación</dt>
+                    <dd>Reloj de agua y autómatas</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Dominio Físico</dt>
+                    <dd>Hidráulica, Cinemática y Estática</dd>
+                </div>
+                <div class="dossier-item">
+                    <dt>Estado Epistémico</dt>
+                    <dd>Nivel B (Parcialmente inferida a partir de fuentes directas)</dd>
+                </div>
+                
+                <div class="dossier-item">
+                    <dt>Dedicación / Derechos</dt>
+                    <dd>Dominio Público (CC0 1.0)</dd>
+                </div>
+                
+            </dl>
+
+            
+            <figure class="rail-figure">
+                <span class="rail-figure-label">Fotografía de réplica histórica</span>
+                <img src="realistic.jpg" alt="Reloj del elefante — Fotografía de réplica histórica">
+                <figcaption>Fotografía de réplica física a escala real del reloj del elefante de al-Jazari en exhibición museográfica, con mecanismo hidromecánico de flotador y autómatas.</figcaption>
+            </figure>
+            
+
+            
+            <h3>Parámetros Nominales (SI)</h3>
+            <table class="booktabs-table">
+                <thead>
+                    <tr>
+                        <th>Magnitud</th>
+                        <th style="text-align:right">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="param-key">periodo_ciclo_min</td>
+                        <td class="param-val">30.0</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">diametro_orificio_mm</td>
+                        <td class="param-val">1.6</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">masa_bola_bronce_g</td>
+                        <td class="param-val">180</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="param-key">num_esferas_carga</td>
+                        <td class="param-val">30</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </aside>
+
+        <article class="monograph-body">
+            <div class="monograph-header">
+                <div class="monograph-kicker">Hidráulica y Elevación · 1206</div>
+                <h1>Reloj del elefante</h1>
+                
+                <p class="monograph-original">Denominación histórica: Fī maʿrifat al-ḥiyal al-handasiyya (Reloj del elefante)</p>
+                
+            </div>
+
+            
+            <section class="plate-frame" aria-label="Plancha cinemática interactiva">
+                <div id="kinematic-workbench"
+                     class="kinematic-workbench-container"
+                     data-machine-id="al_jazari_elephant_clock"
+                     data-model-type="hydraulic_control">
+                    <div id="machine-svg-wrapper" class="svg-container">
+                        
+                        <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .ec-bg { fill: #fcf9f2; }
@@ -161,85 +221,98 @@
   <text x="50" y="192" class="ec-text">3. Suena el platillo y rota el escriba.</text>
 </svg>
 
-                
-            </div>
-        </div>
-
-        <div class="theory-card">
-            <h3>Síntesis de Mecanismos y Grados de Libertad (Chebychev-Grübler)</h3>
-            <p><strong>Mecanismo identificado:</strong> Reloj del Elefante con Flotador Perforado (Tarjahar)</p>
-            <p><strong>Topología estructural:</strong> Oscilador de relajación hidráulica de periodo discreto (30 minutos)</p>
-            
-            <table class="theory-table">
-                <tr>
-                    <th>Análisis Estructural</th>
-                    <th>Formulación y Valor</th>
-                </tr>
-                <tr>
-                    <td><strong>Eslabones constitutivos (n)</strong></td>
-                    <td>Cuenco tarjahar perforado, cadena disparadora, depósito de bolas, autómata escriba y tambor</td>
-                </tr>
-                <tr>
-                    <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
-                    <td>Oscilación gravitatoria-flotante + mecanismo secuencial por gravedad</td>
-                </tr>
-                <tr>
-                    <td><strong>Grados de libertad (Movilidad F)</strong></td>
-                    <td><span class="formula-badge">F = 1 (ciclo de vaciado calibrado hasta inmersión límite)</span> (Mecanismo desmodrómico determinado)</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecuación de cierre de lazo</strong></td>
-                    <td><code>m_agua(t) = ∫ ρ A_orif √(2 g Δh) dt ⇒ t_hundimiento = 1800 s</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Leyes cinemáticas analíticas</strong></td>
-                    <td>
-                        Posición: <code>h_cuenco(θ) = h_0 - h_max · (θ / 2π)</code><br>
-                        Velocidad: <code>Q_entrada = C_d A_o √(2 g Δh)</code><br>
-                        Aceleración: <code>Disparo de bola metálica en θ = 2π (reinicio automático)</code>
-                    </td>
-                </tr>
-            </table>
-
-            
-            <h4>Parámetros Nominales de Ingeniería y Diseño</h4>
-            <table class="theory-table">
-                <tr>
-                    <th>Parámetro Físico</th>
-                    <th>Magnitud / Valor</th>
-                </tr>
-                
-                <tr>
-                    <td><code>periodo_ciclo_min</code></td>
-                    <td><strong>30.0</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>diametro_orificio_mm</code></td>
-                    <td><strong>1.6</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>masa_bola_bronce_g</code></td>
-                    <td><strong>180</strong></td>
-                </tr>
-                
-                <tr>
-                    <td><code>num_esferas_carga</code></td>
-                    <td><strong>30</strong></td>
-                </tr>
-                
-            </table>
+                        
+                    </div>
+                </div>
+            </section>
             
 
+            <section class="monograph-prose">
+                <h2>Descripción Técnica y Contexto</h2>
+                <p>Monumental autómata y reloj hidráulico con forma de elefante asiático. En su interior, un cuenco perforado flota en un depósito y se sumerge a tasa constante; al hundirse, activa un sistema de poleas, balancines y levas que liberan esferas metálicas, hacen sonar un platillo y mueven autómatas mecánicos cada media hora.</p>
+
+                <h2>Evaluación Histórico-Técnica y Certeza</h2>
+                <p>Alto: manuscrito ricamente ilustrado con despieces mecánicos; reconstruido con éxito moderno.</p>
+
+                
+                <h2>Análisis de Viabilidad Operativa</h2>
+                <p>Sí, existen réplicas modernas funcionales en museos internacionales.</p>
+                
+            </section>
+
             
-            <div class="quote-block">
-                <strong>Nota del reconstructor:</strong> Al-Jazari diseñó el orificio del cuenco para compensar las horas estacionales desiguales mediante calibración empírica.
-            </div>
+            <section>
+                <h2>Síntesis Cinemática y Grados de Libertad</h2>
+                <p><strong>Mecanismo:</strong> Reloj del Elefante con Flotador Perforado (Tarjahar) — <em>Oscilador de relajación hidráulica de periodo discreto (30 minutos)</em></p>
+
+                <table class="booktabs-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 28%">Criterio</th>
+                            <th>Formulación Analítica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Eslabones (n)</strong></td>
+                            <td>Cuenco tarjahar perforado, cadena disparadora, depósito de bolas, autómata escriba y tambor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pares cinemáticos (j₁, j₂)</strong></td>
+                            <td>Oscilación gravitatoria-flotante + mecanismo secuencial por gravedad</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Movilidad de Grübler (F)</strong></td>
+                            <td><span class="formula-inline">F = 1 (ciclo de vaciado calibrado hasta inmersión límite)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cierre vectorial / Ley física</strong></td>
+                            <td><code>m_agua(t) = ∫ ρ A_orif √(2 g Δh) dt ⇒ t_hundimiento = 1800 s</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ecuaciones de estado</strong></td>
+                            <td>
+                                Posición: <code>h_cuenco(θ) = h_0 - h_max · (θ / 2π)</code><br>
+                                Velocidad: <code>Q_entrada = C_d A_o √(2 g Δh)</code><br>
+                                Aceleración: <code>Disparo de bola metálica en θ = 2π (reinicio automático)</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+                <div class="quote-block">
+                    Al-Jazari diseñó el orificio del cuenco para compensar las horas estacionales desiguales mediante calibración empírica.
+                </div>
+                
+            </section>
             
-        </div>
-        
+
+            <nav class="folio-pager" aria-label="Navegación entre láminas">
+                <div>
+                    
+                    <a href="../gothic_cathedral/index.html">
+                        <span class="folio-pager-label">Lámina anterior (17)</span>
+                        ← Estructura estática de la catedral gótica
+                    </a>
+                    
+                </div>
+                <div style="text-align:right">
+                    
+                    <a href="../al_jazari_suction_pump/index.html">
+                        <span class="folio-pager-label">Lámina siguiente (19)</span>
+                        Bomba de pistón bicilíndrica →
+                    </a>
+                    
+                </div>
+            </nav>
+        </article>
     </main>
+
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · Lámina 18 / 42</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
+    </footer>
 
     <script src="../cad_primitives.js"></script>
     <script src="../renderers_mechanisms.js"></script>

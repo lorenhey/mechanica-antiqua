@@ -3,171 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca de / About - Mechanica Antiqua</title>
+    <title>Nota Metodológica — Mechanica Antiqua</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Mechanica Antiqua</h1>
-        <p><em>Un corpus computacional en expansión de maquinaria histórica</em></p>
+    <header class="masthead">
+        <div class="masthead-brand">
+            <div class="masthead-kicker">Archivo Computacional de Ingeniería Histórica</div>
+            <div class="masthead-title"><a href="index.html">Mechanica Antiqua</a></div>
+            <p class="masthead-sub">Criterio epistémico, metrología histórica y dominio público</p>
+        </div>
         <nav class="site-nav">
-            <a href="index.html">← Catálogo / Catalog</a>
-            <a href="about.html" class="active">Acerca de / About</a>
+            <a href="index.html">Catálogo</a>
+            <a href="about.html" class="active">Nota Metodológica</a>
             <a href="https://github.com/lorenhey/mechanica-antiqua" target="_blank" rel="noopener">GitHub</a>
         </nav>
     </header>
 
-    <main>
-        <div class="lang-switch-box">
-            <a href="#about-es" class="lang-btn">🇪🇸 Versión en Español</a>
-            <a href="#about-en" class="lang-btn">🇬🇧 English Version</a>
+    <main class="bilingual-columns">
+        <div class="lang-switch-bar">
+            <a href="#about-es">ES — Español</a>
+            <a href="#about-en">EN — English</a>
         </div>
 
-        <section id="about-es" class="lang-block">
-            <h2>Acerca del Proyecto</h2>
+        <section id="about-es">
+            <h1>Nota Metodológica</h1>
             <div class="quote-block">
-                "La máquina no comienza en el hierro ni en el bronce, sino en la mente del artífice que desafía la inercia del mundo con la geometría."
+                "La máquina no comienza en el hierro ni en el bronce, sino en la geometría que organiza la transmisión de fuerza y movimiento."
             </div>
 
-            <h3>1. El Manifiesto: La Ilusión del Grabado y la Realidad Mecánica</h3>
+            <h2>1. La distancia entre el grabado y la mecánica real</h2>
             <p>
-                Durante siglos, los tratados técnicos —desde los manuscritos de la Escuela de Alejandría y los cuadernos de la Bagdad abasí hasta los fastuosos <em>Teatros de Máquinas</em> del Renacimiento tardío— transmitieron el conocimiento mecánico a través de ilustraciones y descripciones retóricas. Esos grabados poseen una belleza hipnótica y una aparente claridad pedagógica. Sin embargo, para el ingeniero mecánico moderno encierran una paradoja insoslayable: <strong>la mayoría de las máquinas dibujadas no podían funcionar tal como fueron grabadas</strong>.
+                Los tratados técnicos anteriores a la estandarización industrial —desde los manuscritos alejandrinos y los códices de la Bagdad abasí hasta los <em>Theatra Machinarum</em> del Renacimiento tardío— transmitieron la técnica mediante láminas y descripciones verbales. A primera vista resultan diáfanos; sin embargo, al trasladarlos a taller surge un problema recurrente: muchas máquinas dibujadas no pueden moverse tal como aparecen grabadas.
             </p>
             <p>
-                Las razones de este desajuste son múltiples: convenciones artísticas y perspectiva forzada para exhibir piezas ocultas en una única lámina; saberes tácitos del taller artesanal (huelgos, lubricación, temple y tolerancia) que jamás se ponían por escrito; y concesiones a la imaginación o mecenazgo nobiliario.
+                Ese desajuste responde a convenciones pictóricas (abatimientos y perspectivas forzadas para exhibir engranajes ocultos en un solo plano), a saberes de oficio jamás escritos (huelgos, empaquetaduras, temple y lubricación) y a diseños especulativos pensados para mecenazgo nobiliario.
             </p>
             <p>
-                <strong>Mechanica Antiqua</strong> nace para cerrar esta brecha. No nos proponemos modelar objetos 3D decorativos para el entretenimiento, sino someter los textos y láminas históricas al escrutinio implacable de la física computacional, la cinemática de mecanismos y la termodinámica aplicada.
+                <strong>Mechanica Antiqua</strong> interroga esas fuentes mediante cinemática de mecanismos, hidráulica, estática gráfica y termodinámica elemental en unidades del Sistema Internacional, separando explícitamente el registro documental de la reconstrucción necesaria para que la máquina cierre su lazo geométrico.
             </p>
 
-            <h3>2. Principio de Honestidad Histórica y Taxonomía Epistémica</h3>
+            <h2>2. Taxonomía epistémica</h2>
             <p>
-                Para evitar el anacronismo proyectivo, toda variable, cota o hipótesis en Mechanica Antiqua está etiquetada formalmente bajo cinco estados epistémicos innegociables:
+                Para evitar anacronismos, toda dimensión, parámetro y relación mecánica del corpus se clasifica bajo cinco estados explícitos:
             </p>
             <div class="table-responsive">
-                <table class="taxo-table">
+                <table class="booktabs-table">
                     <thead>
                         <tr>
-                            <th>Estado</th>
-                            <th>Definición Operativa</th>
+                            <th style="width: 22%">Estado</th>
+                            <th>Criterio de clasificación</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>DOCUMENTADO</strong></td>
-                            <td>Consta explícitamente en el texto original, códice o en las acotaciones de la lámina histórica.</td>
+                            <td>Consta de forma explícita en el texto fuente, códice o cotas originales de la lámina.</td>
                         </tr>
                         <tr>
                             <td><strong>INFERIDO</strong></td>
-                            <td>No figura explícito, pero se deduce objetivamente a partir de proporciones del dibujo, leyes físicas o tecnología contemporánea comprobada.</td>
+                            <td>Se deduce a partir de las proporciones del dibujo, leyes físicas o prácticas constructivas contemporáneas verificadas.</td>
                         </tr>
                         <tr>
                             <td><strong>SUPUESTO</strong></td>
-                            <td>Parámetro que debió introducirse para cerrar el balance físico (ej. coeficiente de rozamiento madera-bronce = 0.25).</td>
+                            <td>Parámetro introducido para cerrar un balance físico (p. ej., coeficiente de rozamiento madera-bronce = 0,25).</td>
                         </tr>
                         <tr>
                             <td><strong>RECONSTRUIDO</strong></td>
-                            <td>Geometría, perfil de diente o mecanismo cinemático adaptado estrictamente para permitir la operación física real.</td>
+                            <td>Geometría, perfil de diente o vínculo cinemático adaptado para habilitar el movimiento efectivo sin trabas.</td>
                         </tr>
                         <tr>
                             <td><strong>DESCONOCIDO</strong></td>
-                            <td>Lagunas documentales irresolubles que declaramos de forma abierta sin intentar disimularlas.</td>
+                            <td>Laguna documental no resoluble que se declara abiertamente sin maquillaje conjetural.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h3>3. La Cuestión Metrológica: Unidades Históricas e Incertidumbre</h3>
+            <h2>3. Metrología histórica</h2>
             <p>
-                En el paquete <code>mechanica.units</code>, modelamos las magnitudes históricas (pies romanos, <em>piedi veneti</em>, <em>pieds de Roi</em>, codos, varas) no como valores estáticos, sino como tuplas de incertidumbre con cotas mínimas, máximas y típicas, evaluando la viabilidad mecánica en todo el rango admisible de la época.
+                En el módulo <code>mechanica.units</code> las unidades pre-métricas (pies romanos, <em>piedi veneti</em>, <em>pieds de Roi</em>, codos, varas) se tratan como intervalos con cotas mínima, típica y máxima, evaluando la viabilidad del ingenio dentro de la tolerancia real de época.
             </p>
 
-            <h3>4. Alcance Intercultural del Corpus</h3>
+            <h2>4. Alcance del corpus ({{ total }} láminas)</h2>
             <p>
-                El corpus actual comprende <strong>42 reconstrucciones analíticas completas</strong> procedentes de la Antigüedad Grecorromana, la Edad de Oro del Islam, China e India, tradiciones andinas y mesoamericanas, África, el Renacimiento europeo y los albores de la Revolución Industrial.
+                El inventario actual reúne <strong>{{ total }} reconstrucciones analíticas</strong> pertenecientes a la Antigüedad grecorromana, la Edad de Oro islámica, tradiciones técnicas de China, India y Japón, ingeniería andina y mesoamericana, África, el Renacimiento europeo y las primeras máquinas térmicas de la Revolución Industrial.
             </p>
 
-            <h3>5. Licencia y Dominio Público</h3>
+            <h2>5. Licencia y dominio público</h2>
             <p>
-                Todo lo que es susceptible de liberación de derechos se encuentra dedicado formalmente al <strong>Dominio Público</strong> bajo la dedicatoria <strong>CC0 1.0 Universal</strong>. Los modelos matemáticos, algoritmos en Python, descripciones técnicas y esquemas vectoriales están totalmente libres de restricciones para cualquier uso personal, educativo, de investigación o comercial.
+                Todo el código fuente, modelos en Python, fichas técnicas, simuladores CAD 2D y esquemas generados en este repositorio están dedicados formalmente al <strong>Dominio Público</strong> bajo <strong>CC0 1.0 Universal</strong>. Las imágenes de archivo o museo de terceros conservan sus respectivas atribuciones indicadas en cada ficha.
             </p>
         </section>
 
         <div class="lang-divider"></div>
 
-        <section id="about-en" class="lang-block">
-            <h2>About the Project</h2>
+        <section id="about-en">
+            <h1>Methodological Note</h1>
             <div class="quote-block">
-                "A machine does not begin in iron or bronze, but in the mind of the artificer who defies the inertia of the world with geometry."
+                "A machine does not begin in iron or bronze, but in the geometry governing force and motion."
             </div>
 
-            <h3>1. The Manifesto: The Illusion of the Plate and Mechanical Reality</h3>
+            <h2>1. Gap between historical plates and mechanical reality</h2>
             <p>
-                For centuries, historical engineering treatises—from the papyri of Alexandria and Abbasid manuscripts to Renaissance <em>Theatres of Machines</em>—conveyed mechanical knowledge through engravings and rhetorical exposition. These plates possess hypnotic beauty and apparent clarity. Yet to the modern mechanical engineer, they present an inescapable paradox: <strong>most historical machines could not operate as drawn</strong>.
+                Pre-industrial technical treatises—from Alexandrian papyri and Abbasid manuscripts to Renaissance <em>Theatres of Machines</em>—conveyed engineering through engravings and prose. While visually compelling, attempting to build directly from the plates reveals that many mechanisms cannot articulate as drawn due to pictorial projection conventions, tacit workshop knowledge (clearances, leather seals, lubrication), and speculative patronage pieces.
             </p>
             <p>
-                This divergence stems from artistic conventions that forced impossible perspectives to reveal hidden gears, tacit craft guild knowledge that was never put to paper, and speculative proofs-of-concept designed to impress aristocratic patrons.
-            </p>
-            <p>
-                <strong>Mechanica Antiqua</strong> bridges this gulf: we interrogate ancient mechanisms with rigorous computational kinematics, hydraulics, and thermodynamics rather than cosmetic 3D approximations.
+                <strong>Mechanica Antiqua</strong> evaluates these sources using closed-form kinematics, hydraulics, structural statics, and thermodynamics in SI units, keeping primary evidence strictly separate from reconstructed engineering assumptions.
             </p>
 
-            <h3>2. Historical Honesty and Epistemic Taxonomy</h3>
-            <p>
-                To prevent projective anachronism, every variable, dimension, and hypothesis is rigorously classified across five epistemic states:
-            </p>
+            <h2>2. Epistemic taxonomy</h2>
             <div class="table-responsive">
-                <table class="taxo-table">
+                <table class="booktabs-table">
                     <thead>
                         <tr>
-                            <th>State</th>
-                            <th>Operational Definition</th>
+                            <th style="width: 22%">Status</th>
+                            <th>Operational criterion</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>DOCUMENTED</strong></td>
-                            <td>Explicitly stated in the primary source text, manuscript, or dimension markings.</td>
+                            <td>Explicitly stated in the primary manuscript, treatise text, or original dimension callouts.</td>
                         </tr>
                         <tr>
                             <td><strong>INFERRED</strong></td>
-                            <td>Derived from plate proportions, physical necessity, or verified contemporary practice.</td>
+                            <td>Deduced objectively from plate proportions, physical necessity, or attested contemporary craft practice.</td>
                         </tr>
                         <tr>
                             <td><strong>ASSUMED</strong></td>
-                            <td>A parameter introduced to close governing physical balance equations.</td>
+                            <td>Introduced to close governing balance equations (e.g., dry timber-on-brass friction coefficient = 0.25).</td>
                         </tr>
                         <tr>
                             <td><strong>RECONSTRUCTED</strong></td>
-                            <td>Kinematic geometry or structural linkage adapted strictly to allow physical motion.</td>
+                            <td>Linkage lengths, gear tooth profiles, or clearances adjusted strictly to allow non-binding motion.</td>
                         </tr>
                         <tr>
                             <td><strong>UNKNOWN</strong></td>
-                            <td>Unresolvable evidentiary gaps that are declared openly without conjectural cosmetic patches.</td>
+                            <td>Unresolvable evidentiary gaps recorded openly without conjectural decoration.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h3>3. Historical Metrology & Uncertainty Propagation</h3>
+            <h2>3. Historical metrology and corpus scope</h2>
             <p>
-                Using <code>mechanica.units</code>, pre-metric measures are represented as tolerance intervals, capturing regional variations across Roman, Venetian, Parisian, and Near-Eastern dimensional systems.
+                Pre-metric measures are propagated in <code>mechanica.units</code> as bounded uncertainty ranges across Roman, Venetian, Parisian, and Near-Eastern standards. The current release covers <strong>{{ total }} complete analytical entries</strong> across Greco-Roman Antiquity, the Islamic Golden Age, East and South Asia, Pre-Columbian America, Africa, the European Renaissance, and early steam engineering.
             </p>
 
-            <h3>4. Cross-Cultural Corpus Scope</h3>
+            <h2>4. Public domain dedication</h2>
             <p>
-                The corpus currently features <strong>42 complete analytical reconstructions</strong> spanning Greco-Roman Antiquity, the Islamic Golden Age, East and South Asian inventions, Pre-Columbian and African engineering, European Renaissance machinery, and early steam engines of the Industrial Revolution.
-            </p>
-
-            <h3>5. License & Public Domain Dedication</h3>
-            <p>
-                All eligible intellectual property is formally dedicated to the <strong>Public Domain</strong> under <strong>CC0 1.0 Universal</strong>. Computational models, Python routines, technical dossiers, and SVG vector schematics are completely free from restrictions for personal, educational, research, and commercial application.
+                All eligible code, models, technical dossiers, and 2D simulations authored in this repository are dedicated to the <strong>Public Domain</strong> under <strong>CC0 1.0 Universal</strong>. Third-party museum/archival photographs retain the specific attributions listed on their respective plates.
             </p>
         </section>
     </main>
 
-    <footer>
-        <p><em>Mechanica Antiqua · Dedicated to the Public Domain under CC0 1.0 Universal · 2026</em></p>
+    <footer class="site-footer">
+        <span>Mechanica Antiqua · {{ total }} láminas analíticas</span>
+        <span>Dominio Público — CC0 1.0 Universal</span>
     </footer>
 </body>
 </html>
